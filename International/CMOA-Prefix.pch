@@ -1,0 +1,81 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+    // Macros
+    #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    #define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0)
+    #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+    #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+    #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+    #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+    #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+    // Helpers
+    #import "CIFileHelper.h"
+    #import "CITextHelper.h"
+
+    // MagicalRecord (CoreData)
+    #define MR_ENABLE_ACTIVE_RECORD_LOGGING 0 // Disabled MR logging
+    #import "CoreData+MagicalRecord.h"
+
+    // Google Analytics
+    #import "GAI.h"
+    #import "GAIDictionaryBuilder.h"
+    #import "CIAnalyticsHelper.h"
+
+    // Categories
+    #import "UIColor+HexColor.h"
+    #import "ISO8601DateFormatter.h"
+
+    // Main navigation controller
+    #import "CINavigationController.h"
+
+    // Include our data models
+    #import "CIData.h"
+    #import "CIArtist.h"
+    #import "CIArtist+Helpers.h"
+    #import "CIArtistArtwork.h"
+    #import "CIArtistArtwork+Helpers.h"
+    #import "CIArtwork.h"
+    #import "CIArtwork+Helpers.h"
+    #import "CICategory.h"
+    #import "CICategory+Helpers.h"
+    #import "CIExhibition.h"
+    #import "CIExhibition+Helpers.h"
+    #import "CILink.h"
+    #import "CILink+Helpers.h"
+    #import "CILocation.h"
+    #import "CILocation+Helpers.h"
+    #import "CIMedium.h"
+    #import "CIMedium+Helpers.h"
+    #import "CITour.h"
+    #import "CITour+Helpers.h"
+    #import "CITourArtwork.h"
+    #import "CITourArtwork+Helpers.h"
+
+    // Application state
+    #import "CIAppState.h"
+
+    // User defaults keys
+    #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
+    #define kCIDidShowCoachMarks @"kCIDidShowCoachMarks"
+    #define kCIDidShowArtworkDetailCoachMarks @"kCIDidShowArtworkDetailCoachMarks"
+    #define kCIArtworksLiked @"kCIArtworksLiked"
+    #define kCISettingsTestflightId @"testflight_id"
+    #define kCISettingsApiToken @"api_token"
+    #define kCISettingsApiSecret @"api_secret"
+#endif

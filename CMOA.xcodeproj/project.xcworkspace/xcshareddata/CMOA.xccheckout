@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>47FB1D79-5549-4C80-A4C6-F3CE77656FE3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CMOA</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6BF85397-C5D1-4947-AD38-0A3B399A0747</key>
+		<string>ssh://github.com/cmoa/cmoa-app-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CMOA.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6BF85397-C5D1-4947-AD38-0A3B399A0747</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/cmoa/cmoa-app-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6BF85397-C5D1-4947-AD38-0A3B399A0747</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6BF85397-C5D1-4947-AD38-0A3B399A0747</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CMOA</string>
+		</dict>
+	</array>
+</dict>
+</plist>

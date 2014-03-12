@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>67BF9F5A-117E-4D58-9A73-B0B353821F5E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>International</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2435E36C-8265-4A4A-81FC-7CC0CD86BE49</key>
+		<string>ssh://bitbucket.org/dimitryb/ci13-app.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>International.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2435E36C-8265-4A4A-81FC-7CC0CD86BE49</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://bitbucket.org/dimitryb/ci13-app.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2435E36C-8265-4A4A-81FC-7CC0CD86BE49</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2435E36C-8265-4A4A-81FC-7CC0CD86BE49</string>
+			<key>IDESourceControlWCCName</key>
+			<string>International</string>
+		</dict>
+	</array>
+</dict>
+</plist>
