@@ -116,7 +116,6 @@
 		2358536418CE1E5A0086C641 /* settings.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2358536318CE1E5A0086C641 /* settings.example.plist */; };
 		235908DB17B3FFEF0021C0C7 /* CIVideoSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235908DA17B3FFEF0021C0C7 /* CIVideoSliderCell.m */; };
 		235908DD17B4005E0021C0C7 /* button_video_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235908DC17B4005E0021C0C7 /* button_video_on@2x.png */; };
-		2359BE3817B57B56001B529E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2359BE3617B57B56001B529E /* libTestFlight.a */; };
 		2359BE3A17B57B8A001B529E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2359BE3917B57B8A001B529E /* libz.dylib */; };
 		235F0EA2179EAF71001D191A /* nav_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235F0EA1179EAF71001D191A /* nav_menu@2x.png */; };
 		235F0EA5179EBC0F001D191A /* CIExhibitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F0EA4179EBC0F001D191A /* CIExhibitionCell.m */; };
@@ -656,8 +655,6 @@
 		235908D917B3FFEF0021C0C7 /* CIVideoSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIVideoSliderCell.h; sourceTree = "<group>"; };
 		235908DA17B3FFEF0021C0C7 /* CIVideoSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIVideoSliderCell.m; sourceTree = "<group>"; };
 		235908DC17B4005E0021C0C7 /* button_video_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_video_on@2x.png"; sourceTree = "<group>"; };
-		2359BE3617B57B56001B529E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		2359BE3717B57B56001B529E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		2359BE3917B57B8A001B529E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		235F0EA1179EAF71001D191A /* nav_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_menu@2x.png"; sourceTree = "<group>"; };
 		235F0EA3179EBC0F001D191A /* CIExhibitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIExhibitionCell.h; sourceTree = "<group>"; };
@@ -1171,7 +1168,6 @@
 				2359BE3A17B57B8A001B529E /* libz.dylib in Frameworks */,
 				23D978C717B9146400A531D7 /* CoreLocation.framework in Frameworks */,
 				23205AB617B541B00005BB94 /* MediaPlayer.framework in Frameworks */,
-				2359BE3817B57B56001B529E /* libTestFlight.a in Frameworks */,
 				23F298D317B12EDF00E11EB7 /* MessageUI.framework in Frameworks */,
 				23F298D117B12E1D00E11EB7 /* Social.framework in Frameworks */,
 				233B505A17AFF902008956F4 /* CoreText.framework in Frameworks */,
@@ -1481,15 +1477,6 @@
 			);
 			name = Settings;
 			sourceTree = "<group>";
-		};
-		2359BE3517B57B56001B529E /* TestFlight */ = {
-			isa = PBXGroup;
-			children = (
-				2359BE3617B57B56001B529E /* libTestFlight.a */,
-				2359BE3717B57B56001B529E /* TestFlight.h */,
-			);
-			path = TestFlight;
-			sourceTree = SOURCE_ROOT;
 		};
 		235F0EA6179EBC13001D191A /* Table Cells */ = {
 			isa = PBXGroup;
@@ -2085,7 +2072,6 @@
 				2355F4D117BEA6B800E4904D /* SMPageControl */,
 				2339EC1317BAA989003CDA7E /* MBProgressHUD */,
 				23D978D417B952E600A531D7 /* TTTAttributedLabel */,
-				2359BE3517B57B56001B529E /* TestFlight */,
 				23F298C117B1153D00E11EB7 /* OpenInChrome */,
 				233B507A17B00952008956F4 /* Markdown */,
 				2350371417A050160022A7EC /* Waterfall */,
@@ -2994,7 +2980,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Markdown\"",
-					"\"$(SRCROOT)/TestFlight\"",
 					"\"$(SRCROOT)/International\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
@@ -3019,7 +3004,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Markdown\"",
-					"\"$(SRCROOT)/TestFlight\"",
 					"\"$(SRCROOT)/International\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
