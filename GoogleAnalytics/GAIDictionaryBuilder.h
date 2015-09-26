@@ -6,17 +6,21 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GAIEcommerceProduct.h"
+#import "GAIEcommerceProductAction.h"
+#import "GAIEcommercePromotion.h"
+
 /*!
  * Helper class to build a dictionary of hit parameters and values.
  * <br>
  * Examples:
  * <code>
  * id<GAITracker> t = // get a tracker.
- * [t send:[[GAIDictionaryBuilder createEventWithCategory:@"EventCategory"
- *                                                 action:@"EventAction"
- *                                                  label:nil
- *                                                  value:nil]
- *     set:@"dimension1" forKey:[GAIFields CustomDimension:1] build]];
+ * [t send:[[[GAIDictionaryBuilder createEventWithCategory:@"EventCategory"
+ *                                                  action:@"EventAction"
+ *                                                   label:nil
+ *                                                   value:nil]
+ *     set:@"dimension1" forKey:[GAIFields customDimensionForIndex:1]] build]];
  * </code>
  * This will send an event hit type with the specified parameters
  * and a custom dimension parameter.
@@ -99,6 +103,8 @@
  * <li>dclid</li>
  * <li>gclid</li>
  * <li>gmob_t</li>
+ * <li>aclid</li>
+ * <li>anid</li>
  * </ul>
  * <p>
  * Example:
@@ -120,8 +126,20 @@
  Note that using this method will not set the screen name for followon hits.  To
  do that you need to call set:kGAIDescription value:<screenName> on the
  GAITracker instance.
+
+ This method is deprecated.  Use createScreenView instead.
  */
-+ (GAIDictionaryBuilder *)createAppView;
++ (GAIDictionaryBuilder *)createAppView DEPRECATED_MSG_ATTRIBUTE("Use createScreenView instead.");
+
+/*!
+ Returns a GAIDictionaryBuilder object with parameters specific to a screenview
+ hit.
+
+ Note that using this method will not set the screen name for followon hits.  To
+ do that you need to call set:kGAIDescription value:<screenName> on the
+ GAITracker instance.
+ */
++ (GAIDictionaryBuilder *)createScreenView;
 
 /*!
  Returns a GAIDictionaryBuilder object with parameters specific to an event hit.
@@ -175,4 +193,25 @@
                                          shipping:(NSNumber *)shipping
                                      currencyCode:(NSString *)currencyCode;
 
+/*!
+ Set the product action field for this hit.
+ */
+- (GAIDictionaryBuilder *)setProductAction:(GAIEcommerceProductAction *)productAction;
+
+/*!
+ Adds a product to this hit.
+ */
+- (GAIDictionaryBuilder *)addProduct:(GAIEcommerceProduct *)product;
+
+/*!
+ Add a product impression to this hit.
+ */
+- (GAIDictionaryBuilder *)addProductImpression:(GAIEcommerceProduct *)product
+                                impressionList:(NSString *)name
+                                impressionSource:(NSString *)source;
+
+/*!
+ Add a promotion to this hit.
+ */
+- (GAIDictionaryBuilder *)addPromotion:(GAIEcommercePromotion *)promotion;
 @end

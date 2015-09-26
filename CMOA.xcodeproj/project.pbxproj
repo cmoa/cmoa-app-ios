@@ -511,6 +511,7 @@
 		23FC831A1785D7AA007FFFB1 /* NSString+UrlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83191785D7AA007FFFB1 /* NSString+UrlEncode.m */; };
 		23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */; };
 		23FC83371785DDCE007FFFB1 /* CIArtist+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */; };
+		32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32098ECB1BB7506D00175E11 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1155,6 +1156,7 @@
 		23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIAPIRequest.m; sourceTree = "<group>"; };
 		23FC83351785DDCE007FFFB1 /* CIArtist+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIArtist+Helpers.h"; sourceTree = "<group>"; };
 		23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIArtist+Helpers.m"; sourceTree = "<group>"; };
+		32098ECB1BB7506D00175E11 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1162,6 +1164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */,
 				2305F06617D64E1900BD472E /* libGoogleAnalyticsServices.a in Frameworks */,
 				23F91BBD1784A6C300B2691C /* CoreData.framework in Frameworks */,
 				2344E24F17D6488E008D3D38 /* SystemConfiguration.framework in Frameworks */,
@@ -2010,6 +2013,7 @@
 		23F91B2A1784A3FC00B2691C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32098ECB1BB7506D00175E11 /* libsqlite3.tbd */,
 				2344E24E17D6488E008D3D38 /* SystemConfiguration.framework */,
 				2359BE3917B57B8A001B529E /* libz.dylib */,
 				23D978C617B9146400A531D7 /* CoreLocation.framework */,
