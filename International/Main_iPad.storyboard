@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BIX-7O-fwz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BIX-7O-fwz">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="-582" y="428"/>
         </scene>
-        <!--Welcome View Controller - Carnegie Museum of Art-->
+        <!--Carnegie Museum of Art-->
         <scene sceneID="Bf9-Ju-VMb">
             <objects>
                 <viewController title="Carnegie Museum of Art" id="DLm-pS-u2O" customClass="CIWelcomeViewController" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                                             <constraint firstAttribute="height" constant="60" id="L8Y-Ah-sqz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="My Visit">
+                                        <state key="normal" title="Hours, Location and Admission">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -106,7 +106,7 @@
                                             <constraint firstAttribute="height" constant="60" id="u1c-lm-aVy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Exhibitions">
+                                        <state key="normal" title="Explore the Art">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -216,7 +216,6 @@
                             <constraint firstItem="fd8-DX-V1x" firstAttribute="leading" secondItem="40E-TW-vKW" secondAttribute="leading" constant="268" id="coV-1w-yYU"/>
                             <constraint firstItem="CqY-TW-Duq" firstAttribute="leading" secondItem="40E-TW-vKW" secondAttribute="leading" id="sU3-z3-D02"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="fcP-3j-Fku"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -252,7 +251,7 @@
             </objects>
             <point key="canvasLocation" x="-582" y="2238"/>
         </scene>
-        <!--Visit View Controller - My Visit-->
+        <!--Hours, Location and Admission-->
         <scene sceneID="7Bh-kg-kCx">
             <objects>
                 <viewController id="npS-L2-3Ka" customClass="CIVisitViewController" sceneMemberID="viewController">
@@ -302,9 +301,8 @@
                             <constraint firstItem="aeA-yx-qgf" firstAttribute="top" secondItem="kPT-KD-juL" secondAttribute="top" id="mJ3-Ho-M7y"/>
                             <constraint firstItem="gra-hg-YDZ" firstAttribute="top" secondItem="aeA-yx-qgf" secondAttribute="bottom" id="wRC-o0-AGe"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Visit" id="Q6J-tv-SW1" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Hours, Location and Admission" id="Q6J-tv-SW1" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <outlet property="mapContainer" destination="aeA-yx-qgf" id="uGd-eM-otW"/>
@@ -335,7 +333,7 @@
             </objects>
             <point key="canvasLocation" x="-582" y="3130"/>
         </scene>
-        <!--Museum Videos View Controller - CMOA TV-->
+        <!--CMOA TV-->
         <scene sceneID="cgt-Zl-bcr">
             <objects>
                 <viewController id="PcH-WQ-Xhi" customClass="CIMuseumVideosViewController" sceneMemberID="viewController">
@@ -411,7 +409,6 @@
                             <constraint firstItem="dZ1-LU-mC7" firstAttribute="leading" secondItem="eFZ-5f-BW3" secondAttribute="leading" id="kJf-PI-JBe"/>
                             <constraint firstItem="1eX-jF-F88" firstAttribute="bottom" secondItem="eFZ-5f-BW3" secondAttribute="bottom" id="uuG-cm-WSA"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="CMOA TV" id="SQV-ZT-Ogd" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -427,7 +424,7 @@
             </objects>
             <point key="canvasLocation" x="190" y="3130"/>
         </scene>
-        <!--Museum News View Controller - Museum News-->
+        <!--Museum News-->
         <scene sceneID="2Ag-Rr-iJm">
             <objects>
                 <viewController id="YiA-mm-ku6" customClass="CIMuseumNewsViewController" sceneMemberID="viewController">
@@ -503,7 +500,6 @@
                             <constraint firstItem="O67-xn-fsq" firstAttribute="leading" secondItem="JGf-kL-afx" secondAttribute="leading" id="iYL-fg-Uih"/>
                             <constraint firstItem="O67-xn-fsq" firstAttribute="top" secondItem="JGf-kL-afx" secondAttribute="top" id="rQF-KT-yMc"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Museum News" id="ZPs-n3-YWb" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -519,7 +515,7 @@
             </objects>
             <point key="canvasLocation" x="190" y="2238"/>
         </scene>
-        <!--Exhibition List View Controller - Multimedia Tours-->
+        <!--Multimedia Tours-->
         <scene sceneID="FWc-kD-VbQ">
             <objects>
                 <viewController title="Multimedia Tours" id="BWx-7c-FU1" customClass="CIExhibitionListViewController" sceneMemberID="viewController">
@@ -547,9 +543,8 @@
                             <constraint firstItem="FH7-5j-sI9" firstAttribute="trailing" secondItem="sjh-le-gzW" secondAttribute="trailing" id="ldc-YL-Adz"/>
                             <constraint firstItem="FH7-5j-sI9" firstAttribute="top" secondItem="sjh-le-gzW" secondAttribute="top" id="lvp-sa-xYP"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Exhibitions" id="cuF-Xi-ihE" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Explore the Art" id="cuF-Xi-ihE" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <outlet property="exhibitionsTableView" destination="FH7-5j-sI9" id="WxR-eI-Cvx"/>
@@ -574,10 +569,10 @@
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqg-LK-0fa">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqg-LK-0fa">
                                 <rect key="frame" x="0.0" y="0.0" width="704" height="132"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1O-di-fCS" customClass="CIExhibitionButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1O-di-fCS" customClass="CIExhibitionButton">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="wCg-Bb-vaM"/>
@@ -594,7 +589,7 @@
                                             <segue destination="tEi-bc-CC8" kind="push" id="dNv-wK-Sew"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-JF-BN8" customClass="CIExhibitionButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-JF-BN8" customClass="CIExhibitionButton">
                                         <rect key="frame" x="0.0" y="44" width="704" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="sUn-NK-g98"/>
@@ -611,7 +606,7 @@
                                             <segue destination="KqN-QB-gCL" kind="push" id="hIV-tZ-pFf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-jm-UPD" customClass="CIExhibitionButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-jm-UPD" customClass="CIExhibitionButton">
                                         <rect key="frame" x="0.0" y="88" width="704" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="qqw-Ug-ZbG"/>
@@ -644,10 +639,10 @@
                                     <constraint firstItem="qUi-JF-BN8" firstAttribute="trailing" secondItem="Eqg-LK-0fa" secondAttribute="trailing" id="iYv-W9-uku"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Tj-uW-37d">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Tj-uW-37d">
                                 <rect key="frame" x="0.0" y="657" width="704" height="47"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="j0M-MM-itH" customClass="TTTAttributedLabel">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="j0M-MM-itH" customClass="TTTAttributedLabel">
                                         <rect key="frame" x="15" y="13" width="674" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -674,7 +669,6 @@
                             <constraint firstItem="Eqg-LK-0fa" firstAttribute="trailing" secondItem="dTL-04-uFC" secondAttribute="trailing" id="mRa-Vi-QDL"/>
                             <constraint firstItem="4Tj-uW-37d" firstAttribute="top" secondItem="dTL-04-uFC" secondAttribute="top" priority="1" constant="457" id="wO2-Q5-t8N"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hoj-DY-20I" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -690,7 +684,7 @@
             </objects>
             <point key="canvasLocation" x="1309" y="428"/>
         </scene>
-        <!--Tour List View Controller - Tours-->
+        <!--Tours-->
         <scene sceneID="HGe-LF-4rN">
             <objects>
                 <viewController id="V4F-n9-HT1" customClass="CITourListViewController" sceneMemberID="viewController">
@@ -718,7 +712,6 @@
                             <constraint firstItem="7CO-vm-hbV" firstAttribute="leading" secondItem="2SE-ij-tJd" secondAttribute="leading" id="YTu-Nk-jmr"/>
                             <constraint firstItem="7CO-vm-hbV" firstAttribute="top" secondItem="2SE-ij-tJd" secondAttribute="top" id="scz-5i-iFi"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tours" id="nDz-X4-DTs" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -796,7 +789,6 @@
                             <constraint firstItem="YBJ-SP-9E3" firstAttribute="leading" secondItem="3Vp-ow-CLP" secondAttribute="leading" id="gbf-Z3-7DI"/>
                             <constraint firstItem="YBJ-SP-9E3" firstAttribute="trailing" secondItem="3Vp-ow-CLP" secondAttribute="trailing" id="vYS-MX-RNO"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="kqw-0z-vh9" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -813,7 +805,7 @@
             </objects>
             <point key="canvasLocation" x="3301" y="428"/>
         </scene>
-        <!--Artist List View Controller - Artists-->
+        <!--Artists-->
         <scene sceneID="9YI-jM-98e">
             <objects>
                 <viewController id="tEi-bc-CC8" customClass="CIArtistListViewController" sceneMemberID="viewController">
@@ -822,7 +814,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DwM-Di-nuq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aFS-j7-6nh">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1ha-Rk-ijx">
@@ -837,7 +829,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Xwn-na-VNd">
-                                <rect key="frame" x="342" y="502" width="20" height="20"/>
+                                <rect key="frame" x="342" y="342" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -848,7 +840,6 @@
                             <constraint firstItem="1ha-Rk-ijx" firstAttribute="centerX" secondItem="Xwn-na-VNd" secondAttribute="centerX" id="rcl-7j-Kf6"/>
                             <constraint firstItem="1ha-Rk-ijx" firstAttribute="bottom" secondItem="aFS-j7-6nh" secondAttribute="bottom" id="rgh-RA-dXX"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Artists" id="dCR-R2-pkK" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -864,7 +855,7 @@
             </objects>
             <point key="canvasLocation" x="2449" y="-858"/>
         </scene>
-        <!--Artist Detail View Controller - Detail-->
+        <!--Detail-->
         <scene sceneID="mP5-qz-43z">
             <objects>
                 <viewController title="Detail" id="Y7Z-bx-V64" customClass="CIArtistDetailViewController" sceneMemberID="viewController">
@@ -1059,7 +1050,6 @@
                             <constraint firstItem="kj9-Sa-KuX" firstAttribute="leading" secondItem="Lpl-JA-RY2" secondAttribute="leading" id="m0l-zO-qEq"/>
                             <constraint firstItem="kj9-Sa-KuX" firstAttribute="top" secondItem="Lpl-JA-RY2" secondAttribute="top" id="vrl-4X-LCt"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="GRM-SF-QE4" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -1099,7 +1089,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Vg4-JY-l4D"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="V9t-Nq-TSN">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TPY-6N-N9V">
@@ -1109,14 +1099,14 @@
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QSZ-wL-d8g">
                                 <rect key="frame" x="0.0" y="160" width="703" height="704"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cannot load webpage as this time." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPc-5m-HHR">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannot load webpage as this time." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPc-5m-HHR">
                                         <rect key="frame" x="20" y="20" width="663" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please try loading the original link." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-kW-KwV">
-                                        <rect key="frame" x="20" y="46" width="246" height="16"/>
+                                        <rect key="frame" x="20" y="45" width="246" height="15.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="246" id="Glq-tc-VPx"/>
                                         </constraints>
@@ -1166,7 +1156,6 @@
                             <constraint firstItem="QSZ-wL-d8g" firstAttribute="top" secondItem="V9t-Nq-TSN" secondAttribute="top" id="a1N-s3-Jve"/>
                             <constraint firstItem="QSZ-wL-d8g" firstAttribute="leading" secondItem="V9t-Nq-TSN" secondAttribute="leading" id="oV8-Gd-GAB"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="lWr-ib-NXR" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -1185,7 +1174,7 @@
             </objects>
             <point key="canvasLocation" x="1309" y="-1784"/>
         </scene>
-        <!--Navigation Controller - Title-->
+        <!--Title-->
         <scene sceneID="gz7-31-Paz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="kVT-xx-6wY" customClass="CINavigationController" sceneMemberID="viewController">
@@ -1203,7 +1192,7 @@
             </objects>
             <point key="canvasLocation" x="3441" y="1628"/>
         </scene>
-        <!--Artwork Photos View Controller - Photos-->
+        <!--Photos-->
         <scene sceneID="47V-Cq-HdU">
             <objects>
                 <viewController title="Photos" id="Wjh-1A-lcA" customClass="CIArtworkPhotosViewController" sceneMemberID="viewController">
@@ -1243,7 +1232,6 @@
                             <constraint firstItem="i9d-ea-Daa" firstAttribute="leading" secondItem="2z9-Pz-3jV" secondAttribute="leading" id="V4a-ZO-f4h"/>
                             <constraint firstItem="i9d-ea-Daa" firstAttribute="bottom" secondItem="2z9-Pz-3jV" secondAttribute="bottom" id="dMZ-Fn-g1b"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photos" id="kj2-6M-6Bd"/>
                     <navigationItem key="navigationItem" title="Artwork" id="kiB-vz-2Lz" customClass="CINavigationItem"/>
@@ -1259,7 +1247,7 @@
             </objects>
             <point key="canvasLocation" x="4351" y="2538"/>
         </scene>
-        <!--Navigation Controller - Photos-->
+        <!--Photos-->
         <scene sceneID="A9g-VU-BQQ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="vxh-n3-9ua" customClass="CINavigationController" sceneMemberID="viewController">
@@ -1276,7 +1264,7 @@
             </objects>
             <point key="canvasLocation" x="3441" y="2538"/>
         </scene>
-        <!--Navigation Controller - Code-->
+        <!--Code-->
         <scene sceneID="bVT-Qf-JLP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="676-yF-JEJ" customClass="CINavigationController" sceneMemberID="viewController">
@@ -1293,7 +1281,7 @@
             </objects>
             <point key="canvasLocation" x="3441" y="3438"/>
         </scene>
-        <!--Navigation Controller - Category-->
+        <!--Category-->
         <scene sceneID="dav-ao-2FS">
             <objects>
                 <navigationController definesPresentationContext="YES" id="b2H-LN-AQr" customClass="CINavigationController" sceneMemberID="viewController">
@@ -1310,7 +1298,7 @@
             </objects>
             <point key="canvasLocation" x="3441" y="4342"/>
         </scene>
-        <!--Category List View Controller - Categories-->
+        <!--Categories-->
         <scene sceneID="cHt-2B-6M9">
             <objects>
                 <viewController title="Categories" id="xVY-p3-o1L" customClass="CICategoryListViewController" sceneMemberID="viewController">
@@ -1338,7 +1326,6 @@
                             <constraint firstItem="MgS-W4-dBu" firstAttribute="leading" secondItem="LfE-TY-KAY" secondAttribute="leading" id="o4m-06-axO"/>
                             <constraint firstItem="MgS-W4-dBu" firstAttribute="trailing" secondItem="LfE-TY-KAY" secondAttribute="trailing" id="wly-GU-Xwk"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Category" id="jmV-76-D7N"/>
                     <navigationItem key="navigationItem" title="Artwork" id="8Ib-Yd-K0D" customClass="CINavigationItem"/>
@@ -1354,7 +1341,7 @@
             </objects>
             <point key="canvasLocation" x="4351" y="4342"/>
         </scene>
-        <!--Artwork Code View Controller - Artwork Code-->
+        <!--Artwork Code-->
         <scene sceneID="GKN-FH-N0N">
             <objects>
                 <viewController id="K7I-sB-Um2" customClass="CIArtworkCodeViewController" sceneMemberID="viewController">
@@ -1424,7 +1411,6 @@
                             <constraint firstItem="eme-Dc-v5W" firstAttribute="top" secondItem="rLI-p2-Vid" secondAttribute="bottom" constant="8" symbolic="YES" id="hV9-6o-YhV"/>
                             <constraint firstItem="WyD-eQ-z00" firstAttribute="top" secondItem="nmF-bI-crD" secondAttribute="top" constant="150" id="rSa-pw-CVR"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Artwork Code" id="8vo-Ry-Rmc" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -1443,7 +1429,7 @@
             </objects>
             <point key="canvasLocation" x="4351" y="3438"/>
         </scene>
-        <!--Artwork List View Controller - Artwork-->
+        <!--Artwork-->
         <scene sceneID="qpU-4q-ly1">
             <objects>
                 <viewController id="erT-zc-jAo" customClass="CIArtworkListViewController" sceneMemberID="viewController">
@@ -1452,7 +1438,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2vO-Oi-WBN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hhn-19-4W5">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cSh-HB-RTa">
@@ -1471,7 +1457,6 @@
                             <constraint firstItem="cSh-HB-RTa" firstAttribute="leading" secondItem="hhn-19-4W5" secondAttribute="leading" id="bJB-6t-cuc"/>
                             <constraint firstItem="cSh-HB-RTa" firstAttribute="top" secondItem="hhn-19-4W5" secondAttribute="top" id="ffg-7l-BRF"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Title" id="oGX-ZH-rKm"/>
                     <navigationItem key="navigationItem" title="Artwork" id="rmi-g1-pdw" customClass="CINavigationItem"/>
@@ -1490,7 +1475,7 @@
             </objects>
             <point key="canvasLocation" x="4351" y="1628"/>
         </scene>
-        <!--Artwork Tabs View Controller - Artwork-->
+        <!--Artwork-->
         <scene sceneID="D6K-Bh-dSD">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="KqN-QB-gCL" customClass="CIArtworkTabsViewController" sceneMemberID="viewController">
@@ -1758,7 +1743,6 @@
                             <constraint firstItem="rNG-lf-PA0" firstAttribute="leading" secondItem="zkG-dW-ERt" secondAttribute="leading" id="xgQ-k1-678"/>
                             <constraint firstItem="rNG-lf-PA0" firstAttribute="trailing" secondItem="zkG-dW-ERt" secondAttribute="trailing" id="zyX-2X-0i5"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" id="yn8-8g-XGM" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -1792,7 +1776,7 @@
             </objects>
             <point key="canvasLocation" x="5655" y="3007"/>
         </scene>
-        <!--Artwork Audio List View Controller - Audio-->
+        <!--Audio-->
         <scene sceneID="wQs-qV-FSI">
             <objects>
                 <viewController id="KuO-iY-NBr" customClass="CIArtworkAudioListViewController" sceneMemberID="viewController">
@@ -1820,7 +1804,6 @@
                             <constraint firstItem="OC3-j0-jnw" firstAttribute="bottom" secondItem="e6J-zv-dwj" secondAttribute="bottom" id="XIt-Ql-ezd"/>
                             <constraint firstItem="OC3-j0-jnw" firstAttribute="top" secondItem="e6J-zv-dwj" secondAttribute="top" id="qAc-NS-hNl"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Audio" id="dMq-cb-PHb" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -1849,7 +1832,7 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-B0-NcB">
                                 <rect key="frame" x="0.0" y="0.0" width="772" height="41"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Photo title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-UP-fR0">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Photo title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-UP-fR0">
                                         <rect key="frame" x="241" y="10" width="290" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="290" id="gfk-4g-6FW"/>
@@ -1913,7 +1896,7 @@
             </objects>
             <point key="canvasLocation" x="-582" y="4025"/>
         </scene>
-        <!--Connect View Controller - Connect-->
+        <!--Connect-->
         <scene sceneID="gOX-ti-0Px">
             <objects>
                 <viewController id="GkT-ng-pM3" customClass="CIConnectViewController" sceneMemberID="viewController">
@@ -1987,7 +1970,6 @@
                             <constraint firstItem="Nz5-db-5Xk" firstAttribute="top" secondItem="Nd5-9H-sFF" secondAttribute="top" constant="10" id="asp-kB-wcf"/>
                             <constraint firstItem="lHv-t7-ZO7" firstAttribute="top" secondItem="Nd5-9H-sFF" secondAttribute="top" constant="102" id="hhK-pt-jT1"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Connect" id="QEw-cy-qGc" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
@@ -2021,18 +2003,13 @@
         <image name="tab_title_off.png" width="30" height="30"/>
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0De-fX-voN"/>
         <segue reference="Vmk-a6-vnI"/>
-        <segue reference="l9D-lv-Rt3"/>
+        <segue reference="0De-fX-voN"/>
+        <segue reference="4UV-jM-8FJ"/>
+        <segue reference="caZ-zN-et2"/>
+        <segue reference="dNv-wK-Sew"/>
         <segue reference="lha-wa-RwZ"/>
-        <segue reference="Sv9-CO-BCU"/>
-        <segue reference="Id9-II-bqL"/>
-        <segue reference="FBC-2o-9hb"/>
+        <segue reference="l9D-lv-Rt3"/>
     </inferredMetricsTieBreakers>
 </document>
