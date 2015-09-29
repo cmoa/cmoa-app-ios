@@ -43,14 +43,14 @@
     // TODO: In the future this should come from an API endpoint...
     // 1st day of the week is sunday
     // opens and closes are in 24 hour format
-    scheduledHours = @{@1: @{@"open": @YES, @"opens": @12, @"closes": @17},
-                       @2: @{@"open": @YES, @"opens": @10, @"closes": @17},
-                       @3: @{@"open": @NO, @"opens": @0, @"closes": @0},
-                       @4: @{@"open": @YES, @"opens": @10, @"closes": @17},
-                       @5: @{@"open": @YES, @"opens": @10, @"closes": @20},
-                       @6: @{@"open": @YES, @"opens": @10, @"closes": @17},
-                       @7: @{@"open": @YES, @"opens": @10, @"closes": @17}
-                       };
+    scheduledHours = @[@{@"open": @YES, @"opens": @12, @"closes": @17},
+                       @{@"open": @YES, @"opens": @10, @"closes": @17},
+                       @{@"open": @NO, @"opens": @0, @"closes": @0},
+                       @{@"open": @YES, @"opens": @10, @"closes": @17},
+                       @{@"open": @YES, @"opens": @10, @"closes": @20},
+                       @{@"open": @YES, @"opens": @10, @"closes": @17},
+                       @{@"open": @YES, @"opens": @10, @"closes": @17}
+                       ];
     
     // Calculate open/close status
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -63,13 +63,13 @@
     [components setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
     NSInteger hour = [components hour];
     
-    NSDictionary *currentHours = scheduledHours[[NSNumber numberWithInteger:dayOfWeek]];
+    NSDictionary *currentHours = scheduledHours[dayOfWeek-1];
     
-    if (currentHours[@"open"]) {
+    if ([currentHours[@"open"] boolValue]) {
         isOpen = (hour >= [currentHours[@"opens"] integerValue] &&
                   hour < [currentHours[@"closes"] integerValue]);
     } else {
-        isOpen = @NO;
+        isOpen = false;
     }
     
     // Configure map container
@@ -175,8 +175,7 @@
     switch (indexPath.row) {
         case 0: {
             cell.titleLabel.text = @"Monday, Wednesday, Friday, \nSaturday";
-            NSDictionary *hours = scheduledHours[@2];
-            cell.subtitleLabel.text = [[cell titleForHours:hours] uppercaseString];
+            cell.subtitleLabel.text = [[cell titleForHours:scheduledHours[1]] uppercaseString];
             [cell setCellAsHours];
             if ((dayOfWeek != 1 && dayOfWeek != 3) && dayOfWeek != 5) {
                 [cell setTodayAsOpen:isOpen];
@@ -186,8 +185,7 @@
             
         case 1: {
             cell.titleLabel.text = @"Tuesday";
-            NSDictionary *hours = scheduledHours[@3];
-            cell.subtitleLabel.text = [[cell titleForHours:hours] uppercaseString];
+            cell.subtitleLabel.text = [[cell titleForHours:scheduledHours[2]] uppercaseString];
             [cell setCellAsHours];
             if (dayOfWeek == 3) {
                 [cell setTodayAsOpen:isOpen];
@@ -197,8 +195,7 @@
             
         case 2: {
             cell.titleLabel.text = @"Thursday";
-            NSDictionary *hours = scheduledHours[@5];
-            cell.subtitleLabel.text = [[cell titleForHours:hours] uppercaseString];
+            cell.subtitleLabel.text = [[cell titleForHours:scheduledHours[4]] uppercaseString];
             [cell setCellAsHours];
             if (dayOfWeek == 5) {
                 [cell setTodayAsOpen:isOpen];
@@ -208,8 +205,7 @@
             
         case 3: {
             cell.titleLabel.text = @"Sunday";
-            NSDictionary *hours = scheduledHours[@1];
-            cell.subtitleLabel.text = [[cell titleForHours:hours] uppercaseString];
+            cell.subtitleLabel.text = [[cell titleForHours:scheduledHours[0]] uppercaseString];
             [cell setCellAsHours];
             if (dayOfWeek == 1) {
                 [cell setTodayAsOpen:isOpen];

@@ -22,7 +22,7 @@
     // Open status
     BOOL isOpen;
     NSInteger dayOfWeek;
-    NSDictionary *scheduledHours;
+    NSArray *scheduledHours;
     
     // Bookmarked artworks
     NSArray *bookmarked;

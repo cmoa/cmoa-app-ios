@@ -142,9 +142,9 @@
 - (NSString *)titleForHours:(NSDictionary *)hours {
     NSString *title = @"";
     
-    if (hours[@"open"]) {
-        NSInteger openTime = [hours[@"opens"] integerValue];
-        NSInteger closeTime = [hours[@"closes"] integerValue];
+    if ([hours[@"open"] boolValue]) {
+        NSInteger openTime = [hours[@"opens"] intValue];
+        NSInteger closeTime = [hours[@"closes"] intValue];
         
         title = [title stringByAppendingString: [self hourNSStringFromHourInteger:openTime]];
         title = [title stringByAppendingString: @" - "];
