@@ -21,7 +21,7 @@
 
 + (NSData *)sha256:(NSData *)data {
     unsigned char hash[CC_SHA256_DIGEST_LENGTH];
-    if (CC_SHA256([data bytes], [data length], hash)) {
+    if (CC_SHA256([data bytes], (int)[data length], hash)) {
         NSData *sha256 = [NSData dataWithBytes:hash length:CC_SHA256_DIGEST_LENGTH];
         return sha256;
     }
@@ -31,7 +31,7 @@
 + (NSString *)encodeStringUsingSHA256:(NSString *)data {
     NSData *dataData = [data dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char hash[CC_SHA256_DIGEST_LENGTH];
-    if (CC_SHA256([dataData bytes], [dataData length], hash)) {
+    if (CC_SHA256([dataData bytes], (int)[dataData length], hash)) {
         NSData *sha256 = [NSData dataWithBytes:hash length:CC_SHA256_DIGEST_LENGTH];
         return [sha256 base64EncodedString];
     }

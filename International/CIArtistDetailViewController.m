@@ -148,8 +148,8 @@
             // TODO: Handle somehow?
         } else {
             // Update the label
-            NSString *strSequenceCurrent = [NSString stringWithFormat:@"%i", (currentSequenceIndex + 1)];
-            NSString *strSequenceTotal = [NSString stringWithFormat:@"%i", [self.artists count]];
+            NSString *strSequenceCurrent = [NSString stringWithFormat:@"%lu", (currentSequenceIndex + 1)];
+            NSString *strSequenceTotal = [NSString stringWithFormat:@"%lu", (unsigned long)[self.artists count]];
             NSString *strSequenceFinal = [NSString stringWithFormat:@"%@ of %@", strSequenceCurrent, strSequenceTotal];
             
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];

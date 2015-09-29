@@ -226,7 +226,7 @@
         case 5: {
             cell.titleLabel.text = @"My Bookmarked Artworks";
             if ([bookmarked count] != 1) {
-                cell.subtitleLabel.text = [[NSString stringWithFormat:@"%i artworks", [bookmarked count]] uppercaseString];
+                cell.subtitleLabel.text = [[NSString stringWithFormat:@"%lu artworks", (unsigned long)[bookmarked count]] uppercaseString];
             } else {
                 cell.subtitleLabel.text = [@"1 artwork" uppercaseString];
             }
