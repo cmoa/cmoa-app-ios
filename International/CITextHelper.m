@@ -89,7 +89,7 @@
     if (bodyFontSizeIndexObj == nil) {
         return CITextBodyFontSizeIndexMedium;
     } else {
-        return [bodyFontSizeIndexObj integerValue];
+        return [bodyFontSizeIndexObj intValue];
     }
     
 }
