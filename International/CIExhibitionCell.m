@@ -11,11 +11,11 @@
 
 @implementation CIExhibitionCell
 
-#define kInsetTop 11
+#define kInsetTop 1
 #define kInsetBottom 13
 #define kInsetLeft 15
 #define kInsetRight 15
-#define kLabelSpace 7
+#define kLabelSpace 0
 #define kTitleLabelFont [UIFont fontWithName:@"HelveticaNeue" size:14.0f]
 #define kSubtitleLabelFont [UIFont fontWithName:@"HelveticaNeue" size:10.0f]
 

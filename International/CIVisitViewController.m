@@ -174,7 +174,7 @@
     // Fill the rows
     switch (indexPath.row) {
         case 0: {
-            cell.titleLabel.text = @"Monday, Wednesday, Friday, Saturday";
+            cell.titleLabel.text = @"Monday, Wednesday, Friday, \nSaturday";
             NSDictionary *hours = scheduledHours[@2];
             cell.subtitleLabel.text = [[cell titleForHours:hours] uppercaseString];
             [cell setCellAsHours];

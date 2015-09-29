@@ -20,17 +20,15 @@
 - (void)configureCell {
     // Default background
     cellBackgroundColor = [UIColor colorFromHex:@"#ffffff"];
-
+    
     // Status lbls
     self.statusLabelTop = [[UILabel alloc] init];
     self.statusLabelTop.textColor = [UIColor colorFromHex:@"#ffffff"];
     self.statusLabelTop.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
-    self.statusLabelTop.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.statusLabelBottom = [[UILabel alloc] init];
     self.statusLabelBottom.textColor = [UIColor colorFromHex:@"#ffffff"];
     self.statusLabelBottom.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11.0f];
-    self.statusLabelBottom.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Add children
     [self addSubview:self.statusLabelTop];
@@ -77,12 +75,14 @@
     // Position status label
     [self.statusLabelTop sizeToFit];
     [self.statusLabelBottom sizeToFit];
+    
     CGFloat x = self.frame.size.width - 15.0f - self.statusLabelTop.frame.size.width;
     CGFloat y = 11.0f;
-    self.statusLabelTop.frame = (CGRect){{x, y}, self.statusLabelTop.bounds.size};
+    self.statusLabelTop.frame = CGRectMake(x, y, self.statusLabelTop.bounds.size.width, self.statusLabelTop.bounds.size.height);
+    
     x = self.frame.size.width - 15.0f - self.statusLabelBottom.frame.size.width;
     y = 33.0f;
-    self.statusLabelBottom.frame = (CGRect){{x, y}, self.statusLabelBottom.bounds.size};
+    self.statusLabelBottom.frame = CGRectMake(x, y, self.statusLabelBottom.bounds.size.width, self.statusLabelBottom.bounds.size.height);
 }
 
 - (void)setFrame:(CGRect)frame {
