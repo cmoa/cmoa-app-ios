@@ -139,4 +139,38 @@
     }
 }
 
+- (NSString *)titleForHours:(NSDictionary *)hours {
+    NSString *title = @"";
+    
+    if (hours[@"open"]) {
+        NSInteger openTime = [hours[@"opens"] integerValue];
+        NSInteger closeTime = [hours[@"closes"] integerValue];
+        
+        title = [title stringByAppendingString: [self hourNSStringFromHourInteger:openTime]];
+        title = [title stringByAppendingString: @" - "];
+        title = [title stringByAppendingString: [self hourNSStringFromHourInteger:closeTime]];
+        
+    } else  {
+        title = @"CLOSED";
+    }
+    
+    return title;
+}
+
+- (NSString *)hourNSStringFromHourInteger:(NSInteger)hour {
+    NSString *hourString = @"";
+    
+    if ((hour > -1) && (hour < 12)) {
+        hourString = [NSString stringWithFormat:@"%ld am", hour];
+    } else if ((hour > 12) && (hour < 25)) {
+        hourString = [NSString stringWithFormat:@"%ld pm", hour - 12];
+    } else if (hour == 12) {
+        hourString = @"noon";
+    } else {
+        NSLog(@"hour int is not in 0-24 range");
+    }
+    
+    return hourString;
+}
+
 @end
