@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="CTp-qd-ixa">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="CTp-qd-ixa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CqY-TW-Duq">
@@ -580,28 +580,11 @@
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqg-LK-0fa">
-                                <rect key="frame" x="0.0" y="0.0" width="704" height="132"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eqg-LK-0fa">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="88"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1O-di-fCS" customClass="CIExhibitionButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="704" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="wCg-Bb-vaM"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Meet the artists">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="tEi-bc-CC8" kind="push" id="dNv-wK-Sew"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-JF-BN8" customClass="CIExhibitionButton">
-                                        <rect key="frame" x="0.0" y="44" width="704" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-JF-BN8" customClass="CIExhibitionButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="703" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="sUn-NK-g98"/>
                                         </constraints>
@@ -617,8 +600,8 @@
                                             <segue destination="KqN-QB-gCL" kind="push" id="hIV-tZ-pFf"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-jm-UPD" customClass="CIExhibitionButton">
-                                        <rect key="frame" x="0.0" y="88" width="704" height="44"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-jm-UPD" customClass="CIExhibitionButton">
+                                        <rect key="frame" x="0.0" y="44" width="703" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="qqw-Ug-ZbG"/>
                                         </constraints>
@@ -637,24 +620,20 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="i1O-di-fCS" firstAttribute="top" secondItem="Eqg-LK-0fa" secondAttribute="top" id="0gO-hY-zoQ"/>
                                     <constraint firstItem="GVo-jm-UPD" firstAttribute="leading" secondItem="Eqg-LK-0fa" secondAttribute="leading" id="5CU-z9-V9l"/>
-                                    <constraint firstItem="i1O-di-fCS" firstAttribute="trailing" secondItem="Eqg-LK-0fa" secondAttribute="trailing" id="7Hs-fd-coX"/>
-                                    <constraint firstItem="GVo-jm-UPD" firstAttribute="top" secondItem="Eqg-LK-0fa" secondAttribute="top" constant="88" id="GOh-vc-qyc"/>
+                                    <constraint firstItem="GVo-jm-UPD" firstAttribute="top" secondItem="Eqg-LK-0fa" secondAttribute="top" constant="44" id="GOh-vc-qyc"/>
                                     <constraint firstItem="GVo-jm-UPD" firstAttribute="trailing" secondItem="Eqg-LK-0fa" secondAttribute="trailing" id="HgI-2E-Enn"/>
-                                    <constraint firstAttribute="height" constant="132" id="J6b-yC-OvL"/>
+                                    <constraint firstAttribute="height" constant="88" id="J6b-yC-OvL"/>
                                     <constraint firstItem="qUi-JF-BN8" firstAttribute="leading" secondItem="Eqg-LK-0fa" secondAttribute="leading" id="Tox-fl-Y5A"/>
-                                    <constraint firstItem="i1O-di-fCS" firstAttribute="top" secondItem="Eqg-LK-0fa" secondAttribute="top" id="VbW-Id-8Uo"/>
-                                    <constraint firstItem="i1O-di-fCS" firstAttribute="leading" secondItem="Eqg-LK-0fa" secondAttribute="leading" id="bg2-vj-myr"/>
-                                    <constraint firstItem="qUi-JF-BN8" firstAttribute="top" secondItem="Eqg-LK-0fa" secondAttribute="top" constant="44" id="gDf-DH-BIO"/>
+                                    <constraint firstItem="qUi-JF-BN8" firstAttribute="top" secondItem="Eqg-LK-0fa" secondAttribute="top" id="gDf-DH-BIO"/>
                                     <constraint firstItem="qUi-JF-BN8" firstAttribute="trailing" secondItem="Eqg-LK-0fa" secondAttribute="trailing" id="iYv-W9-uku"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Tj-uW-37d">
-                                <rect key="frame" x="0.0" y="657" width="704" height="47"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Tj-uW-37d">
+                                <rect key="frame" x="0.0" y="657.5" width="703" height="46.5"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="j0M-MM-itH" customClass="TTTAttributedLabel">
-                                        <rect key="frame" x="15" y="13" width="674" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="j0M-MM-itH" customClass="TTTAttributedLabel">
+                                        <rect key="frame" x="15" y="13" width="673" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -2015,12 +1994,11 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vmk-a6-vnI"/>
-        <segue reference="0De-fX-voN"/>
-        <segue reference="4UV-jM-8FJ"/>
-        <segue reference="caZ-zN-et2"/>
-        <segue reference="dNv-wK-Sew"/>
         <segue reference="lha-wa-RwZ"/>
         <segue reference="l9D-lv-Rt3"/>
+        <segue reference="0De-fX-voN"/>
+        <segue reference="Vmk-a6-vnI"/>
+        <segue reference="4UV-jM-8FJ"/>
+        <segue reference="caZ-zN-et2"/>
     </inferredMetricsTieBreakers>
 </document>
