@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -77,7 +78,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="CTp-qd-ixa">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="CTp-qd-ixa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CqY-TW-Duq">
@@ -263,8 +264,8 @@
                         <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-yx-qgf">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="140"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-yx-qgf">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="141"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLk-o3-qvH">
                                         <rect key="frame" x="0.0" y="0.0" width="703" height="140"/>
@@ -278,28 +279,38 @@
                                     <constraint firstItem="YLk-o3-qvH" firstAttribute="leading" secondItem="aeA-yx-qgf" secondAttribute="leading" id="B7M-1O-tyU"/>
                                     <constraint firstItem="YLk-o3-qvH" firstAttribute="trailing" secondItem="aeA-yx-qgf" secondAttribute="trailing" id="Cme-b2-vlv"/>
                                     <constraint firstItem="YLk-o3-qvH" firstAttribute="top" secondItem="aeA-yx-qgf" secondAttribute="top" id="UIa-hC-pRU"/>
+                                    <constraint firstAttribute="height" constant="140" id="Ut3-pK-hrd"/>
                                     <constraint firstItem="YLk-o3-qvH" firstAttribute="bottom" secondItem="aeA-yx-qgf" secondAttribute="bottom" id="gL6-FK-gz4"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gra-hg-YDZ">
-                                <rect key="frame" x="0.0" y="140" width="703" height="564"/>
+                                <rect key="frame" x="0.0" y="141" width="703" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="npS-L2-3Ka" id="UWt-Q7-jUr"/>
                                     <outlet property="delegate" destination="npS-L2-3Ka" id="jc1-2B-Dsu"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqM-xz-bLE" userLabel="Border">
+                                <rect key="frame" x="0.0" y="140" width="703" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="B5I-eN-8dX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fqM-xz-bLE" secondAttribute="trailing" constant="-20" id="6uE-y8-f6R"/>
                             <constraint firstItem="aeA-yx-qgf" firstAttribute="leading" secondItem="kPT-KD-juL" secondAttribute="leading" id="Jsr-mk-t9I"/>
+                            <constraint firstItem="fqM-xz-bLE" firstAttribute="leading" secondItem="kPT-KD-juL" secondAttribute="leadingMargin" constant="-20" id="Jw0-Ux-VAs"/>
+                            <constraint firstItem="fqM-xz-bLE" firstAttribute="top" secondItem="TT3-aB-FK7" secondAttribute="bottom" constant="140" id="M9f-e5-ofo"/>
                             <constraint firstItem="gra-hg-YDZ" firstAttribute="trailing" secondItem="kPT-KD-juL" secondAttribute="trailing" id="aOD-f4-VEV"/>
                             <constraint firstItem="gra-hg-YDZ" firstAttribute="leading" secondItem="kPT-KD-juL" secondAttribute="leading" id="bK7-lB-dKd"/>
                             <constraint firstItem="aeA-yx-qgf" firstAttribute="trailing" secondItem="kPT-KD-juL" secondAttribute="trailing" id="boe-WQ-aGo"/>
-                            <constraint firstItem="gra-hg-YDZ" firstAttribute="top" secondItem="kPT-KD-juL" secondAttribute="top" constant="140" id="cXa-zT-oev"/>
+                            <constraint firstItem="gra-hg-YDZ" firstAttribute="top" secondItem="kPT-KD-juL" secondAttribute="top" constant="141" id="cXa-zT-oev"/>
                             <constraint firstItem="gra-hg-YDZ" firstAttribute="bottom" secondItem="kPT-KD-juL" secondAttribute="bottom" id="lmZ-xb-8E9"/>
                             <constraint firstItem="aeA-yx-qgf" firstAttribute="top" secondItem="kPT-KD-juL" secondAttribute="top" id="mJ3-Ho-M7y"/>
-                            <constraint firstItem="gra-hg-YDZ" firstAttribute="top" secondItem="aeA-yx-qgf" secondAttribute="bottom" id="wRC-o0-AGe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hours, Location and Admission" id="Q6J-tv-SW1" customClass="CINavigationItem"/>
@@ -316,7 +327,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M2l-yV-Z4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cUI-df-pLA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="183" y="-465"/>
+            <point key="canvasLocation" x="182.5" y="-465"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jce-nz-yCY">
