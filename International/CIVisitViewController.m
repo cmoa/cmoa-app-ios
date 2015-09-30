@@ -175,6 +175,7 @@
     switch (indexPath.row) {
         case 0: {
             cell.titleLabel.text = @"Monday, Wednesday, Friday, \nSaturday";
+            cell.titleLabel.numberOfLines = 2;
             cell.subtitleLabel.text = [[cell titleForHours:scheduledHours[1]] uppercaseString];
             [cell setCellAsHours];
             if ((dayOfWeek != 1 && dayOfWeek != 3) && dayOfWeek != 5) {
