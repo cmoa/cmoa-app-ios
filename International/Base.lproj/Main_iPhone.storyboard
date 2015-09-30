@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Title-->
@@ -993,22 +994,32 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ucb-9f-mDy">
-                                <rect key="frame" x="0.0" y="140" width="320" height="364"/>
+                                <rect key="frame" x="0.0" y="141" width="320" height="363"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="n2Z-7w-R9T" id="aPC-2B-1Ep"/>
                                     <outlet property="delegate" destination="n2Z-7w-R9T" id="jSL-Hd-BzZ"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJd-RR-I1j" userLabel="Border">
+                                <rect key="frame" x="0.0" y="140" width="320" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="EiR-hY-jdK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ucb-9f-mDy" firstAttribute="trailing" secondItem="T1g-7m-uNk" secondAttribute="trailing" id="389-1Y-rD5"/>
                             <constraint firstItem="ASy-1E-DKV" firstAttribute="top" secondItem="T1g-7m-uNk" secondAttribute="top" id="7uh-jl-W1Q"/>
                             <constraint firstItem="ASy-1E-DKV" firstAttribute="leading" secondItem="T1g-7m-uNk" secondAttribute="leading" id="8Gt-kq-FVD"/>
+                            <constraint firstItem="yJd-RR-I1j" firstAttribute="top" secondItem="ASy-1E-DKV" secondAttribute="bottom" id="Fdk-CZ-Hde"/>
                             <constraint firstItem="ucb-9f-mDy" firstAttribute="leading" secondItem="T1g-7m-uNk" secondAttribute="leading" id="HIi-VC-kbC"/>
                             <constraint firstItem="ucb-9f-mDy" firstAttribute="bottom" secondItem="T1g-7m-uNk" secondAttribute="bottom" id="eNr-Jy-z8n"/>
-                            <constraint firstItem="ucb-9f-mDy" firstAttribute="top" secondItem="T1g-7m-uNk" secondAttribute="top" constant="140" id="tnE-Rj-UFN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yJd-RR-I1j" secondAttribute="trailing" constant="-20" id="fQd-ME-tsU"/>
+                            <constraint firstItem="yJd-RR-I1j" firstAttribute="leading" secondItem="T1g-7m-uNk" secondAttribute="leadingMargin" constant="-20" id="fxc-k8-NoO"/>
+                            <constraint firstItem="ucb-9f-mDy" firstAttribute="top" secondItem="T1g-7m-uNk" secondAttribute="top" constant="141" id="tnE-Rj-UFN"/>
                             <constraint firstItem="ucb-9f-mDy" firstAttribute="bottom" secondItem="T1g-7m-uNk" secondAttribute="bottom" id="w0A-ka-rQa"/>
                         </constraints>
                     </view>
