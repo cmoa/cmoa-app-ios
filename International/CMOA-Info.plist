@@ -50,13 +50,120 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0</string>
+	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechrome-x-callback</string>
+		<string>googlechrome</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>cma-app-prod.s3.amazonaws.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSRequiresCertificateTransparency</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
+			</dict>
+			<key>cmoa.org</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSRequiresCertificateTransparency</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
+			</dict>
+			<key>facebook.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSRequiresCertificateTransparency</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
+			</dict>
+			<key>twitter.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSRequiresCertificateTransparency</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
+			</dict>
+			<key>vimeo.com</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSRequiresCertificateTransparency</key>
+				<false/>
+				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<false/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.2</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>UILaunchImages~ipad</key>
 	<array>
 		<dict>
@@ -80,6 +187,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
@@ -91,113 +200,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>googlechrome-x-callback</string>
-		<string>googlechrome</string>
-		<string>comgooglemaps</string>
-	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>cma-app-prod.s3.amazonaws.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<false/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSRequiresCertificateTransparency</key>
-				<false/>
-			</dict>
-			<key>cmoa.org</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<false/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSRequiresCertificateTransparency</key>
-				<false/>
-			</dict>
-			<key>facebook.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<false/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSRequiresCertificateTransparency</key>
-				<false/>
-			</dict>
-			<key>twitter.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<false/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSRequiresCertificateTransparency</key>
-				<false/>
-			</dict>
-			<key>vimeo.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<false/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<true/>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.2</string>
-				<key>NSRequiresCertificateTransparency</key>
-				<false/>
-			</dict>
-		</dict>
-	</dict>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>
