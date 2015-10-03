@@ -37,7 +37,7 @@
     // Configure nav button
     if (IS_IPHONE) {
         CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeMenu target:self action:@selector(navLeftButtonDidPress:)];
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
     // TODO: In the future this should come from an API endpoint...
