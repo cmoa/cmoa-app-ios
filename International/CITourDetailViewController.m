@@ -124,7 +124,7 @@
     // Update cell
     cell.titleLabel.text = artwork.title;
     cell.subtitleLabel.text = [[CITextHelper artistsJoinedByComa:artwork.artists] uppercaseString];
-    cell.sequenceLabel.text = [NSString stringWithFormat:@"%ld", (indexPath.row + 1)];
+    cell.sequenceLabel.text = [NSString stringWithFormat:@"%tu", (indexPath.row + 1)];
     BOOL hasAudio = [artwork.audio count] > 0;
     BOOL hasVideo = [artwork.videos count] > 0;
     [cell setIdentificationWithAudio:hasAudio withVideo:hasVideo];

@@ -133,7 +133,7 @@
             // TODO: Handle somehow?
         } else {
             // Update the label
-            NSString *strSequenceCurrent = [NSString stringWithFormat:@"%lu", (currentSequenceIndex + 1)];
+            NSString *strSequenceCurrent = [NSString stringWithFormat:@"%tu", (currentSequenceIndex + 1)];
             NSString *strSequenceTotal = [NSString stringWithFormat:@"%lu", (unsigned long)[self.artworks count]];
             NSString *strSequenceFinal = [NSString stringWithFormat:@"%@ of %@", strSequenceCurrent, strSequenceTotal];
             

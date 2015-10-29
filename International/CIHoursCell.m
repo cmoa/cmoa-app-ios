@@ -161,9 +161,9 @@
     NSString *hourString = @"";
     
     if ((hour > -1) && (hour < 12)) {
-        hourString = [NSString stringWithFormat:@"%ld am", hour];
+        hourString = [NSString stringWithFormat:@"%zd am", hour];
     } else if ((hour > 12) && (hour < 25)) {
-        hourString = [NSString stringWithFormat:@"%ld pm", hour - 12];
+        hourString = [NSString stringWithFormat:@"%zd pm", hour - 12];
     } else if (hour == 12) {
         hourString = @"noon";
     } else {
