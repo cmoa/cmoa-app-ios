@@ -9,11 +9,6 @@
 
 // Private helper methods
 @interface UIImage ()
-- (UIImage *)resizedImage:(CGSize)newSize
-                transform:(CGAffineTransform)transform
-           drawTransposed:(BOOL)transpose
-     interpolationQuality:(CGInterpolationQuality)quality;
-- (CGAffineTransform)transformForOrientation:(CGSize)newSize;
 @end
 
 @implementation UIImage (Resize)
@@ -92,7 +87,7 @@
             break;
             
         default:
-            [NSException raise:NSInvalidArgumentException format:@"Unsupported content mode: %d", contentMode];
+            [NSException raise:NSInvalidArgumentException format:@"Unsupported content mode: %ld", (long)contentMode];
     }
     
     CGSize newSize = CGSizeMake(self.size.width * ratio, self.size.height * ratio);
@@ -166,9 +161,19 @@
             transform = CGAffineTransformTranslate(transform, 0, newSize.height);
             transform = CGAffineTransformRotate(transform, -M_PI_2);
             break;
+            
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            break;
     }
     
     switch (self.imageOrientation) {
+        case UIImageOrientationUp:
+        case UIImageOrientationLeft:
+        case UIImageOrientationRight:
+        case UIImageOrientationDown:
+            break;
+            
         case UIImageOrientationUpMirrored:     // EXIF = 2
         case UIImageOrientationDownMirrored:   // EXIF = 4
             transform = CGAffineTransformTranslate(transform, newSize.width, 0);

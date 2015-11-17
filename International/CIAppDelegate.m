@@ -7,7 +7,6 @@
 //
 
 #import "CIAppDelegate.h"
-#import "TestFlight.h"
 
 @implementation CIAppDelegate
 
@@ -25,10 +24,6 @@
     // Prepare MagicalRecord (CoreData): Uses versioned file names. Ex: CIData-1.2.1.sqlite
     NSString *appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     [MagicalRecord setupCoreDataStackWithStoreNamed:[NSString stringWithFormat:@"CIData-%@.sqlite", appVersion]];
-    
-    // TestFlight setup
-    NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:settingsFilePath];
-    [TestFlight takeOff:[settings objectForKey:kCISettingsTestflightId]];
     
     // Google Analytics setup
     self.analyticsTracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43659554-1"];

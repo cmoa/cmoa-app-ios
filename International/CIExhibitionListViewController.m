@@ -44,7 +44,7 @@
     // Configure nav button
     if (IS_IPHONE) {
         CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeMenu target:self action:@selector(navLeftButtonDidPress:)];
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     } else {
         if ([exhibitions count] == 0) {
             exhibitionsTableView.hidden = YES;

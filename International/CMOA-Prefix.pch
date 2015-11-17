@@ -75,7 +75,6 @@
     #define kCIDidShowCoachMarks @"kCIDidShowCoachMarks"
     #define kCIDidShowArtworkDetailCoachMarks @"kCIDidShowArtworkDetailCoachMarks"
     #define kCIArtworksLiked @"kCIArtworksLiked"
-    #define kCISettingsTestflightId @"testflight_id"
     #define kCISettingsApiToken @"api_token"
     #define kCISettingsApiSecret @"api_secret"
 #endif

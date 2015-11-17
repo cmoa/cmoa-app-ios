@@ -17,5 +17,6 @@
 
 - (void)setCellAsHours;
 - (void)setTodayAsOpen:(BOOL)open;
+- (NSString *)titleForHours:(NSDictionary *)hours;
 
 @end

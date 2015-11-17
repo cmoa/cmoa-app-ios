@@ -116,7 +116,6 @@
 		2358536418CE1E5A0086C641 /* settings.example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2358536318CE1E5A0086C641 /* settings.example.plist */; };
 		235908DB17B3FFEF0021C0C7 /* CIVideoSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235908DA17B3FFEF0021C0C7 /* CIVideoSliderCell.m */; };
 		235908DD17B4005E0021C0C7 /* button_video_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235908DC17B4005E0021C0C7 /* button_video_on@2x.png */; };
-		2359BE3817B57B56001B529E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2359BE3617B57B56001B529E /* libTestFlight.a */; };
 		2359BE3A17B57B8A001B529E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2359BE3917B57B8A001B529E /* libz.dylib */; };
 		235F0EA2179EAF71001D191A /* nav_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 235F0EA1179EAF71001D191A /* nav_menu@2x.png */; };
 		235F0EA5179EBC0F001D191A /* CIExhibitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F0EA4179EBC0F001D191A /* CIExhibitionCell.m */; };
@@ -512,6 +511,7 @@
 		23FC831A1785D7AA007FFFB1 /* NSString+UrlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83191785D7AA007FFFB1 /* NSString+UrlEncode.m */; };
 		23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */; };
 		23FC83371785DDCE007FFFB1 /* CIArtist+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */; };
+		32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32098ECB1BB7506D00175E11 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -656,8 +656,6 @@
 		235908D917B3FFEF0021C0C7 /* CIVideoSliderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIVideoSliderCell.h; sourceTree = "<group>"; };
 		235908DA17B3FFEF0021C0C7 /* CIVideoSliderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIVideoSliderCell.m; sourceTree = "<group>"; };
 		235908DC17B4005E0021C0C7 /* button_video_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_video_on@2x.png"; sourceTree = "<group>"; };
-		2359BE3617B57B56001B529E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		2359BE3717B57B56001B529E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		2359BE3917B57B8A001B529E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		235F0EA1179EAF71001D191A /* nav_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_menu@2x.png"; sourceTree = "<group>"; };
 		235F0EA3179EBC0F001D191A /* CIExhibitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIExhibitionCell.h; sourceTree = "<group>"; };
@@ -1158,6 +1156,7 @@
 		23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIAPIRequest.m; sourceTree = "<group>"; };
 		23FC83351785DDCE007FFFB1 /* CIArtist+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIArtist+Helpers.h"; sourceTree = "<group>"; };
 		23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIArtist+Helpers.m"; sourceTree = "<group>"; };
+		32098ECB1BB7506D00175E11 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1165,13 +1164,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */,
 				2305F06617D64E1900BD472E /* libGoogleAnalyticsServices.a in Frameworks */,
 				23F91BBD1784A6C300B2691C /* CoreData.framework in Frameworks */,
 				2344E24F17D6488E008D3D38 /* SystemConfiguration.framework in Frameworks */,
 				2359BE3A17B57B8A001B529E /* libz.dylib in Frameworks */,
 				23D978C717B9146400A531D7 /* CoreLocation.framework in Frameworks */,
 				23205AB617B541B00005BB94 /* MediaPlayer.framework in Frameworks */,
-				2359BE3817B57B56001B529E /* libTestFlight.a in Frameworks */,
 				23F298D317B12EDF00E11EB7 /* MessageUI.framework in Frameworks */,
 				23F298D117B12E1D00E11EB7 /* Social.framework in Frameworks */,
 				233B505A17AFF902008956F4 /* CoreText.framework in Frameworks */,
@@ -1481,15 +1480,6 @@
 			);
 			name = Settings;
 			sourceTree = "<group>";
-		};
-		2359BE3517B57B56001B529E /* TestFlight */ = {
-			isa = PBXGroup;
-			children = (
-				2359BE3617B57B56001B529E /* libTestFlight.a */,
-				2359BE3717B57B56001B529E /* TestFlight.h */,
-			);
-			path = TestFlight;
-			sourceTree = SOURCE_ROOT;
 		};
 		235F0EA6179EBC13001D191A /* Table Cells */ = {
 			isa = PBXGroup;
@@ -2023,6 +2013,7 @@
 		23F91B2A1784A3FC00B2691C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32098ECB1BB7506D00175E11 /* libsqlite3.tbd */,
 				2344E24E17D6488E008D3D38 /* SystemConfiguration.framework */,
 				2359BE3917B57B8A001B529E /* libz.dylib */,
 				23D978C617B9146400A531D7 /* CoreLocation.framework */,
@@ -2085,7 +2076,6 @@
 				2355F4D117BEA6B800E4904D /* SMPageControl */,
 				2339EC1317BAA989003CDA7E /* MBProgressHUD */,
 				23D978D417B952E600A531D7 /* TTTAttributedLabel */,
-				2359BE3517B57B56001B529E /* TestFlight */,
 				23F298C117B1153D00E11EB7 /* OpenInChrome */,
 				233B507A17B00952008956F4 /* Markdown */,
 				2350371417A050160022A7EC /* Waterfall */,
@@ -2363,8 +2353,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CI;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Carnegie Museums";
+				TargetAttributes = {
+					23F91B271784A3FC00B2691C = {
+						DevelopmentTeam = SZY22WCGL8;
+					};
+				};
 			};
 			buildConfigurationList = 23F91B231784A3FB00B2691C /* Build configuration list for PBXProject "CMOA" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2929,6 +2924,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -2967,6 +2964,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -2985,6 +2983,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2994,11 +2993,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Markdown\"",
-					"\"$(SRCROOT)/TestFlight\"",
 					"\"$(SRCROOT)/International\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carnegie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = CMOA;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3010,6 +3009,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3019,11 +3019,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Markdown\"",
-					"\"$(SRCROOT)/TestFlight\"",
 					"\"$(SRCROOT)/International\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.carnegie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = CMOA;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

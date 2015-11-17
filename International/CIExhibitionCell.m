@@ -67,6 +67,11 @@
 
 - (void)updateConstraints {
     if (self.constraintsUpdated == NO) {
+        
+        int insetTop = kInsetTop;
+        int labelSpace = kLabelSpace;
+        int insetBottom = kInsetBottom;
+        
         // Set label constraints
         NSDictionary *views = @{
                                 @"title" : self.titleLabel,
@@ -80,7 +85,14 @@
                                                                           options:0
                                                                           metrics:nil
                                                                             views:views];
-        NSArray *verticalCon1 = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-(%i)-[title]-(%i)-[subtitle]-(%i)-|", kInsetTop, kLabelSpace, kInsetBottom]
+        
+        if (self.titleLabel.numberOfLines > 1) {
+            insetTop = 5;
+            labelSpace = 0;
+            insetBottom = 8;
+        }
+        
+        NSArray *verticalCon1 = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-(%i)-[title]-(%i)-[subtitle]-(%i)-|", insetTop, labelSpace, insetBottom]
                                                                 options:0
                                                                 metrics:nil
                                                                   views:views];
