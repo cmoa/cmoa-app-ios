@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="83y-qE-I1S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="83y-qE-I1S">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -715,7 +715,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
-                                <rect key="frame" x="0.0" y="284" width="320" height="220"/>
+                                <rect key="frame" x="0.0" y="232" width="320" height="272"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kox-Dv-2xy" customClass="CIWelcomeButton">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -752,10 +752,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzY-og-RXD" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="0dY-iZ-mQE"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="140" width="320" height="44"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Museum News">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -769,7 +766,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-et-BK9" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="184" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Gmy-Uf-p96"/>
                                         </constraints>
@@ -786,7 +783,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-cm-IWm" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="228" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="YKu-LM-ha5"/>
                                         </constraints>
@@ -802,24 +799,42 @@
                                             <segue destination="Lr9-2n-yyL" kind="push" id="N3o-Yc-RqU"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoE-Ig-sO7" customClass="CIWelcomeButton">
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="eGK-j1-fHv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Musuem Rooms">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.18745911539999999" blue="0.16904715100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="1Xc-DM-JDx"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="44" id="28Q-ze-vdK"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="3Hn-Jl-XfL"/>
+                                    <constraint firstItem="MoE-Ig-sO7" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="346-3d-yzr"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="9tl-Nb-ntN"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="BBI-8N-Ink"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="bottom" secondItem="9Lg-j4-OcC" secondAttribute="bottom" id="HSF-1g-CR0"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="JB0-jo-rF3"/>
+                                    <constraint firstAttribute="height" constant="272" id="NaG-bb-D54"/>
+                                    <constraint firstAttribute="trailing" secondItem="MoE-Ig-sO7" secondAttribute="trailing" id="P3X-Cp-C8G"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="XMy-Qw-Nsr"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="centerY" secondItem="9Lg-j4-OcC" secondAttribute="centerY" id="a6I-pF-N71"/>
                                     <constraint firstAttribute="bottom" secondItem="wXf-et-BK9" secondAttribute="bottom" constant="44" id="aPL-yz-vcj"/>
+                                    <constraint firstItem="YzY-og-RXD" firstAttribute="trailing" secondItem="wXf-et-BK9" secondAttribute="trailing" id="bkJ-zU-TdQ"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="ecD-Y3-k4e"/>
+                                    <constraint firstItem="wXf-et-BK9" firstAttribute="top" secondItem="YzY-og-RXD" secondAttribute="bottom" id="kqg-O9-Rw4"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="q1o-48-8FN"/>
-                                    <constraint firstAttribute="height" constant="220" id="qM5-hB-B9K"/>
+                                    <constraint firstItem="YzY-og-RXD" firstAttribute="top" secondItem="MoE-Ig-sO7" secondAttribute="bottom" constant="8" symbolic="YES" id="rFe-3j-urz"/>
+                                    <constraint firstItem="YzY-og-RXD" firstAttribute="leading" secondItem="wXf-et-BK9" secondAttribute="leading" id="sO2-QA-VTc"/>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="t5b-gU-bwf"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="yJR-5p-Cz3"/>
+                                    <constraint firstItem="MoE-Ig-sO7" firstAttribute="top" secondItem="Vbb-iJ-tU9" secondAttribute="bottom" id="zTv-k1-j9l"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" id="zpu-LU-6h4"/>
                                 </constraints>
                             </view>
@@ -843,7 +858,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Lg-j4-OcC" firstAttribute="top" secondItem="njG-bM-LlF" secondAttribute="top" priority="1" constant="284" id="4jP-JV-Ouq"/>
                             <constraint firstItem="9Lg-j4-OcC" firstAttribute="bottom" secondItem="njG-bM-LlF" secondAttribute="bottom" id="CqC-rn-mfu"/>
                             <constraint firstItem="MPd-GH-8hW" firstAttribute="top" secondItem="njG-bM-LlF" secondAttribute="top" id="FHj-VE-Wz9"/>
                             <constraint firstItem="Ehw-Dl-66r" firstAttribute="top" secondItem="njG-bM-LlF" secondAttribute="top" constant="10" id="Jeq-9X-VQ6"/>
