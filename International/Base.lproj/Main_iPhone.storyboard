@@ -812,6 +812,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Q2T-56-dQ1" kind="push" id="bLL-16-z8a"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.18745911539999999" blue="0.16904715100000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1181,7 +1184,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ooz-K2-MMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="fjn-Tj-fu5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1077" y="445"/>
+            <point key="canvasLocation" x="-1881" y="741"/>
         </scene>
         <!--Museum News-->
         <scene sceneID="2fn-k9-Ef6">
@@ -1271,7 +1274,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YOz-Z4-Vz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="17t-gU-YNB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1077" y="1150"/>
+            <point key="canvasLocation" x="-1481" y="1238"/>
+        </scene>
+        <!--Musuem Rooms-->
+        <scene sceneID="vYO-Ht-CUt">
+            <objects>
+                <viewController title="Musuem Rooms" id="Q2T-56-dQ1" customClass="CILocationsListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2cI-0A-u4I"/>
+                        <viewControllerLayoutGuide type="bottom" id="usE-k6-18I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZVT-wL-91P">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-Sp-tLy">
+                                <rect key="frame" x="0.0" y="0.0" width="319" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Q2T-56-dQ1" id="nn1-2B-a9w"/>
+                                    <outlet property="delegate" destination="Q2T-56-dQ1" id="4hT-A2-Cwb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="usE-k6-18I" firstAttribute="top" secondItem="Ppg-Sp-tLy" secondAttribute="bottom" id="0y8-fG-bgp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ppg-Sp-tLy" secondAttribute="trailingMargin" id="66j-Et-ENQ"/>
+                            <constraint firstItem="Ppg-Sp-tLy" firstAttribute="leading" secondItem="ZVT-wL-91P" secondAttribute="leading" id="PfA-cA-vcQ"/>
+                            <constraint firstItem="Ppg-Sp-tLy" firstAttribute="top" secondItem="2cI-0A-u4I" secondAttribute="bottom" id="k4A-eX-GM1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Musuem Rooms" id="vpt-hB-WrQ" customClass="CINavigationItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfi-S2-wrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-980" y="735"/>
         </scene>
         <!--Exhibition Detail View Controller-->
         <scene sceneID="usr-Cu-8yp">
@@ -1911,10 +1949,10 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PtD-v5-SM2"/>
         <segue reference="asR-Ly-teI"/>
         <segue reference="Yed-eN-wAR"/>
         <segue reference="MAF-bT-7TW"/>
-        <segue reference="PtD-v5-SM2"/>
         <segue reference="ypY-4H-tQb"/>
     </inferredMetricsTieBreakers>
 </document>
