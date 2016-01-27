@@ -18,5 +18,6 @@
 
 - (NSArray*)artworks;
 - (NSArray*)artworksInExhibition:(CIExhibition*)exhibition;
+- (NSArray*)artworksAtLocation:(CILocation*)location;
 
 @end

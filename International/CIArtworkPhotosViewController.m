@@ -37,18 +37,27 @@
     [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     
     // Load artworks & photos
-    CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
-    artworks = [exhibition artworksSortedBy:@"title" ascending:YES];
-    photos = [NSMutableArray arrayWithCapacity:[artworks count]];
-    for (CIArtwork *artwork in artworks) {
-        NSArray *artworkPhotos = [artwork images];
-        if ([artworkPhotos count] == 0) {
-            continue;
-        }
-        CIMedium *medium = [artworkPhotos objectAtIndex:0];
-        [photos addObject:medium];
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        CILocation *location = [CIAppState sharedAppState].currentLocation;
+        artworks = [location artworksSortedBy:@"title" ascending:YES];
+        
+        self.navigationItem.title = location.name;
+    } else {
+        CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+        artworks = [exhibition artworksSortedBy:@"title" ascending:YES];
     }
+  
+    photos = [NSMutableArray arrayWithCapacity:[artworks count]];
     
+    for (CIArtwork *artwork in artworks) {
+      NSArray *artworkPhotos = [artwork images];
+      if ([artworkPhotos count] == 0) {
+        continue;
+      }
+      CIMedium *medium = [artworkPhotos objectAtIndex:0];
+      [photos addObject:medium];
+    }
+
     // Configure the waterfall
     CHTCollectionViewWaterfallLayout *photosCollectionLayout = (CHTCollectionViewWaterfallLayout *)photosCollectionView.collectionViewLayout;
     photosCollectionLayout.delegate = self;
@@ -68,7 +77,12 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    [self performSegueWithIdentifier:@"exitArtworkPhotos" sender:self];
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        [CIAppState sharedAppState].currentLocation = nil;
+        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"exitArtworkPhotos" sender:self];
+    }
 }
 
 - (IBAction)segueToArtworkPhotos:(UIStoryboardSegue *)segue {

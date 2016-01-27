@@ -41,25 +41,14 @@
 //  }
 }
 
-//NSMutableArray *locations = [[NSMutableArray alloc] init];
-//
-//for (CILocation *location in [CILocation MR_findAllSortedBy:@"name" ascending:TRUE]) {
-//  NSArray *artworks = [location artworks];
-//  
-//  if (artworks.count > 0) {
-//    [locations addObject:artworks];
-//  }
-//}
-//
-//for (NSArray *location in locations) {
-//  CIArtwork *firstArtwork = [location firstObject];
-//  NSLog(@"%d, %@", location.count, firstArtwork.location.name);
-//}
-
-
 - (void)loadLocations {
-  // TODO: Filter by live artworks?
   for (CILocation *location in [CILocation MR_findAllSortedBy:@"name" ascending:TRUE]) {
+      NSArray *artworks = [location artworksSortedBy:@"title" ascending:YES];
+      
+      if ([artworks count] == 0) {
+          continue;
+      }
+
     [locations addObject:location];
   }
 }
@@ -82,6 +71,9 @@
   [self.navigationController popViewControllerAnimated:true];
 }
 
+- (IBAction)segueToLocationList:(UIStoryboardSegue *)segue {
+}
+
 #pragma mark - Table
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -98,6 +90,9 @@
   return cell;
 }
 
-
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [CIAppState sharedAppState].currentLocation = locations[indexPath.item];
+    [self performSegueWithIdentifier:@"showRoomDetail" sender:self];
+}
 
 @end

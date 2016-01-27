@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bc6-0H-hZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1435" y="445"/>
+            <point key="canvasLocation" x="1257" y="465"/>
         </scene>
         <!--Photos-->
         <scene sceneID="vKg-fU-wkS">
@@ -69,12 +69,13 @@
                         <outlet property="photosCollectionView" destination="iQY-IK-k7B" id="NnA-Kq-EvI"/>
                         <segue destination="G2F-zs-tqF" kind="unwind" identifier="exitArtworkPhotos" unwindAction="segueToExhibitionDetail:" id="btJ-le-LUh"/>
                         <segue destination="6Ff-tW-lCF" kind="push" identifier="showArtworkDetail" id="Yed-eN-wAR"/>
+                        <segue destination="G2F-zs-tqF" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="5T4-pj-biZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vq2-D9-l9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="G2F-zs-tqF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1827" y="1150"/>
+            <point key="canvasLocation" x="1869" y="1168"/>
         </scene>
         <!--Photos-->
         <scene sceneID="caq-hF-RcY">
@@ -90,7 +91,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXR-Iy-JBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1435" y="1150"/>
+            <point key="canvasLocation" x="1247" y="1180"/>
         </scene>
         <!--Code-->
         <scene sceneID="d3N-0h-pIR">
@@ -159,6 +160,7 @@
                         <outlet property="categoriesTableView" destination="Iyt-IA-0f7" id="Ybq-Vn-tIZ"/>
                         <segue destination="9Lx-0v-SH8" kind="unwind" identifier="exitToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="fNH-6q-8jR"/>
                         <segue destination="eml-FC-gc2" kind="push" identifier="showArtworkList" id="ufW-6D-zwo"/>
+                        <segue destination="9Lx-0v-SH8" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="Ock-1o-OjA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cK9-Uk-GH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,12 +249,13 @@
                         <segue destination="6Ff-tW-lCF" kind="push" identifier="showArtworkDetail" id="hyc-dg-xeI"/>
                         <segue destination="daX-Rq-rRy" kind="push" identifier="showArtistDetail" id="hAm-en-qwF"/>
                         <segue destination="SNI-a4-5Sg" kind="unwind" identifier="exitArtworkCodeToHome" unwindAction="segueGoHome:" id="rsC-eg-zCT"/>
+                        <segue destination="SNI-a4-5Sg" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="5Hn-UD-bE8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWe-vg-U53" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="SNI-a4-5Sg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1827" y="1864"/>
+            <point key="canvasLocation" x="1879" y="1954"/>
         </scene>
         <!--Artwork-->
         <scene sceneID="gF8-iK-XHs">
@@ -292,6 +295,7 @@
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToArtistDetail" unwindAction="segueToArtistDetail:" id="sSC-Qx-I3a"/>
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToCategoryList" unwindAction="segueToCategoryList:" id="QUP-BY-7Mi"/>
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToVisit" unwindAction="segueToVisit:" id="iEO-sp-EFM"/>
+                        <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="iiZ-FP-jYh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFP-nt-S8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1306,10 +1310,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Musuem Rooms" id="vpt-hB-WrQ" customClass="CINavigationItem"/>
+                    <connections>
+                        <segue destination="d07-Of-HR7" kind="push" identifier="showRoomDetail" id="g5f-p9-522"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vfi-S2-wrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-980" y="735"/>
+            <point key="canvasLocation" x="561" y="1881"/>
         </scene>
         <!--Exhibition Detail View Controller-->
         <scene sceneID="usr-Cu-8yp">
@@ -1608,7 +1615,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <exit id="gXK-me-3E5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="649" y="-261"/>
+            <point key="canvasLocation" x="561" y="-261"/>
         </scene>
         <!--Detail-->
         <scene sceneID="c2N-gE-RHu">
@@ -1949,10 +1956,11 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PtD-v5-SM2"/>
+        <segue reference="g5f-p9-522"/>
         <segue reference="asR-Ly-teI"/>
-        <segue reference="Yed-eN-wAR"/>
-        <segue reference="MAF-bT-7TW"/>
-        <segue reference="ypY-4H-tQb"/>
+        <segue reference="hAm-en-qwF"/>
+        <segue reference="hyc-dg-xeI"/>
+        <segue reference="MKW-Ck-e9l"/>
+        <segue reference="ufW-6D-zwo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -58,8 +58,15 @@
 }
 
 - (void)loadArtwork {
-    CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
-    artworks = exhibition.artworks;
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        CILocation *location = [CIAppState sharedAppState].currentLocation;
+        artworks = location.artworks;
+        
+        self.navigationItem.title = location.name;
+    } else {
+        CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+        artworks = exhibition.artworks;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,14 +86,19 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    if (self.parentMode == nil) {
-        [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
-    } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
-        [self performSegueWithIdentifier:@"exitToArtistDetail" sender:self];
-    } else if ([self.parentMode isEqualToString:@"categoryList"]) {
-        [self performSegueWithIdentifier:@"exitToCategoryList" sender:self];
-    } else if ([self.parentMode isEqualToString:@"visit"]) {
-        [self performSegueWithIdentifier:@"exitToVisit" sender:self];
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        [CIAppState sharedAppState].currentLocation = nil;
+        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+    } else {
+        if (self.parentMode == nil) {
+            [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
+        } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
+            [self performSegueWithIdentifier:@"exitToArtistDetail" sender:self];
+        } else if ([self.parentMode isEqualToString:@"categoryList"]) {
+            [self performSegueWithIdentifier:@"exitToCategoryList" sender:self];
+        } else if ([self.parentMode isEqualToString:@"visit"]) {
+            [self performSegueWithIdentifier:@"exitToVisit" sender:self];
+        }
     }
 }
 

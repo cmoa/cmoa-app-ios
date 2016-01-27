@@ -28,21 +28,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CILocation *location;
+    CIExhibition *exhibition;
+    
     // Configure nav button
     CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
     [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     
     // Load categories, then filter out those with 0 artworks!
-    CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        location = [CIAppState sharedAppState].currentLocation;
+        
+        self.navigationItem.title = location.name;
+    } else {
+        exhibition = [CIAppState sharedAppState].currentExhibition;
+    }
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil)"];
     categories = [CICategory MR_findAllWithPredicate:predicate];
 
     NSMutableArray *tempCategories = [NSMutableArray arrayWithCapacity:[categories count]];
     for (CICategory *category in categories) {
-        if ([[category artworksInExhibition:exhibition] count] > 0) {
-            [tempCategories addObject:category];
+        if (location != nil) {
+            if ([[category artworksAtLocation:location] count] > 0) {
+                [tempCategories addObject:category];
+            }
+        } else {
+            if ([[category artworksInExhibition:exhibition] count] > 0) {
+                [tempCategories addObject:category];
+            }
         }
     }
+    
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     categories = [tempCategories sortedArrayUsingDescriptors:@[sort]];
     
@@ -57,7 +74,12 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    [self performSegueWithIdentifier:@"exitToExhibitionDetail" sender:self];
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        [CIAppState sharedAppState].currentLocation = nil;
+        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"exitToExhibitionDetail" sender:self];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -118,6 +140,8 @@
         }
         CIArtworkListViewController *artworkListViewController = (CIArtworkListViewController *)segue.destinationViewController;
         artworkListViewController.category = category;
+        
+        //TODO: Fix this
         CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
         artworkListViewController.artworks = [category artworksInExhibition:exhibition];
         artworkListViewController.parentMode = @"categoryList";

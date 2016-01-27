@@ -11,6 +11,7 @@
 @interface CIAppState : NSObject
 
 @property (nonatomic, strong) CIExhibition *currentExhibition;
+@property (nonatomic, strong) CILocation *currentLocation;
 @property (nonatomic) BOOL isGodMode;
 
 + (CIAppState *)sharedAppState;

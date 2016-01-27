@@ -17,5 +17,8 @@
 #pragma mark - Relationships
 
 - (NSArray*)artworks;
+- (NSArray*)artistArtworks;
+- (NSArray*)artworksSortedBy:(NSString *)sortedBy ascending:(BOOL)ascending;
+- (NSArray*)media;
 
 @end

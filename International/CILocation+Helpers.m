@@ -47,9 +47,33 @@
 
 #pragma mark - Relationships
 
+- (NSArray*)artists {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
+  NSArray *artists = [CIArtist MR_findAllWithPredicate:predicate];
+  
+  // Return results sorted
+  NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
+  return [artists sortedArrayUsingDescriptors:@[sort]];
+}
+
+- (NSArray*)artistArtworks {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
+  return [CIArtistArtwork MR_findAllWithPredicate:predicate];
+}
+
 - (NSArray*)artworks {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
-    return [CIArtwork MR_findAllSortedBy:@"code" ascending:YES withPredicate:predicate];
+  // Default sorting by code
+  return [self artworksSortedBy:@"code" ascending:YES];
+}
+
+- (NSArray*)artworksSortedBy:(NSString *)sortedBy ascending:(BOOL)ascending {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
+  return [CIArtwork MR_findAllSortedBy:sortedBy ascending:ascending withPredicate:predicate];
+}
+
+- (NSArray*)media {
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
+  return [CIMedium MR_findAllWithPredicate:predicate];
 }
 
 @end

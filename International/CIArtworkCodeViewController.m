@@ -84,11 +84,15 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    // Unwind appropriately
-    if ([self.parentMode isEqualToString:@"home"]) {
-        [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        [CIAppState sharedAppState].currentLocation = nil;
+        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
     } else {
-        [self performSegueWithIdentifier:@"exitArtworkCodeToExhibitionDetail" sender:self];
+        if ([self.parentMode isEqualToString:@"home"]) {
+            [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
+        } else {
+            [self performSegueWithIdentifier:@"exitArtworkCodeToExhibitionDetail" sender:self];
+        }
     }
 }
 

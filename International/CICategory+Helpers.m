@@ -65,4 +65,13 @@
     return [artworks sortedArrayUsingDescriptors:@[sort]];
 }
 
+- (NSArray*)artworksAtLocation:(CILocation*)location {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (categoryUuid == %@) AND (locationUuid == %@)", self.uuid, location.uuid];
+    NSArray *artworks = [CIArtwork MR_findAllWithPredicate:predicate];
+    
+    // Return results sorted
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"code" ascending:YES];
+    return [artworks sortedArrayUsingDescriptors:@[sort]];
+}
+
 @end
