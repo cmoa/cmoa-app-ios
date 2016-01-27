@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -288,8 +287,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LA9-2v-0fD">
-                                <rect key="frame" x="0.0" y="64" width="698" height="712"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LA9-2v-0fD">
+                                <rect key="frame" x="0.0" y="64" width="703" height="704"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="u7z-5b-sXt" id="h5e-Gh-LLw"/>
@@ -299,10 +298,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zDl-ZK-DjP" firstAttribute="top" secondItem="LA9-2v-0fD" secondAttribute="bottomMargin" id="CwI-fF-K0P"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LA9-2v-0fD" secondAttribute="trailingMargin" id="JlY-qu-z7i"/>
-                            <constraint firstItem="LA9-2v-0fD" firstAttribute="leading" secondItem="ggg-WO-3mm" secondAttribute="leading" id="aN5-Yp-Kcb"/>
-                            <constraint firstItem="LA9-2v-0fD" firstAttribute="top" secondItem="BbQ-23-GkG" secondAttribute="bottom" id="onw-cj-f0t"/>
+                            <constraint firstItem="LA9-2v-0fD" firstAttribute="leading" secondItem="ggg-WO-3mm" secondAttribute="leadingMargin" constant="-20" id="Iqw-Gk-LXJ"/>
+                            <constraint firstItem="LA9-2v-0fD" firstAttribute="top" secondItem="ggg-WO-3mm" secondAttribute="topMargin" id="QXa-ls-Nsf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="LA9-2v-0fD" secondAttribute="bottom" id="cPE-Qi-ggn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LA9-2v-0fD" secondAttribute="trailing" constant="-20" id="mWa-7Q-Gcc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Museum Rooms" id="Mo3-dV-mLs" customClass="CINavigationItem"/>
