@@ -1311,12 +1311,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Musuem Rooms" id="vpt-hB-WrQ" customClass="CINavigationItem"/>
                     <connections>
+                        <outlet property="locationsTableView" destination="Ppg-Sp-tLy" id="cIQ-6D-BMc"/>
                         <segue destination="d07-Of-HR7" kind="push" identifier="showRoomDetail" id="g5f-p9-522"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vfi-S2-wrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="561" y="1881"/>
+            <point key="canvasLocation" x="-519" y="1317"/>
         </scene>
         <!--Exhibition Detail View Controller-->
         <scene sceneID="usr-Cu-8yp">
