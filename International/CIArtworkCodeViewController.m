@@ -84,11 +84,11 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    if ([CIAppState sharedAppState].currentLocation != nil) {
-        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+    if ([self.parentMode isEqualToString:@"home"]) {
+        [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
     } else {
-        if ([self.parentMode isEqualToString:@"home"]) {
-            [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
+        if ([CIAppState sharedAppState].currentLocation != nil) {
+            [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
         } else {
             [self performSegueWithIdentifier:@"exitArtworkCodeToExhibitionDetail" sender:self];
         }

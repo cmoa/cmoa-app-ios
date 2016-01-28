@@ -86,18 +86,18 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    if ([CIAppState sharedAppState].currentLocation != nil) {
-        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
-    } else {
-        if (self.parentMode == nil) {
+    if (self.parentMode == nil) {
+        if ([CIAppState sharedAppState].currentLocation != nil) {
+            [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+        } else {
             [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
-        } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
-            [self performSegueWithIdentifier:@"exitToArtistDetail" sender:self];
-        } else if ([self.parentMode isEqualToString:@"categoryList"]) {
-            [self performSegueWithIdentifier:@"exitToCategoryList" sender:self];
-        } else if ([self.parentMode isEqualToString:@"visit"]) {
-            [self performSegueWithIdentifier:@"exitToVisit" sender:self];
         }
+    } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
+        [self performSegueWithIdentifier:@"exitToArtistDetail" sender:self];
+    } else if ([self.parentMode isEqualToString:@"categoryList"]) {
+        [self performSegueWithIdentifier:@"exitToCategoryList" sender:self];
+    } else if ([self.parentMode isEqualToString:@"visit"]) {
+        [self performSegueWithIdentifier:@"exitToVisit" sender:self];
     }
 }
 
