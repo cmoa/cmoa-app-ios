@@ -72,6 +72,12 @@
 - (void) viewWillAppear:(BOOL)animated {
     // Show the navigation bar
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    // Deselect links table row
+    NSIndexPath *selectedIndexPath = [locationsTableView indexPathForSelectedRow];
+    if (selectedIndexPath != nil) {
+        [locationsTableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
