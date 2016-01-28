@@ -132,6 +132,9 @@
     // Set the exhibition for the whole app
     CIAppState *appState = [CIAppState sharedAppState];
     appState.currentExhibition = exhibition;
+    
+    // Clear the current location if set
+    appState.currentLocation = nil;
 
     // Show the exhibition detail controller
     [self performSegueWithIdentifier:@"showExhibitionDetail" sender:nil];
