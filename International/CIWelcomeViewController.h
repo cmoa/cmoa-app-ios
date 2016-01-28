@@ -16,6 +16,7 @@
     IBOutlet UIButton *btnSearch;
     IBOutlet CIWelcomeButton *btnMyVisit;
     IBOutlet CIWelcomeButton *btnExhibitions;
+    IBOutlet CIWelcomeButton *btnLocationList;
     IBOutlet CIWelcomeButton *btnMuseumNews;
     IBOutlet CIWelcomeButton *btnCMOATV;
     IBOutlet CIWelcomeButton *btnConnect;

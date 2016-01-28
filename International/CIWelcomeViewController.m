@@ -162,6 +162,8 @@
         }
     } else if ([segue.identifier isEqualToString:@"showVisit"]) {
         btnMyVisit.selected = YES;
+    } else if ([segue.identifier isEqualToString:@"showLocationList"]) {
+        btnLocationList.selected = YES;
     } else if ([segue.identifier isEqualToString:@"showExhibitionList"]) {
         btnExhibitions.selected = YES;
     } else if ([segue.identifier isEqualToString:@"showMuseumNews"]) {

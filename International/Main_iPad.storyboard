@@ -183,7 +183,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="1ci-Xy-LK2" kind="replace" splitViewControllerTargetIndex="1" id="ClD-PY-NuV"/>
+                                            <segue destination="1ci-Xy-LK2" kind="replace" identifier="showLocationList" splitViewControllerTargetIndex="1" id="ClD-PY-NuV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -245,6 +245,7 @@
                         <outlet property="btnCMOATV" destination="DBU-R5-cpG" id="DyF-ta-Mus"/>
                         <outlet property="btnConnect" destination="kyw-s2-SfF" id="VQf-BM-ASU"/>
                         <outlet property="btnExhibitions" destination="hFR-Ep-iO3" id="0kh-Vx-rIR"/>
+                        <outlet property="btnLocationList" destination="BGX-9P-CLc" id="Ubc-nH-se8"/>
                         <outlet property="btnMuseumNews" destination="jrw-6n-Hxa" id="qGP-0v-shM"/>
                         <outlet property="btnMyVisit" destination="F6E-LM-hEn" id="OJJ-Yd-CQj"/>
                         <outlet property="btnSearch" destination="fd8-DX-V1x" id="QeT-Es-QHv"/>
@@ -277,7 +278,6 @@
         <!--Museum Rooms-->
         <scene sceneID="i5R-0F-ajX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VLv-M6-nhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Museum Rooms" id="u7z-5b-sXt" customClass="CILocationsListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BbQ-23-GkG"/>
@@ -310,6 +310,7 @@
                         <segue destination="KqN-QB-gCL" kind="push" identifier="showRoomDetail" id="gTC-Na-Y6C"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VLv-M6-nhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1584" y="1808"/>
         </scene>
@@ -2075,12 +2076,12 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gTC-Na-Y6C"/>
         <segue reference="Vmk-a6-vnI"/>
         <segue reference="0De-fX-voN"/>
         <segue reference="d7o-JI-aCT"/>
-        <segue reference="eV4-HU-zNq"/>
+        <segue reference="gTC-Na-Y6C"/>
         <segue reference="g2w-Bt-xeF"/>
         <segue reference="lha-wa-RwZ"/>
+        <segue reference="eV4-HU-zNq"/>
     </inferredMetricsTieBreakers>
 </document>

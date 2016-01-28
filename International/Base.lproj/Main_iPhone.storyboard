@@ -817,7 +817,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q2T-56-dQ1" kind="push" id="bLL-16-z8a"/>
+                                            <segue destination="Q2T-56-dQ1" kind="push" identifier="showLocationList" id="bLL-16-z8a"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -879,6 +879,7 @@
                         <outlet property="btnCMOATV" destination="wXf-et-BK9" id="6O2-te-FN5"/>
                         <outlet property="btnConnect" destination="QdC-cm-IWm" id="uyt-2U-m7T"/>
                         <outlet property="btnExhibitions" destination="Vbb-iJ-tU9" id="RlC-ig-EaP"/>
+                        <outlet property="btnLocationList" destination="MoE-Ig-sO7" id="C7c-qm-RbO"/>
                         <outlet property="btnMuseumNews" destination="YzY-og-RXD" id="2lV-dT-dtL"/>
                         <outlet property="btnMyVisit" destination="kox-Dv-2xy" id="09e-lK-ReM"/>
                         <outlet property="btnSearch" destination="Ehw-Dl-66r" id="bvc-nX-fnv"/>
