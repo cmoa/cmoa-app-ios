@@ -50,7 +50,7 @@
     NSMutableArray *tempCategories = [NSMutableArray arrayWithCapacity:[categories count]];
     for (CICategory *category in categories) {
         if (location != nil) {
-            if ([[category artworksAtLocation:location] count] > 0) {
+            if ([[category liveArtworksAtLocation:location] count] > 0) {
                 [tempCategories addObject:category];
             }
         } else {

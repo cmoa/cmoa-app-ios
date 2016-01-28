@@ -60,9 +60,9 @@
 - (void)loadArtwork {
     if ([CIAppState sharedAppState].currentLocation != nil) {
         CILocation *location = [CIAppState sharedAppState].currentLocation;
-        artworks = location.artworks;
-        
         self.navigationItem.title = location.name;
+        
+        artworks = location.liveArtworks;
     } else {
         CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
         artworks = exhibition.artworks;

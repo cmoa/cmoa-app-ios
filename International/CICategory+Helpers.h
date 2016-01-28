@@ -19,5 +19,6 @@
 - (NSArray*)artworks;
 - (NSArray*)artworksInExhibition:(CIExhibition*)exhibition;
 - (NSArray*)artworksAtLocation:(CILocation*)location;
+- (NSArray*)liveArtworksAtLocation:(CILocation*)location;
 
 @end

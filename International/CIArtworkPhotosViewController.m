@@ -39,9 +39,9 @@
     // Load artworks & photos
     if ([CIAppState sharedAppState].currentLocation != nil) {
         CILocation *location = [CIAppState sharedAppState].currentLocation;
-        artworks = [location artworksSortedBy:@"title" ascending:YES];
-        
         self.navigationItem.title = location.name;
+        
+        artworks = [location liveArtworksSortedBy:@"title" ascending:YES];
     } else {
         CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
         artworks = [exhibition artworksSortedBy:@"title" ascending:YES];

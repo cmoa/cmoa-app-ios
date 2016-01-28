@@ -71,6 +71,42 @@
   return [CIArtwork MR_findAllSortedBy:sortedBy ascending:ascending withPredicate:predicate];
 }
 
+- (NSArray*)liveArtworks {
+    NSMutableArray *liveArtworks = [[NSMutableArray alloc] init];
+    NSMutableArray *liveExhibitionsUUIDs = [[NSMutableArray alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (isLive = YES)"];
+    
+    for (CIExhibition *exhibition in [CIExhibition MR_findAllWithPredicate:predicate]) {
+        [liveExhibitionsUUIDs addObject:exhibition.uuid];
+    }
+    
+    for (CIArtwork *artwork in self.artworks) {
+        if ([liveExhibitionsUUIDs containsObject:artwork.exhibitionUuid]) {
+            [liveArtworks addObject:artwork];
+        }
+    }
+    
+    return liveArtworks;
+}
+
+- (NSArray*)liveArtworksSortedBy:(NSString *)sortedBy ascending:(BOOL)ascending {
+    NSMutableArray *liveArtworks = [[NSMutableArray alloc] init];
+    NSMutableArray *liveExhibitionsUUIDs = [[NSMutableArray alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (isLive = YES)"];
+    
+    for (CIExhibition *exhibition in [CIExhibition MR_findAllWithPredicate:predicate]) {
+        [liveExhibitionsUUIDs addObject:exhibition.uuid];
+    }
+    
+    for (CIArtwork *artwork in [self artworksSortedBy:sortedBy ascending:ascending]) {
+        if ([liveExhibitionsUUIDs containsObject:artwork.exhibitionUuid]) {
+            [liveArtworks addObject:artwork];
+        }
+    }
+    
+    return liveArtworks;
+}
+
 - (NSArray*)media {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
   return [CIMedium MR_findAllWithPredicate:predicate];

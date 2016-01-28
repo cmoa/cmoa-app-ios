@@ -62,13 +62,9 @@
 
 - (void)loadLocations {
     for (CILocation *location in [CILocation MR_findAllSortedBy:@"name" ascending:TRUE]) {
-        NSArray *artworks = [location artworksSortedBy:@"title" ascending:YES];
-      
-        if ([artworks count] == 0) {
-            continue;
+        if ([[location liveArtworks] count] != 0) {
+            [locations addObject:location];
         }
-
-        [locations addObject:location];
     }
 }
 

@@ -21,4 +21,7 @@
 - (NSArray*)artworksSortedBy:(NSString *)sortedBy ascending:(BOOL)ascending;
 - (NSArray*)media;
 
+- (NSArray*)liveArtworks;
+- (NSArray*)liveArtworksSortedBy:(NSString *)sortedBy ascending:(BOOL)ascending;
+
 @end
