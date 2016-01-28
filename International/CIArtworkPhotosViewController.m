@@ -78,7 +78,6 @@
 
 - (void)navLeftButtonDidPress:(id)sender {
     if ([CIAppState sharedAppState].currentLocation != nil) {
-        [CIAppState sharedAppState].currentLocation = nil;
         [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
     } else {
         [self performSegueWithIdentifier:@"exitArtworkPhotos" sender:self];

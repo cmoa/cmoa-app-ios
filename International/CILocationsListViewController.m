@@ -96,6 +96,7 @@
 #pragma mark - Segue
 
 - (IBAction)segueToLocationList:(UIStoryboardSegue *)segue {
+    [CIAppState sharedAppState].currentLocation = nil;
 }
 
 #pragma mark - Table

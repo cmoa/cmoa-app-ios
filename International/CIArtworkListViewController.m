@@ -87,7 +87,6 @@
 
 - (void)navLeftButtonDidPress:(id)sender {
     if ([CIAppState sharedAppState].currentLocation != nil) {
-        [CIAppState sharedAppState].currentLocation = nil;
         [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
     } else {
         if (self.parentMode == nil) {
