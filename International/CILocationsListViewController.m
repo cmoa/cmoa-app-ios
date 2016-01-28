@@ -8,6 +8,7 @@
 
 #import "CILocationsListViewController.h"
 
+#import "CICategoryCell.h"
 #import "CINavigationController.h"
 #import "CINavigationItem.h"
 
@@ -54,10 +55,10 @@
         }
     }
   
-  // Tableview separator inset
-//  if ([artistTableView respondsToSelector:@selector(separatorInset)]) {
-//    artistTableView.separatorInset = UIEdgeInsetsZero;
-//  }
+    // Tableview separator inset
+    if ([locationsTableView respondsToSelector:@selector(separatorInset)]) {
+        locationsTableView.separatorInset = UIEdgeInsetsZero;
+    }
 }
 
 - (void)loadLocations {
@@ -102,13 +103,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-      UITableViewCell *cell = [[UITableViewCell alloc] init];
-      
-      NSString *locationName = [(CILocation *)locations[indexPath.item] name];
-      
-      cell.textLabel.text = locationName;
-      
-      return cell;
+    // Reuse CICategoryCell
+    static NSString *CellIdentifier = @"CICategoryCell";
+    CICategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[CICategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    NSString *locationName = [(CILocation *)locations[indexPath.item] name];
+    cell.textLabel.text = locationName;
+    
+    return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
