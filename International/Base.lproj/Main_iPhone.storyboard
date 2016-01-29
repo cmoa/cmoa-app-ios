@@ -803,7 +803,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Q2T-56-dQ1" kind="push" identifier="showLocationList" id="bLL-16-z8a"/>
+                                            <segue destination="Q2T-56-dQ1" kind="push" identifier="" id="bLL-16-z8a"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-et-BK9" customClass="CIWelcomeButton">
@@ -1316,9 +1316,11 @@
                     <connections>
                         <outlet property="locationsTableView" destination="Ppg-Sp-tLy" id="cIQ-6D-BMc"/>
                         <segue destination="d07-Of-HR7" kind="push" identifier="showRoomDetail" id="g5f-p9-522"/>
+                        <segue destination="lgd-gM-BTl" kind="unwind" identifier="exitLocationsList" unwindAction="segueGoHome:" id="5np-Hm-i8Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vfi-S2-wrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lgd-gM-BTl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-519" y="1317"/>
         </scene>

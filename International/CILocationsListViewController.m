@@ -93,7 +93,7 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    [self.navigationController popViewControllerAnimated:true];
+    [self performSegueWithIdentifier:@"exitLocationsList" sender:self];
 }
 
 #pragma mark - Segue
