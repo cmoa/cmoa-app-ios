@@ -199,27 +199,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    // Country flag
-    // Images from: http://openiconlibrary.sourceforge.net
-    NSString *flagFilename = [NSString stringWithFormat:@"flag-%@", [artist.country lowercaseString]];
-    NSString *flagFilepath = [[NSBundle mainBundle] pathForResource:flagFilename ofType:@"png"];
-    NSData *flagData = [NSData dataWithContentsOfFile:flagFilepath];
-    if (flagData) {
-        UIImage *flagImage = [UIImage imageWithData:flagData scale:2.0f];
-        flagView = [[UIImageView alloc] initWithImage:flagImage];
-        flagView.backgroundColor = [UIColor colorFromHex:@"#e2e2e2"];
-        CGFloat left = self.navigationController.view.frame.size.width - 30.0f - 15.0f;
-        CGFloat top = self.navigationController.navigationBar.frame.size.height - 30.0f - 8.0f;
-        flagView.frame = (CGRect){{left, top}, {30.0f, 30.0f}};
-        flagView.layer.cornerRadius = 30.0f / 2.0f;
-        flagView.alpha = 0.0f;
-        flagView.clipsToBounds = YES;
-        [self.navigationController.navigationBar addSubview:flagView];
-        [UIView animateWithDuration:0.3f delay:0.2f options:0 animations:^{
-            flagView.alpha = 1.0f;
-        } completion:nil];
-    }
-    
     // Deselect links table row
     NSIndexPath *selectedIndexPath = [linksTableView indexPathForSelectedRow];
     if (selectedIndexPath != nil) {
