@@ -329,7 +329,7 @@
             </objects>
             <point key="canvasLocation" x="-582" y="2238"/>
         </scene>
-        <!--Hours, Location and Admission-->
+        <!--Hours, Location, and Admission-->
         <scene sceneID="7Bh-kg-kCx">
             <objects>
                 <viewController id="npS-L2-3Ka" customClass="CIVisitViewController" sceneMemberID="viewController">
@@ -390,7 +390,7 @@
                             <constraint firstItem="aeA-yx-qgf" firstAttribute="top" secondItem="kPT-KD-juL" secondAttribute="top" id="mJ3-Ho-M7y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hours, Location and Admission" id="Q6J-tv-SW1" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Hours, Location, and Admission" id="Q6J-tv-SW1" customClass="CINavigationItem"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <outlet property="mapContainer" destination="aeA-yx-qgf" id="uGd-eM-otW"/>
@@ -2078,10 +2078,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="Vmk-a6-vnI"/>
         <segue reference="0De-fX-voN"/>
-        <segue reference="d7o-JI-aCT"/>
         <segue reference="gTC-Na-Y6C"/>
         <segue reference="g2w-Bt-xeF"/>
         <segue reference="lha-wa-RwZ"/>
-        <segue reference="eV4-HU-zNq"/>
+        <segue reference="caZ-zN-et2"/>
+        <segue reference="4UV-jM-8FJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -985,7 +985,7 @@
             </objects>
             <point key="canvasLocation" x="-1077" y="-1704"/>
         </scene>
-        <!--Hours, Location and Admission-->
+        <!--Hours, Location, and Admission-->
         <scene sceneID="Vtc-zE-NI4">
             <objects>
                 <viewController id="n2Z-7w-R9T" customClass="CIVisitViewController" sceneMemberID="viewController">
@@ -1047,7 +1047,7 @@
                             <constraint firstItem="ucb-9f-mDy" firstAttribute="bottom" secondItem="T1g-7m-uNk" secondAttribute="bottom" id="w0A-ka-rQa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Hours, Location and Admission" id="FE3-eG-wAi" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Hours, Location, and Admission" id="FE3-eG-wAi" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="mapContainer" destination="ASy-1E-DKV" id="ySl-nQ-yaz"/>
                         <outlet property="museumMapView" destination="MCe-Ak-m6i" id="vcr-Iz-iNM"/>
@@ -1960,11 +1960,11 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="g5f-p9-522"/>
-        <segue reference="asR-Ly-teI"/>
-        <segue reference="hAm-en-qwF"/>
         <segue reference="hyc-dg-xeI"/>
-        <segue reference="MKW-Ck-e9l"/>
-        <segue reference="ufW-6D-zwo"/>
+        <segue reference="asR-Ly-teI"/>
+        <segue reference="g5f-p9-522"/>
+        <segue reference="PtD-v5-SM2"/>
+        <segue reference="ypY-4H-tQb"/>
+        <segue reference="hAm-en-qwF"/>
     </inferredMetricsTieBreakers>
 </document>
