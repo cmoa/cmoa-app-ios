@@ -435,10 +435,10 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
-                                <rect key="frame" x="0.0" y="455" width="320" height="49"/>
+                                <rect key="frame" x="0.0" y="406" width="320" height="98"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
-                                        <rect key="frame" x="196" y="0.0" width="75" height="49"/>
+                                        <rect key="frame" x="196" y="0.0" width="75" height="98"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 of 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMp-AS-Aio">
                                                 <rect key="frame" x="4" y="16" width="67" height="17"/>
@@ -457,7 +457,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
-                                        <rect key="frame" x="64" y="0.0" width="44" height="49"/>
+                                        <rect key="frame" x="64" y="0.0" width="44" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="BQA-dr-QUf"/>
                                         </constraints>
@@ -474,7 +474,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
-                                        <rect key="frame" x="10" y="0.0" width="44" height="49"/>
+                                        <rect key="frame" x="10" y="0.0" width="44" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="MHE-Dg-TZ7"/>
                                         </constraints>
@@ -491,7 +491,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
-                                        <rect key="frame" x="271" y="0.0" width="49" height="49"/>
+                                        <rect key="frame" x="271" y="0.0" width="49" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="APW-Cy-QEq"/>
                                         </constraints>
@@ -508,7 +508,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
-                                        <rect key="frame" x="147" y="0.0" width="49" height="49"/>
+                                        <rect key="frame" x="147" y="0.0" width="49" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="m9a-hk-0eS"/>
                                         </constraints>
@@ -716,10 +716,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
+                                <rect key="frame" x="0.0" y="0.0" width="640" height="132"/>
                             </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
-                                <rect key="frame" x="0.0" y="232" width="320" height="272"/>
+                                <rect key="frame" x="0.0" y="240" width="320" height="264"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kox-Dv-2xy" customClass="CIWelcomeButton">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -727,7 +727,7 @@
                                             <constraint firstAttribute="height" constant="44" id="uli-LS-UX0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Hours, Location and Admission">
+                                        <state key="normal" title="Hours, Location, and Admission">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -756,7 +756,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzY-og-RXD" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="140" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="xyP-Bs-yuI"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Museum News">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -769,25 +772,8 @@
                                             <segue destination="Ymq-Ji-nqG" kind="push" id="I15-O6-Mi4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-et-BK9" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="184" width="320" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Gmy-Uf-p96"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="CMOA TV">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Y91-Xc-0cI" kind="push" id="ff1-8t-6Z1"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-cm-IWm" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="228" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="YKu-LM-ha5"/>
                                         </constraints>
@@ -820,33 +806,49 @@
                                             <segue destination="Q2T-56-dQ1" kind="push" identifier="showLocationList" id="bLL-16-z8a"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-et-BK9" customClass="CIWelcomeButton">
+                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Gmy-Uf-p96"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="CMOA TV">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Y91-Xc-0cI" kind="push" id="ff1-8t-6Z1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.18745911539999999" blue="0.16904715100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="wXf-et-BK9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="176" id="0Ub-xQ-b0e"/>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="1Xc-DM-JDx"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="44" id="28Q-ze-vdK"/>
                                     <constraint firstItem="MoE-Ig-sO7" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="346-3d-yzr"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="9tl-Nb-ntN"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="BBI-8N-Ink"/>
-                                    <constraint firstItem="QdC-cm-IWm" firstAttribute="bottom" secondItem="9Lg-j4-OcC" secondAttribute="bottom" id="HSF-1g-CR0"/>
+                                    <constraint firstAttribute="trailing" secondItem="YzY-og-RXD" secondAttribute="trailing" id="G7Q-BS-1TR"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="JB0-jo-rF3"/>
-                                    <constraint firstAttribute="height" constant="272" id="NaG-bb-D54"/>
+                                    <constraint firstAttribute="height" constant="264" id="NaG-bb-D54"/>
                                     <constraint firstAttribute="trailing" secondItem="MoE-Ig-sO7" secondAttribute="trailing" id="P3X-Cp-C8G"/>
+                                    <constraint firstItem="YzY-og-RXD" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="132" id="Sxa-PG-6d2"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="XMy-Qw-Nsr"/>
-                                    <constraint firstAttribute="bottom" secondItem="wXf-et-BK9" secondAttribute="bottom" constant="44" id="aPL-yz-vcj"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="trailing" secondItem="wXf-et-BK9" secondAttribute="trailing" id="bkJ-zU-TdQ"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="ecD-Y3-k4e"/>
-                                    <constraint firstItem="wXf-et-BK9" firstAttribute="top" secondItem="YzY-og-RXD" secondAttribute="bottom" id="kqg-O9-Rw4"/>
+                                    <constraint firstItem="YzY-og-RXD" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="ht9-oK-siu"/>
+                                    <constraint firstItem="QdC-cm-IWm" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="220" id="nIF-lV-v81"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="q1o-48-8FN"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="top" secondItem="MoE-Ig-sO7" secondAttribute="bottom" constant="8" symbolic="YES" id="rFe-3j-urz"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="leading" secondItem="wXf-et-BK9" secondAttribute="leading" id="sO2-QA-VTc"/>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="t5b-gU-bwf"/>
-                                    <constraint firstItem="MoE-Ig-sO7" firstAttribute="top" secondItem="Vbb-iJ-tU9" secondAttribute="bottom" id="zTv-k1-j9l"/>
+                                    <constraint firstItem="MoE-Ig-sO7" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="88" id="uvi-bE-axP"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" id="zpu-LU-6h4"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
-                                <rect key="frame" x="268" y="10" width="45" height="45"/>
+                                <rect key="frame" x="268" y="10" width="45" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="OJA-B3-fmu"/>
                                 </constraints>
