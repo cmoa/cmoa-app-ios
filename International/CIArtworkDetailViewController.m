@@ -578,11 +578,6 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kCIDidShowArtworkDetailCoachMarks];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
-        // Setup coach marks
-        CGRect rectFavorite = [self addPaddingToRect:
-                               [self.navigationItem.rightBarButtonItem.customView.superview convertRect:self.navigationItem.rightBarButtonItem.customView.frame
-                                                                                                 toView:self.navigationController.view]
-                                             padding:UIEdgeInsetsMake(4.0f, 8.0f, 4.0f, 2.0f)];
         CGRect rectShare = [self addPaddingToRect:[tabBarView convertRect:btnShareArtwork.frame toView:self.navigationController.view]
                                           padding:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
         NSArray *coachMarks = @[

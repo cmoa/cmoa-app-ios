@@ -66,7 +66,7 @@
 #pragma mark - Table
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tours count] + 1;
+    return [tours count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,15 +94,9 @@
         cell = [[CIExhibitionCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    // Find tour data (and a custom title for recommended tour)
-    if (indexPath.row < [tours count]) {
-        CITour *tour = [tours objectAtIndex:indexPath.row];
-        cell.titleLabel.text = tour.title;
-        cell.subtitleLabel.text = [tour.subtitle uppercaseString];
-    } else {
-        cell.titleLabel.text = @"Recommended Artworks";
-        cell.subtitleLabel.text = [@"Auto-generated" uppercaseString];
-    }
+    CITour *tour = [tours objectAtIndex:indexPath.row];
+    cell.titleLabel.text = tour.title;
+    cell.subtitleLabel.text = [tour.subtitle uppercaseString];
     
     return cell;
 }
@@ -113,12 +107,10 @@
     if ([segue.identifier isEqualToString:@"showTourDetail"]) {
         CITourDetailViewController *tourDetailViewController = (CITourDetailViewController *)segue.destinationViewController;
         NSIndexPath *selectedIndexPath = [toursTableView indexPathForSelectedRow];
-        if (selectedIndexPath.row < [tours count]) {
-            CITour *tour = [tours objectAtIndex:selectedIndexPath.row];
-            tourDetailViewController.tour = tour;
-        } else {
-            tourDetailViewController.isRecommendedTour = YES;
-        }
+        
+        CITour *tour = [tours objectAtIndex:selectedIndexPath.row];
+        tourDetailViewController.tour = tour;
+
     }
 }
 
