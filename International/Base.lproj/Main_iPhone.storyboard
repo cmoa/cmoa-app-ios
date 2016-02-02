@@ -316,8 +316,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-vK-gok">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="391.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="393.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu7-iU-LPg">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
@@ -377,8 +377,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
-                                                <rect key="frame" x="15" y="356" width="290" height="20.5"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
+                                                <rect key="frame" x="15" y="358" width="290" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="290" id="UM7-4a-wnI"/>
                                                 </constraints>
@@ -386,7 +386,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
                                                 <rect key="frame" x="15" y="299" width="290" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="tF3-UM-hYa"/>
@@ -424,11 +424,11 @@
                                     <constraint firstAttribute="bottom" secondItem="niz-sh-TqY" secondAttribute="bottom" id="sD9-7F-HuM"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
-                                <rect key="frame" x="0.0" y="406" width="320" height="98"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
+                                <rect key="frame" x="0.0" y="455" width="320" height="49"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
-                                        <rect key="frame" x="196" y="0.0" width="75" height="98"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
+                                        <rect key="frame" x="196" y="0.0" width="75" height="49"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 of 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMp-AS-Aio">
                                                 <rect key="frame" x="4" y="16" width="67" height="17"/>
@@ -446,8 +446,8 @@
                                             <constraint firstAttribute="width" constant="75" id="skC-rf-0Hn"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
-                                        <rect key="frame" x="64" y="0.0" width="44" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
+                                        <rect key="frame" x="64" y="0.0" width="44" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="BQA-dr-QUf"/>
                                         </constraints>
@@ -463,8 +463,8 @@
                                             <action selector="locationDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="HJg-UV-fms"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
-                                        <rect key="frame" x="10" y="0.0" width="44" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
+                                        <rect key="frame" x="10" y="0.0" width="44" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="MHE-Dg-TZ7"/>
                                         </constraints>
@@ -480,8 +480,8 @@
                                             <action selector="shareDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="CPB-bX-1WA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
-                                        <rect key="frame" x="271" y="0.0" width="49" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
+                                        <rect key="frame" x="271" y="0.0" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="APW-Cy-QEq"/>
                                         </constraints>
@@ -497,8 +497,8 @@
                                             <segue destination="6Ff-tW-lCF" kind="custom" identifier="showNextArtworkDetail" customClass="CIArtworkSequenceSegue" id="I9y-qT-NHV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
-                                        <rect key="frame" x="147" y="0.0" width="49" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
+                                        <rect key="frame" x="147" y="0.0" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="m9a-hk-0eS"/>
                                         </constraints>
@@ -704,8 +704,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
-                                <rect key="frame" x="0.0" y="0.0" width="640" height="132"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
                                 <rect key="frame" x="0.0" y="240" width="320" height="264"/>
@@ -835,8 +835,8 @@
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" id="zpu-LU-6h4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
-                                <rect key="frame" x="268" y="10" width="45" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
+                                <rect key="frame" x="268" y="10" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="OJA-B3-fmu"/>
                                 </constraints>
