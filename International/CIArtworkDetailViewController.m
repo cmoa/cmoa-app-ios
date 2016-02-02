@@ -65,8 +65,20 @@
     // Artist(s)
     NSArray *artists = artwork.artists;
     if ([artists count] > 1) {
-        // List all the artists when there is more then one.
-        [lblArtist setText:@"See the artists"];
+        NSString *artistNames = @"";
+        CGFloat height = lblArtistHeightConstraint.constant;
+        
+        for (CIArtist *artist in artists) {
+            if (artist == [artists lastObject]) {
+                artistNames = [artistNames stringByAppendingString:artist.name];
+            } else {
+                height += 22;
+                artistNames = [artistNames stringByAppendingFormat:@"%@\n", artist.name];
+            }
+        }
+        
+        [lblArtist setText:artistNames];
+        lblArtistHeightConstraint.constant = height;
     } else {
         CIArtist *artist = [artists objectAtIndex:0];
         [lblArtist setText:artist.name];

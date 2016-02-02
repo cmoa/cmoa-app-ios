@@ -47,6 +47,7 @@
     CIVideoPlayerViewController *moviePlayerController;
     
     // Layout constraints
+    __weak IBOutlet NSLayoutConstraint *lblArtistHeightConstraint;
     NSLayoutConstraint *lblDescriptionHeightConstraint;
 }
 

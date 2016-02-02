@@ -1367,7 +1367,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-XX-E0P" userLabel="Lbl Artist" customClass="CIArtistLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-XX-E0P" userLabel="Lbl Artist" customClass="CIArtistLabel">
                                                 <rect key="frame" x="15" y="300" width="674" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="XVc-FB-u33"/>
@@ -1541,6 +1541,7 @@
                         <outlet property="btnShareArtwork" destination="5N0-HY-wDw" id="GsO-g7-JIq"/>
                         <outlet property="detailContainer" destination="keg-Nx-6kV" id="yox-On-gjs"/>
                         <outlet property="lblArtist" destination="EuJ-XX-E0P" id="sDb-hn-ZXj"/>
+                        <outlet property="lblArtistHeightConstraint" destination="XVc-FB-u33" id="JQX-lx-Gh4"/>
                         <outlet property="lblDescription" destination="yFa-Nl-sQ2" id="WTR-NX-HVz"/>
                         <outlet property="lblSequence" destination="ZPa-eo-IIB" id="VI9-cQ-EzD"/>
                         <outlet property="lblTitle" destination="XqZ-Y8-ZkW" id="hIO-vV-dnX"/>

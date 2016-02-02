@@ -377,15 +377,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
-                                                <rect key="frame" x="15" y="299.5" width="290" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="tF3-UM-hYa"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
                                                 <rect key="frame" x="15" y="356" width="290" height="20.5"/>
                                                 <constraints>
@@ -393,6 +384,15 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
+                                                <rect key="frame" x="15" y="299" width="290" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="tF3-UM-hYa"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -552,6 +552,7 @@
                         <outlet property="btnShareArtwork" destination="kOu-Rn-cu2" id="Tm8-F7-V4D"/>
                         <outlet property="detailContainer" destination="niz-sh-TqY" id="o8I-iv-QhH"/>
                         <outlet property="lblArtist" destination="QYy-Zm-eYV" id="ggL-d2-9ze"/>
+                        <outlet property="lblArtistHeightConstraint" destination="tF3-UM-hYa" id="qXp-jf-P78"/>
                         <outlet property="lblDescription" destination="B6z-yZ-a1B" id="e8i-gz-yfw"/>
                         <outlet property="lblSequence" destination="eMp-AS-Aio" id="QhT-e6-pxl"/>
                         <outlet property="lblTitle" destination="zDv-zc-F4Y" id="cDC-fC-3zo"/>
