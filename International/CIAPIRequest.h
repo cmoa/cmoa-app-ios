@@ -32,10 +32,6 @@ typedef void (^CIAPIRequestFailureBlock) (NSURLRequest* request, NSHTTPURLRespon
 
 - (void)syncAll;
 
-- (void)likeArtwork:(CIArtwork*)artwork
-            success:(CIAPIRequestSuccessBlock)success
-            failure:(CIAPIRequestFailureBlock)failure;
-
 - (void)subscribeEmail:(NSString*)email
                success:(CIAPIRequestSuccessBlock)success
                failure:(CIAPIRequestFailureBlock)failure;
