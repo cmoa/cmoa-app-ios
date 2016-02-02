@@ -38,7 +38,7 @@
     }
     
     // Note label setup
-    NSString *strNote = @"To access information\nabout a specific artwork,\nplease enter the artwork code here:";
+    NSString *strNote = @"To access information\nabout a specific object,\nplease enter the object code here:";
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -124,7 +124,7 @@
     
     // If we're here, neither was found
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Code"
-                                                    message:@"Unfortunately, we could not find the artwork."
+                                                    message:@"Unfortunately, we could not find the object."
                                                    delegate:nil
                                           cancelButtonTitle:@"Try Again"
                                           otherButtonTitles:nil];

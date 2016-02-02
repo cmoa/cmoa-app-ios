@@ -64,7 +64,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photos" id="uPb-XH-rT6"/>
-                    <navigationItem key="navigationItem" title="Artwork" id="1LA-1L-wCp" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Photos" id="1LA-1L-wCp" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="photosCollectionView" destination="iQY-IK-k7B" id="NnA-Kq-EvI"/>
                         <segue destination="G2F-zs-tqF" kind="unwind" identifier="exitArtworkPhotos" unwindAction="segueToExhibitionDetail:" id="btJ-le-LUh"/>
@@ -155,7 +155,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Category" id="NC4-w9-tnn"/>
-                    <navigationItem key="navigationItem" title="Artwork" id="Vu1-Lb-MdB" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Category" id="Vu1-Lb-MdB" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="Iyt-IA-0f7" id="Ybq-Vn-tIZ"/>
                         <segue destination="9Lx-0v-SH8" kind="unwind" identifier="exitToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="fNH-6q-8jR"/>
@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1827" y="2580"/>
         </scene>
-        <!--Artwork Code-->
+        <!--Object Code-->
         <scene sceneID="WAG-uZ-wZM">
             <objects>
                 <viewController id="PG7-yS-lgH" customClass="CIArtworkCodeViewController" sceneMemberID="viewController">
@@ -239,7 +239,7 @@
                             <constraint firstItem="zjJ-9Y-cQ6" firstAttribute="top" secondItem="NHi-rw-ysc" secondAttribute="top" constant="150" id="kOc-Eb-z3b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Artwork Code" id="AxQ-cf-Hgy" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Object Code" id="AxQ-cf-Hgy" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="btnSearch" destination="zjJ-9Y-cQ6" id="l0h-uq-rUw"/>
                         <outlet property="codeContainer" destination="lTL-SS-lre" id="g0t-L1-gNj"/>
@@ -256,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="1879" y="1954"/>
         </scene>
-        <!--Artwork-->
+        <!--Title-->
         <scene sceneID="gF8-iK-XHs">
             <objects>
                 <viewController id="eml-FC-gc2" customClass="CIArtworkListViewController" sceneMemberID="viewController">
@@ -286,7 +286,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Title" id="QIi-Ul-hQT"/>
-                    <navigationItem key="navigationItem" title="Artwork" id="Hgp-XE-MbM" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Title" id="Hgp-XE-MbM" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="artworkTableView" destination="lxf-yi-uf6" id="aJM-qg-ahB"/>
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitArtworkList" unwindAction="segueToExhibitionDetail:" id="tOT-6S-BbZ"/>
@@ -733,7 +733,7 @@
                                             <constraint firstAttribute="height" constant="44" id="JaM-tg-VMr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Explore the Art">
+                                        <state key="normal" title="Explore Art and Specimens">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -801,7 +801,7 @@
                                             <constraint firstAttribute="height" constant="44" id="Gmy-Uf-p96"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="CMOA TV">
+                                        <state key="normal" title="Museum Videos">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1079,7 +1079,7 @@
                             <constraint firstItem="izL-nr-mt8" firstAttribute="leading" secondItem="zDO-Wh-7Cf" secondAttribute="leading" id="wPN-N4-uf8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Explore the Art" id="Qf1-0d-gk3" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Explore Art and Specimens" id="Qf1-0d-gk3" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="exhibitionsTableView" destination="izL-nr-mt8" id="RFf-9E-nEz"/>
                         <segue destination="vDl-Ob-vzh" kind="push" identifier="showExhibitionDetail" id="khd-Dd-E6A"/>
@@ -1333,7 +1333,7 @@
                                             <constraint firstAttribute="height" constant="44" id="1y3-TN-27g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Discover the artwork">
+                                        <state key="normal" title="Discover the objects">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1678,10 +1678,10 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hf1-TD-hDh"/>
+        <segue reference="asR-Ly-teI"/>
         <segue reference="qW2-GX-F11"/>
+        <segue reference="ufW-6D-zwo"/>
+        <segue reference="hyc-dg-xeI"/>
         <segue reference="PtD-v5-SM2"/>
-        <segue reference="ypY-4H-tQb"/>
-        <segue reference="ces-Za-JcT"/>
     </inferredMetricsTieBreakers>
 </document>
