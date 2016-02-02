@@ -434,10 +434,10 @@
                                     <constraint firstAttribute="bottom" secondItem="niz-sh-TqY" secondAttribute="bottom" id="sD9-7F-HuM"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
                                 <rect key="frame" x="0.0" y="406" width="320" height="98"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
                                         <rect key="frame" x="196" y="0.0" width="75" height="98"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 of 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMp-AS-Aio">
@@ -456,7 +456,7 @@
                                             <constraint firstAttribute="width" constant="75" id="skC-rf-0Hn"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
                                         <rect key="frame" x="64" y="0.0" width="44" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="BQA-dr-QUf"/>
@@ -473,7 +473,7 @@
                                             <action selector="locationDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="HJg-UV-fms"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
                                         <rect key="frame" x="10" y="0.0" width="44" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="MHE-Dg-TZ7"/>
@@ -490,7 +490,7 @@
                                             <action selector="shareDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="CPB-bX-1WA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
                                         <rect key="frame" x="271" y="0.0" width="49" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="APW-Cy-QEq"/>
@@ -507,7 +507,7 @@
                                             <segue destination="6Ff-tW-lCF" kind="custom" identifier="showNextArtworkDetail" customClass="CIArtworkSequenceSegue" id="I9y-qT-NHV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
                                         <rect key="frame" x="147" y="0.0" width="49" height="98"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="m9a-hk-0eS"/>
@@ -715,10 +715,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
                                 <rect key="frame" x="0.0" y="0.0" width="640" height="132"/>
                             </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
                                 <rect key="frame" x="0.0" y="240" width="320" height="264"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kox-Dv-2xy" customClass="CIWelcomeButton">
@@ -824,7 +824,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.18745911539999999" blue="0.16904715100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="176" id="0Ub-xQ-b0e"/>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="1Xc-DM-JDx"/>
@@ -847,7 +846,7 @@
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" id="zpu-LU-6h4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
                                 <rect key="frame" x="268" y="10" width="45" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="OJA-B3-fmu"/>
@@ -1962,11 +1961,11 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hyc-dg-xeI"/>
         <segue reference="asR-Ly-teI"/>
-        <segue reference="g5f-p9-522"/>
         <segue reference="PtD-v5-SM2"/>
         <segue reference="ypY-4H-tQb"/>
-        <segue reference="hAm-en-qwF"/>
+        <segue reference="ces-Za-JcT"/>
+        <segue reference="MAF-bT-7TW"/>
+        <segue reference="qW2-GX-F11"/>
     </inferredMetricsTieBreakers>
 </document>

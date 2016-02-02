@@ -202,9 +202,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
     [CIAnalyticsHelper sendEvent:@"ArtworkDetail" withLabel:self.artwork.code];
-    
-    // Show coach marks
-    [self showCoachMarks];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -566,60 +563,6 @@
     } else {
         [self performSegueWithIdentifier:@"showArtistDetail" sender:self];
     }
-}
-
-#pragma mark - Coach marks
-     
-- (void)showCoachMarks {
-    // Coach marks
-    BOOL coachMarksShown = [[NSUserDefaults standardUserDefaults] boolForKey:kCIDidShowArtworkDetailCoachMarks];
-    if (coachMarksShown == NO) {
-        // Don't show again
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kCIDidShowArtworkDetailCoachMarks];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        CGRect rectShare = [self addPaddingToRect:[tabBarView convertRect:btnShareArtwork.frame toView:self.navigationController.view]
-                                          padding:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
-        NSArray *coachMarks = @[
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectShare],
-                                    @"caption": [self formatCoachMarksText:@"Share this artwork with your friends!"]
-                                    }
-                                ];
-        UIView *parentView = self.navigationController.view;
-        coachMarksView = [[WSCoachMarksView alloc] initWithFrame:parentView.bounds coachMarks:coachMarks];
-        coachMarksView.strContinue = @"Tap to Continue";
-        [parentView addSubview:coachMarksView];
-        
-        // Show coach marks
-        [coachMarksView start];
-    }
-}
-
-- (CGRect)addPaddingToRect:(CGRect)rect padding:(UIEdgeInsets)padding {
-    rect.origin.x = rect.origin.x + padding.left;
-    rect.origin.y = rect.origin.y + padding.top;
-    rect.size.width = rect.size.width - padding.left - padding.right;
-    rect.size.height = rect.size.height - padding.top - padding.bottom;
-    return rect;
-}
-
-- (NSAttributedString *)formatCoachMarksText:(NSString *)text {
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.lineSpacing = 4.0f;
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text];
-    [str addAttribute:NSFontAttributeName
-                value:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]
-                range:NSMakeRange(0, [text length])];
-    [str addAttribute:NSForegroundColorAttributeName
-                value:[UIColor colorFromHex:@"#ffffff"]
-                range:NSMakeRange(0, [text length])];
-    [str addAttribute:NSParagraphStyleAttributeName
-                value:paragraphStyle
-                range:NSMakeRange(0, [text length])];
-    return str;
 }
 
 @end
