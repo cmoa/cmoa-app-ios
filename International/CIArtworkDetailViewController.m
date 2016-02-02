@@ -105,21 +105,6 @@
     // Configure nav button
     CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
     [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
-
-    // Find out if user already recommended this artwork
-    BOOL artworkLiked = NO;
-    NSArray *likedArtworks = [[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked];
-    if (likedArtworks != nil) {
-        NSUInteger index = [likedArtworks indexOfObject:self.artwork.uuid];
-        if (index != NSNotFound) {
-            artworkLiked = YES;
-        }
-    }
-    if (artworkLiked == YES) {
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommendDisabled target:self action:@selector(navRightButtonDidPress:)];
-    } else {
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommend target:self action:@selector(navRightButtonDidPress:)];
-    }
     
     // Set the tab bar background
     tabBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tab_bg"]];
@@ -244,31 +229,6 @@
         [self performSegueWithIdentifier:@"exitArtworkDetailToCode" sender:self];
     } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
         [self performSegueWithIdentifier:@"exitArtworkDetailToArtistDetail" sender:self];
-    }
-}
-
-- (void)navRightButtonDidPress:(id)sender {
-    // Disable nav icon
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    UIView *rightButtonView = (UIView *)navItem.rightBarButtonItem.customView;
-    if (rightButtonView.tag == 0) { // Enabled
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommendDisabled target:self action:@selector(navRightButtonDidPress:)];
-        
-        // API Request
-        CIAPIRequest *apiRequest = [[CIAPIRequest alloc] init];
-        [apiRequest likeArtwork:self.artwork
-                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                            // Mark artwork as recommended
-                            [self markArtworkAsRecommended];
-                        }
-                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                            // Most likely failed b/c app was re-installed, but same device_id so already liked in the past
-                            // Mark artwork as recommended
-                            [self markArtworkAsRecommended];
-                        }];
-    } else if (rightButtonView.tag == 1) { // Disabled (already bookmarked)
-        // Remove artwork from bookmarked/recommended list
-        [self markArtworkAsNotRecommended];
     }
 }
 
@@ -596,57 +556,6 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
-}
-
-#pragma mark - Recommendation
-
-- (void)markArtworkAsRecommended {
-    // Add to local list of liked artworks
-    NSArray *likedArtworks = [[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked];
-    if (likedArtworks == nil) {
-        likedArtworks = [[NSArray alloc] init];
-    }
-    
-    // Already liked?
-    NSUInteger index = [likedArtworks indexOfObject:self.artwork.uuid];
-    if (index != NSNotFound) {
-        // Already liked!
-        return;
-    }
-    
-    // Add this artwork to liked list
-    NSMutableArray *updatedLikedArtwork = [NSMutableArray arrayWithArray:likedArtworks];
-    [updatedLikedArtwork addObject:self.artwork.uuid];
-    
-    // Save locally
-    [[NSUserDefaults standardUserDefaults] setValue:updatedLikedArtwork forKey:kCIArtworksLiked];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // Update likes count locally in coredata
-    self.artwork.likes = [NSNumber numberWithInt:([self.artwork.likes intValue] + 1)];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
-}
-
-- (void)markArtworkAsNotRecommended {
-    // Remove from local list of liked artworks
-    NSMutableArray *likedArtworks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked]];
-    [likedArtworks removeObject:self.artwork.uuid];
-    
-    if ([likedArtworks count] == 0) {
-        // Save locally
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCIArtworksLiked];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } else {
-        NSArray *updatedLikedArtwork = [NSArray arrayWithArray:likedArtworks];
-
-        // Save locally
-        [[NSUserDefaults standardUserDefaults] setValue:updatedLikedArtwork forKey:kCIArtworksLiked];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    
-    // Update navigation button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommend target:self action:@selector(navRightButtonDidPress:)];
 }
 
 #pragma mark - Artist info
