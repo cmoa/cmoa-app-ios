@@ -316,7 +316,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-vK-gok">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="391.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu7-iU-LPg">
@@ -377,24 +377,16 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unC-8g-R6K" customClass="CISeeArtworkButton">
-                                                <rect key="frame" x="0.0" y="297" width="320" height="44"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
+                                                <rect key="frame" x="15" y="299.5" width="290" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="06Y-gc-wYh"/>
+                                                    <constraint firstAttribute="height" constant="44" id="tF3-UM-hYa"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Artist">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="artistsInfoDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="p1J-CG-sjx"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
                                                 <rect key="frame" x="15" y="356" width="290" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="290" id="UM7-4a-wnI"/>
@@ -406,20 +398,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="unC-8g-R6K" firstAttribute="leading" secondItem="niz-sh-TqY" secondAttribute="leading" id="2Y7-wZ-klD"/>
-                                            <constraint firstItem="unC-8g-R6K" firstAttribute="top" secondItem="zDv-zc-F4Y" secondAttribute="bottom" constant="13" id="4Ls-GP-HOY"/>
                                             <constraint firstItem="B6z-yZ-a1B" firstAttribute="trailing" secondItem="zDv-zc-F4Y" secondAttribute="trailing" id="DSN-Lc-mRG"/>
-                                            <constraint firstItem="B6z-yZ-a1B" firstAttribute="top" secondItem="unC-8g-R6K" secondAttribute="bottom" constant="15" id="F1c-1j-ecd"/>
                                             <constraint firstItem="lu7-iU-LPg" firstAttribute="top" secondItem="niz-sh-TqY" secondAttribute="top" id="FTW-B4-nXr"/>
+                                            <constraint firstItem="QYy-Zm-eYV" firstAttribute="leading" secondItem="niz-sh-TqY" secondAttribute="leading" constant="15" id="HyZ-Ra-xh5"/>
+                                            <constraint firstItem="QYy-Zm-eYV" firstAttribute="top" secondItem="zDv-zc-F4Y" secondAttribute="bottom" constant="15" id="JFT-8l-qWz"/>
                                             <constraint firstItem="zDv-zc-F4Y" firstAttribute="leading" secondItem="niz-sh-TqY" secondAttribute="leading" constant="15" id="PVW-Wu-tST"/>
                                             <constraint firstItem="B6z-yZ-a1B" firstAttribute="leading" secondItem="zDv-zc-F4Y" secondAttribute="leading" id="Q5Q-xP-SR7"/>
                                             <constraint firstAttribute="bottom" secondItem="B6z-yZ-a1B" secondAttribute="bottom" constant="15" id="T4u-FX-D3z"/>
+                                            <constraint firstItem="B6z-yZ-a1B" firstAttribute="top" secondItem="QYy-Zm-eYV" secondAttribute="bottom" constant="15" id="Uvf-AJ-PEE"/>
                                             <constraint firstItem="lu7-iU-LPg" firstAttribute="trailing" secondItem="niz-sh-TqY" secondAttribute="trailing" id="YIp-QN-arD"/>
-                                            <constraint firstItem="unC-8g-R6K" firstAttribute="trailing" secondItem="niz-sh-TqY" secondAttribute="trailing" id="fEg-iD-Blp"/>
                                             <constraint firstItem="lu7-iU-LPg" firstAttribute="leading" secondItem="niz-sh-TqY" secondAttribute="leading" id="fom-ff-IDY"/>
                                             <constraint firstItem="KFM-9w-mhx" firstAttribute="trailing" secondItem="niz-sh-TqY" secondAttribute="trailing" id="h9F-0f-GMc"/>
                                             <constraint firstItem="KFM-9w-mhx" firstAttribute="leading" secondItem="niz-sh-TqY" secondAttribute="leading" id="hns-9f-SbP"/>
                                             <constraint firstAttribute="trailing" secondItem="zDv-zc-F4Y" secondAttribute="trailing" constant="15" id="jCL-6b-2SH"/>
+                                            <constraint firstAttribute="trailing" secondItem="QYy-Zm-eYV" secondAttribute="trailing" constant="15" id="nKg-fR-z0E"/>
                                             <constraint firstItem="KFM-9w-mhx" firstAttribute="top" secondItem="niz-sh-TqY" secondAttribute="top" constant="201" id="nwp-pS-iJk"/>
                                             <constraint firstItem="zDv-zc-F4Y" firstAttribute="top" secondItem="niz-sh-TqY" secondAttribute="top" constant="264" id="tkq-eY-W00"/>
                                         </constraints>
@@ -555,11 +547,11 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="audioView" destination="KFM-9w-mhx" id="9hx-m6-7Lu"/>
-                        <outlet property="btnArtist" destination="unC-8g-R6K" id="DXb-Yb-Bpz"/>
                         <outlet property="btnSequenceNext" destination="y1d-YB-hJ5" id="eW2-e6-y5W"/>
                         <outlet property="btnSequencePrev" destination="NqL-yM-p0h" id="Ykd-Ao-nnM"/>
                         <outlet property="btnShareArtwork" destination="kOu-Rn-cu2" id="Tm8-F7-V4D"/>
                         <outlet property="detailContainer" destination="niz-sh-TqY" id="o8I-iv-QhH"/>
+                        <outlet property="lblArtist" destination="QYy-Zm-eYV" id="ggL-d2-9ze"/>
                         <outlet property="lblDescription" destination="B6z-yZ-a1B" id="e8i-gz-yfw"/>
                         <outlet property="lblSequence" destination="eMp-AS-Aio" id="QhT-e6-pxl"/>
                         <outlet property="lblTitle" destination="zDv-zc-F4Y" id="cDC-fC-3zo"/>

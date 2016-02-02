@@ -38,7 +38,7 @@
     // Content styles
     lblTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:13.0f];
     lblDescription.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-    [btnArtist addTopSeparator];
+    [lblArtist addTopSeparator];
     
     // Show artwork details
     self.title = artwork.title;
@@ -62,14 +62,14 @@
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     [lblDescription addGestureRecognizer:pinchGesture];
     
-    // TODO: Make this into a label and scape when more artists
     // Artist(s)
     NSArray *artists = artwork.artists;
     if ([artists count] > 1) {
-        [btnArtist setTitle:@"See the artists" forState:UIControlStateNormal];
+        // List all the artists when there is more then one.
+        [lblArtist setText:@"See the artists"];
     } else {
         CIArtist *artist = [artists objectAtIndex:0];
-        [btnArtist setTitle:artist.name forState:UIControlStateNormal];
+        [lblArtist setText:artist.name];
     }
     
     // Configure audio (if any)

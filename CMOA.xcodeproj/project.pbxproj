@@ -447,7 +447,7 @@
 		23ECBA65179EFCCF00038701 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23ECBA64179EFCCF00038701 /* nav_back@2x.png */; };
 		23ECBA68179F097400038701 /* CIExhibitionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ECBA67179F097400038701 /* CIExhibitionButton.m */; };
 		23F298C417B1153D00E11EB7 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F298C317B1153D00E11EB7 /* OpenInChromeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		23F298CA17B11CCC00E11EB7 /* CISeeArtworkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F298C917B11CCC00E11EB7 /* CISeeArtworkButton.m */; };
+		23F298CA17B11CCC00E11EB7 /* CIArtistLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F298C917B11CCC00E11EB7 /* CIArtistLabel.m */; };
 		23F298D117B12E1D00E11EB7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F298D017B12E1C00E11EB7 /* Social.framework */; };
 		23F298D317B12EDF00E11EB7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F298D217B12EDF00E11EB7 /* MessageUI.framework */; };
 		23F348C917BEDAE700B4B40D /* button_recommend_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F348C817BEDAE700B4B40D /* button_recommend_on@2x.png */; };
@@ -1033,8 +1033,8 @@
 		23ECBA67179F097400038701 /* CIExhibitionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIExhibitionButton.m; sourceTree = "<group>"; };
 		23F298C217B1153D00E11EB7 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInChromeController.h; sourceTree = "<group>"; };
 		23F298C317B1153D00E11EB7 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInChromeController.m; sourceTree = "<group>"; };
-		23F298C817B11CCC00E11EB7 /* CISeeArtworkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISeeArtworkButton.h; sourceTree = "<group>"; };
-		23F298C917B11CCC00E11EB7 /* CISeeArtworkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISeeArtworkButton.m; sourceTree = "<group>"; };
+		23F298C817B11CCC00E11EB7 /* CIArtistLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIArtistLabel.h; sourceTree = "<group>"; };
+		23F298C917B11CCC00E11EB7 /* CIArtistLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIArtistLabel.m; sourceTree = "<group>"; };
 		23F298D017B12E1C00E11EB7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		23F298D217B12EDF00E11EB7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		23F348C817BEDAE700B4B40D /* button_recommend_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_recommend_on@2x.png"; sourceTree = "<group>"; };
@@ -1299,6 +1299,7 @@
 			children = (
 				2387EDC317BD3EF10016CB37 /* Map */,
 				239673FE17BB1D6300DEE6B3 /* Navigation */,
+				328875561C61140E00EDAE97 /* Labels */,
 				23ECBA69179F097E00038701 /* Buttons */,
 				235F0EA6179EBC13001D191A /* Table Cells */,
 				2350371817A05BFD0022A7EC /* Collection Cells */,
@@ -1928,8 +1929,6 @@
 				23177322179DAC01005E7601 /* CIWelcomeButton.m */,
 				23ECBA66179F097400038701 /* CIExhibitionButton.h */,
 				23ECBA67179F097400038701 /* CIExhibitionButton.m */,
-				23F298C817B11CCC00E11EB7 /* CISeeArtworkButton.h */,
-				23F298C917B11CCC00E11EB7 /* CISeeArtworkButton.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -2306,6 +2305,15 @@
 				322998791C56B535001FCDE4 /* CILocationsListViewController.m */,
 			);
 			name = Locations;
+			sourceTree = "<group>";
+		};
+		328875561C61140E00EDAE97 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				23F298C817B11CCC00E11EB7 /* CIArtistLabel.h */,
+				23F298C917B11CCC00E11EB7 /* CIArtistLabel.m */,
+			);
+			name = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2798,7 +2806,7 @@
 				23F8E66617B171F600F8EEF2 /* CIMuseumNewsViewController.m in Sources */,
 				23F298C417B1153D00E11EB7 /* OpenInChromeController.m in Sources */,
 				23FC83171785D750007FFFB1 /* UIColor+HexColor.m in Sources */,
-				23F298CA17B11CCC00E11EB7 /* CISeeArtworkButton.m in Sources */,
+				23F298CA17B11CCC00E11EB7 /* CIArtistLabel.m in Sources */,
 				23DD8D1717A98A2800E3FAA7 /* CITourDetailViewController.m in Sources */,
 				23FC830B1785D6F6007FFFB1 /* AFHTTPClient.m in Sources */,
 				2350371717A050250022A7EC /* CHTCollectionViewWaterfallLayout.m in Sources */,

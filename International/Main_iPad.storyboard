@@ -1311,7 +1311,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNG-lf-PA0">
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="656"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keg-Nx-6kV">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="keg-Nx-6kV">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="392"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeR-ag-aIW">
@@ -1367,24 +1367,16 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-Xo-Lb6" customClass="CISeeArtworkButton">
-                                                <rect key="frame" x="0.0" y="297" width="704" height="44"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-XX-E0P" userLabel="Lbl Artist" customClass="CIArtistLabel">
+                                                <rect key="frame" x="15" y="300" width="674" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="Id8-Pr-CMo"/>
+                                                    <constraint firstAttribute="height" constant="44" id="XVc-FB-u33"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Artist">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="artistsInfoDidPress:" destination="Ine-Mn-Tzc" eventType="touchUpInside" id="4ro-H5-JBj"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-Nl-sQ2" customClass="TTTAttributedLabel">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-Nl-sQ2" customClass="TTTAttributedLabel">
                                                 <rect key="frame" x="15" y="356" width="674" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1394,21 +1386,21 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="j6k-FW-Zh1" firstAttribute="leading" secondItem="keg-Nx-6kV" secondAttribute="leading" id="2WF-DV-R3c"/>
-                                            <constraint firstItem="Bb8-Xo-Lb6" firstAttribute="top" secondItem="XqZ-Y8-ZkW" secondAttribute="bottom" constant="13" id="6sm-MQ-E0J"/>
                                             <constraint firstItem="j6k-FW-Zh1" firstAttribute="trailing" secondItem="keg-Nx-6kV" secondAttribute="trailing" id="7HO-0G-og7"/>
                                             <constraint firstItem="yFa-Nl-sQ2" firstAttribute="trailing" secondItem="XqZ-Y8-ZkW" secondAttribute="trailing" id="7xs-xH-BrO"/>
+                                            <constraint firstAttribute="trailing" secondItem="EuJ-XX-E0P" secondAttribute="trailing" constant="15" id="8QW-hP-Q2c"/>
                                             <constraint firstItem="KeR-ag-aIW" firstAttribute="leading" secondItem="keg-Nx-6kV" secondAttribute="leading" id="8fk-fY-HD8"/>
                                             <constraint firstAttribute="trailing" secondItem="XqZ-Y8-ZkW" secondAttribute="trailing" constant="15" id="9QW-MC-PY6"/>
-                                            <constraint firstItem="Bb8-Xo-Lb6" firstAttribute="leading" secondItem="keg-Nx-6kV" secondAttribute="leading" id="Bqc-ZL-g2o"/>
+                                            <constraint firstItem="EuJ-XX-E0P" firstAttribute="top" secondItem="XqZ-Y8-ZkW" secondAttribute="bottom" constant="15" id="OCK-Zs-ac7"/>
+                                            <constraint firstItem="yFa-Nl-sQ2" firstAttribute="top" secondItem="EuJ-XX-E0P" secondAttribute="bottom" constant="15" id="Qog-wT-3pa"/>
                                             <constraint firstItem="KeR-ag-aIW" firstAttribute="trailing" secondItem="keg-Nx-6kV" secondAttribute="trailing" id="X2Y-m9-0tJ"/>
+                                            <constraint firstItem="EuJ-XX-E0P" firstAttribute="leading" secondItem="keg-Nx-6kV" secondAttribute="leading" constant="15" id="YIk-9f-avE"/>
                                             <constraint firstItem="XqZ-Y8-ZkW" firstAttribute="leading" secondItem="keg-Nx-6kV" secondAttribute="leading" constant="15" id="gD8-LG-S54"/>
                                             <constraint firstItem="yFa-Nl-sQ2" firstAttribute="leading" secondItem="XqZ-Y8-ZkW" secondAttribute="leading" id="gmq-t3-mf1"/>
                                             <constraint firstItem="XqZ-Y8-ZkW" firstAttribute="top" secondItem="keg-Nx-6kV" secondAttribute="top" constant="264" id="i2A-hy-gWM"/>
                                             <constraint firstItem="j6k-FW-Zh1" firstAttribute="top" secondItem="keg-Nx-6kV" secondAttribute="top" constant="201" id="nLh-4q-6Be"/>
                                             <constraint firstItem="KeR-ag-aIW" firstAttribute="top" secondItem="keg-Nx-6kV" secondAttribute="top" id="ofq-8B-lws"/>
                                             <constraint firstAttribute="bottom" secondItem="yFa-Nl-sQ2" secondAttribute="bottom" constant="15" id="slO-lr-b7o"/>
-                                            <constraint firstItem="yFa-Nl-sQ2" firstAttribute="top" secondItem="Bb8-Xo-Lb6" secondAttribute="bottom" constant="15" id="y7p-Ch-jC8"/>
-                                            <constraint firstItem="Bb8-Xo-Lb6" firstAttribute="trailing" secondItem="keg-Nx-6kV" secondAttribute="trailing" id="z1v-oN-hVN"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1544,11 +1536,11 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="audioView" destination="j6k-FW-Zh1" id="0fg-5l-Wfc"/>
-                        <outlet property="btnArtist" destination="Bb8-Xo-Lb6" id="DSY-8C-WrI"/>
                         <outlet property="btnSequenceNext" destination="ZSL-4b-giX" id="j4A-v6-TCH"/>
                         <outlet property="btnSequencePrev" destination="kEJ-aF-Jk3" id="vYt-Lm-yXV"/>
                         <outlet property="btnShareArtwork" destination="5N0-HY-wDw" id="GsO-g7-JIq"/>
                         <outlet property="detailContainer" destination="keg-Nx-6kV" id="yox-On-gjs"/>
+                        <outlet property="lblArtist" destination="EuJ-XX-E0P" id="sDb-hn-ZXj"/>
                         <outlet property="lblDescription" destination="yFa-Nl-sQ2" id="WTR-NX-HVz"/>
                         <outlet property="lblSequence" destination="ZPa-eo-IIB" id="VI9-cQ-EzD"/>
                         <outlet property="lblTitle" destination="XqZ-Y8-ZkW" id="hIO-vV-dnX"/>
