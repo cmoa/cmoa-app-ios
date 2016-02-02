@@ -18,6 +18,5 @@
 }
 
 @property (nonatomic, retain) CITour *tour;
-@property (nonatomic) BOOL isRecommendedTour;
 
 @end

@@ -17,7 +17,6 @@
 #import "CIVideoPlayerViewController.h"
 #import "CISeeArtworkButton.h"
 #import "SMPageControl.h"
-#import "WSCoachMarksView.h"
 
 @interface CIArtworkDetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CIAudioViewDelegate, UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIScrollViewDelegate> {
     IBOutlet TTTAttributedLabel *lblDescription;
@@ -49,9 +48,6 @@
     
     // Layout constraints
     NSLayoutConstraint *lblDescriptionHeightConstraint;
-    
-    // Coach marks
-    WSCoachMarksView *coachMarksView;
 }
 
 @property (nonatomic, retain) CIArtwork *artwork;

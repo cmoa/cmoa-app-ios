@@ -72,9 +72,6 @@
 
     // User defaults keys
     #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
-    #define kCIDidShowCoachMarks @"kCIDidShowCoachMarks"
-    #define kCIDidShowArtworkDetailCoachMarks @"kCIDidShowArtworkDetailCoachMarks"
-    #define kCIArtworksLiked @"kCIArtworksLiked"
     #define kCISettingsApiToken @"api_token"
     #define kCISettingsApiSecret @"api_secret"
 #endif

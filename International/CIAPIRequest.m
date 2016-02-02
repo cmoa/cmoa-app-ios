@@ -345,18 +345,6 @@
             [CITourArtwork findFirstOrCreateByAttribute:@"uuid" withValue:[tourArtworkData objectForKey:@"uuid"] usingData:tourArtworkData];
         }
         
-        // Likes
-        NSDictionary *likesData = [JSON objectForKey:@"likes"];
-        [likesData enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            NSString *artworkUuid = (NSString *)key;
-            NSNumber *totalLikes = (NSNumber *)obj;
-            // Find artwork
-            CIArtwork *artwork = [CIArtwork MR_findFirstByAttribute:@"uuid" withValue:artworkUuid];
-            if (artwork != nil) {
-                artwork.likes = totalLikes;
-            }
-        }];
-        
         // Save the context
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success1, NSError *error) {
             if (error && failure) {
@@ -375,22 +363,6 @@
 
 - (void)syncAll {
     [self syncAll:YES success:nil failure:nil];
-}
-
-- (void)likeArtwork:(CIArtwork*)artwork
-            success:(CIAPIRequestSuccessBlock)success
-            failure:(CIAPIRequestFailureBlock)failure {
-    
-    // Find local device id
-    NSString *device = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
-    
-    // API call
-    NSString *url = [NSString stringWithFormat:@"/api/v2/like?artwork=%@&device=%@", [artwork.uuid urlEncodedString], [device urlEncodedString]];
-    [self apiPerformPostRequestWithURL:url
-                              postData:nil
-                           signRequest:YES
-                               success:success
-                               failure:failure];
 }
 
 - (void)subscribeEmail:(NSString*)email

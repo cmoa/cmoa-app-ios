@@ -56,9 +56,6 @@
     }
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    // Haven't shown yet
-    didShowOnce = NO;
-    
     // Set button separators on the bottom for iPad
     if (IS_IPAD) {
         for (CIWelcomeButton *button in navContainer.subviews) {
@@ -70,9 +67,6 @@
     if (IS_IPAD) {
         btnExhibitions.selected = YES;
     }
-    
-    // Setup tap handler for coach marks
-    [self addCoachMarksTapGesture];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -120,22 +114,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
     [CIAnalyticsHelper sendEvent:@"AppStart"];
-
-    if (didShowOnce == NO) {
-        didShowOnce = YES;
-        
-        [UIView animateWithDuration:0.5f animations:^{
-            headerImage.alpha = 1.0f;
-            navContainer.alpha = 1.0f;
-            btnSearch.alpha = 1.0f;
-        } completion:^(BOOL finished) {
-            // Show coach marks
-            [self showCoachMarks:NO];
-
-            // Start sync process (after coach marks show)
-            [self performSelector:@selector(runSync) withObject:nil afterDelay:0.5f];
-        }];
-    }
+    [self runSync];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,12 +170,8 @@
         // Show HUD
         MBProgressHUD *hud;
         if (IS_IPHONE) {
-            if (coachMarksView != nil) {
-                // Find coach marks view index to show HUD under it
-                hud = [MBProgressHUD showHUDAddedTo:self.view belowSubview:coachMarksView animated:YES];
-            } else {
-                hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            }
+            hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            
         } else {
             UIViewController *detailViewController = [self.splitViewController.viewControllers objectAtIndex:1];
             hud = [MBProgressHUD showHUDAddedTo:detailViewController.view animated:YES];
@@ -260,12 +235,8 @@
     // Show HUD
     MBProgressHUD *hud;
     if (IS_IPHONE) {
-        if (coachMarksView != nil) {
-            // Find coach marks view index to show HUD under it
-            hud = [MBProgressHUD showHUDAddedTo:self.view belowSubview:coachMarksView animated:YES];
-        } else {
-            hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        }
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
     } else {
         UIViewController *detailViewController = [self.splitViewController.viewControllers objectAtIndex:1];
         hud = [MBProgressHUD showHUDAddedTo:detailViewController.view animated:YES];
@@ -367,116 +338,6 @@
         // TODO: How to handle? Use default image for exhibition background?
     }];
     [operation start];
-}
-
-#pragma mark - Coach marks
-
-- (void)showCoachMarks:(BOOL)forceShow {
-    // Coach marks
-    BOOL coachMarksShown = [[NSUserDefaults standardUserDefaults] boolForKey:kCIDidShowCoachMarks];
-    if (forceShow == YES || coachMarksShown == NO) {
-        // Don't show again
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kCIDidShowCoachMarks];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        // Temporarily remove the gesture (so we don't accidentally trigger it again until dismissed)
-        [self.view removeGestureRecognizer:coachMarksTapGesture];
-
-        // Setup coach marks
-        UIEdgeInsets padding;
-        if (IS_IPAD) {
-            padding = UIEdgeInsetsMake(11.0f, 8.0f, 11.0f, 8.0f);
-        } else {
-            padding = UIEdgeInsetsMake(4.0f, 6.0f, 4.0f, 6.0f);
-        }
-        CGRect rectCode;
-        if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {
-            rectCode = (CGRect){{263.0f, 8.0f}, {57, 50.0f}};
-        } else {
-            rectCode = (CGRect){{263.0f, 28.0f}, {57, 50.0f}};
-        }
-        CGRect rectMyVisit = [self addPaddingToRect:[navContainer convertRect:btnMyVisit.frame toView:self.view]
-                                            padding:padding];
-        CGRect rectExhibitions = [self addPaddingToRect:[navContainer convertRect:btnExhibitions.frame toView:self.view]
-                                                padding:padding];
-        CGRect rectConnect = [self addPaddingToRect:[navContainer convertRect:btnConnect.frame toView:self.view]
-                                            padding:padding];
-        NSArray *coachMarks = @[
-                                @{
-                                    @"caption": [self formatCoachMarksText:@"Welcome to the\nCarnegie Museum of Art"]
-                                    },
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectCode],
-                                    @"caption": [self formatCoachMarksText:@"Look up artworks and artists by object code.\n\nCheck gallery labels for code information."]
-                                    },
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectMyVisit],
-                                    @"caption": [self formatCoachMarksText:@"Plan your next visit.\n\nCreate your must-see artwork list, learn open hours or find directions."]
-                                    },
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectExhibitions],
-                                    @"caption": [self formatCoachMarksText:@"Explore artworks and exhibitions."]
-                                    },
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectConnect],
-                                    @"caption": [self formatCoachMarksText:@"Stay connected."]
-                                    }
-                                ];
-        coachMarksView = [[WSCoachMarksView alloc] initWithFrame:self.view.bounds coachMarks:coachMarks];
-        coachMarksView.delegate = self;
-        coachMarksView.strContinue = @"Tap to Begin";
-        [self.view addSubview:coachMarksView];
-        
-        // Show coach marks
-        [coachMarksView start];
-    }
-}
-
-- (CGRect)addPaddingToRect:(CGRect)rect padding:(UIEdgeInsets)padding {
-    rect.origin.x = rect.origin.x + padding.left;
-    rect.origin.y = rect.origin.y + padding.top;
-    rect.size.width = rect.size.width - padding.left - padding.right;
-    rect.size.height = rect.size.height - padding.top - padding.bottom;
-    return rect;
-}
-
-- (NSAttributedString *)formatCoachMarksText:(NSString *)text {
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.lineSpacing = 4.0f;
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text];
-    [str addAttribute:NSFontAttributeName
-                value:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]
-                range:NSMakeRange(0, [text length])];
-    [str addAttribute:NSForegroundColorAttributeName
-                value:[UIColor colorFromHex:@"#ffffff"]
-                range:NSMakeRange(0, [text length])];
-    [str addAttribute:NSParagraphStyleAttributeName
-                value:paragraphStyle
-                range:NSMakeRange(0, [text length])];
-    return str;
-}
-
-- (void)addCoachMarksTapGesture {
-    if (coachMarksTapGesture == nil) {
-        coachMarksTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(coachMarksTapHandler:)];
-        coachMarksTapGesture.numberOfTapsRequired = 3;
-    }
-    [self.view addGestureRecognizer:coachMarksTapGesture];
-}
-
-- (void)coachMarksTapHandler:(UIGestureRecognizer *)gesture {
-    // Show coach marks and override defaults
-    [self showCoachMarks:YES];
-    
-    // Also show coach marks on artwork detail page
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCIDidShowArtworkDetailCoachMarks];
-}
-
-- (void)coachMarksViewDidCleanup:(WSCoachMarksView *)coachMarksView {
-    // Re-add tap gesture
-    [self addCoachMarksTapGesture];
 }
 
 @end

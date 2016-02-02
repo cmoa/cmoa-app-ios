@@ -96,7 +96,6 @@
 		233B508217B00952008956F4 /* NSAttributedStringMarkdownParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 233B507F17B00952008956F4 /* NSAttributedStringMarkdownParser.m */; };
 		233B508517B00A28008956F4 /* fmemopen.c in Sources */ = {isa = PBXBuildFile; fileRef = 233B508317B00A28008956F4 /* fmemopen.c */; };
 		233B508917B025AF008956F4 /* CITextHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 233B508817B025AF008956F4 /* CITextHelper.m */; };
-		233B8A831859F54A002760D7 /* WSCoachMarksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 233B8A821859F54A002760D7 /* WSCoachMarksView.m */; };
 		2341128317D8F37B00DA27E2 /* id_audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 2341127F17D8F37A00DA27E2 /* id_audio.png */; };
 		2341128417D8F37B00DA27E2 /* id_audio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2341128017D8F37A00DA27E2 /* id_audio@2x.png */; };
 		2341128517D8F37B00DA27E2 /* id_video.png in Resources */ = {isa = PBXBuildFile; fileRef = 2341128117D8F37A00DA27E2 /* id_video.png */; };
@@ -627,8 +626,6 @@
 		233B508417B00A28008956F4 /* fmemopen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmemopen.h; sourceTree = "<group>"; };
 		233B508717B025AF008956F4 /* CITextHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CITextHelper.h; sourceTree = "<group>"; };
 		233B508817B025AF008956F4 /* CITextHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CITextHelper.m; sourceTree = "<group>"; };
-		233B8A811859F54A002760D7 /* WSCoachMarksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSCoachMarksView.h; sourceTree = "<group>"; };
-		233B8A821859F54A002760D7 /* WSCoachMarksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSCoachMarksView.m; sourceTree = "<group>"; };
 		2341127F17D8F37A00DA27E2 /* id_audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = id_audio.png; sourceTree = "<group>"; };
 		2341128017D8F37A00DA27E2 /* id_audio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "id_audio@2x.png"; sourceTree = "<group>"; };
 		2341128117D8F37A00DA27E2 /* id_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = id_video.png; sourceTree = "<group>"; };
@@ -1413,15 +1410,6 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		233B8A801859F54A002760D7 /* WSCoachMarks */ = {
-			isa = PBXGroup;
-			children = (
-				233B8A811859F54A002760D7 /* WSCoachMarksView.h */,
-				233B8A821859F54A002760D7 /* WSCoachMarksView.m */,
-			);
-			path = WSCoachMarks;
-			sourceTree = SOURCE_ROOT;
-		};
 		2341127E17D8F36A00DA27E2 /* Artwork Identification */ = {
 			isa = PBXGroup;
 			children = (
@@ -2074,7 +2062,6 @@
 		23F91B641784A57700B2691C /* External */ = {
 			isa = PBXGroup;
 			children = (
-				233B8A801859F54A002760D7 /* WSCoachMarks */,
 				2305F05E17D64E1900BD472E /* GoogleAnalytics */,
 				2333E06A17BFC33500A6DC8F /* Device ID */,
 				2355F4D117BEA6B800E4904D /* SMPageControl */,
@@ -2794,7 +2781,6 @@
 				23DD8D1417A984AF00E3FAA7 /* CITourListViewController.m in Sources */,
 				23F91BA21784A58900B2691C /* NSAttributeDescription+MagicalDataImport.m in Sources */,
 				236EA03B18A09A41005EF2C1 /* CIAppState.m in Sources */,
-				233B8A831859F54A002760D7 /* WSCoachMarksView.m in Sources */,
 				23F8E65C17B15E5100F8EEF2 /* CIVisitViewController.m in Sources */,
 				237D76DC1868F8330086868B /* CITourArtwork.m in Sources */,
 				23809A3017A6CA4F00F52451 /* CIAudioView.m in Sources */,
