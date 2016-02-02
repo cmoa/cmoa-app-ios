@@ -14,8 +14,6 @@
 #import "CIVideoSliderCell.h"
 #import "CIArtworkPhotoDetailViewController.h"
 #import "CIArtworkAudioListViewController.h"
-#import "CIArtistDetailViewController.h"
-#import "CIArtistListViewController.h"
 #import "CIAPIRequest.h"
 
 #define CELL_WIDTH 137
@@ -64,6 +62,7 @@
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     [lblDescription addGestureRecognizer:pinchGesture];
     
+    // TODO: Make this into a label and scape when more artists
     // Artist(s)
     NSArray *artists = artwork.artists;
     if ([artists count] > 1) {
@@ -414,17 +413,6 @@
         // Configure the controller
         CIArtworkAudioListViewController *artworkAudioListViewController = (CIArtworkAudioListViewController *)segue.destinationViewController;
         artworkAudioListViewController.artwork = self.artwork;
-    } else if ([segue.identifier isEqualToString:@"showArtistDetail"]) {
-        // Configure the controller
-        CIArtistDetailViewController *artistDetailViewController = (CIArtistDetailViewController *)segue.destinationViewController;
-        artistDetailViewController.artist = (CIArtist*)[self.artwork.artists objectAtIndex:0];
-        artistDetailViewController.artists = self.artwork.artists;
-        artistDetailViewController.parentMode = @"artwork";
-    } else if ([segue.identifier isEqualToString:@"showArtistList"]) {
-        // Configure the controller
-        CIArtistListViewController *artistListViewController = (CIArtistListViewController *)segue.destinationViewController;
-        artistListViewController.artists = self.artwork.artists;
-        artistListViewController.parentMode = @"artwork";
     }
 }
 
@@ -553,16 +541,6 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
-}
-
-#pragma mark - Artist info
-
-- (IBAction)artistsInfoDidPress:(id)sender {
-    if ([self.artwork.artists count] > 1) {
-        [self performSegueWithIdentifier:@"showArtistList" sender:self];
-    } else {
-        [self performSegueWithIdentifier:@"showArtistDetail" sender:self];
-    }
 }
 
 @end

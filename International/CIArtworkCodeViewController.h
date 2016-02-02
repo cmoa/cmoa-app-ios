@@ -14,7 +14,6 @@
     IBOutlet UILabel *lblNote;
     IBOutlet UIButton *btnSearch;
     CIArtwork *artwork;
-    CIArtist *artist;
 }
 
 @property (nonatomic, retain) NSString *parentMode;

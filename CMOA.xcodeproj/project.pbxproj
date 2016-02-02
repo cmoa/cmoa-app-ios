@@ -434,7 +434,6 @@
 		23E1BA66179F238700854919 /* welcome_bg_blur-h568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BA65179F238700854919 /* welcome_bg_blur-h568@2x.png */; };
 		23E3FF2F17E0B05D00182451 /* CISplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E3FF2E17E0B05D00182451 /* CISplitViewController.m */; };
 		23E7DFE6178C83C7005A1792 /* CIWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E7DFE5178C83C7005A1792 /* CIWelcomeViewController.m */; };
-		23E7DFEA178C8AB1005A1792 /* CIArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E7DFE9178C8AB1005A1792 /* CIArtistDetailViewController.m */; };
 		23E8405117D546FC00730311 /* button_open_safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E8405017D546FC00730311 /* button_open_safari@2x.png */; };
 		23E950F317BAC48600F04A14 /* CICategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E950F217BAC48600F04A14 /* CICategoryListViewController.m */; };
 		23E950F717BAC55E00F04A14 /* CICategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E950F617BAC55E00F04A14 /* CICategoryCell.m */; };
@@ -466,7 +465,6 @@
 		23F91B381784A3FC00B2691C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B371784A3FC00B2691C /* main.m */; };
 		23F91B3C1784A3FC00B2691C /* CIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B3B1784A3FC00B2691C /* CIAppDelegate.m */; };
 		23F91B3F1784A3FC00B2691C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F91B3D1784A3FC00B2691C /* Main_iPhone.storyboard */; };
-		23F91B451784A3FC00B2691C /* CIArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B441784A3FC00B2691C /* CIArtistListViewController.m */; };
 		23F91BA11784A58900B2691C /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B691784A58900B2691C /* MagicalImportFunctions.m */; };
 		23F91BA21784A58900B2691C /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B6B1784A58900B2691C /* NSAttributeDescription+MagicalDataImport.m */; };
 		23F91BA31784A58900B2691C /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B6D1784A58900B2691C /* NSEntityDescription+MagicalDataImport.m */; };
@@ -1017,8 +1015,6 @@
 		23E3FF2E17E0B05D00182451 /* CISplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISplitViewController.m; sourceTree = "<group>"; };
 		23E7DFE4178C83C7005A1792 /* CIWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIWelcomeViewController.h; sourceTree = "<group>"; };
 		23E7DFE5178C83C7005A1792 /* CIWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIWelcomeViewController.m; sourceTree = "<group>"; };
-		23E7DFE8178C8AB1005A1792 /* CIArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIArtistDetailViewController.h; sourceTree = "<group>"; };
-		23E7DFE9178C8AB1005A1792 /* CIArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIArtistDetailViewController.m; sourceTree = "<group>"; };
 		23E8405017D546FC00730311 /* button_open_safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_open_safari@2x.png"; sourceTree = "<group>"; };
 		23E950F117BAC48600F04A14 /* CICategoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CICategoryListViewController.h; sourceTree = "<group>"; };
 		23E950F217BAC48600F04A14 /* CICategoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CICategoryListViewController.m; sourceTree = "<group>"; };
@@ -1066,8 +1062,6 @@
 		23F91B3A1784A3FC00B2691C /* CIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIAppDelegate.h; sourceTree = "<group>"; };
 		23F91B3B1784A3FC00B2691C /* CIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIAppDelegate.m; sourceTree = "<group>"; };
 		23F91B3E1784A3FC00B2691C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		23F91B431784A3FC00B2691C /* CIArtistListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIArtistListViewController.h; sourceTree = "<group>"; };
-		23F91B441784A3FC00B2691C /* CIArtistListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIArtistListViewController.m; sourceTree = "<group>"; };
 		23F91B681784A58900B2691C /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		23F91B691784A58900B2691C /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		23F91B6A1784A58900B2691C /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -1275,17 +1269,6 @@
 				2383518517C2512E00AEB0DB /* CIConnectViewController.m */,
 			);
 			name = Welcome;
-			sourceTree = "<group>";
-		};
-		2317731A179D7A07005E7601 /* Artists */ = {
-			isa = PBXGroup;
-			children = (
-				23F91B431784A3FC00B2691C /* CIArtistListViewController.h */,
-				23F91B441784A3FC00B2691C /* CIArtistListViewController.m */,
-				23E7DFE8178C8AB1005A1792 /* CIArtistDetailViewController.h */,
-				23E7DFE9178C8AB1005A1792 /* CIArtistDetailViewController.m */,
-			);
-			name = Artists;
 			sourceTree = "<group>";
 		};
 		2317731B179D7A0F005E7601 /* Artwork */ = {
@@ -1920,7 +1903,6 @@
 			children = (
 				23177319179D79FF005E7601 /* Welcome */,
 				23177318179D79EF005E7601 /* Exhibitions */,
-				2317731A179D7A07005E7601 /* Artists */,
 				2317731B179D7A0F005E7601 /* Artwork */,
 				23E950F417BAC51C00F04A14 /* Categories */,
 				23DD8D1117A9849000E3FAA7 /* Tours */,
@@ -2807,7 +2789,6 @@
 				23177311179D720C005E7601 /* CIExhibitionListViewController.m in Sources */,
 				23AEFC20178DA64E006F5C3E /* CIArtworkDetailViewController.m in Sources */,
 				2350371317A04E240022A7EC /* CIArtworkPhotosViewController.m in Sources */,
-				23E7DFEA178C8AB1005A1792 /* CIArtistDetailViewController.m in Sources */,
 				23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */,
 				23E1BA62179F216F00854919 /* UIImage+Alpha.m in Sources */,
 				23F91BAB1784A58900B2691C /* NSManagedObject+MagicalRecord.m in Sources */,
@@ -2852,7 +2833,6 @@
 				23ADE0FD179DC6B5008D52DC /* CINavigationBar.m in Sources */,
 				23F91BBA1784A58900B2691C /* MagicalRecord.m in Sources */,
 				23DD9CA6178B03B00016E41D /* CIExhibition+Helpers.m in Sources */,
-				23F91B451784A3FC00B2691C /* CIArtistListViewController.m in Sources */,
 				23DD8D2117A9A9C500E3FAA7 /* CIArtworkTabButton.m in Sources */,
 				23F91BB51784A58900B2691C /* MagicalRecord+ErrorHandling.m in Sources */,
 				23177317179D760A005E7601 /* CINavigationController.m in Sources */,
