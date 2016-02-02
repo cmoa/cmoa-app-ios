@@ -10,7 +10,6 @@
 #import "CIArtworkCodeViewController.h"
 #import "CINavigationItem.h"
 #import "CIArtworkDetailViewController.h"
-#import "CIArtistDetailViewController.h"
 
 #define kGodModeAlertViewTag 10
 
@@ -115,26 +114,17 @@
         return;
     }
     
-    // Searching for artwork or artist?
-    if ([searchStr length] == 2) { // Artist
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (code == %@)", searchStr];
-        artist = [CIArtist MR_findFirstWithPredicate:predicate];
-        if (artist) {
-            [self performSegueWithIdentifier:@"showArtistDetail" sender:self];
-            return;
-        }
-    } else { // Artwork
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (code == %@)", searchStr];
-        artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
-        if (artwork) {
-            [self performSegueWithIdentifier:@"showArtworkDetail" sender:self];
-            return;
-        }
+    // Searching for Artwork
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (code == %@)", searchStr];
+    artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
+    if (artwork) {
+        [self performSegueWithIdentifier:@"showArtworkDetail" sender:self];
+        return;
     }
     
     // If we're here, neither was found
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Code"
-                                                    message:@"Unfortunately, we could not find the artwork or artist."
+                                                    message:@"Unfortunately, we could not find the artwork."
                                                    delegate:nil
                                           cancelButtonTitle:@"Try Again"
                                           otherButtonTitles:nil];
@@ -153,12 +143,6 @@
         artworkDetailViewController.artworks = @[artwork];
         artworkDetailViewController.artwork = artwork;
         artworkDetailViewController.parentMode = @"code";
-    } else if ([segue.identifier isEqualToString:@"showArtistDetail"]) {
-        CIArtistDetailViewController *artistDetailViewController = (CIArtistDetailViewController *)segue.destinationViewController;
-        artistDetailViewController.hidesBottomBarWhenPushed = YES;
-        artistDetailViewController.artists = @[artist];
-        artistDetailViewController.artist = artist;
-        artistDetailViewController.parentMode = @"code";
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  CISeeArtworkButton.h
+//  CIArtistLabel.h
 //  International
 //
 //  Created by Dimitry Bentsionov on 8/6/13.
@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CISeeArtworkButton : UIButton {
+@interface CIArtistLabel : UILabel {
     UIView *sepView;
     UIView *sepView2;
 }
+
+@property (nonatomic, assign) UIEdgeInsets edgeInsets;
 
 - (void)addTopSeparator;
 

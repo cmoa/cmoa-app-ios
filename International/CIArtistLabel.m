@@ -1,5 +1,5 @@
 //
-//  CISeeArtworkButton.m
+//  CIArtistLabel.m
 //  International
 //
 //  Created by Dimitry Bentsionov on 8/6/13.
@@ -7,9 +7,9 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "CISeeArtworkButton.h"
+#import "CIArtistLabel.h"
 
-@implementation CISeeArtworkButton
+@implementation CIArtistLabel
 
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -29,15 +29,13 @@
 
 - (void)postInit {
     // Text alignment
-    self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    self.contentEdgeInsets = UIEdgeInsetsMake(10, 15, 10, 15);
+    self.edgeInsets = UIEdgeInsetsMake(10, 0, 10, 0);
     
     // Style
-    self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:15.0f];
-    [self setTitleColor:[UIColor colorFromHex:@"#556270"] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor colorFromHex:@"#556270" alpha:0.6f] forState:UIControlStateHighlighted];
+    self.font = [UIFont fontWithName:@"HelveticaNeue" size:15.0f];
+    self.textColor = [UIColor colorFromHex:@"#556270"];
     
-    // Sep line
+    // Bottom Sep line
     CGRect frame = (CGRect){{0.0f, self.frame.size.height - 1.0f}, {self.frame.size.width, 1.0f}};
     sepView = [[UIView alloc] initWithFrame:frame];
     sepView.backgroundColor = [UIColor colorFromHex:@"#e0e0e0"];
@@ -62,6 +60,10 @@
     sepView2.backgroundColor = [UIColor colorFromHex:@"#e0e0e0"];
     sepView2.userInteractionEnabled = NO;
     [self addSubview:sepView2];
+}
+
+- (void)drawTextInRect:(CGRect)rect {
+    return [super drawTextInRect:UIEdgeInsetsInsetRect(rect, self.edgeInsets)];
 }
 
 @end

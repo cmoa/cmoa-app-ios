@@ -14,8 +14,6 @@
 #import "CIVideoSliderCell.h"
 #import "CIArtworkPhotoDetailViewController.h"
 #import "CIArtworkAudioListViewController.h"
-#import "CIArtistDetailViewController.h"
-#import "CIArtistListViewController.h"
 #import "CIAPIRequest.h"
 
 #define CELL_WIDTH 137
@@ -40,7 +38,7 @@
     // Content styles
     lblTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:13.0f];
     lblDescription.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-    [btnArtist addTopSeparator];
+    [lblArtist addTopSeparator];
     
     // Show artwork details
     self.title = artwork.title;
@@ -67,10 +65,23 @@
     // Artist(s)
     NSArray *artists = artwork.artists;
     if ([artists count] > 1) {
-        [btnArtist setTitle:@"See the artists" forState:UIControlStateNormal];
+        NSString *artistNames = @"";
+        CGFloat height = lblArtistHeightConstraint.constant;
+        
+        for (CIArtist *artist in artists) {
+            if (artist == [artists lastObject]) {
+                artistNames = [artistNames stringByAppendingString:artist.name];
+            } else {
+                height += 22;
+                artistNames = [artistNames stringByAppendingFormat:@"%@\n", artist.name];
+            }
+        }
+        
+        [lblArtist setText:artistNames];
+        lblArtistHeightConstraint.constant = height;
     } else {
         CIArtist *artist = [artists objectAtIndex:0];
-        [btnArtist setTitle:artist.name forState:UIControlStateNormal];
+        [lblArtist setText:artist.name];
     }
     
     // Configure audio (if any)
@@ -414,17 +425,6 @@
         // Configure the controller
         CIArtworkAudioListViewController *artworkAudioListViewController = (CIArtworkAudioListViewController *)segue.destinationViewController;
         artworkAudioListViewController.artwork = self.artwork;
-    } else if ([segue.identifier isEqualToString:@"showArtistDetail"]) {
-        // Configure the controller
-        CIArtistDetailViewController *artistDetailViewController = (CIArtistDetailViewController *)segue.destinationViewController;
-        artistDetailViewController.artist = (CIArtist*)[self.artwork.artists objectAtIndex:0];
-        artistDetailViewController.artists = self.artwork.artists;
-        artistDetailViewController.parentMode = @"artwork";
-    } else if ([segue.identifier isEqualToString:@"showArtistList"]) {
-        // Configure the controller
-        CIArtistListViewController *artistListViewController = (CIArtistListViewController *)segue.destinationViewController;
-        artistListViewController.artists = self.artwork.artists;
-        artistListViewController.parentMode = @"artwork";
     }
 }
 
@@ -553,16 +553,6 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
-}
-
-#pragma mark - Artist info
-
-- (IBAction)artistsInfoDidPress:(id)sender {
-    if ([self.artwork.artists count] > 1) {
-        [self performSegueWithIdentifier:@"showArtistList" sender:self];
-    } else {
-        [self performSegueWithIdentifier:@"showArtistDetail" sender:self];
-    }
 }
 
 @end

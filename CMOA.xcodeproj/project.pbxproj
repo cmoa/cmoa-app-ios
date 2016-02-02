@@ -434,7 +434,6 @@
 		23E1BA66179F238700854919 /* welcome_bg_blur-h568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E1BA65179F238700854919 /* welcome_bg_blur-h568@2x.png */; };
 		23E3FF2F17E0B05D00182451 /* CISplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E3FF2E17E0B05D00182451 /* CISplitViewController.m */; };
 		23E7DFE6178C83C7005A1792 /* CIWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E7DFE5178C83C7005A1792 /* CIWelcomeViewController.m */; };
-		23E7DFEA178C8AB1005A1792 /* CIArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E7DFE9178C8AB1005A1792 /* CIArtistDetailViewController.m */; };
 		23E8405117D546FC00730311 /* button_open_safari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23E8405017D546FC00730311 /* button_open_safari@2x.png */; };
 		23E950F317BAC48600F04A14 /* CICategoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E950F217BAC48600F04A14 /* CICategoryListViewController.m */; };
 		23E950F717BAC55E00F04A14 /* CICategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23E950F617BAC55E00F04A14 /* CICategoryCell.m */; };
@@ -448,7 +447,7 @@
 		23ECBA65179EFCCF00038701 /* nav_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23ECBA64179EFCCF00038701 /* nav_back@2x.png */; };
 		23ECBA68179F097400038701 /* CIExhibitionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23ECBA67179F097400038701 /* CIExhibitionButton.m */; };
 		23F298C417B1153D00E11EB7 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F298C317B1153D00E11EB7 /* OpenInChromeController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		23F298CA17B11CCC00E11EB7 /* CISeeArtworkButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F298C917B11CCC00E11EB7 /* CISeeArtworkButton.m */; };
+		23F298CA17B11CCC00E11EB7 /* CIArtistLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F298C917B11CCC00E11EB7 /* CIArtistLabel.m */; };
 		23F298D117B12E1D00E11EB7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F298D017B12E1C00E11EB7 /* Social.framework */; };
 		23F298D317B12EDF00E11EB7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F298D217B12EDF00E11EB7 /* MessageUI.framework */; };
 		23F348C917BEDAE700B4B40D /* button_recommend_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F348C817BEDAE700B4B40D /* button_recommend_on@2x.png */; };
@@ -466,7 +465,6 @@
 		23F91B381784A3FC00B2691C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B371784A3FC00B2691C /* main.m */; };
 		23F91B3C1784A3FC00B2691C /* CIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B3B1784A3FC00B2691C /* CIAppDelegate.m */; };
 		23F91B3F1784A3FC00B2691C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F91B3D1784A3FC00B2691C /* Main_iPhone.storyboard */; };
-		23F91B451784A3FC00B2691C /* CIArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B441784A3FC00B2691C /* CIArtistListViewController.m */; };
 		23F91BA11784A58900B2691C /* MagicalImportFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B691784A58900B2691C /* MagicalImportFunctions.m */; };
 		23F91BA21784A58900B2691C /* NSAttributeDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B6B1784A58900B2691C /* NSAttributeDescription+MagicalDataImport.m */; };
 		23F91BA31784A58900B2691C /* NSEntityDescription+MagicalDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F91B6D1784A58900B2691C /* NSEntityDescription+MagicalDataImport.m */; };
@@ -1017,8 +1015,6 @@
 		23E3FF2E17E0B05D00182451 /* CISplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISplitViewController.m; sourceTree = "<group>"; };
 		23E7DFE4178C83C7005A1792 /* CIWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIWelcomeViewController.h; sourceTree = "<group>"; };
 		23E7DFE5178C83C7005A1792 /* CIWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIWelcomeViewController.m; sourceTree = "<group>"; };
-		23E7DFE8178C8AB1005A1792 /* CIArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIArtistDetailViewController.h; sourceTree = "<group>"; };
-		23E7DFE9178C8AB1005A1792 /* CIArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIArtistDetailViewController.m; sourceTree = "<group>"; };
 		23E8405017D546FC00730311 /* button_open_safari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_open_safari@2x.png"; sourceTree = "<group>"; };
 		23E950F117BAC48600F04A14 /* CICategoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CICategoryListViewController.h; sourceTree = "<group>"; };
 		23E950F217BAC48600F04A14 /* CICategoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CICategoryListViewController.m; sourceTree = "<group>"; };
@@ -1037,8 +1033,8 @@
 		23ECBA67179F097400038701 /* CIExhibitionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIExhibitionButton.m; sourceTree = "<group>"; };
 		23F298C217B1153D00E11EB7 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInChromeController.h; sourceTree = "<group>"; };
 		23F298C317B1153D00E11EB7 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInChromeController.m; sourceTree = "<group>"; };
-		23F298C817B11CCC00E11EB7 /* CISeeArtworkButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISeeArtworkButton.h; sourceTree = "<group>"; };
-		23F298C917B11CCC00E11EB7 /* CISeeArtworkButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISeeArtworkButton.m; sourceTree = "<group>"; };
+		23F298C817B11CCC00E11EB7 /* CIArtistLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIArtistLabel.h; sourceTree = "<group>"; };
+		23F298C917B11CCC00E11EB7 /* CIArtistLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIArtistLabel.m; sourceTree = "<group>"; };
 		23F298D017B12E1C00E11EB7 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		23F298D217B12EDF00E11EB7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		23F348C817BEDAE700B4B40D /* button_recommend_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_recommend_on@2x.png"; sourceTree = "<group>"; };
@@ -1066,8 +1062,6 @@
 		23F91B3A1784A3FC00B2691C /* CIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIAppDelegate.h; sourceTree = "<group>"; };
 		23F91B3B1784A3FC00B2691C /* CIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIAppDelegate.m; sourceTree = "<group>"; };
 		23F91B3E1784A3FC00B2691C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		23F91B431784A3FC00B2691C /* CIArtistListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CIArtistListViewController.h; sourceTree = "<group>"; };
-		23F91B441784A3FC00B2691C /* CIArtistListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CIArtistListViewController.m; sourceTree = "<group>"; };
 		23F91B681784A58900B2691C /* MagicalImportFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalImportFunctions.h; sourceTree = "<group>"; };
 		23F91B691784A58900B2691C /* MagicalImportFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicalImportFunctions.m; sourceTree = "<group>"; };
 		23F91B6A1784A58900B2691C /* NSAttributeDescription+MagicalDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributeDescription+MagicalDataImport.h"; sourceTree = "<group>"; };
@@ -1277,17 +1271,6 @@
 			name = Welcome;
 			sourceTree = "<group>";
 		};
-		2317731A179D7A07005E7601 /* Artists */ = {
-			isa = PBXGroup;
-			children = (
-				23F91B431784A3FC00B2691C /* CIArtistListViewController.h */,
-				23F91B441784A3FC00B2691C /* CIArtistListViewController.m */,
-				23E7DFE8178C8AB1005A1792 /* CIArtistDetailViewController.h */,
-				23E7DFE9178C8AB1005A1792 /* CIArtistDetailViewController.m */,
-			);
-			name = Artists;
-			sourceTree = "<group>";
-		};
 		2317731B179D7A0F005E7601 /* Artwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -1316,6 +1299,7 @@
 			children = (
 				2387EDC317BD3EF10016CB37 /* Map */,
 				239673FE17BB1D6300DEE6B3 /* Navigation */,
+				328875561C61140E00EDAE97 /* Labels */,
 				23ECBA69179F097E00038701 /* Buttons */,
 				235F0EA6179EBC13001D191A /* Table Cells */,
 				2350371817A05BFD0022A7EC /* Collection Cells */,
@@ -1920,7 +1904,6 @@
 			children = (
 				23177319179D79FF005E7601 /* Welcome */,
 				23177318179D79EF005E7601 /* Exhibitions */,
-				2317731A179D7A07005E7601 /* Artists */,
 				2317731B179D7A0F005E7601 /* Artwork */,
 				23E950F417BAC51C00F04A14 /* Categories */,
 				23DD8D1117A9849000E3FAA7 /* Tours */,
@@ -1946,8 +1929,6 @@
 				23177322179DAC01005E7601 /* CIWelcomeButton.m */,
 				23ECBA66179F097400038701 /* CIExhibitionButton.h */,
 				23ECBA67179F097400038701 /* CIExhibitionButton.m */,
-				23F298C817B11CCC00E11EB7 /* CISeeArtworkButton.h */,
-				23F298C917B11CCC00E11EB7 /* CISeeArtworkButton.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -2324,6 +2305,15 @@
 				322998791C56B535001FCDE4 /* CILocationsListViewController.m */,
 			);
 			name = Locations;
+			sourceTree = "<group>";
+		};
+		328875561C61140E00EDAE97 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				23F298C817B11CCC00E11EB7 /* CIArtistLabel.h */,
+				23F298C917B11CCC00E11EB7 /* CIArtistLabel.m */,
+			);
+			name = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2807,7 +2797,6 @@
 				23177311179D720C005E7601 /* CIExhibitionListViewController.m in Sources */,
 				23AEFC20178DA64E006F5C3E /* CIArtworkDetailViewController.m in Sources */,
 				2350371317A04E240022A7EC /* CIArtworkPhotosViewController.m in Sources */,
-				23E7DFEA178C8AB1005A1792 /* CIArtistDetailViewController.m in Sources */,
 				23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */,
 				23E1BA62179F216F00854919 /* UIImage+Alpha.m in Sources */,
 				23F91BAB1784A58900B2691C /* NSManagedObject+MagicalRecord.m in Sources */,
@@ -2817,7 +2806,7 @@
 				23F8E66617B171F600F8EEF2 /* CIMuseumNewsViewController.m in Sources */,
 				23F298C417B1153D00E11EB7 /* OpenInChromeController.m in Sources */,
 				23FC83171785D750007FFFB1 /* UIColor+HexColor.m in Sources */,
-				23F298CA17B11CCC00E11EB7 /* CISeeArtworkButton.m in Sources */,
+				23F298CA17B11CCC00E11EB7 /* CIArtistLabel.m in Sources */,
 				23DD8D1717A98A2800E3FAA7 /* CITourDetailViewController.m in Sources */,
 				23FC830B1785D6F6007FFFB1 /* AFHTTPClient.m in Sources */,
 				2350371717A050250022A7EC /* CHTCollectionViewWaterfallLayout.m in Sources */,
@@ -2852,7 +2841,6 @@
 				23ADE0FD179DC6B5008D52DC /* CINavigationBar.m in Sources */,
 				23F91BBA1784A58900B2691C /* MagicalRecord.m in Sources */,
 				23DD9CA6178B03B00016E41D /* CIExhibition+Helpers.m in Sources */,
-				23F91B451784A3FC00B2691C /* CIArtistListViewController.m in Sources */,
 				23DD8D2117A9A9C500E3FAA7 /* CIArtworkTabButton.m in Sources */,
 				23F91BB51784A58900B2691C /* MagicalRecord+ErrorHandling.m in Sources */,
 				23177317179D760A005E7601 /* CINavigationController.m in Sources */,
