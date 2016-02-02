@@ -587,10 +587,6 @@
                                           padding:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
         NSArray *coachMarks = @[
                                 @{
-                                    @"rect": [NSValue valueWithCGRect:rectFavorite],
-                                    @"caption": [self formatCoachMarksText:@"Bookmark this artwork for later.\n\nSaved artworks appear in the \"My Visit\" tab on the home screen."]
-                                    },
-                                @{
                                     @"rect": [NSValue valueWithCGRect:rectShare],
                                     @"caption": [self formatCoachMarksText:@"Share this artwork with your friends!"]
                                     }

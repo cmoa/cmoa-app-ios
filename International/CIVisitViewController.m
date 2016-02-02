@@ -40,6 +40,8 @@
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
+    // TODO: Define tableview height programically depending on height of hours
+    
     // TODO: In the future this should come from an API endpoint...
     // 1st day of the week is sunday
     // opens and closes are in 24 hour format
@@ -105,9 +107,6 @@
     if (selectedIndexPath != nil) {
         [visitTableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
     }
-    
-    // Load bookmarked artworks
-    [self loadBookmarkedArtworks];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -135,27 +134,6 @@
 }
 
 - (IBAction)segueToVisit:(UIStoryboardSegue *)segue {
-}
-
-#pragma mark - Bookmarked Artworks
-
-- (void)loadBookmarkedArtworks {
-    NSArray *likedArtworks = [[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked];
-    NSMutableArray *tempBookmarked = [NSMutableArray arrayWithCapacity:[likedArtworks count]];
-    if (likedArtworks != nil) {
-        for (NSString *artworkUuid in likedArtworks) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (uuid == %@)", artworkUuid];
-            CIArtwork *artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
-            if (artwork != nil) {
-                [tempBookmarked addObject:artwork];
-            }
-        }
-    }
-    
-    // Sort bookmarked artworks
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"code" ascending:YES];
-    bookmarked = [tempBookmarked sortedArrayUsingDescriptors:@[sort]];
-    [visitTableView reloadData];
 }
 
 #pragma mark - Table
@@ -220,16 +198,6 @@
         }
             break;
             
-        case 5: {
-            cell.titleLabel.text = @"My Bookmarked Artworks";
-            if ([bookmarked count] != 1) {
-                cell.subtitleLabel.text = [[NSString stringWithFormat:@"%lu artworks", (unsigned long)[bookmarked count]] uppercaseString];
-            } else {
-                cell.subtitleLabel.text = [@"1 artwork" uppercaseString];
-            }
-        }
-            break;
-            
         default:
             break;
     }
@@ -244,18 +212,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 4) {
         [self performSegueWithIdentifier:@"showBrowser" sender:self];
-    } else if (indexPath.row == 5) {
-        if ([bookmarked count] > 0) {
-            [self performSegueWithIdentifier:@"showArtworkList" sender:self];
-        } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Bookmarked Artwork"
-                                                                message:@"Tap thumbs up on your favorite artworks to bookmark them for the future."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-            [visitTableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
     }
 }
 
@@ -336,11 +292,7 @@
 #pragma mark - Transition
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showArtworkList"]) {
-        CIArtworkListViewController *artworkListViewController = (CIArtworkListViewController *)segue.destinationViewController;
-        artworkListViewController.artworks = bookmarked;
-        artworkListViewController.parentMode = @"visit";
-    } else if ([segue.identifier isEqualToString:@"showBrowser"]) {
+    if ([segue.identifier isEqualToString:@"showBrowser"]) {
         CIBrowserViewController *browserViewController = (CIBrowserViewController *)segue.destinationViewController;
         browserViewController.parentMode = @"visit";
         browserViewController.viewTitle = @"CMOA.org";

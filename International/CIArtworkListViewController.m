@@ -46,11 +46,6 @@
         self.title = self.category.title;
     }
     
-    // Bookmarked artworks?
-    if ([self.parentMode isEqualToString:@"visit"]) {
-        self.title = @"My Bookmarked Artworks";
-    }
-    
     // Tableview separator inset
     if ([artworkTableView respondsToSelector:@selector(separatorInset)]) {
         artworkTableView.separatorInset = UIEdgeInsetsZero;
