@@ -69,7 +69,6 @@
                         <outlet property="photosCollectionView" destination="iQY-IK-k7B" id="NnA-Kq-EvI"/>
                         <segue destination="G2F-zs-tqF" kind="unwind" identifier="exitArtworkPhotos" unwindAction="segueToExhibitionDetail:" id="btJ-le-LUh"/>
                         <segue destination="6Ff-tW-lCF" kind="push" identifier="showArtworkDetail" id="Yed-eN-wAR"/>
-                        <segue destination="G2F-zs-tqF" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="5T4-pj-biZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vq2-D9-l9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,7 +159,6 @@
                         <outlet property="categoriesTableView" destination="Iyt-IA-0f7" id="Ybq-Vn-tIZ"/>
                         <segue destination="9Lx-0v-SH8" kind="unwind" identifier="exitToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="fNH-6q-8jR"/>
                         <segue destination="eml-FC-gc2" kind="push" identifier="showArtworkList" id="ufW-6D-zwo"/>
-                        <segue destination="9Lx-0v-SH8" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="Ock-1o-OjA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cK9-Uk-GH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +246,6 @@
                         <segue destination="SNI-a4-5Sg" kind="unwind" identifier="exitArtworkCodeToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="IZs-Vk-M9e"/>
                         <segue destination="6Ff-tW-lCF" kind="push" identifier="showArtworkDetail" id="hyc-dg-xeI"/>
                         <segue destination="SNI-a4-5Sg" kind="unwind" identifier="exitArtworkCodeToHome" unwindAction="segueGoHome:" id="rsC-eg-zCT"/>
-                        <segue destination="SNI-a4-5Sg" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="5Hn-UD-bE8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWe-vg-U53" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,7 +290,6 @@
                         <segue destination="6Ff-tW-lCF" kind="push" identifier="showArtworkDetail" id="ces-Za-JcT"/>
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToCategoryList" unwindAction="segueToCategoryList:" id="QUP-BY-7Mi"/>
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToVisit" unwindAction="segueToVisit:" id="iEO-sp-EFM"/>
-                        <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="iiZ-FP-jYh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFP-nt-S8S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -708,7 +704,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
-                                <rect key="frame" x="0.0" y="240" width="320" height="264"/>
+                                <rect key="frame" x="0.0" y="284" width="320" height="220"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kox-Dv-2xy" customClass="CIWelcomeButton">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -745,7 +741,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzY-og-RXD" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="xyP-Bs-yuI"/>
                                         </constraints>
@@ -762,7 +758,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QdC-cm-IWm" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="220" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="YKu-LM-ha5"/>
                                         </constraints>
@@ -778,25 +774,8 @@
                                             <segue destination="Lr9-2n-yyL" kind="push" id="N3o-Yc-RqU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoE-Ig-sO7" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="eGK-j1-fHv"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Museum Rooms">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="Q2T-56-dQ1" kind="push" identifier="" id="bLL-16-z8a"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-et-BK9" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Gmy-Uf-p96"/>
                                         </constraints>
@@ -814,24 +793,21 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="wXf-et-BK9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="176" id="0Ub-xQ-b0e"/>
+                                    <constraint firstItem="wXf-et-BK9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="132" id="0Ub-xQ-b0e"/>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="1Xc-DM-JDx"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="44" id="28Q-ze-vdK"/>
-                                    <constraint firstItem="MoE-Ig-sO7" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="346-3d-yzr"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="9tl-Nb-ntN"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="BBI-8N-Ink"/>
                                     <constraint firstAttribute="trailing" secondItem="YzY-og-RXD" secondAttribute="trailing" id="G7Q-BS-1TR"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="JB0-jo-rF3"/>
-                                    <constraint firstAttribute="height" constant="264" id="NaG-bb-D54"/>
-                                    <constraint firstAttribute="trailing" secondItem="MoE-Ig-sO7" secondAttribute="trailing" id="P3X-Cp-C8G"/>
-                                    <constraint firstItem="YzY-og-RXD" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="132" id="Sxa-PG-6d2"/>
+                                    <constraint firstAttribute="height" constant="220" id="NaG-bb-D54"/>
+                                    <constraint firstItem="YzY-og-RXD" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="88" id="Sxa-PG-6d2"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="XMy-Qw-Nsr"/>
                                     <constraint firstItem="QdC-cm-IWm" firstAttribute="trailing" secondItem="9Lg-j4-OcC" secondAttribute="trailing" id="ecD-Y3-k4e"/>
                                     <constraint firstItem="YzY-og-RXD" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="ht9-oK-siu"/>
-                                    <constraint firstItem="QdC-cm-IWm" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="220" id="nIF-lV-v81"/>
+                                    <constraint firstItem="QdC-cm-IWm" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="176" id="nIF-lV-v81"/>
                                     <constraint firstItem="Vbb-iJ-tU9" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="q1o-48-8FN"/>
                                     <constraint firstItem="wXf-et-BK9" firstAttribute="leading" secondItem="9Lg-j4-OcC" secondAttribute="leading" id="t5b-gU-bwf"/>
-                                    <constraint firstItem="MoE-Ig-sO7" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" constant="88" id="uvi-bE-axP"/>
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" id="zpu-LU-6h4"/>
                                 </constraints>
                             </view>
@@ -869,7 +845,6 @@
                         <outlet property="btnCMOATV" destination="wXf-et-BK9" id="6O2-te-FN5"/>
                         <outlet property="btnConnect" destination="QdC-cm-IWm" id="uyt-2U-m7T"/>
                         <outlet property="btnExhibitions" destination="Vbb-iJ-tU9" id="RlC-ig-EaP"/>
-                        <outlet property="btnLocationList" destination="MoE-Ig-sO7" id="C7c-qm-RbO"/>
                         <outlet property="btnMuseumNews" destination="YzY-og-RXD" id="2lV-dT-dtL"/>
                         <outlet property="btnMyVisit" destination="kox-Dv-2xy" id="09e-lK-ReM"/>
                         <outlet property="btnSearch" destination="Ehw-Dl-66r" id="bvc-nX-fnv"/>
@@ -1271,47 +1246,6 @@
             </objects>
             <point key="canvasLocation" x="-1481" y="1238"/>
         </scene>
-        <!--Musuem Rooms-->
-        <scene sceneID="vYO-Ht-CUt">
-            <objects>
-                <viewController title="Musuem Rooms" id="Q2T-56-dQ1" customClass="CILocationsListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2cI-0A-u4I"/>
-                        <viewControllerLayoutGuide type="bottom" id="usE-k6-18I"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZVT-wL-91P">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ppg-Sp-tLy">
-                                <rect key="frame" x="0.0" y="0.0" width="319" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Q2T-56-dQ1" id="nn1-2B-a9w"/>
-                                    <outlet property="delegate" destination="Q2T-56-dQ1" id="4hT-A2-Cwb"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="usE-k6-18I" firstAttribute="top" secondItem="Ppg-Sp-tLy" secondAttribute="bottom" id="0y8-fG-bgp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ppg-Sp-tLy" secondAttribute="trailingMargin" id="66j-Et-ENQ"/>
-                            <constraint firstItem="Ppg-Sp-tLy" firstAttribute="leading" secondItem="ZVT-wL-91P" secondAttribute="leading" id="PfA-cA-vcQ"/>
-                            <constraint firstItem="Ppg-Sp-tLy" firstAttribute="top" secondItem="2cI-0A-u4I" secondAttribute="bottom" id="k4A-eX-GM1"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Museum Rooms" id="vpt-hB-WrQ" customClass="CINavigationItem"/>
-                    <connections>
-                        <outlet property="locationsTableView" destination="Ppg-Sp-tLy" id="cIQ-6D-BMc"/>
-                        <segue destination="d07-Of-HR7" kind="push" identifier="showRoomDetail" id="g5f-p9-522"/>
-                        <segue destination="lgd-gM-BTl" kind="unwind" identifier="exitLocationsList" unwindAction="segueGoHome:" id="5np-Hm-i8Q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfi-S2-wrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="lgd-gM-BTl" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-519" y="1317"/>
-        </scene>
         <!--Exhibition Detail View Controller-->
         <scene sceneID="usr-Cu-8yp">
             <objects>
@@ -1419,11 +1353,11 @@
             </objects>
             <point key="canvasLocation" x="-147" y="-261"/>
         </scene>
-        <!--Artwork-->
+        <!--Object-->
         <scene sceneID="2rI-h2-T8c">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="d07-Of-HR7" customClass="CIArtworkTabsViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Artwork" id="Z7A-H2-FVL" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Object" id="Z7A-H2-FVL" customClass="CINavigationItem"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sZI-86-maK" customClass="CITabBar">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -1679,9 +1613,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="asR-Ly-teI"/>
-        <segue reference="qW2-GX-F11"/>
-        <segue reference="ufW-6D-zwo"/>
-        <segue reference="hyc-dg-xeI"/>
         <segue reference="PtD-v5-SM2"/>
+        <segue reference="Yed-eN-wAR"/>
+        <segue reference="ufW-6D-zwo"/>
     </inferredMetricsTieBreakers>
 </document>

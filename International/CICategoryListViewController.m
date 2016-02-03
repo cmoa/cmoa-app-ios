@@ -75,7 +75,9 @@
 
 - (void)navLeftButtonDidPress:(id)sender {
     if ([CIAppState sharedAppState].currentLocation != nil) {
-        [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+            // TODO:
+            // Beacon Notification:
+            // Present modally on iPhone & iPad
     } else {
         [self performSegueWithIdentifier:@"exitToExhibitionDetail" sender:self];
     }

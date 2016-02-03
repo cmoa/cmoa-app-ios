@@ -260,7 +260,6 @@
 		23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */; };
 		23FC83371785DDCE007FFFB1 /* CIArtist+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */; };
 		32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32098ECB1BB7506D00175E11 /* libsqlite3.tbd */; };
-		3229987A1C56B535001FCDE4 /* CILocationsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 322998791C56B535001FCDE4 /* CILocationsListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -651,8 +650,6 @@
 		23FC83351785DDCE007FFFB1 /* CIArtist+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIArtist+Helpers.h"; sourceTree = "<group>"; };
 		23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIArtist+Helpers.m"; sourceTree = "<group>"; };
 		32098ECB1BB7506D00175E11 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		322998781C56B535001FCDE4 /* CILocationsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CILocationsListViewController.h; sourceTree = "<group>"; };
-		322998791C56B535001FCDE4 /* CILocationsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CILocationsListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1157,7 +1154,6 @@
 				23E950F417BAC51C00F04A14 /* Categories */,
 				23DD8D1117A9849000E3FAA7 /* Tours */,
 				23F8E66017B1715B00F8EEF2 /* Web Views */,
-				322998771C56B4C4001FCDE4 /* Locations */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1534,15 +1530,6 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		322998771C56B4C4001FCDE4 /* Locations */ = {
-			isa = PBXGroup;
-			children = (
-				322998781C56B535001FCDE4 /* CILocationsListViewController.h */,
-				322998791C56B535001FCDE4 /* CILocationsListViewController.m */,
-			);
-			name = Locations;
-			sourceTree = "<group>";
-		};
 		328875561C61140E00EDAE97 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1818,7 +1805,6 @@
 				23FC83371785DDCE007FFFB1 /* CIArtist+Helpers.m in Sources */,
 				23F91BA81784A58900B2691C /* NSManagedObject+MagicalAggregation.m in Sources */,
 				23FC831A1785D7AA007FFFB1 /* NSString+UrlEncode.m in Sources */,
-				3229987A1C56B535001FCDE4 /* CILocationsListViewController.m in Sources */,
 				235F0EA5179EBC0F001D191A /* CIExhibitionCell.m in Sources */,
 				23DD9CB2178B096D0016E41D /* CITourArtwork+Helpers.m in Sources */,
 				232D11B0179FF2EA000369D0 /* CIArtworkTabsViewController.m in Sources */,

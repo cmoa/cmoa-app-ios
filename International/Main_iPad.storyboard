@@ -101,6 +101,57 @@
                                             <segue destination="emM-Lv-qwn" kind="replace" identifier="showVisit" splitViewControllerTargetIndex="1" id="4bQ-dd-fMx"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrw-6n-Hxa" customClass="CIWelcomeButton">
+                                        <rect key="frame" x="0.0" y="120" width="320" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="daw-C0-Fkg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Museum News">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="CFF-hj-D7g" kind="replace" identifier="showMuseumNews" splitViewControllerTargetIndex="1" id="OCI-WI-glZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBU-R5-cpG" customClass="CIWelcomeButton">
+                                        <rect key="frame" x="0.0" y="180" width="320" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="04E-sC-fvs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Museum Videos">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="wQT-kf-WSp" kind="replace" identifier="showCMOATV" splitViewControllerTargetIndex="1" id="dqe-3e-8jc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyw-s2-SfF" customClass="CIWelcomeButton">
+                                        <rect key="frame" x="0.0" y="240" width="320" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="vOc-Zu-wXw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Connect">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="CHm-3K-Quk" kind="replace" identifier="showConnect" splitViewControllerTargetIndex="1" id="5gN-Rc-U6t"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFR-Ep-iO3" customClass="CIWelcomeButton">
                                         <rect key="frame" x="0.0" y="60" width="320" height="60"/>
                                         <constraints>
@@ -118,80 +169,11 @@
                                             <segue destination="R5M-CW-P8C" kind="replace" identifier="showExhibitionList" splitViewControllerTargetIndex="1" id="Vmk-a6-vnI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrw-6n-Hxa" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="180" width="320" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="daw-C0-Fkg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Museum News">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="CFF-hj-D7g" kind="replace" identifier="showMuseumNews" splitViewControllerTargetIndex="1" id="OCI-WI-glZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBU-R5-cpG" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="240" width="320" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="04E-sC-fvs"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Museum Videos">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="wQT-kf-WSp" kind="replace" identifier="showCMOATV" splitViewControllerTargetIndex="1" id="dqe-3e-8jc"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyw-s2-SfF" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="300" width="320" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="vOc-Zu-wXw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Connect">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="CHm-3K-Quk" kind="replace" identifier="showConnect" splitViewControllerTargetIndex="1" id="5gN-Rc-U6t"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGX-9P-CLc" customClass="CIWelcomeButton">
-                                        <rect key="frame" x="0.0" y="120" width="320" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="SYO-mN-ueE"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Museum Rooms">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="1ci-Xy-LK2" kind="replace" identifier="showLocationList" splitViewControllerTargetIndex="1" id="ClD-PY-NuV"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="BGX-9P-CLc" secondAttribute="trailing" id="3KO-5N-f3D"/>
                                     <constraint firstItem="jrw-6n-Hxa" firstAttribute="trailing" secondItem="CqY-TW-Duq" secondAttribute="trailing" id="52x-Zj-W3a"/>
-                                    <constraint firstItem="jrw-6n-Hxa" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="180" id="8yl-Qc-Urw"/>
+                                    <constraint firstItem="jrw-6n-Hxa" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="120" id="8yl-Qc-Urw"/>
                                     <constraint firstItem="hFR-Ep-iO3" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="60" id="AZr-SA-saj"/>
                                     <constraint firstItem="DBU-R5-cpG" firstAttribute="trailing" secondItem="CqY-TW-Duq" secondAttribute="trailing" id="Eft-1m-kad"/>
                                     <constraint firstItem="hFR-Ep-iO3" firstAttribute="trailing" secondItem="CqY-TW-Duq" secondAttribute="trailing" id="FJm-YF-6Nq"/>
@@ -199,14 +181,12 @@
                                     <constraint firstItem="hFR-Ep-iO3" firstAttribute="leading" secondItem="CqY-TW-Duq" secondAttribute="leading" id="Krj-OH-5Fq"/>
                                     <constraint firstItem="F6E-LM-hEn" firstAttribute="leading" secondItem="CqY-TW-Duq" secondAttribute="leading" id="LgA-gg-tAA"/>
                                     <constraint firstItem="F6E-LM-hEn" firstAttribute="trailing" secondItem="CqY-TW-Duq" secondAttribute="trailing" id="SWw-Pz-7CZ"/>
-                                    <constraint firstItem="DBU-R5-cpG" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="240" id="XKP-KU-F8K"/>
+                                    <constraint firstItem="DBU-R5-cpG" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="180" id="XKP-KU-F8K"/>
                                     <constraint firstItem="jrw-6n-Hxa" firstAttribute="leading" secondItem="CqY-TW-Duq" secondAttribute="leading" id="p0m-XK-g8o"/>
                                     <constraint firstItem="kyw-s2-SfF" firstAttribute="leading" secondItem="CqY-TW-Duq" secondAttribute="leading" id="tPO-ov-9jZ"/>
-                                    <constraint firstItem="BGX-9P-CLc" firstAttribute="leading" secondItem="CqY-TW-Duq" secondAttribute="leading" id="td6-mA-97I"/>
                                     <constraint firstItem="F6E-LM-hEn" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" id="tso-1m-l5X"/>
                                     <constraint firstItem="kyw-s2-SfF" firstAttribute="trailing" secondItem="CqY-TW-Duq" secondAttribute="trailing" id="z8q-rD-POd"/>
-                                    <constraint firstItem="BGX-9P-CLc" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="120" id="zBp-GR-oDy"/>
-                                    <constraint firstItem="kyw-s2-SfF" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="300" id="zz4-5q-EF0"/>
+                                    <constraint firstItem="kyw-s2-SfF" firstAttribute="top" secondItem="CqY-TW-Duq" secondAttribute="top" constant="240" id="zz4-5q-EF0"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd8-DX-V1x">
@@ -245,7 +225,6 @@
                         <outlet property="btnCMOATV" destination="DBU-R5-cpG" id="DyF-ta-Mus"/>
                         <outlet property="btnConnect" destination="kyw-s2-SfF" id="VQf-BM-ASU"/>
                         <outlet property="btnExhibitions" destination="hFR-Ep-iO3" id="0kh-Vx-rIR"/>
-                        <outlet property="btnLocationList" destination="BGX-9P-CLc" id="Ubc-nH-se8"/>
                         <outlet property="btnMuseumNews" destination="jrw-6n-Hxa" id="qGP-0v-shM"/>
                         <outlet property="btnMyVisit" destination="F6E-LM-hEn" id="OJJ-Yd-CQj"/>
                         <outlet property="btnSearch" destination="fd8-DX-V1x" id="QeT-Es-QHv"/>
@@ -258,63 +237,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAg-gn-hdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-199" y="1325"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="oab-ca-8we">
-            <objects>
-                <navigationController id="1ci-Xy-LK2" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w8j-rN-4tl">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="u7z-5b-sXt" kind="relationship" relationship="rootViewController" id="2mP-i0-Fjp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xfr-hU-cTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="696" y="1767"/>
-        </scene>
-        <!--Museum Rooms-->
-        <scene sceneID="i5R-0F-ajX">
-            <objects>
-                <viewController title="Museum Rooms" id="u7z-5b-sXt" customClass="CILocationsListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="BbQ-23-GkG"/>
-                        <viewControllerLayoutGuide type="bottom" id="zDl-ZK-DjP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ggg-WO-3mm">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LA9-2v-0fD">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="u7z-5b-sXt" id="h5e-Gh-LLw"/>
-                                    <outlet property="delegate" destination="u7z-5b-sXt" id="GLK-fy-T2W"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LA9-2v-0fD" firstAttribute="leading" secondItem="ggg-WO-3mm" secondAttribute="leadingMargin" constant="-20" id="Iqw-Gk-LXJ"/>
-                            <constraint firstItem="LA9-2v-0fD" firstAttribute="top" secondItem="ggg-WO-3mm" secondAttribute="topMargin" id="QXa-ls-Nsf"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="LA9-2v-0fD" secondAttribute="bottom" id="cPE-Qi-ggn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LA9-2v-0fD" secondAttribute="trailing" constant="-20" id="mWa-7Q-Gcc"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Museum Rooms" id="Mo3-dV-mLs" customClass="CINavigationItem"/>
-                    <connections>
-                        <outlet property="locationsTableView" destination="LA9-2v-0fD" id="xy0-Kz-DaL"/>
-                        <segue destination="KqN-QB-gCL" kind="push" identifier="showRoomDetail" id="gTC-Na-Y6C"/>
-                        <segue destination="3UH-zY-bXr" kind="unwind" identifier="exitLocationsList" unwindAction="segueGoHome:" id="qdP-nA-Ele"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VLv-M6-nhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="3UH-zY-bXr" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1584" y="1808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qmB-xw-vA4">
@@ -1035,7 +957,6 @@
                         <outlet property="photosCollectionView" destination="i9d-ea-Daa" id="qGZ-XV-WPS"/>
                         <segue destination="oZv-5y-5FW" kind="unwind" identifier="exitArtworkPhotos" unwindAction="segueToExhibitionDetail:" id="QpW-DA-tPf"/>
                         <segue destination="Ine-Mn-Tzc" kind="push" identifier="showArtworkDetail" id="g2w-Bt-xeF"/>
-                        <segue destination="oZv-5y-5FW" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="l6D-C5-fj3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dii-sa-bC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1130,7 +1051,6 @@
                         <outlet property="categoriesTableView" destination="MgS-W4-dBu" id="A47-Dz-pUC"/>
                         <segue destination="QV4-1x-ghz" kind="unwind" identifier="exitToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="L9k-tb-K88"/>
                         <segue destination="erT-zc-jAo" kind="push" identifier="showArtworkList" id="eV4-HU-zNq"/>
-                        <segue destination="QV4-1x-ghz" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="BYR-Dn-hXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rup-JQ-av7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1219,7 +1139,6 @@
                         <segue destination="cF8-tP-aaC" kind="unwind" identifier="exitArtworkCodeToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="yae-wC-3c7"/>
                         <segue destination="cF8-tP-aaC" kind="unwind" identifier="exitArtworkCodeToHome" unwindAction="segueGoHome:" id="O39-wU-df5"/>
                         <segue destination="Ine-Mn-Tzc" kind="push" identifier="showArtworkDetail" id="xGw-Wk-8YC"/>
-                        <segue destination="cF8-tP-aaC" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="VBu-ZN-fkU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESW-mc-zfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1265,7 +1184,6 @@
                         <segue destination="7Rk-3O-xGC" kind="unwind" identifier="exitToCategoryList" unwindAction="segueToCategoryList:" id="KE0-Jv-1z2"/>
                         <segue destination="7Rk-3O-xGC" kind="unwind" identifier="exitToVisit" unwindAction="segueToVisit:" id="7cn-Uc-66l"/>
                         <segue destination="Ine-Mn-Tzc" kind="push" identifier="showArtworkDetail" id="v9j-Rh-gb6"/>
-                        <segue destination="7Rk-3O-xGC" kind="unwind" identifier="exitToLocationList" unwindAction="segueToLocationList:" id="vEX-kY-EU8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9wa-dd-7yV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1311,7 +1229,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNG-lf-PA0">
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="656"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keg-Nx-6kV">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="keg-Nx-6kV">
                                         <rect key="frame" x="0.0" y="0.0" width="704" height="395"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KeR-ag-aIW">
@@ -1361,7 +1279,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="XqZ-Y8-ZkW" customClass="TTTAttributedLabel">
-                                                <rect key="frame" x="15" y="264" width="674" height="20.5"/>
+                                                <rect key="frame" x="15" y="264" width="674" height="21"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1377,7 +1295,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="yFa-Nl-sQ2" customClass="TTTAttributedLabel">
-                                                <rect key="frame" x="15" y="359" width="674" height="20.5"/>
+                                                <rect key="frame" x="15" y="359" width="674" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1791,11 +1709,10 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vmk-a6-vnI"/>
         <segue reference="0De-fX-voN"/>
-        <segue reference="hxp-nN-3HU"/>
-        <segue reference="hIV-tZ-pFf"/>
+        <segue reference="Vmk-a6-vnI"/>
         <segue reference="2R4-BK-aLe"/>
         <segue reference="v9j-Rh-gb6"/>
+        <segue reference="4UV-jM-8FJ"/>
     </inferredMetricsTieBreakers>
 </document>

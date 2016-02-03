@@ -87,7 +87,9 @@
         [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
     } else {
         if ([CIAppState sharedAppState].currentLocation != nil) {
-            [self performSegueWithIdentifier:@"exitToLocationList" sender:self];
+                // TODO:
+                // Beacon Notification:
+                // Present modally on iPhone & iPad
         } else {
             [self performSegueWithIdentifier:@"exitArtworkCodeToExhibitionDetail" sender:self];
         }
