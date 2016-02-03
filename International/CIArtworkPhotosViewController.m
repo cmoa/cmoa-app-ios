@@ -44,6 +44,8 @@
         artworks = [location liveArtworksSortedBy:@"title" ascending:YES];
     } else {
         CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+        self.navigationItem.title = exhibition.title;
+        
         artworks = [exhibition artworksSortedBy:@"title" ascending:YES];
     }
   

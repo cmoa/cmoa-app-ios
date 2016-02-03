@@ -60,6 +60,8 @@
         artworks = location.liveArtworks;
     } else {
         CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+        self.navigationItem.title = exhibition.title;
+        
         artworks = exhibition.artworks;
     }
 }

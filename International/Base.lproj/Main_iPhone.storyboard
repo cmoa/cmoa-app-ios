@@ -64,7 +64,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photos" id="uPb-XH-rT6"/>
-                    <navigationItem key="navigationItem" title="Artwork" id="1LA-1L-wCp" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Photos" id="1LA-1L-wCp" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="photosCollectionView" destination="iQY-IK-k7B" id="NnA-Kq-EvI"/>
                         <segue destination="G2F-zs-tqF" kind="unwind" identifier="exitArtworkPhotos" unwindAction="segueToExhibitionDetail:" id="btJ-le-LUh"/>
@@ -155,7 +155,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Category" id="NC4-w9-tnn"/>
-                    <navigationItem key="navigationItem" title="Artwork" id="Vu1-Lb-MdB" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Category" id="Vu1-Lb-MdB" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="Iyt-IA-0f7" id="Ybq-Vn-tIZ"/>
                         <segue destination="9Lx-0v-SH8" kind="unwind" identifier="exitToExhibitionDetail" unwindAction="segueToExhibitionDetail:" id="fNH-6q-8jR"/>
@@ -168,7 +168,7 @@
             </objects>
             <point key="canvasLocation" x="1827" y="2580"/>
         </scene>
-        <!--Artwork Code-->
+        <!--Object Code-->
         <scene sceneID="WAG-uZ-wZM">
             <objects>
                 <viewController id="PG7-yS-lgH" customClass="CIArtworkCodeViewController" sceneMemberID="viewController">
@@ -239,7 +239,7 @@
                             <constraint firstItem="zjJ-9Y-cQ6" firstAttribute="top" secondItem="NHi-rw-ysc" secondAttribute="top" constant="150" id="kOc-Eb-z3b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Artwork Code" id="AxQ-cf-Hgy" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Object Code" id="AxQ-cf-Hgy" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="btnSearch" destination="zjJ-9Y-cQ6" id="l0h-uq-rUw"/>
                         <outlet property="codeContainer" destination="lTL-SS-lre" id="g0t-L1-gNj"/>
@@ -256,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="1879" y="1954"/>
         </scene>
-        <!--Artwork-->
+        <!--Title-->
         <scene sceneID="gF8-iK-XHs">
             <objects>
                 <viewController id="eml-FC-gc2" customClass="CIArtworkListViewController" sceneMemberID="viewController">
@@ -286,7 +286,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Title" id="QIi-Ul-hQT"/>
-                    <navigationItem key="navigationItem" title="Artwork" id="Hgp-XE-MbM" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Title" id="Hgp-XE-MbM" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="artworkTableView" destination="lxf-yi-uf6" id="aJM-qg-ahB"/>
                         <segue destination="dL9-Gl-zed" kind="unwind" identifier="exitArtworkList" unwindAction="segueToExhibitionDetail:" id="tOT-6S-BbZ"/>
@@ -316,8 +316,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-vK-gok">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="391.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="393.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lu7-iU-LPg">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="201"/>
@@ -377,8 +377,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
-                                                <rect key="frame" x="15" y="356" width="290" height="20.5"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-yZ-a1B" customClass="TTTAttributedLabel">
+                                                <rect key="frame" x="15" y="358" width="290" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="290" id="UM7-4a-wnI"/>
                                                 </constraints>
@@ -386,7 +386,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="QYy-Zm-eYV" userLabel="Lbl Artist" customClass="CIArtistLabel">
                                                 <rect key="frame" x="15" y="299" width="290" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="tF3-UM-hYa"/>
@@ -424,11 +424,11 @@
                                     <constraint firstAttribute="bottom" secondItem="niz-sh-TqY" secondAttribute="bottom" id="sD9-7F-HuM"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
-                                <rect key="frame" x="0.0" y="406" width="320" height="98"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
+                                <rect key="frame" x="0.0" y="455" width="320" height="49"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
-                                        <rect key="frame" x="196" y="0.0" width="75" height="98"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
+                                        <rect key="frame" x="196" y="0.0" width="75" height="49"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 of 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMp-AS-Aio">
                                                 <rect key="frame" x="4" y="16" width="67" height="17"/>
@@ -446,8 +446,8 @@
                                             <constraint firstAttribute="width" constant="75" id="skC-rf-0Hn"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
-                                        <rect key="frame" x="64" y="0.0" width="44" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
+                                        <rect key="frame" x="64" y="0.0" width="44" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="BQA-dr-QUf"/>
                                         </constraints>
@@ -463,8 +463,8 @@
                                             <action selector="locationDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="HJg-UV-fms"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
-                                        <rect key="frame" x="10" y="0.0" width="44" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
+                                        <rect key="frame" x="10" y="0.0" width="44" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="MHE-Dg-TZ7"/>
                                         </constraints>
@@ -480,8 +480,8 @@
                                             <action selector="shareDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="CPB-bX-1WA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
-                                        <rect key="frame" x="271" y="0.0" width="49" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
+                                        <rect key="frame" x="271" y="0.0" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="APW-Cy-QEq"/>
                                         </constraints>
@@ -497,8 +497,8 @@
                                             <segue destination="6Ff-tW-lCF" kind="custom" identifier="showNextArtworkDetail" customClass="CIArtworkSequenceSegue" id="I9y-qT-NHV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
-                                        <rect key="frame" x="147" y="0.0" width="49" height="98"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
+                                        <rect key="frame" x="147" y="0.0" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="m9a-hk-0eS"/>
                                         </constraints>
@@ -704,8 +704,8 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
-                                <rect key="frame" x="0.0" y="0.0" width="640" height="132"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_header_nobar.png" translatesAutoresizingMaskIntoConstraints="NO" id="MPd-GH-8hW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
                                 <rect key="frame" x="0.0" y="240" width="320" height="264"/>
@@ -733,7 +733,7 @@
                                             <constraint firstAttribute="height" constant="44" id="JaM-tg-VMr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Explore the Art">
+                                        <state key="normal" title="Explore Art and Specimens">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -801,7 +801,7 @@
                                             <constraint firstAttribute="height" constant="44" id="Gmy-Uf-p96"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="CMOA TV">
+                                        <state key="normal" title="Museum Videos">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -835,8 +835,8 @@
                                     <constraint firstItem="kox-Dv-2xy" firstAttribute="top" secondItem="9Lg-j4-OcC" secondAttribute="top" id="zpu-LU-6h4"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
-                                <rect key="frame" x="268" y="10" width="45" height="90"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r">
+                                <rect key="frame" x="268" y="10" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="OJA-B3-fmu"/>
                                 </constraints>
@@ -1079,7 +1079,7 @@
                             <constraint firstItem="izL-nr-mt8" firstAttribute="leading" secondItem="zDO-Wh-7Cf" secondAttribute="leading" id="wPN-N4-uf8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Explore the Art" id="Qf1-0d-gk3" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Explore Art and Specimens" id="Qf1-0d-gk3" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="exhibitionsTableView" destination="izL-nr-mt8" id="RFf-9E-nEz"/>
                         <segue destination="vDl-Ob-vzh" kind="push" identifier="showExhibitionDetail" id="khd-Dd-E6A"/>
@@ -1333,7 +1333,7 @@
                                             <constraint firstAttribute="height" constant="44" id="1y3-TN-27g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Discover the artwork">
+                                        <state key="normal" title="Discover the objects">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1678,10 +1678,10 @@
         <image name="welcome_header_nobar.png" width="320" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hf1-TD-hDh"/>
+        <segue reference="asR-Ly-teI"/>
         <segue reference="qW2-GX-F11"/>
+        <segue reference="ufW-6D-zwo"/>
+        <segue reference="hyc-dg-xeI"/>
         <segue reference="PtD-v5-SM2"/>
-        <segue reference="ypY-4H-tQb"/>
-        <segue reference="ces-Za-JcT"/>
     </inferredMetricsTieBreakers>
 </document>

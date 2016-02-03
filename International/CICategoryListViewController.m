@@ -38,10 +38,10 @@
     // Load categories, then filter out those with 0 artworks!
     if ([CIAppState sharedAppState].currentLocation != nil) {
         location = [CIAppState sharedAppState].currentLocation;
-        
         self.navigationItem.title = location.name;
     } else {
         exhibition = [CIAppState sharedAppState].currentExhibition;
+        self.navigationItem.title = exhibition.title;
     }
     
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil)"];
