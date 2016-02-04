@@ -1066,7 +1066,7 @@
             </objects>
             <point key="canvasLocation" x="-1077" y="-261"/>
         </scene>
-        <!--CMOA TV-->
+        <!--Museum Videos-->
         <scene sceneID="vA5-tU-oCx">
             <objects>
                 <viewController id="Y91-Xc-0cI" customClass="CIMuseumVideosViewController" sceneMemberID="viewController">
@@ -1143,7 +1143,7 @@
                             <constraint firstItem="fAB-eO-kuw" firstAttribute="trailing" secondItem="SrL-zf-4wj" secondAttribute="trailing" id="yaY-fY-TF5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="CMOA TV" id="ncf-7n-TOq" customClass="CINavigationItem"/>
+                    <navigationItem key="navigationItem" title="Museum Videos" id="ncf-7n-TOq" customClass="CINavigationItem"/>
                     <connections>
                         <outlet property="errorView" destination="AlT-Nb-SjJ" id="N22-GP-2tA"/>
                         <outlet property="videosWebView" destination="fAB-eO-kuw" id="wkS-5r-gOY"/>
@@ -1613,7 +1613,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="asR-Ly-teI"/>
-        <segue reference="PtD-v5-SM2"/>
+        <segue reference="6o9-Al-0Og"/>
         <segue reference="Yed-eN-wAR"/>
         <segue reference="ufW-6D-zwo"/>
     </inferredMetricsTieBreakers>
