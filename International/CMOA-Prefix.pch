@@ -74,4 +74,7 @@
     #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
     #define kCISettingsApiToken @"api_token"
     #define kCISettingsApiSecret @"api_secret"
+
+    // App styling
+    #define kCILinkColor @"#0F73FF"
 #endif

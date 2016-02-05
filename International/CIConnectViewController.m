@@ -52,8 +52,8 @@
     emailContainer.layer.borderWidth = 5.0f;
     
     // Button style
-    [btnSubscribe setTitleColor:[UIColor colorFromHex:@"#24aadc"] forState:UIControlStateNormal];
-    [btnSubscribe setTitleColor:[UIColor colorFromHex:@"#24aadc" alpha:0.6f] forState:UIControlStateHighlighted];
+    [btnSubscribe setTitleColor:[UIColor colorFromHex:kCILinkColor] forState:UIControlStateNormal];
+    [btnSubscribe setTitleColor:[UIColor colorFromHex:kCILinkColor alpha:0.6f] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning {

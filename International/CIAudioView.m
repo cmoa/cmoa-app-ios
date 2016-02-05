@@ -76,8 +76,7 @@
     [btnMore setTitle:@"More" forState:UIControlStateNormal];
     btnMore.translatesAutoresizingMaskIntoConstraints = NO;
     [btnMore addTarget:self action:@selector(btnMoreDidPress:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMore setTitleColor:[UIColor colorFromHex:@"#24aadc"] forState:UIControlStateNormal];
-    [btnMore setTitleColor:[UIColor colorFromHex:@"#24aadc" alpha:0.7f] forState:UIControlStateHighlighted];
+    [btnMore setTitleColor:[UIColor colorFromHex:kCILinkColor] forState:UIControlStateNormal];
     btnMore.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
     [self addSubview:btnMore];
     
