@@ -28,24 +28,25 @@
 
 - (void)postInit {
     // Customize appearance
+    self.barTintColor = [UIColor colorFromHex:kCIBarColor];
+    
     NSDictionary *normalState = @{
                                   UITextAttributeFont : [UIFont fontWithName:@"HelveticaNeue-Medium" size:9.0f],
-                                  UITextAttributeTextColor : [UIColor colorFromHex:@"#929292"],
+                                  UITextAttributeTextColor : [UIColor colorFromHex:kCIBlackTextColor],
                                   UITextAttributeTextShadowColor: [UIColor clearColor],
                                   UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0, 0.0)]
                                   };
     
     NSDictionary *selectedState = @{
                                     UITextAttributeFont : [UIFont fontWithName:@"HelveticaNeue-Medium" size:9.0f],
-                                    UITextAttributeTextColor : [UIColor colorFromHex:kCILinkColor],
+                                    UITextAttributeTextColor : [UIColor colorFromHex:kCIWhiteTextColor],
                                     UITextAttributeTextShadowColor: [UIColor clearColor],
                                     UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0, 0.0)]
                                     };
     
     [[UITabBarItem appearance] setTitleTextAttributes:normalState forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:selectedState forState:UIControlStateSelected];
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor redColor]];
-//    [[UITabBar appearance] setSelectionIndicatorImage:[[UIImage alloc] init]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorFromHex:kCIWhiteTextColor]];
     
     // Set images for each item
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {

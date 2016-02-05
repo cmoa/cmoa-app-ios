@@ -631,10 +631,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Tj-uW-37d">
-                                <rect key="frame" x="0.0" y="657.5" width="703" height="46.5"/>
+                                <rect key="frame" x="0.0" y="658" width="703" height="46"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="674" translatesAutoresizingMaskIntoConstraints="NO" id="j0M-MM-itH" customClass="TTTAttributedLabel">
-                                        <rect key="frame" x="15" y="13" width="673" height="20.5"/>
+                                        <rect key="frame" x="15" y="13" width="673" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -817,13 +817,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="704"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cannot load webpage as this time." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPc-5m-HHR">
-                                        <rect key="frame" x="20" y="20" width="663" height="17.5"/>
+                                        <rect key="frame" x="20" y="20" width="663" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please try loading the original link." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yui-kW-KwV">
-                                        <rect key="frame" x="20" y="45.5" width="246" height="15.5"/>
+                                        <rect key="frame" x="20" y="46" width="246" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="246" id="Glq-tc-VPx"/>
                                         </constraints>
@@ -1421,7 +1421,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.51372549020000002" green="0.51764705879999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="5N0-HY-wDw" firstAttribute="top" secondItem="Nii-G1-FGx" secondAttribute="top" id="NDE-41-jBa"/>
                                     <constraint firstAttribute="trailing" secondItem="kEJ-aF-Jk3" secondAttribute="trailing" constant="124" id="P6r-Ik-e2k"/>
@@ -1535,10 +1535,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4I-B0-NcB">
-                                <rect key="frame" x="0.0" y="0.0" width="706" height="40.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="706" height="41"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Photo title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="j8P-UP-fR0">
-                                        <rect key="frame" x="208" y="10" width="290" height="20.5"/>
+                                        <rect key="frame" x="208" y="10" width="290" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="290" id="gfk-4g-6FW"/>
                                         </constraints>
@@ -1555,7 +1555,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYO-9n-KYA">
-                                <rect key="frame" x="0.0" y="40" width="706" height="663.5"/>
+                                <rect key="frame" x="0.0" y="40" width="706" height="664"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="H1f-z7-KKd" id="Aca-Qw-S1O"/>

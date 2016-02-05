@@ -118,7 +118,7 @@
     [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     
     // Set the tab bar background
-    tabBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tab_bg"]];
+    tabBarView.backgroundColor = [UIColor colorFromHex:kCIBarColor];
     
     // Configure the sequence
     if (self.artworks == nil) {
