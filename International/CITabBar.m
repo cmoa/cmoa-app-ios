@@ -45,7 +45,7 @@
     [[UITabBarItem appearance] setTitleTextAttributes:normalState forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:selectedState forState:UIControlStateSelected];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor redColor]];
-    [[UITabBar appearance] setSelectionIndicatorImage:[[UIImage alloc] init]];
+//    [[UITabBar appearance] setSelectionIndicatorImage:[[UIImage alloc] init]];
     
     // Set images for each item
     if (SYSTEM_VERSION_LESS_THAN(@"7.0")) {

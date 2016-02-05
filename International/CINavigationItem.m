@@ -16,7 +16,7 @@
         // Set custom label to be the title view
         UILabel *titleLbl = [[UILabel alloc] init];
         titleLbl.text = self.title;
-        titleLbl.textColor = [UIColor colorFromHex:@"#556270"];
+        titleLbl.textColor = [UIColor colorFromHex:kCIWhiteTextColor];
         titleLbl.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f];
         [titleLbl sizeToFit];
         self.titleView = titleLbl;

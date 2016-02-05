@@ -77,4 +77,8 @@
 
     // App styling
     #define kCILinkColor @"#0F73FF"
+    #define kCIBarColor @"#838487"
+    #define kCIWhiteTextColor @"#ffffff"
+    #define kCIBlackTextColor @"#000000"
+    #define kCIAccentColor @"#9a9a9a"
 #endif
