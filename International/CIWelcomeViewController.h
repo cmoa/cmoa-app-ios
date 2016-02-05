@@ -10,7 +10,6 @@
 #import "CIWelcomeButton.h"
 
 @interface CIWelcomeViewController : UIViewController {
-    IBOutlet UIImageView *headerImage;
     IBOutlet UIView *navContainer;
     IBOutlet UIButton *btnSearch;
     IBOutlet CIWelcomeButton *btnMyVisit;
@@ -18,9 +17,9 @@
     IBOutlet CIWelcomeButton *btnMuseumNews;
     IBOutlet CIWelcomeButton *btnCMOATV;
     IBOutlet CIWelcomeButton *btnConnect;
-    IBOutlet NSLayoutConstraint *conSearchButton;
-    IBOutlet NSLayoutConstraint *conNavContainer;
-    BOOL is4InchiPhone;
+    
+    __weak IBOutlet UIImageView *themeImageView;
+    __weak IBOutlet UIImageView *themeImageViewBlurred;
     
     // Background download
     CGFloat totalDownloadSize;

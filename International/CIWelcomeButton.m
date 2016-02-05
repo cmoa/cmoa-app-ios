@@ -34,10 +34,12 @@
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:15.0f];
     self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     self.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 15.0f, 0.0f, 15.0f);
-    [self setTitleColor:[UIColor colorFromHex:@"#ffffff"] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor colorFromHex:@"#ffffff" alpha:0.7f] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor colorFromHex:kCIWhiteTextColor] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor colorFromHex:kCIWhiteTextColor alpha:0.7f] forState:UIControlStateHighlighted];
     [self setBackgroundImage:[UIImage imageNamed:@"nav_welcome_bg"] forState:UIControlStateSelected];
-    [self setTitleColor:[UIColor colorFromHex:@"#ffffff"] forState:UIControlStateSelected];
+    [self setTitleColor:[UIColor colorFromHex:kCIWhiteTextColor] forState:UIControlStateSelected];
+    
+    [self setBackgroundColor:[UIColor colorWithWhite:.5 alpha:.5]];
     
     // Sep line
     isSeparatorOnTop = YES;
