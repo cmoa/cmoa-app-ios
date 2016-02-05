@@ -51,7 +51,7 @@
                      value:[UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f]
                      range:NSMakeRange(0, [artwork.title length])];
     [strTitle addAttribute:NSForegroundColorAttributeName
-                     value:[UIColor colorFromHex:@"#f26361"]
+                     value:[UIColor colorFromHex:kCIBlackTextColor]
                      range:NSMakeRange(0, [artwork.title length])];
     [strTitle addAttribute:NSParagraphStyleAttributeName
                      value:paragraphStyle

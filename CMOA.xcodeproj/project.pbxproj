@@ -158,7 +158,6 @@
 		23D978D017B92B6100A531D7 /* welcome_bg_nobar-h568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23D978CE17B92B6000A531D7 /* welcome_bg_nobar-h568@2x.png */; };
 		23D978D317B92D0100A531D7 /* nav_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23D978D217B92D0100A531D7 /* nav_bg@2x.png */; };
 		23D978D717B952E600A531D7 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D978D617B952E600A531D7 /* TTTAttributedLabel.m */; };
-		23D978DA17B9688900A531D7 /* CILinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D978D917B9688900A531D7 /* CILinkCell.m */; };
 		23DAE47D17DF6D5000888BAF /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DAE47B17DF6D4F00888BAF /* Default-Landscape.png */; };
 		23DAE47E17DF6D5000888BAF /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DAE47C17DF6D5000888BAF /* Default-Landscape@2x.png */; };
 		23DC65A217DF9D4D00738D52 /* welcome_bg_nobar_blur-h748.png in Resources */ = {isa = PBXBuildFile; fileRef = 23DC659E17DF9D4D00738D52 /* welcome_bg_nobar_blur-h748.png */; };
@@ -469,8 +468,6 @@
 		23D978D217B92D0100A531D7 /* nav_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_bg@2x.png"; sourceTree = "<group>"; };
 		23D978D517B952E600A531D7 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		23D978D617B952E600A531D7 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
-		23D978D817B9688900A531D7 /* CILinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CILinkCell.h; sourceTree = "<group>"; };
-		23D978D917B9688900A531D7 /* CILinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CILinkCell.m; sourceTree = "<group>"; };
 		23DAE47B17DF6D4F00888BAF /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		23DAE47C17DF6D5000888BAF /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
 		23DC659E17DF9D4D00738D52 /* welcome_bg_nobar_blur-h748.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_bg_nobar_blur-h748.png"; sourceTree = "<group>"; };
@@ -962,8 +959,6 @@
 				23A5E5BC17ABE30000444936 /* CIAudioCell.m */,
 				23F8E65D17B1696800F8EEF2 /* CIHoursCell.h */,
 				23F8E65E17B1696800F8EEF2 /* CIHoursCell.m */,
-				23D978D817B9688900A531D7 /* CILinkCell.h */,
-				23D978D917B9688900A531D7 /* CILinkCell.m */,
 				23E950F517BAC55E00F04A14 /* CICategoryCell.h */,
 				23E950F617BAC55E00F04A14 /* CICategoryCell.m */,
 			);
@@ -1814,7 +1809,6 @@
 				2338214817A2D61100629439 /* CIArtworkPhotoDetailViewController.m in Sources */,
 				2350371B17A05C210022A7EC /* CIArtworkPhotoCell.m in Sources */,
 				23D978D717B952E600A531D7 /* TTTAttributedLabel.m in Sources */,
-				23D978DA17B9688900A531D7 /* CILinkCell.m in Sources */,
 				23159FA517BA68EA00DBF620 /* CITabBar.m in Sources */,
 				2339EC1617BAA989003CDA7E /* MBProgressHUD.m in Sources */,
 				23E950F317BAC48600F04A14 /* CICategoryListViewController.m in Sources */,

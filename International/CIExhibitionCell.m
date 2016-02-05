@@ -44,8 +44,8 @@
     self.titleLabel.font = kTitleLabelFont;
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.titleLabel.textColor = [UIColor colorFromHex:@"#556270"];
-    self.titleLabel.highlightedTextColor = [UIColor colorFromHex:@"#556270"];
+    self.titleLabel.textColor = [UIColor colorFromHex:kCIBlackTextColor];
+    self.titleLabel.highlightedTextColor = [UIColor colorFromHex:kCIBlackTextColor];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Subtitle lbl
@@ -53,8 +53,8 @@
     self.subtitleLabel.font = kSubtitleLabelFont;
     self.subtitleLabel.numberOfLines = 0;
     self.subtitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.subtitleLabel.textColor = [UIColor colorFromHex:@"#f26361"];
-    self.subtitleLabel.highlightedTextColor = [UIColor colorFromHex:@"#f26361"];
+    self.subtitleLabel.textColor = [UIColor colorFromHex:kCIAccentColor];
+    self.subtitleLabel.highlightedTextColor = [UIColor colorFromHex:kCIAccentColor];
     self.subtitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Add children
