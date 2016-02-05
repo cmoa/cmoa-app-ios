@@ -15,6 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Back main window bg color to white. Helps with custom view transitions
     self.window.backgroundColor = [UIColor whiteColor];
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
 
     // Verify API config file presence
     NSString* settingsFilePath = [[NSBundle mainBundle] pathForResource:@"settings"
