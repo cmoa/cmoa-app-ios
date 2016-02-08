@@ -40,13 +40,19 @@
     
     NSUInteger totalExhibitions = [exhibitions count];
     
+    CGFloat offset;
     UIImage *themeImage;
     UIImage *ImageViewBlurred;
     
     if (IS_IPHONE) {
-        CGFloat offset = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
-        
+        offset = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
         themeImageViewBlurred.layer.contentsRect = CGRectMake(0, offset, 1, 1);
+        
+    } else {
+        offset = 0.1;
+        
+        themeImageView.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
+        themeImageViewBlurred.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
     }
     
     if (totalExhibitions != 0) {
@@ -59,7 +65,6 @@
         if (IS_IPHONE) {
             themeImage = [UIImage imageNamed:@"welcome_bg_iPhone.png"];
             ImageViewBlurred = [UIImage imageNamed:@"welcome_bg_iPhone_blur.png"];
-            NSLog(@"%@", ImageViewBlurred);
         } else {
             themeImage = [UIImage imageNamed:@"welcome_bg_iPad.png"];
             ImageViewBlurred = [UIImage imageNamed:@"welcome_bg_iPad_blur.png"];
