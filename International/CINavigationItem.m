@@ -7,6 +7,7 @@
 //
 
 #import "CINavigationItem.h"
+#import "CIBorderedButton.h"
 
 @implementation CINavigationItem
 
@@ -49,16 +50,6 @@
             [self setLeftBarButtonItem:menuButton];
             break;
         }
-        case CINavigationItemLeftBarButtonTypeMenu: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"nav_menu"]
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setLeftBarButtonItem:menuButton];
-            break;
-        }
     }
 }
 
@@ -66,27 +57,6 @@
     CGSize buttonSize = (CGSize){53.0f, 44.0f};
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     switch (type) {
-        case CINavigationItemRightBarButtonTypeRecommend: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_recommend_on"]
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setRightBarButtonItem:menuButton];
-            break;
-        }
-        case CINavigationItemRightBarButtonTypeRecommendDisabled: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_recommend_off"]
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            buttonView.tag = 1;
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setRightBarButtonItem:menuButton];
-            break;
-        }
         case CINavigationItemRightBarButtonTypeOpenInSafari: {
             UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_open_safari"]
                                                                size:buttonSize
@@ -128,8 +98,11 @@
 
 - (UIView *)customViewForButtonWithImage:(UIImage *)image size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
     // Init button
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = (CGRect){CGPointZero, size};
+    CIBorderedButton *button = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
+    
+//    button.frame = (CGRect){CGPointZero, size};
+    button.frame = CGRectMake(0, 0, size.width - 10, size.width - 10);
+    
     [button setImage:image forState:UIControlStateNormal];
     [button setContentMode:UIViewContentModeCenter];
     [button setContentEdgeInsets:edgeInsets];

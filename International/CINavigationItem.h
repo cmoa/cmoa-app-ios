@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 
 enum {
-    CINavigationItemLeftBarButtonTypeMenu = 1,
     CINavigationItemLeftBarButtonTypeBack = 2
 };
 typedef NSUInteger CINavigationItemLeftBarButtonType;
 
 enum {
-    CINavigationItemRightBarButtonTypeRecommend = 1,
-    CINavigationItemRightBarButtonTypeRecommendDisabled = 2,
     CINavigationItemRightBarButtonTypeOpenInSafari = 3,
     CINavigationItemRightBarButtonTypeSocial = 4
 };

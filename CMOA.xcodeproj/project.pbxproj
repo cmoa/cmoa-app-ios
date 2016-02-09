@@ -229,6 +229,7 @@
 		23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */; };
 		23FC83371785DDCE007FFFB1 /* CIArtist+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */; };
 		32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32098ECB1BB7506D00175E11 /* libsqlite3.tbd */; };
+		3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3262AC191C692935009B1F84 /* CIBorderedButton.m */; };
 		327851671C65481200865558 /* welcome_bg_iPad_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */; };
 		327851681C65481200865558 /* welcome_bg_iPad_blur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851601C65481200865558 /* welcome_bg_iPad_blur@2x.png */; };
 		327851691C65481200865558 /* welcome_bg_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851611C65481200865558 /* welcome_bg_iPad.png */; };
@@ -595,6 +596,8 @@
 		23FC83351785DDCE007FFFB1 /* CIArtist+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIArtist+Helpers.h"; sourceTree = "<group>"; };
 		23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIArtist+Helpers.m"; sourceTree = "<group>"; };
 		32098ECB1BB7506D00175E11 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3262AC181C692935009B1F84 /* CIBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBorderedButton.h; sourceTree = "<group>"; };
+		3262AC191C692935009B1F84 /* CIBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBorderedButton.m; sourceTree = "<group>"; };
 		3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_iPad_blur.png; sourceTree = "<group>"; };
 		327851601C65481200865558 /* welcome_bg_iPad_blur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_bg_iPad_blur@2x.png"; sourceTree = "<group>"; };
 		327851611C65481200865558 /* welcome_bg_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_iPad.png; sourceTree = "<group>"; };
@@ -1103,6 +1106,8 @@
 				23177322179DAC01005E7601 /* CIWelcomeButton.m */,
 				23ECBA66179F097400038701 /* CIExhibitionButton.h */,
 				23ECBA67179F097400038701 /* CIExhibitionButton.m */,
+				3262AC181C692935009B1F84 /* CIBorderedButton.h */,
+				3262AC191C692935009B1F84 /* CIBorderedButton.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -1721,6 +1726,7 @@
 				23ADE0FD179DC6B5008D52DC /* CINavigationBar.m in Sources */,
 				23F91BBA1784A58900B2691C /* MagicalRecord.m in Sources */,
 				23DD9CA6178B03B00016E41D /* CIExhibition+Helpers.m in Sources */,
+				3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */,
 				23DD8D2117A9A9C500E3FAA7 /* CIArtworkTabButton.m in Sources */,
 				23F91BB51784A58900B2691C /* MagicalRecord+ErrorHandling.m in Sources */,
 				23177317179D760A005E7601 /* CINavigationController.m in Sources */,
