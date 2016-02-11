@@ -13,6 +13,8 @@
 @synthesize analyticsTracker;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window.tintColor = [UIColor colorFromHex:kCIAccentColor];
+    
     // Back main window bg color to white. Helps with custom view transitions
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];

@@ -37,11 +37,12 @@
 }
 
 - (void)setLeftBarButtonType:(CINavigationItemLeftBarButtonType)type target:(id)target action:(SEL)action {
-    CGSize buttonSize = (CGSize){44.0f, 44.0f};
-    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 10.0f);
+    CGSize buttonSize = (CGSize){34.0f, 34.0f};
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 2.5f);
     switch (type) {
         case CINavigationItemLeftBarButtonTypeBack: {
             UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"nav_back"]
+                                                   highlightedImage:[UIImage imageNamed:@"nav_back_on"]
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
                                                              target:target
@@ -54,11 +55,12 @@
 }
 
 - (void)setRightBarButtonType:(CINavigationItemRightBarButtonType)type target:(id)target action:(SEL)action {
-    CGSize buttonSize = (CGSize){53.0f, 44.0f};
+    CGSize buttonSize = (CGSize){34.0f, 34.0f};
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     switch (type) {
         case CINavigationItemRightBarButtonTypeOpenInSafari: {
             UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_open_safari"]
+                                                   highlightedImage:[UIImage imageNamed:@"button_open_safari_on"]
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
                                                              target:target
@@ -96,14 +98,12 @@
     }
 }
 
-- (UIView *)customViewForButtonWithImage:(UIImage *)image size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
+- (UIView *)customViewForButtonWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
     // Init button
     CIBorderedButton *button = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
-    
-//    button.frame = (CGRect){CGPointZero, size};
-    button.frame = CGRectMake(0, 0, size.width - 10, size.width - 10);
-    
+    button.frame = (CGRect){{0, 5}, size};
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:highlightedImage forState:UIControlStateHighlighted];
     [button setContentMode:UIViewContentModeCenter];
     [button setContentEdgeInsets:edgeInsets];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
