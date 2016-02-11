@@ -10,4 +10,7 @@
 
 @interface CIBorderedButton : UIButton
 
+@property (strong, nonatomic) UIColor *borderColor;
+@property (strong, nonatomic) UIColor *borderHighligthedColor;
+
 @end

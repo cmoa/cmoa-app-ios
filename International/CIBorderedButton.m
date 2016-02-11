@@ -13,6 +13,8 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.borderColor = [UIColor colorFromHex:kCIWhiteTextColor];
+        self.borderHighligthedColor = [UIColor colorFromHex:kCIAccentColor];
         [self loadStyles];
     }
     return self;
@@ -21,13 +23,25 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.borderColor = [UIColor colorFromHex:kCIWhiteTextColor];
+        self.borderHighligthedColor = [UIColor colorFromHex:kCIAccentColor];
         [self loadStyles];
     }
     return self;
 }
 
-- (void) loadStyles {
-    self.layer.borderColor = [UIColor colorFromHex:kCIWhiteTextColor].CGColor;
+- (void)setBorderColor:(UIColor *)borderColor {
+    _borderColor = borderColor;
+    [self loadStyles];
+}
+
+- (void)setBorderHighlightedColor:(UIColor *)borderHighlightedColor {
+    _borderHighligthedColor = borderHighlightedColor;
+    [self loadStyles];
+}
+
+- (void)loadStyles {
+    self.layer.borderColor = self.borderColor.CGColor;
     self.layer.borderWidth = 1;
     self.layer.masksToBounds = true;
     self.layer.cornerRadius = 5;
@@ -37,9 +51,9 @@
     [super setHighlighted:highlighted];
     
     if (highlighted) {
-        self.layer.borderColor = [UIColor colorFromHex:kCIAccentColor].CGColor;
+        self.layer.borderColor = self.borderHighligthedColor.CGColor;
     } else {
-        self.layer.borderColor = [UIColor colorFromHex:kCIWhiteTextColor].CGColor;
+        self.layer.borderColor = self.borderColor.CGColor;
     }
 }
 

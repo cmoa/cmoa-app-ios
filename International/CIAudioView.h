@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AFNetworking.h"
+#import "CIBorderedButton.h"
 
 @protocol CIAudioViewDelegate;
 
 @interface CIAudioView : UIView {
     UIView *progressEmptyView;
     UIView *progressFullView;
-    UIButton *btnPlay;
+    CIBorderedButton *btnPlay;
     UIButton *btnInfo;
-    UIButton *btnMore;
+    CIBorderedButton *btnMore;
     UIView *sepView;
     BOOL showMoreButton;
     
