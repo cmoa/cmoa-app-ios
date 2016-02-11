@@ -231,6 +231,10 @@
 		321BD1901C6A78BD002172E7 /* nav_back_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 321BD18E1C6A78BD002172E7 /* nav_back_on@2x.png */; };
 		321BD1931C6A811A002172E7 /* button_open_safari_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 321BD1911C6A811A002172E7 /* button_open_safari_on.png */; };
 		321BD1941C6A811A002172E7 /* button_open_safari_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 321BD1921C6A811A002172E7 /* button_open_safari_on@2x.png */; };
+		3226942F1C6CD6A3007B5ED8 /* nav_facebook_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226942D1C6CD6A3007B5ED8 /* nav_facebook_on.png */; };
+		322694301C6CD6A3007B5ED8 /* nav_facebook_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226942E1C6CD6A3007B5ED8 /* nav_facebook_on@2x.png */; };
+		322694331C6CD762007B5ED8 /* nav_twitter_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 322694311C6CD762007B5ED8 /* nav_twitter_on.png */; };
+		322694341C6CD762007B5ED8 /* nav_twitter_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 322694321C6CD762007B5ED8 /* nav_twitter_on@2x.png */; };
 		3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3262AC191C692935009B1F84 /* CIBorderedButton.m */; };
 		327851671C65481200865558 /* welcome_bg_iPad_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */; };
 		327851681C65481200865558 /* welcome_bg_iPad_blur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851601C65481200865558 /* welcome_bg_iPad_blur@2x.png */; };
@@ -600,6 +604,10 @@
 		321BD18E1C6A78BD002172E7 /* nav_back_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back_on@2x.png"; sourceTree = "<group>"; };
 		321BD1911C6A811A002172E7 /* button_open_safari_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_open_safari_on.png; sourceTree = "<group>"; };
 		321BD1921C6A811A002172E7 /* button_open_safari_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_open_safari_on@2x.png"; sourceTree = "<group>"; };
+		3226942D1C6CD6A3007B5ED8 /* nav_facebook_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_facebook_on.png; sourceTree = "<group>"; };
+		3226942E1C6CD6A3007B5ED8 /* nav_facebook_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_facebook_on@2x.png"; sourceTree = "<group>"; };
+		322694311C6CD762007B5ED8 /* nav_twitter_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_twitter_on.png; sourceTree = "<group>"; };
+		322694321C6CD762007B5ED8 /* nav_twitter_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_twitter_on@2x.png"; sourceTree = "<group>"; };
 		3262AC181C692935009B1F84 /* CIBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBorderedButton.h; sourceTree = "<group>"; };
 		3262AC191C692935009B1F84 /* CIBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBorderedButton.m; sourceTree = "<group>"; };
 		3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_iPad_blur.png; sourceTree = "<group>"; };
@@ -800,8 +808,12 @@
 				321BD18E1C6A78BD002172E7 /* nav_back_on@2x.png */,
 				321BD1911C6A811A002172E7 /* button_open_safari_on.png */,
 				321BD1921C6A811A002172E7 /* button_open_safari_on@2x.png */,
+				3226942D1C6CD6A3007B5ED8 /* nav_facebook_on.png */,
+				3226942E1C6CD6A3007B5ED8 /* nav_facebook_on@2x.png */,
 				23ECBA64179EFCCF00038701 /* nav_back@2x.png */,
 				2316F62217D770070075D38A /* nav_back.png */,
+				322694311C6CD762007B5ED8 /* nav_twitter_on.png */,
+				322694321C6CD762007B5ED8 /* nav_twitter_on@2x.png */,
 			);
 			name = "Navigation Bar";
 			sourceTree = "<group>";
@@ -1537,15 +1549,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3226942F1C6CD6A3007B5ED8 /* nav_facebook_on.png in Resources */,
 				235908DD17B4005E0021C0C7 /* button_video_on@2x.png in Resources */,
 				2358536418CE1E5A0086C641 /* settings.example.plist in Resources */,
 				2381B56817A9F53700987E9A /* tab_share_off@2x.png in Resources */,
 				23DD8D1E17A9A82E00E3FAA7 /* tab_prev@2x.png in Resources */,
 				2308260617B1C40200ACE388 /* tab_location_on@2x.png in Resources */,
+				322694331C6CD762007B5ED8 /* nav_twitter_on.png in Resources */,
 				23809A3217A6DFCD00F52451 /* button_play_normal@2x.png in Resources */,
 				23F91B3F1784A3FC00B2691C /* Main_iPhone.storyboard in Resources */,
 				233A192517A7DF2600143C09 /* button_pause_normal@2x.png in Resources */,
 				23139E5A17EA1E5600FBF406 /* Icon-iPad2.png in Resources */,
+				322694341C6CD762007B5ED8 /* nav_twitter_on@2x.png in Resources */,
 				321BD1901C6A78BD002172E7 /* nav_back_on@2x.png in Resources */,
 				327851681C65481200865558 /* welcome_bg_iPad_blur@2x.png in Resources */,
 				23139E5617EA1D7C00FBF406 /* Default-Landscape-h768@2x.png in Resources */,
@@ -1612,6 +1627,7 @@
 				2341128317D8F37B00DA27E2 /* id_audio.png in Resources */,
 				2341128417D8F37B00DA27E2 /* id_audio@2x.png in Resources */,
 				2341128517D8F37B00DA27E2 /* id_video.png in Resources */,
+				322694301C6CD6A3007B5ED8 /* nav_facebook_on@2x.png in Resources */,
 				2341128617D8F37B00DA27E2 /* id_video@2x.png in Resources */,
 				327851691C65481200865558 /* welcome_bg_iPad.png in Resources */,
 				230FA20F17DA11C800FB933C /* nav_facebook.png in Resources */,

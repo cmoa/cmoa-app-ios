@@ -71,23 +71,25 @@
         }
         case CINavigationItemRightBarButtonTypeSocial: {
             // Init buttons
-            UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-            button1.frame = (CGRect){{44.0f, 0.0f}, {48.0f, 44.0f}};
+            CIBorderedButton *button1 = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
+            button1.frame = (CGRect){{39.0f, 5.0f}, {34.0f, 34.0f}};
             [button1 setImage:[UIImage imageNamed:@"nav_twitter"] forState:UIControlStateNormal];
+            [button1 setImage:[UIImage imageNamed:@"nav_twitter_on"] forState:UIControlStateHighlighted];
             [button1 setContentMode:UIViewContentModeCenter];
-            [button1 setContentEdgeInsets:edgeInsets];
+            [button1 setContentEdgeInsets:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 2.5f)];
             [button1 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
             button1.tag = 1;
 
-            UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-            button2.frame = (CGRect){CGPointZero, {44.0f, 44.0f}};
+            CIBorderedButton *button2 = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
+            button2.frame = (CGRect){{0, 5}, {34.0f, 34.0f}};
             [button2 setImage:[UIImage imageNamed:@"nav_facebook"] forState:UIControlStateNormal];
+            [button2 setImage:[UIImage imageNamed:@"nav_facebook_on"] forState:UIControlStateHighlighted];
             [button2 setContentMode:UIViewContentModeCenter];
-            [button2 setContentEdgeInsets:edgeInsets];
+            [button2 setContentEdgeInsets:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 7.5f)];
             [button2 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 
             // Init view
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 92.0f, 44.0f)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 73.0f, 34.0f)];
             [view addSubview:button1];
             [view addSubview:button2];
             
