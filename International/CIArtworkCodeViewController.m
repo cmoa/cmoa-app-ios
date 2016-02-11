@@ -54,8 +54,10 @@
     codeContainer.layer.borderWidth = 5.0f;
 
     // Button style
+    btnSearch.borderColor = [UIColor colorFromHex:kCILinkColor];
+    btnSearch.borderHighligthedColor = [UIColor colorFromHex:kCIBarUnactiveColor];
     [btnSearch setTitleColor:[UIColor colorFromHex:kCILinkColor] forState:UIControlStateNormal];
-    [btnSearch setTitleColor:[UIColor colorFromHex:kCILinkColor alpha:0.6f] forState:UIControlStateHighlighted];
+    [btnSearch setTitleColor:[UIColor colorFromHex:kCIBarUnactiveColor] forState:UIControlStateHighlighted];
     
     // Add border to number keyboard (otherwise looks weird on iOS 7)
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {

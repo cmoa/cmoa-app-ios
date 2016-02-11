@@ -36,7 +36,7 @@
     [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeSocial target:self action:@selector(navRightButtonDidPress:)];
     
     // Note label setup
-    NSString *strNote = @"Stay connected with Carnegie Museum of Art.\nEnter your email address below to receive updates about exhibitions, events and museum news.";
+    NSString *strNote = @"Stay connected with Carnegie Museums of Art and Natural History.\nEnter your email address below to receive updates about exhibitions, events and museum news.";
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -52,8 +52,10 @@
     emailContainer.layer.borderWidth = 5.0f;
     
     // Button style
+    btnSubscribe.borderColor = [UIColor colorFromHex:kCILinkColor];
+    btnSubscribe.borderHighligthedColor = [UIColor colorFromHex:kCIBarUnactiveColor];
     [btnSubscribe setTitleColor:[UIColor colorFromHex:kCILinkColor] forState:UIControlStateNormal];
-    [btnSubscribe setTitleColor:[UIColor colorFromHex:kCILinkColor alpha:0.6f] forState:UIControlStateHighlighted];
+    [btnSubscribe setTitleColor:[UIColor colorFromHex:kCIBarUnactiveColor] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning {

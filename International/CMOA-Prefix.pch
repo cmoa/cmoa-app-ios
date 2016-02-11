@@ -76,7 +76,7 @@
     #define kCISettingsApiSecret @"api_secret"
 
     // App styling
-    #define kCILinkColor @"#0F73FF"
+    #define kCILinkColor @"#9a9a9a"
     #define kCIBarColor @"#838487"
     #define kCIWhiteTextColor @"#ffffff"
     #define kCIBlackTextColor @"#000000"

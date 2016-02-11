@@ -1131,8 +1131,8 @@
                                     <constraint firstItem="ufP-nm-rLA" firstAttribute="centerY" secondItem="eme-Dc-v5W" secondAttribute="centerY" id="nSt-sI-ZPA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyD-eQ-z00">
-                                <rect key="frame" x="316" y="150" width="72" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WyD-eQ-z00" customClass="CIBorderedButton">
+                                <rect key="frame" x="316" y="160" width="72" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="HqM-MY-031"/>
                                     <constraint firstAttribute="width" constant="72" id="o40-0h-hCk"/>
@@ -1157,7 +1157,7 @@
                             <constraint firstItem="rLI-p2-Vid" firstAttribute="top" secondItem="nmF-bI-crD" secondAttribute="top" constant="10" id="KRp-Kl-bNK"/>
                             <constraint firstItem="WyD-eQ-z00" firstAttribute="centerX" secondItem="nmF-bI-crD" secondAttribute="centerX" id="N19-6f-d7A"/>
                             <constraint firstItem="eme-Dc-v5W" firstAttribute="top" secondItem="rLI-p2-Vid" secondAttribute="bottom" constant="8" symbolic="YES" id="hV9-6o-YhV"/>
-                            <constraint firstItem="WyD-eQ-z00" firstAttribute="top" secondItem="nmF-bI-crD" secondAttribute="top" constant="150" id="rSa-pw-CVR"/>
+                            <constraint firstItem="WyD-eQ-z00" firstAttribute="top" secondItem="nmF-bI-crD" secondAttribute="top" constant="160" id="rSa-pw-CVR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Object Code" id="8vo-Ry-Rmc" customClass="CINavigationItem"/>
@@ -1676,8 +1676,8 @@
                                     <constraint firstItem="KUT-i4-At0" firstAttribute="centerX" secondItem="lHv-t7-ZO7" secondAttribute="centerX" id="ooR-3r-5Ko"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhw-cw-GFf">
-                                <rect key="frame" x="289" y="153" width="126" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhw-cw-GFf" customClass="CIBorderedButton">
+                                <rect key="frame" x="289" y="163" width="126" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="JY0-V8-FeU"/>
                                     <constraint firstAttribute="width" constant="126" id="eqy-H4-2uX"/>
@@ -1699,7 +1699,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lHv-t7-ZO7" firstAttribute="leading" secondItem="Nd5-9H-sFF" secondAttribute="leading" constant="20" symbolic="YES" id="ASy-e8-Mi9"/>
-                            <constraint firstItem="bhw-cw-GFf" firstAttribute="top" secondItem="Nd5-9H-sFF" secondAttribute="top" constant="153" id="ISC-xA-dih"/>
+                            <constraint firstItem="bhw-cw-GFf" firstAttribute="top" secondItem="Nd5-9H-sFF" secondAttribute="top" constant="163" id="ISC-xA-dih"/>
                             <constraint firstItem="lHv-t7-ZO7" firstAttribute="centerX" secondItem="Nz5-db-5Xk" secondAttribute="centerX" id="Lqk-bc-Lt5"/>
                             <constraint firstAttribute="trailing" secondItem="lHv-t7-ZO7" secondAttribute="trailing" constant="19" id="QHn-mo-Tio"/>
                             <constraint firstItem="lHv-t7-ZO7" firstAttribute="centerX" secondItem="bhw-cw-GFf" secondAttribute="centerX" id="S7r-CD-lrx"/>
@@ -1740,10 +1740,10 @@
         <image name="welcome_bg_iPad.png" width="320" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0De-fX-voN"/>
         <segue reference="Vmk-a6-vnI"/>
+        <segue reference="0De-fX-voN"/>
         <segue reference="2R4-BK-aLe"/>
-        <segue reference="v9j-Rh-gb6"/>
-        <segue reference="4UV-jM-8FJ"/>
+        <segue reference="xGw-Wk-8YC"/>
+        <segue reference="OFV-ej-5GW"/>
     </inferredMetricsTieBreakers>
 </document>

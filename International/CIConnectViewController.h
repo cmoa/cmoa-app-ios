@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CIBorderedButton.h"
 
 @interface CIConnectViewController : UIViewController <UITextFieldDelegate> {
     IBOutlet UIView *emailContainer;
     IBOutlet UITextField *emailTextField;
     IBOutlet UILabel *lblNote;
-    IBOutlet UIButton *btnSubscribe;
+    IBOutlet CIBorderedButton *btnSubscribe;
     NSString *visitURL;
     NSString *visitTitle;
 }
