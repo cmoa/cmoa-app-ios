@@ -30,7 +30,7 @@
     
     logoImageView.image = [UIImage imageWithSVGNamed:@"museum_logo"
                                           targetSize:logoImageView.frame.size
-                                           fillColor:[UIColor whiteColor]];
+                                           fillColor:[UIColor colorFromHex:kCIWhiteTextColor]];
     
     [self loadThemeImage];
     
