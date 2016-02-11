@@ -226,6 +226,7 @@
 		23FC831A1785D7AA007FFFB1 /* NSString+UrlEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83191785D7AA007FFFB1 /* NSString+UrlEncode.m */; };
 		23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */; };
 		23FC83371785DDCE007FFFB1 /* CIArtist+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */; };
+		32053F5A1C6CFFDE0046A0F1 /* museum_logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 32053F591C6CFFDE0046A0F1 /* museum_logo.svg */; };
 		32098ECC1BB7506D00175E11 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32098ECB1BB7506D00175E11 /* libsqlite3.tbd */; };
 		321BD18F1C6A78BD002172E7 /* nav_back_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 321BD18D1C6A78BD002172E7 /* nav_back_on.png */; };
 		321BD1901C6A78BD002172E7 /* nav_back_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 321BD18E1C6A78BD002172E7 /* nav_back_on@2x.png */; };
@@ -250,6 +251,7 @@
 		3278516C1C65481200865558 /* welcome_bg_iPhone_blur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851641C65481200865558 /* welcome_bg_iPhone_blur@2x.png */; };
 		3278516D1C65481200865558 /* welcome_bg_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851651C65481200865558 /* welcome_bg_iPhone.png */; };
 		3278516E1C65481200865558 /* welcome_bg_iPhone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851661C65481200865558 /* welcome_bg_iPhone@2x.png */; };
+		4401B6D0FFC3EBAC533F2F98 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F20DF8F15ED92A251EA34FD2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -605,6 +607,7 @@
 		23FC831D1785DC1A007FFFB1 /* CIAPIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIAPIRequest.m; sourceTree = "<group>"; };
 		23FC83351785DDCE007FFFB1 /* CIArtist+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIArtist+Helpers.h"; sourceTree = "<group>"; };
 		23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIArtist+Helpers.m"; sourceTree = "<group>"; };
+		32053F591C6CFFDE0046A0F1 /* museum_logo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = museum_logo.svg; sourceTree = "<group>"; };
 		32098ECB1BB7506D00175E11 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		321BD18D1C6A78BD002172E7 /* nav_back_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back_on.png; sourceTree = "<group>"; };
 		321BD18E1C6A78BD002172E7 /* nav_back_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_back_on@2x.png"; sourceTree = "<group>"; };
@@ -630,6 +633,9 @@
 		327851641C65481200865558 /* welcome_bg_iPhone_blur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_bg_iPhone_blur@2x.png"; sourceTree = "<group>"; };
 		327851651C65481200865558 /* welcome_bg_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_iPhone.png; sourceTree = "<group>"; };
 		327851661C65481200865558 /* welcome_bg_iPhone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_bg_iPhone@2x.png"; sourceTree = "<group>"; };
+		733DC59EC6A514574CF807CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B87D09140ACA6C88B6A6B03D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F20DF8F15ED92A251EA34FD2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +661,7 @@
 				23F91B2E1784A3FC00B2691C /* CoreGraphics.framework in Frameworks */,
 				23F91B301784A3FC00B2691C /* UIKit.framework in Frameworks */,
 				23F91B2C1784A3FC00B2691C /* Foundation.framework in Frameworks */,
+				4401B6D0FFC3EBAC533F2F98 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1055,6 +1062,7 @@
 		23D978D117B92B6500A531D7 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				32053F591C6CFFDE0046A0F1 /* museum_logo.svg */,
 				3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */,
 				327851601C65481200865558 /* welcome_bg_iPad_blur@2x.png */,
 				327851611C65481200865558 /* welcome_bg_iPad.png */,
@@ -1176,6 +1184,7 @@
 				23F91B311784A3FC00B2691C /* International */,
 				23F91B2A1784A3FC00B2691C /* Frameworks */,
 				23F91B291784A3FC00B2691C /* Products */,
+				40D840973B1B7E281398FDD0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1208,6 +1217,7 @@
 				23F91B2B1784A3FC00B2691C /* Foundation.framework */,
 				23F91B2D1784A3FC00B2691C /* CoreGraphics.framework */,
 				23F91B2F1784A3FC00B2691C /* UIKit.framework */,
+				F20DF8F15ED92A251EA34FD2 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1509,6 +1519,15 @@
 			name = Labels;
 			sourceTree = "<group>";
 		};
+		40D840973B1B7E281398FDD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				733DC59EC6A514574CF807CB /* Pods.debug.xcconfig */,
+				B87D09140ACA6C88B6A6B03D /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1516,9 +1535,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 23F91B5D1784A3FC00B2691C /* Build configuration list for PBXNativeTarget "CMOA" */;
 			buildPhases = (
+				E118365295CCC1E411270D76 /* Check Pods Manifest.lock */,
 				23F91B241784A3FC00B2691C /* Sources */,
 				23F91B251784A3FC00B2691C /* Frameworks */,
 				23F91B261784A3FC00B2691C /* Resources */,
+				DE03D01361650FF6E049C610 /* Embed Pods Frameworks */,
+				E84145980E3FFFBA2D2128C8 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1640,6 +1662,7 @@
 				3278516D1C65481200865558 /* welcome_bg_iPhone.png in Resources */,
 				2316F65817D770D90075D38A /* tab_share_on.png in Resources */,
 				2316F65917D770D90075D38A /* tab_title_off.png in Resources */,
+				32053F5A1C6CFFDE0046A0F1 /* museum_logo.svg in Resources */,
 				2316F65A17D770D90075D38A /* tab_title_on.png in Resources */,
 				2316F66017D7713B0075D38A /* button_video_on.png in Resources */,
 				2316F66317D7714D0075D38A /* button_search_off.png in Resources */,
@@ -1672,6 +1695,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE03D01361650FF6E049C610 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E118365295CCC1E411270D76 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E84145980E3FFFBA2D2128C8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		23F91B241784A3FC00B2691C /* Sources */ = {
@@ -1902,6 +1973,7 @@
 		};
 		23F91B5E1784A3FC00B2691C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 733DC59EC6A514574CF807CB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1917,7 +1989,7 @@
 					"\"$(SRCROOT)/International\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.carnegie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = CMOA;
 				PROVISIONING_PROFILE = "";
@@ -1928,6 +2000,7 @@
 		};
 		23F91B5F1784A3FC00B2691C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B87D09140ACA6C88B6A6B03D /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -1943,7 +2016,7 @@
 					"\"$(SRCROOT)/International\"",
 					"\"$(SRCROOT)/GoogleAnalytics\"",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.carnegie.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = CMOA;
 				PROVISIONING_PROFILE = "";

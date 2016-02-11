@@ -7,6 +7,8 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <UIImage+SVG/UIImage+SVG.h>
+
 #import "CIWelcomeViewController.h"
 #import "CIAPIRequest.h"
 #import "UIImage+Resize.h"
@@ -42,7 +44,7 @@
     
     CGFloat offset;
     UIImage *themeImage;
-    UIImage *ImageViewBlurred;
+    UIImage *themeImageBlurred;
     
     if (IS_IPHONE) {
         offset = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
@@ -60,19 +62,19 @@
         CIExhibition *exhibition = [exhibitions objectAtIndex:randomNumber];
         
         themeImage = [UIImage imageWithContentsOfFile:[exhibition getBackgroundFilePath]];
-        ImageViewBlurred = [UIImage imageWithContentsOfFile:[exhibition getBlurredBackgroundFilePath]];
+        themeImageBlurred = [UIImage imageWithContentsOfFile:[exhibition getBlurredBackgroundFilePath]];
     } else {
         if (IS_IPHONE) {
             themeImage = [UIImage imageNamed:@"welcome_bg_iPhone.png"];
-            ImageViewBlurred = [UIImage imageNamed:@"welcome_bg_iPhone_blur.png"];
+            themeImageBlurred = [UIImage imageNamed:@"welcome_bg_iPhone_blur.png"];
         } else {
             themeImage = [UIImage imageNamed:@"welcome_bg_iPad.png"];
-            ImageViewBlurred = [UIImage imageNamed:@"welcome_bg_iPad_blur.png"];
+            themeImageBlurred = [UIImage imageNamed:@"welcome_bg_iPad_blur.png"];
         }
     }
     
     themeImageView.image = themeImage;
-    themeImageViewBlurred.image = ImageViewBlurred;
+    themeImageViewBlurred.image = themeImageBlurred;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
