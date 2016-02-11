@@ -81,4 +81,5 @@
     #define kCIWhiteTextColor @"#ffffff"
     #define kCIBlackTextColor @"#000000"
     #define kCIAccentColor @"#9a9a9a"
+    #define kCIBarUnactiveColor @"#cccccc"
 #endif

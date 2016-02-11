@@ -32,7 +32,7 @@
     
     NSDictionary *normalState = @{
                                   UITextAttributeFont : [UIFont fontWithName:@"HelveticaNeue-Medium" size:9.0f],
-                                  UITextAttributeTextColor : [UIColor colorFromHex:kCIBlackTextColor],
+                                  UITextAttributeTextColor : [UIColor colorFromHex:kCIBarUnactiveColor],
                                   UITextAttributeTextShadowColor: [UIColor clearColor],
                                   UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0, 0.0)]
                                   };
