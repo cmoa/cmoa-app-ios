@@ -18,6 +18,7 @@
     IBOutlet CIWelcomeButton *btnCMOATV;
     IBOutlet CIWelcomeButton *btnConnect;
     
+    __weak IBOutlet UIImageView *logoImageView;
     __weak IBOutlet UIImageView *themeImageView;
     __weak IBOutlet UIImageView *themeImageViewBlurred;
     

@@ -28,6 +28,10 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
+    logoImageView.image = [UIImage imageWithSVGNamed:@"museum_logo"
+                                          targetSize:logoImageView.frame.size
+                                           fillColor:[UIColor whiteColor]];
+    
     [self loadThemeImage];
     
     // Set Exhibitions as selected
