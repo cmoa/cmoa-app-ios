@@ -79,7 +79,7 @@
     #define kCILinkColor @"#9a9a9a"
     #define kCIBarColor @"#838487"
     #define kCIWhiteTextColor @"#ffffff"
-    #define kCIBlackTextColor @"#000000"
+    #define kCIBlackTextColor @"#333333"
     #define kCIAccentColor @"#9a9a9a"
     #define kCIBarUnactiveColor @"#cccccc"
 

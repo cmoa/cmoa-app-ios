@@ -13,7 +13,7 @@
 #import "CIArtworkListViewController.h"
 #import "CIBrowserViewController.h"
 
-#define CMOA_VISIT_URL @"http://cmoa.org/visit"
+#define CMOA_VISIT_URL @"http://www.carnegiemuseums.org/interior.php?pageID=36"
 #define METERS_PER_MILE 1609.344
 
 @interface CIVisitViewController ()
@@ -193,7 +193,7 @@
             break;
             
         case 4: {
-            cell.titleLabel.text = @"Visit CMOA.ORG";
+            cell.titleLabel.text = @"Visit Carnegie Museums";
             cell.subtitleLabel.text = [@"For more visitor information and holiday hours" uppercaseString];
         }
             break;
@@ -295,7 +295,7 @@
     if ([segue.identifier isEqualToString:@"showBrowser"]) {
         CIBrowserViewController *browserViewController = (CIBrowserViewController *)segue.destinationViewController;
         browserViewController.parentMode = @"visit";
-        browserViewController.viewTitle = @"CMOA.org";
+        browserViewController.viewTitle = @"Carnegie Museums";
         browserViewController.url = CMOA_VISIT_URL;
     }
 }
