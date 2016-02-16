@@ -37,7 +37,6 @@
 
 - (void)setBorderHighlightedColor:(UIColor *)borderHighlightedColor {
     _borderHighligthedColor = borderHighlightedColor;
-    [self loadStyles];
 }
 
 - (void)loadStyles {
