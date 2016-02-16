@@ -74,4 +74,15 @@
     #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
     #define kCISettingsApiToken @"api_token"
     #define kCISettingsApiSecret @"api_secret"
+
+    // App styling
+    #define kCILinkColor @"#9a9a9a"
+    #define kCIBarColor @"#838487"
+    #define kCIWhiteTextColor @"#ffffff"
+    #define kCIBlackTextColor @"#333333"
+    #define kCIAccentColor @"#9a9a9a"
+    #define kCIBarUnactiveColor @"#cccccc"
+
+    // Notifications
+    #define kCISelectedExhibitionNotification @"selectedExhibitionNotification"
 #endif

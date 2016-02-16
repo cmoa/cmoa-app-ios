@@ -51,7 +51,7 @@
                      value:[UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f]
                      range:NSMakeRange(0, [artwork.title length])];
     [strTitle addAttribute:NSForegroundColorAttributeName
-                     value:[UIColor colorFromHex:@"#f26361"]
+                     value:[UIColor colorFromHex:kCIBlackTextColor]
                      range:NSMakeRange(0, [artwork.title length])];
     [strTitle addAttribute:NSParagraphStyleAttributeName
                      value:paragraphStyle
@@ -118,7 +118,7 @@
     [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     
     // Set the tab bar background
-    tabBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tab_bg"]];
+    tabBarView.backgroundColor = [UIColor colorFromHex:kCIBarColor];
     
     // Configure the sequence
     if (self.artworks == nil) {

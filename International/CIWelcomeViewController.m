@@ -7,6 +7,8 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <UIImage+SVG/UIImage+SVG.h>
+
 #import "CIWelcomeViewController.h"
 #import "CIAPIRequest.h"
 #import "UIImage+Resize.h"
@@ -24,44 +26,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Device height detect
-    is4InchiPhone = [UIScreen mainScreen].bounds.size.height == 568;
-    
-    // Background & nav bar hidden
-    if (IS_IPHONE) {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-            headerImage.image = [UIImage imageNamed:@"welcome_header"]; // Default: welcome_header_nobar
-            conSearchButton.constant = 30.0f; // Includes top bar (20px)
-            if (is4InchiPhone) {
-                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"welcome_bg-h568"]];
-            } else {
-                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"welcome_bg"]];
-            }
-        } else {
-            if (is4InchiPhone) {
-                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"welcome_bg_nobar-h568"]];
-            } else {
-                self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"welcome_bg_nobar"]];
-            }
-        }
-    } else if (IS_IPAD) {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-            headerImage.image = [UIImage imageNamed:@"welcome_header"]; // Default: welcome_header_nobar
-            conSearchButton.constant = conSearchButton.constant + 20.0f; // Includes top bar (20px)
-            conNavContainer.constant = conNavContainer.constant + 20.0f; // Includes top bar (20px)
-            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"welcome_bg-h748"]];
-        } else {
-            self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"welcome_bg_nobar-h748"]];
-        }
-    }
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    // Set button separators on the bottom for iPad
-    if (IS_IPAD) {
-        for (CIWelcomeButton *button in navContainer.subviews) {
-            [button setSeparatorOnBottom];
-        }
-    }
+    logoImageView.image = [UIImage imageWithSVGNamed:@"museum_logo"
+                                          targetSize:logoImageView.frame.size
+                                           fillColor:[UIColor colorFromHex:kCIWhiteTextColor]];
+    
+    [self loadThemeImage:[CIExhibition randomLiveExhibition]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selectedExhibition:)
+                                                 name:kCISelectedExhibitionNotification
+                                               object:nil];
     
     // Set Exhibitions as selected
     if (IS_IPAD) {
@@ -69,42 +45,43 @@
     }
 }
 
-- (void)viewDidLayoutSubviews {
-    UIImage *bgImage;
+- (void)dealloc {
+    // Cleanup notification subscriptions
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)loadThemeImage:(CIExhibition *)exhibition {
+    CGFloat offset;
+    UIImage *themeImage;
+    UIImage *themeImageBlurred;
+    
     if (IS_IPHONE) {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-            if (is4InchiPhone) {
-                bgImage = [UIImage imageNamed:@"welcome_bg_blur-h568"];
-            } else {
-                bgImage = [UIImage imageNamed:@"welcome_bg_blur"];
-            }
+        offset = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
+        themeImageViewBlurred.layer.contentsRect = CGRectMake(0, offset, 1, 1);
+        
+    } else {
+        offset = 0.1;
+        
+        themeImageView.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
+        themeImageViewBlurred.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
+    }
+    
+    if (exhibition != nil) {
+        themeImage = [UIImage imageWithContentsOfFile:[exhibition getBackgroundFilePath]];
+        themeImageBlurred = [UIImage imageWithContentsOfFile:[exhibition getBlurredBackgroundFilePath]];
+        
+    } else {
+        if (IS_IPHONE) {
+            themeImage = [UIImage imageNamed:@"welcome_bg_iPhone.png"];
+            themeImageBlurred = [UIImage imageNamed:@"welcome_bg_iPhone_blur.png"];
         } else {
-            if (is4InchiPhone) {
-                bgImage = [UIImage imageNamed:@"welcome_bg_nobar_blur-h568"];
-            } else {
-                bgImage = [UIImage imageNamed:@"welcome_bg_nobar_blur"];
-            }
-        }
-    } else if (IS_IPAD) {
-        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-            bgImage = [UIImage imageNamed:@"welcome_bg_blur-h748"];
-        } else {
-            bgImage = [UIImage imageNamed:@"welcome_bg_nobar_blur-h748"];
+            themeImage = [UIImage imageNamed:@"welcome_bg_iPad.png"];
+            themeImageBlurred = [UIImage imageNamed:@"welcome_bg_iPad_blur.png"];
         }
     }
-
-    // Header background
-    CGFloat scale = [UIScreen mainScreen].scale;
-    CGRect crop = (CGRect){{headerImage.frame.origin.x * scale, headerImage.frame.origin.y * scale}, {headerImage.frame.size.width * scale, headerImage.frame.size.height * scale}};
-    headerImage.backgroundColor = [UIColor colorWithPatternImage:[bgImage croppedImage:crop]];
-    headerImage.layer.rasterizationScale = scale;
-    headerImage.layer.shouldRasterize = YES;
-
-    // Nav container background
-    crop = (CGRect){{navContainer.frame.origin.x * scale, navContainer.frame.origin.y * scale}, {navContainer.frame.size.width * scale, navContainer.frame.size.height * scale}};
-    navContainer.backgroundColor = [UIColor colorWithPatternImage:[bgImage croppedImage:crop]];
-    navContainer.layer.rasterizationScale = scale;
-    navContainer.layer.shouldRasterize = YES;
+    
+    themeImageView.image = themeImage;
+    themeImageViewBlurred.image = themeImageBlurred;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -126,8 +103,10 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Deselect all buttons
-    for (CIWelcomeButton *button in navContainer.subviews) {
-        button.selected = NO;
+    for (UIView *view in navContainer.subviews) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            [(UIButton *)view setSelected:NO];
+        }
     }
     
     if ([segue.identifier isEqualToString:@"showArtworkCode"]) {
@@ -152,8 +131,10 @@
     }
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+#pragma mark - Notifications
+
+- (void)selectedExhibition:(NSNotification *)notification {
+    [self loadThemeImage:[CIAppState sharedAppState].currentExhibition];
 }
 
 #pragma mark - Sync

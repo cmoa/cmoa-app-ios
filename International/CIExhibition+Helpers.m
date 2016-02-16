@@ -58,6 +58,21 @@
     return exhibition;
 }
 
++ (CIExhibition*)randomLiveExhibition {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (isLive = YES)"];
+    NSArray *exhibitions = [CIExhibition MR_findAllSortedBy:@"position" ascending:YES withPredicate:predicate];
+    
+    NSUInteger totalExhibitions = [exhibitions count];
+    
+    if (totalExhibitions == 0) {
+        return nil;
+    }
+    
+    NSUInteger randomNumber = arc4random() % totalExhibitions;
+    
+    return [exhibitions objectAtIndex:randomNumber];
+}
+
 - (NSDictionary*)toDictionary {
     return @{
              @"uuid" : self.uuid,

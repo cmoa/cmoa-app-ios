@@ -26,9 +26,8 @@
     [super viewDidLoad];
     
     // Modify tab bar
-    self.tabBar.backgroundImage = [UIImage imageNamed:@"tab_bg"];
-    self.tabBar.shadowImage = [[UIImage alloc] init];
-    self.tabBar.tintColor = [UIColor colorFromHex:@"#f26361"];
+    self.tabBar.barTintColor = [UIColor colorFromHex:kCIBarColor];
+    self.tabBar.tintColor = [UIColor colorFromHex:kCILinkColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

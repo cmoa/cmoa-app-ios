@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="museum_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ndX-p7-rbg">
+                                <rect key="frame" x="16" y="120" width="568" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="3CF-to-M1m">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="34"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34.5" id="eKM-91-YyV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="568" id="hRk-2Z-gp4"/>
+                                    <constraint firstAttribute="width" constant="568" id="lA4-1u-k0z">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="284"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eKM-91-YyV"/>
+                                        <exclude reference="hRk-2Z-gp4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="eKM-91-YyV"/>
+                                        <exclude reference="hRk-2Z-gp4"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.51372549019607838" green="0.51764705882352935" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ndX-p7-rbg" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="100" id="6LO-yv-gti"/>
+                            <constraint firstItem="ndX-p7-rbg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cP0-vD-ZLc"/>
+                            <constraint firstItem="ndX-p7-rbg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mbe-dj-vV5"/>
+                            <constraint firstItem="ndX-p7-rbg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="oHD-LH-6Wm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="cP0-vD-ZLc"/>
+                                <exclude reference="oHD-LH-6Wm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="museum_logo.png" width="568" height="69"/>
+    </resources>
+</document>
