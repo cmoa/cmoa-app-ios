@@ -32,7 +32,12 @@
                                           targetSize:logoImageView.frame.size
                                            fillColor:[UIColor colorFromHex:kCIWhiteTextColor]];
     
-    [self loadThemeImage];
+    [self loadThemeImage:[CIExhibition randomLiveExhibition]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(selectedExhibition:)
+                                                 name:kCISelectedExhibitionNotification
+                                               object:nil];
     
     // Set Exhibitions as selected
     if (IS_IPAD) {
@@ -40,12 +45,12 @@
     }
 }
 
-- (void)loadThemeImage {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (isLive = YES)"];
-    NSArray *exhibitions = [CIExhibition MR_findAllSortedBy:@"position" ascending:YES withPredicate:predicate];
-    
-    NSUInteger totalExhibitions = [exhibitions count];
-    
+- (void)dealloc {
+    // Cleanup notification subscriptions
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)loadThemeImage:(CIExhibition *)exhibition {
     CGFloat offset;
     UIImage *themeImage;
     UIImage *themeImageBlurred;
@@ -61,12 +66,10 @@
         themeImageViewBlurred.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
     }
     
-    if (totalExhibitions != 0) {
-        NSUInteger randomNumber = arc4random() % totalExhibitions;
-        CIExhibition *exhibition = [exhibitions objectAtIndex:randomNumber];
-        
+    if (exhibition != nil) {
         themeImage = [UIImage imageWithContentsOfFile:[exhibition getBackgroundFilePath]];
         themeImageBlurred = [UIImage imageWithContentsOfFile:[exhibition getBlurredBackgroundFilePath]];
+        
     } else {
         if (IS_IPHONE) {
             themeImage = [UIImage imageNamed:@"welcome_bg_iPhone.png"];
@@ -126,6 +129,12 @@
     } else if ([segue.identifier isEqualToString:@"showConnect"]) {
         btnConnect.selected = YES;
     }
+}
+
+#pragma mark - Notifications
+
+- (void)selectedExhibition:(NSNotification *)notification {
+    [self loadThemeImage:[CIAppState sharedAppState].currentExhibition];
 }
 
 #pragma mark - Sync

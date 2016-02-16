@@ -100,6 +100,15 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier  isEqual: @"Exhibition Objects"] ||
+        [segue.identifier  isEqual: @"Exhibition Tours"]) {
+        [[NSNotificationCenter defaultCenter]
+            postNotificationName:kCISelectedExhibitionNotification
+            object:NULL];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

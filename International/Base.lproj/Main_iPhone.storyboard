@@ -420,10 +420,10 @@
                                     <constraint firstAttribute="bottom" secondItem="niz-sh-TqY" secondAttribute="bottom" id="sD9-7F-HuM"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
                                         <rect key="frame" x="196" y="0.0" width="75" height="49"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14 of 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMp-AS-Aio">
@@ -442,7 +442,7 @@
                                             <constraint firstAttribute="width" constant="75" id="skC-rf-0Hn"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjE-UW-Ixv">
                                         <rect key="frame" x="64" y="0.0" width="44" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="BQA-dr-QUf"/>
@@ -459,7 +459,7 @@
                                             <action selector="locationDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="HJg-UV-fms"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-Rn-cu2">
                                         <rect key="frame" x="10" y="0.0" width="44" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="MHE-Dg-TZ7"/>
@@ -476,7 +476,7 @@
                                             <action selector="shareDidPress:" destination="6Ff-tW-lCF" eventType="touchUpInside" id="CPB-bX-1WA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1d-YB-hJ5" customClass="CIArtworkTabButton">
                                         <rect key="frame" x="271" y="0.0" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="APW-Cy-QEq"/>
@@ -493,7 +493,7 @@
                                             <segue destination="6Ff-tW-lCF" kind="custom" identifier="showNextArtworkDetail" customClass="CIArtworkSequenceSegue" id="I9y-qT-NHV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqL-yM-p0h" customClass="CIArtworkTabButton">
                                         <rect key="frame" x="147" y="0.0" width="49" height="49"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="49" id="m9a-hk-0eS"/>
@@ -1309,7 +1309,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="d07-Of-HR7" kind="push" id="qW2-GX-F11"/>
+                                            <segue destination="d07-Of-HR7" kind="push" identifier="Exhibition Objects" id="qW2-GX-F11"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xvj-Mx-5yN" customClass="CIExhibitionButton">
@@ -1326,7 +1326,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="P7A-aT-32l" kind="push" id="1pz-rR-cUU"/>
+                                            <segue destination="P7A-aT-32l" kind="push" identifier="Exhibition Tours" id="1pz-rR-cUU"/>
                                         </connections>
                                     </button>
                                 </subviews>
