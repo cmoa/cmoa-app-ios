@@ -49,6 +49,8 @@
     // Layout constraints
     __weak IBOutlet NSLayoutConstraint *lblArtistHeightConstraint;
     NSLayoutConstraint *lblDescriptionHeightConstraint;
+    __weak IBOutlet NSLayoutConstraint *scrollViewWidthConstraint;
+    __weak IBOutlet NSLayoutConstraint *detailContainerWidthConstraint;
 }
 
 @property (nonatomic, retain) CIArtwork *artwork;

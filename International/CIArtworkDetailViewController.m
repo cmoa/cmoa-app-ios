@@ -215,6 +215,12 @@
     [CIAnalyticsHelper sendEvent:@"ArtworkDetail" withLabel:self.artwork.code];
 }
 
+- (void)viewWillLayoutSubviews {
+    // Buggy fix for the ambiguous scroll view size
+    scrollViewWidthConstraint.constant = self.view.frame.size.width;
+    detailContainerWidthConstraint.constant = self.view.frame.size.width;
+}
+
 - (void)viewDidLayoutSubviews {
     // Center the page control
     CGFloat centerX = self.view.frame.size.width / 2.0f;
@@ -321,6 +327,12 @@
 }
 
 #pragma mark - Collection view delegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.frame.size.width, 200);
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return ([photos count] + [videos count]);
