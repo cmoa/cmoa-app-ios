@@ -41,8 +41,12 @@
     // Backgrounds
     UIImage *bg = [UIImage imageWithContentsOfFile:[exhibition getBackgroundFilePath]];
     UIImage *bgBlurred = [UIImage imageWithContentsOfFile:[exhibition getBlurredBackgroundFilePath]];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:bg];
-    navContainer.backgroundColor = [UIColor colorWithPatternImage:bgBlurred];
+    
+    themeImageView.image = bg;
+    themeImageViewBlurred.image = bgBlurred;
+    
+    CGFloat shownArea = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
+    themeImageViewBlurred.layer.contentsRect = CGRectMake(0, 0, 1, shownArea);
     
     // Set sponsor text
     haveSponsorText = (exhibition.sponsor != nil && ![exhibition.sponsor isEqual:@""]);
