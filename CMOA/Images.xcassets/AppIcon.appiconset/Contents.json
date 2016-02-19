@@ -77,6 +77,20 @@
       "idiom" : "ipad",
       "filename" : "Icon-83.5@2x.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "watch",
+      "filename" : "Icon-Small@2x-2.png",
+      "role" : "companionSettings",
+      "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "watch",
+      "filename" : "Icon-Small@3x-1.png",
+      "role" : "companionSettings",
+      "scale" : "3x"
     }
   ],
   "info" : {
