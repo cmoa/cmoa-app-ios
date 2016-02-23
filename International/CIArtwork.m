@@ -25,5 +25,6 @@
 @dynamic updatedAt;
 @dynamic uuid;
 @dynamic likes;
+@dynamic beaconUuid;
 
 @end

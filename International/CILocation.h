@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSNumber * syncStatus;
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSString * beaconUuid;
 
 @end

@@ -234,6 +234,8 @@
 		3226943F1C6CF561007B5ED8 /* button_pause_normal_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226943D1C6CF561007B5ED8 /* button_pause_normal_on.png */; };
 		322694401C6CF561007B5ED8 /* button_pause_normal_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226943E1C6CF561007B5ED8 /* button_pause_normal_on@2x.png */; };
 		3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3262AC191C692935009B1F84 /* CIBorderedButton.m */; };
+		327826AE1C7CC47F004FAA5D /* CIBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 327826AD1C7CC47F004FAA5D /* CIBeacon.m */; };
+		327826B11C7CD5DB004FAA5D /* CIBeacon+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 327826B01C7CD5DB004FAA5D /* CIBeacon+Helpers.m */; };
 		327851671C65481200865558 /* welcome_bg_iPad_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */; };
 		327851681C65481200865558 /* welcome_bg_iPad_blur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851601C65481200865558 /* welcome_bg_iPad_blur@2x.png */; };
 		327851691C65481200865558 /* welcome_bg_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 327851611C65481200865558 /* welcome_bg_iPad.png */; };
@@ -607,6 +609,10 @@
 		3226943E1C6CF561007B5ED8 /* button_pause_normal_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pause_normal_on@2x.png"; sourceTree = "<group>"; };
 		3262AC181C692935009B1F84 /* CIBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBorderedButton.h; sourceTree = "<group>"; };
 		3262AC191C692935009B1F84 /* CIBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBorderedButton.m; sourceTree = "<group>"; };
+		327826AC1C7CC47F004FAA5D /* CIBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBeacon.h; sourceTree = "<group>"; };
+		327826AD1C7CC47F004FAA5D /* CIBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBeacon.m; sourceTree = "<group>"; };
+		327826AF1C7CD5DB004FAA5D /* CIBeacon+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIBeacon+Helpers.h"; sourceTree = "<group>"; };
+		327826B01C7CD5DB004FAA5D /* CIBeacon+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIBeacon+Helpers.m"; sourceTree = "<group>"; };
 		3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_iPad_blur.png; sourceTree = "<group>"; };
 		327851601C65481200865558 /* welcome_bg_iPad_blur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome_bg_iPad_blur@2x.png"; sourceTree = "<group>"; };
 		327851611C65481200865558 /* welcome_bg_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg_iPad.png; sourceTree = "<group>"; };
@@ -1346,6 +1352,8 @@
 				23DD9C9B178AFDB00016E41D /* CIData.h */,
 				23DD9C9C178AFDB00016E41D /* CIData.m */,
 				23FC83341785DDA9007FFFB1 /* Helpers */,
+				327826AC1C7CC47F004FAA5D /* CIBeacon.h */,
+				327826AD1C7CC47F004FAA5D /* CIBeacon.m */,
 				23F9030F17D0F89C00B6308D /* CIArtist.h */,
 				23F9031017D0F89C00B6308D /* CIArtist.m */,
 				237D76D71868F6E60086868B /* CIArtistArtwork.h */,
@@ -1451,6 +1459,8 @@
 		23FC83341785DDA9007FFFB1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				327826AF1C7CD5DB004FAA5D /* CIBeacon+Helpers.h */,
+				327826B01C7CD5DB004FAA5D /* CIBeacon+Helpers.m */,
 				23FC83351785DDCE007FFFB1 /* CIArtist+Helpers.h */,
 				23FC83361785DDCE007FFFB1 /* CIArtist+Helpers.m */,
 				23F9030917D0F25800B6308D /* CIArtistArtwork+Helpers.h */,
@@ -1750,6 +1760,7 @@
 				235F648117B092A4007E4DEB /* CILink.m in Sources */,
 				23ECBA63179EDBD800038701 /* CINavigationItem.m in Sources */,
 				23FC83121785D6F6007FFFB1 /* AFXMLRequestOperation.m in Sources */,
+				327826B11C7CD5DB004FAA5D /* CIBeacon+Helpers.m in Sources */,
 				233B508017B00952008956F4 /* MarkdownTokenizer.m in Sources */,
 				233B508517B00A28008956F4 /* fmemopen.c in Sources */,
 				23F91BAD1784A58900B2691C /* NSManagedObjectContext+MagicalObserving.m in Sources */,
@@ -1768,6 +1779,7 @@
 				23F298C417B1153D00E11EB7 /* OpenInChromeController.m in Sources */,
 				23FC83171785D750007FFFB1 /* UIColor+HexColor.m in Sources */,
 				23F298CA17B11CCC00E11EB7 /* CIArtistLabel.m in Sources */,
+				327826AE1C7CC47F004FAA5D /* CIBeacon.m in Sources */,
 				23DD8D1717A98A2800E3FAA7 /* CITourDetailViewController.m in Sources */,
 				23FC830B1785D6F6007FFFB1 /* AFHTTPClient.m in Sources */,
 				2350371717A050250022A7EC /* CHTCollectionViewWaterfallLayout.m in Sources */,

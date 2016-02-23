@@ -25,7 +25,9 @@
     assert([[NSFileManager defaultManager] fileExistsAtPath:settingsFilePath]);
 
     // Prepare MagicalRecord (CoreData): Uses versioned file names. Ex: CIData-1.2.1.sqlite
-    NSString *appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *appNumber = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString *buildNumber = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString *appVersion = [NSString stringWithFormat:@"%@.%@", appNumber, buildNumber];
     [MagicalRecord setupCoreDataStackWithStoreNamed:[NSString stringWithFormat:@"CIData-%@.sqlite", appVersion]];
     
     // Google Analytics setup

@@ -31,6 +31,7 @@
     artwork.body = [CIData objValueOrNilForKey:@"body" data:data];
     artwork.shareUrl = [CIData objValueOrNilForKey:@"share_url" data:data];
     
+    artwork.beaconUuid = [CIData objValueOrNilForKey:@"beacon_uuid" data:data];
     artwork.exhibitionUuid = [CIData objValueOrNilForKey:@"exhibition_uuid" data:data];
     artwork.artistUuid = [CIData objValueOrNilForKey:@"artist_uuid" data:data];
     artwork.categoryUuid = [CIData objValueOrNilForKey:@"category_uuid" data:data];
@@ -54,6 +55,7 @@
              @"body" : [CIData objOrNSNull:self.body],
              @"share_url" : [CIData objOrNSNull:self.shareUrl],
              
+             @"beaconUuid" : [CIData objOrNSNull:self.beaconUuid],
              @"exhibition_uuid" : [CIData objOrNSNull:self.exhibitionUuid],
              @"artist_uuid" : [CIData objOrNSNull:self.artistUuid],
              @"category_uuid" : [CIData objOrNSNull:self.categoryUuid],

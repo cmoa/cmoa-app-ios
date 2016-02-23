@@ -27,6 +27,7 @@
     location.deletedAt = [CIData dateValueOrNilForKey:@"deleted_at" data:data];
     
     location.name = [CIData objValueOrNilForKey:@"name" data:data];
+    location.beaconUuid = [CIData objValueOrNilForKey:@"beacon_uuid" data:data];
     
     // Mark as 'not changed'
     location.syncStatus = [NSNumber numberWithInteger:CISyncStatusNotChanged];
@@ -41,7 +42,8 @@
              @"updated_at" : [CIData dateOrNSNull:self.updatedAt],
              @"deleted_at" : [CIData dateOrNSNull:self.deletedAt],
              
-             @"name" : [CIData objOrNSNull:self.name]
+             @"name" : [CIData objOrNSNull:self.name],
+             @"beacon_uuid" : [CIData objOrNSNull:self.beaconUuid]
              };
 }
 

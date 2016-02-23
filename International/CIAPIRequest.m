@@ -286,6 +286,11 @@
     
     // Sync all of the data?
     if (syncAll) {
+        // Remove all exhibitions
+        for (CIExhibition *exhibition in [CIExhibition MR_findAll]) {
+            [exhibition MR_deleteEntity];
+        }
+        
         updatedAt = nil;
     }
     
@@ -294,6 +299,11 @@
 //    NSLog(@"Sync: %@ : (POST: %@)", url, postData);
     [self apiPerformPostRequestWithURL:url postData:postData signRequest:NO success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 //        NSLog(@"Sync response: %@", JSON);
+        
+        // Beacons
+        for (NSDictionary *beaconData in [JSON objectForKey:@"beacons"]) {
+            [CIBeacon findFirstOrCreateByAttribute:@"uuid" withValue:[beaconData objectForKey:@"uuid"] usingData:beaconData];
+        }
         
         // Artists
         for (NSDictionary *artistData in [JSON objectForKey:@"artists"]) {

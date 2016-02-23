@@ -26,5 +26,6 @@
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSString * uuid;
 @property (nonatomic, retain) NSNumber * likes;
+@property (nonatomic, retain) NSString * beaconUuid;
 
 @end

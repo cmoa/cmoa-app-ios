@@ -46,6 +46,8 @@
 
     // Include our data models
     #import "CIData.h"
+    #import "CIBeacon.h"
+    #import "CIBeacon+Helpers.h"
     #import "CIArtist.h"
     #import "CIArtist+Helpers.h"
     #import "CIArtistArtwork.h"
