@@ -10,7 +10,7 @@
 #import "CINavigationItem.h"
 #import "CIBrowserViewController.h"
 
-#define FEED_URL @"http://cma-app-prod.s3.amazonaws.com/feeds/videos.html"
+#define FEED_URL @"https://s3.amazonaws.com/cmoa-cms-dev/feeds/videos.html"
 
 @interface CIMuseumVideosViewController ()
 
