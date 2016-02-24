@@ -25,7 +25,7 @@
     </entity>
     <entity name="CIArtwork" representedClassName="CIArtwork" syncable="YES">
         <attribute name="artistUuid" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="beaconUuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconUuid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="categoryUuid" attributeType="String" syncable="YES"/>
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
@@ -44,7 +44,7 @@
         <attribute name="major" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="minor" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="CICategory" representedClassName="CICategory" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -88,7 +88,7 @@
         <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CILocation" representedClassName="CILocation" syncable="YES">
-        <attribute name="beaconUuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="beaconUuid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deletedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

@@ -15,6 +15,6 @@
 @property (nonatomic, retain) NSNumber * major;
 @property (nonatomic, retain) NSNumber * minor;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * uuid;
+@property (nonatomic, retain) NSNumber * uuid;
 
 @end
