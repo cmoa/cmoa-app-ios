@@ -988,11 +988,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ASy-1E-DKV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASy-1E-DKV">
+                                <rect key="frame" x="-4" y="0.0" width="328" height="267"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" misplaced="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-Ak-m6i">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-Ak-m6i">
+                                        <rect key="frame" x="0.0" y="0.0" width="328" height="267"/>
                                         <connections>
                                             <outlet property="delegate" destination="n2Z-7w-R9T" id="pOz-SP-5zL"/>
                                         </connections>
@@ -1003,19 +1003,21 @@
                                     <constraint firstItem="MCe-Ak-m6i" firstAttribute="top" secondItem="ASy-1E-DKV" secondAttribute="top" id="LmR-FZ-AdF"/>
                                     <constraint firstItem="MCe-Ak-m6i" firstAttribute="bottom" secondItem="ASy-1E-DKV" secondAttribute="bottom" id="ShV-LT-Vbm"/>
                                     <constraint firstItem="MCe-Ak-m6i" firstAttribute="trailing" secondItem="ASy-1E-DKV" secondAttribute="trailing" id="pSs-en-Ikb"/>
-                                    <constraint firstAttribute="height" constant="140" id="rS1-hl-I7j"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ucb-9f-mDy">
-                                <rect key="frame" x="0.0" y="141" width="320" height="427"/>
+                                <rect key="frame" x="0.0" y="268" width="320" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Rrf-UG-lFf"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="n2Z-7w-R9T" id="aPC-2B-1Ep"/>
                                     <outlet property="delegate" destination="n2Z-7w-R9T" id="jSL-Hd-BzZ"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJd-RR-I1j" userLabel="Border">
-                                <rect key="frame" x="-4" y="140" width="328" height="1"/>
+                                <rect key="frame" x="-4" y="267" width="328" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="EiR-hY-jdK"/>
@@ -1033,12 +1035,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="yJd-RR-I1j" secondAttribute="trailing" constant="-20" id="fQd-ME-tsU"/>
                             <constraint firstItem="ASy-1E-DKV" firstAttribute="leading" secondItem="T1g-7m-uNk" secondAttribute="leadingMargin" constant="-20" id="fr6-ws-oVu"/>
                             <constraint firstItem="yJd-RR-I1j" firstAttribute="leading" secondItem="T1g-7m-uNk" secondAttribute="leadingMargin" constant="-20" id="fxc-k8-NoO"/>
-                            <constraint firstItem="ucb-9f-mDy" firstAttribute="top" secondItem="T1g-7m-uNk" secondAttribute="top" constant="141" id="tnE-Rj-UFN"/>
-                            <constraint firstItem="ucb-9f-mDy" firstAttribute="bottom" secondItem="T1g-7m-uNk" secondAttribute="bottom" id="w0A-ka-rQa"/>
+                            <constraint firstItem="ucb-9f-mDy" firstAttribute="top" secondItem="yJd-RR-I1j" secondAttribute="bottom" id="q7a-pR-tVi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Hours, Location, and Admission" id="FE3-eG-wAi" customClass="CINavigationItem"/>
                     <connections>
+                        <outlet property="hoursTableHeightConstraint" destination="Rrf-UG-lFf" id="wzU-Ch-ve3"/>
                         <outlet property="mapContainer" destination="ASy-1E-DKV" id="ySl-nQ-yaz"/>
                         <outlet property="museumMapView" destination="MCe-Ak-m6i" id="vcr-Iz-iNM"/>
                         <outlet property="visitTableView" destination="ucb-9f-mDy" id="R4r-4a-mea"/>

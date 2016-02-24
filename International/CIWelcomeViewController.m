@@ -143,8 +143,14 @@
     // Check if we're doing a full sync (first launch or after version was updated)
     // Doing a quick check on artwork count
     NSArray *artworks = [CIArtwork MR_findAll];
-
     CIAPIRequest *apiRequest = [[CIAPIRequest alloc] init];
+    
+    [apiRequest getWeeksHours:^(NSArray *hours) {
+        [CIAppState sharedAppState].museumHours = hours;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [CIAppState sharedAppState].museumHours = nil;
+    }];
+    
     if ([artworks count] == 0) {
         // Show HUD
         MBProgressHUD *hud;

@@ -375,6 +375,55 @@
     [self syncAll:YES success:nil failure:nil];
 }
 
+- (void)getWeeksHours:(CIAPIHoursRequestSuccessBlock)success
+              failure:(CIAPIRequestFailureBlock)failure {
+    NSString *url = @"/api/hours";
+    
+    [self apiPerformPostRequestWithURL:url postData:nil signRequest:NO success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+
+        NSArray *daysOfTheWeek = @[@"Sunday",
+                                   @"Monday",
+                                   @"Tuesday",
+                                   @"Wednesday",
+                                   @"Thursday",
+                                   @"Friday",
+                                   @"Saturday"];
+        
+        NSMutableArray *hoursForWeek = [[NSMutableArray alloc] init];
+        
+        for (NSString *day in daysOfTheWeek) {
+            NSDictionary *dayJSON = [[JSON objectForKey:@"hours"] objectForKey:day];
+            NSMutableDictionary *dayDictionary = [[NSMutableDictionary alloc] init];
+            
+            [dayDictionary setObject:[self closedOrHourFromDateJSON:dayJSON forKey:@"open"]
+                              forKey:@"open"];
+            [dayDictionary setObject:[self closedOrHourFromDateJSON:dayJSON forKey:@"close"]
+                              forKey:@"close"];
+            [dayDictionary setObject:day
+                              forKey:@"day"];
+            
+            [hoursForWeek addObject:dayDictionary];
+        }
+        
+        success(hoursForWeek);
+    } failure:failure];
+}
+
+- (NSString *) closedOrHourFromDateJSON:(id)json forKey:(NSString *)key {
+    if ([json objectForKey:key] == [NSNull null]) {
+        return @"closed";
+    } else {
+        return [json objectForKey:key] ;
+    }
+}
+
+
+- (NSDictionary *)dictionaryFromHoursJSON:(id)hoursJSON {
+    return @{@"open" : [CIData objValueOrNilForKey:@"open" data:hoursJSON],
+             @"close" : [CIData objValueOrNilForKey:@"close" data:hoursJSON],
+             };
+}
+
 - (void)subscribeEmail:(NSString*)email
                success:(CIAPIRequestSuccessBlock)success
                failure:(CIAPIRequestFailureBlock)failure {

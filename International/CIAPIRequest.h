@@ -13,6 +13,7 @@
 #define API_TOKEN    @"207b0977eb0be992898c7cf102f1bd8b"
 #define API_SECRET   @"5b2d5ba341d2ded69a4d6cef387951ad"
 
+typedef void (^CIAPIHoursRequestSuccessBlock) (NSArray *hours);
 typedef void (^CIAPIRequestSuccessBlock) (NSURLRequest *request, NSHTTPURLResponse *response, id JSON);
 typedef void (^CIAPIRequestFailureBlock) (NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id JSON);
 
@@ -31,6 +32,9 @@ typedef void (^CIAPIRequestFailureBlock) (NSURLRequest* request, NSHTTPURLRespon
 - (void)sync;
 
 - (void)syncAll;
+
+- (void)getWeeksHours:(CIAPIHoursRequestSuccessBlock)success
+              failure:(CIAPIRequestFailureBlock)failure;
 
 - (void)subscribeEmail:(NSString*)email
                success:(CIAPIRequestSuccessBlock)success

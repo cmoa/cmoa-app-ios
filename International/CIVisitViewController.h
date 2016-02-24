@@ -23,6 +23,8 @@
     BOOL isOpen;
     NSInteger dayOfWeek;
     NSArray *scheduledHours;
+    
+    __weak IBOutlet NSLayoutConstraint *hoursTableHeightConstraint;
 }
 
 @end
