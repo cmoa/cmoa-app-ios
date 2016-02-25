@@ -76,6 +76,9 @@
     // Application state
     #import "CIAppState.h"
 
+    // Beacon Manager
+    #import "CIBeaconManager.h"
+
     // User defaults keys
     #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
     #define kCISettingsApiToken @"api_token"

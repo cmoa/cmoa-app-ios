@@ -233,6 +233,7 @@
 		3226943C1C6CF08B007B5ED8 /* button_info_normal_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226943A1C6CF08B007B5ED8 /* button_info_normal_on@2x.png */; };
 		3226943F1C6CF561007B5ED8 /* button_pause_normal_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226943D1C6CF561007B5ED8 /* button_pause_normal_on.png */; };
 		322694401C6CF561007B5ED8 /* button_pause_normal_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226943E1C6CF561007B5ED8 /* button_pause_normal_on@2x.png */; };
+		32423D391C7F5C4400134024 /* CIBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32423D381C7F5C4400134024 /* CIBeaconManager.m */; };
 		3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3262AC191C692935009B1F84 /* CIBorderedButton.m */; };
 		327826AE1C7CC47F004FAA5D /* CIBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 327826AD1C7CC47F004FAA5D /* CIBeacon.m */; };
 		327826B11C7CD5DB004FAA5D /* CIBeacon+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 327826B01C7CD5DB004FAA5D /* CIBeacon+Helpers.m */; };
@@ -607,6 +608,8 @@
 		3226943A1C6CF08B007B5ED8 /* button_info_normal_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_info_normal_on@2x.png"; sourceTree = "<group>"; };
 		3226943D1C6CF561007B5ED8 /* button_pause_normal_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_pause_normal_on.png; sourceTree = "<group>"; };
 		3226943E1C6CF561007B5ED8 /* button_pause_normal_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pause_normal_on@2x.png"; sourceTree = "<group>"; };
+		32423D371C7F5C4400134024 /* CIBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBeaconManager.h; sourceTree = "<group>"; };
+		32423D381C7F5C4400134024 /* CIBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBeaconManager.m; sourceTree = "<group>"; };
 		3262AC181C692935009B1F84 /* CIBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBorderedButton.h; sourceTree = "<group>"; };
 		3262AC191C692935009B1F84 /* CIBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBorderedButton.m; sourceTree = "<group>"; };
 		327826AC1C7CC47F004FAA5D /* CIBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBeacon.h; sourceTree = "<group>"; };
@@ -854,6 +857,8 @@
 		233B508617B02590008956F4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				32423D371C7F5C4400134024 /* CIBeaconManager.h */,
+				32423D381C7F5C4400134024 /* CIBeaconManager.m */,
 				233B508717B025AF008956F4 /* CITextHelper.h */,
 				233B508817B025AF008956F4 /* CITextHelper.m */,
 				2344E24B17D6464A008D3D38 /* CIAnalyticsHelper.h */,
@@ -1538,6 +1543,11 @@
 				TargetAttributes = {
 					23F91B271784A3FC00B2691C = {
 						DevelopmentTeam = SZY22WCGL8;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1814,6 +1824,7 @@
 				23F91BBA1784A58900B2691C /* MagicalRecord.m in Sources */,
 				23DD9CA6178B03B00016E41D /* CIExhibition+Helpers.m in Sources */,
 				3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */,
+				32423D391C7F5C4400134024 /* CIBeaconManager.m in Sources */,
 				23DD8D2117A9A9C500E3FAA7 /* CIArtworkTabButton.m in Sources */,
 				23F91BB51784A58900B2691C /* MagicalRecord+ErrorHandling.m in Sources */,
 				23177317179D760A005E7601 /* CINavigationController.m in Sources */,
@@ -1900,7 +1911,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -1935,7 +1946,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
