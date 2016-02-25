@@ -54,7 +54,15 @@
     if (scheduledHours == nil) {
         hoursTableHeightConstraint.constant = kCellHeight * 2;
     } else {
-        if ([scheduledHours count] > 4) {
+        NSInteger maxHoursRows = 5;
+        
+        if (IS_IPAD) {
+            maxHoursRows = 6;
+        } else if (IS_SHORT_IPHONE) {
+            maxHoursRows = 4;
+        }
+            
+        if ([scheduledHours count] > maxHoursRows) {
             hoursTableHeightConstraint.constant = 300;
         } else {
             hoursTableHeightConstraint.constant = kCellHeight * ([scheduledHours count] + 1);

@@ -712,7 +712,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Ifm-Zo-EHn" secondAttribute="bottom" constant="16" id="ZWV-kL-VcS"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_bg_iPhone.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nwh-r2-SGu" userLabel="Theme Image ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_bg_iPhone.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nwh-r2-SGu" userLabel="Theme Image ">
                                 <rect key="frame" x="-4" y="86" width="328" height="482"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehw-Dl-66r" customClass="CIBorderedButton">
@@ -737,7 +737,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Lg-j4-OcC">
                                 <rect key="frame" x="0.0" y="348" width="320" height="220"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NHy-nd-LGO" userLabel="Theme Image Blurred">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NHy-nd-LGO" userLabel="Theme Image Blurred">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kox-Dv-2xy" customClass="CIWelcomeButton">
