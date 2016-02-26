@@ -54,16 +54,21 @@
     CGFloat offset;
     UIImage *themeImage;
     UIImage *themeImageBlurred;
-    
+  
+    CGFloat shownHeight = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
+  
     if (IS_IPHONE) {
         offset = themeImageViewBlurred.frame.size.height / themeImageView.frame.size.height;
-        themeImageViewBlurred.layer.contentsRect = CGRectMake(0, offset, 1, 1);
+        themeImageViewBlurred.layer.contentsRect = CGRectMake(0, offset, 1, shownHeight);
         
     } else {
         offset = 0.1;
-        
-        themeImageView.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
-        themeImageViewBlurred.layer.contentsRect = CGRectMake(offset, 0, 1, 1);
+        CGFloat iPadShowViewWidth = 328.0f;
+        CGFloat iPadThemeImageWidth = 1406.0f;
+        CGFloat shownWidth = (iPadShowViewWidth * 2) / iPadThemeImageWidth;
+      
+        themeImageView.layer.contentsRect = CGRectMake(offset, 0, shownWidth, 1);
+        themeImageViewBlurred.layer.contentsRect = CGRectMake(offset, 0, shownWidth, shownHeight);
     }
     
     if (exhibition != nil) {
