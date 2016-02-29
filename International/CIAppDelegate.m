@@ -19,6 +19,22 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [application setStatusBarStyle:UIStatusBarStyleLightContent];
 
+    // Fix bug that would render white line between Master and Detail on iPad
+    // This is due to some layer inserting a white line between at this position, who's inserting it? No idea...
+    if (IS_IPAD) {
+        CGFloat xPos = 320;
+        CGFloat width = 1;
+        
+        if (IS_IPAD_PRO) {
+            xPos = 375;
+            width = 0.5;
+        }
+        
+        UIView *statusBarBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(xPos, 0, width, 20)];
+        statusBarBackgroundView.backgroundColor = [UIColor colorFromHex:@"8e8e93"];
+        [self.window.rootViewController.view addSubview:statusBarBackgroundView];
+    }
+    
     // Verify API config file presence
     NSString* settingsFilePath = [[NSBundle mainBundle] pathForResource:@"settings"
                                                                  ofType:@"plist"];

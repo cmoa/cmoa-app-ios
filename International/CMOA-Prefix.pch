@@ -22,6 +22,7 @@
     #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
     #define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
     #define IS_SHORT_IPHONE (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+    #define IS_IPAD_PRO (IS_IPAD && SCREEN_MAX_LENGTH > 1024.0)
     #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
     #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
     #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
