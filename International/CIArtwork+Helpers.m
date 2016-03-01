@@ -70,6 +70,21 @@
 
 #pragma mark - Relationships
 
++ (CIArtwork *)artworkWithBeacon:(CIBeacon *)beacon {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = nil)", beacon.uuid];
+    CIArtwork *artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
+    
+    if (artwork == nil) {
+        return nil;
+    } else {
+        if ([[CIExhibition liveExhibitionUuids] containsObject:artwork.exhibitionUuid]) {
+            return artwork;
+        } else {
+            return nil;
+        }
+    }
+}
+
 - (CIExhibition*)exhibition {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (uuid == %@)", self.exhibitionUuid];
     return [CIExhibition MR_findFirstWithPredicate:predicate];

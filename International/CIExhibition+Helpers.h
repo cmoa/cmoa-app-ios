@@ -15,6 +15,8 @@
 - (NSDictionary*)toDictionary;
 + (CIExhibition*)randomLiveExhibition;
 
++ (NSArray*)liveExhibitionUuids;
+
 #pragma mark - Paths
 
 - (NSString*)getDirectoryPath;

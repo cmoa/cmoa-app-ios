@@ -20,6 +20,8 @@
 
 #pragma mark - Relationships
 
++ (CIArtwork *)artworkWithBeacon:(CIBeacon *)beacon;
+
 - (CIExhibition*)exhibition;
 - (NSArray*)artistArtworks;
 - (NSArray*)artists;

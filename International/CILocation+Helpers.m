@@ -49,6 +49,17 @@
 
 #pragma mark - Relationships
 
++ (CILocation *)locationWithBeacon:(CIBeacon *)beacon {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = nil)", beacon.uuid];
+    CILocation *location = [CILocation MR_findFirstWithPredicate:predicate];
+    
+    if (location == nil) {
+        return nil;
+    } else {
+        return location;
+    }
+}
+
 - (NSArray*)artists {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];
   NSArray *artists = [CIArtist MR_findAllWithPredicate:predicate];
@@ -75,12 +86,7 @@
 
 - (NSArray*)liveArtworks {
     NSMutableArray *liveArtworks = [[NSMutableArray alloc] init];
-    NSMutableArray *liveExhibitionsUUIDs = [[NSMutableArray alloc] init];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (isLive = YES)"];
-    
-    for (CIExhibition *exhibition in [CIExhibition MR_findAllWithPredicate:predicate]) {
-        [liveExhibitionsUUIDs addObject:exhibition.uuid];
-    }
+    NSArray *liveExhibitionsUUIDs = [CIExhibition liveExhibitionUuids];
     
     for (CIArtwork *artwork in self.artworks) {
         if ([liveExhibitionsUUIDs containsObject:artwork.exhibitionUuid]) {
