@@ -41,7 +41,7 @@
 #pragma mark - Relationships
 
 + (CIBeacon *)findBeaconWithMajor:(NSNumber *)major andMinor:(NSNumber *)minor {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(major = nil) AND (minor == %@)", major, minor];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(major == %@) AND (minor == %@)", major, minor];
     
     return [CIBeacon MR_findFirstWithPredicate:predicate];
 }

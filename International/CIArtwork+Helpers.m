@@ -71,7 +71,7 @@
 #pragma mark - Relationships
 
 + (CIArtwork *)artworkWithBeacon:(CIBeacon *)beacon {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = nil)", beacon.uuid];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = %@)", beacon.uuid];
     CIArtwork *artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
     
     if (artwork == nil) {

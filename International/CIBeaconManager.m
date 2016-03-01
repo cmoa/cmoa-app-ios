@@ -7,6 +7,9 @@
 //
 
 #import "CIBeaconManager.h"
+
+#import "CIArtworkDetailViewController.h"
+
 @interface CIBeaconManager ()
 
 #define kBEACONREGION @"62E67D8F-174A-4436-A6FF-8079D642FB37"
@@ -74,21 +77,97 @@ static CIBeaconManager *_sharedInstance = nil;
     
     NSLog(@"beacon major:%@ minor:%@", closestBeacon.major, closestBeacon.minor);
     
+    // Don't display the same beacon twice
+    if ([[CIAppState sharedAppState].lastBeaconMajor intValue] == [closestBeacon.major intValue] &&
+        [[CIAppState sharedAppState].lastBeaconMinor intValue] == [closestBeacon.minor intValue]) {
+        return;
+    }
+    
+    // Don't display beacons that are far away
     if (closestBeacon.proximity == CLProximityFar) {
         return;
     }
     
-    CIBeacon* beacon = [CIBeacon findBeaconWithMajor:region.major andMinor:region.minor];
+    CIBeacon* beacon = [CIBeacon findBeaconWithMajor:closestBeacon.major andMinor:closestBeacon.minor];
     
+    // Don't display beacons that have no content
     if (beacon == nil) {
         return;
     }
     
-    NSLog(@"known beacon");
+    CIArtwork *beaconArtwork = [CIArtwork artworkWithBeacon:beacon];
+    if (beaconArtwork) {
+        
+        NSString *notificationTitle = [NSString stringWithFormat:@"You are near %@",  beaconArtwork.title];
+        [self showBeaconNotification:notificationTitle
+                    interactionBlock:^(CRToastInteractionType interactionType) {
+                        
+            NSLog(@"Hit");
+                        
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+            CINavigationController *navController = [storyboard instantiateViewControllerWithIdentifier:@"beaconArtworkView"];
+            
+            UIViewController *rootController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+                        
+            CIArtworkDetailViewController *artworkDetailViewController = (CIArtworkDetailViewController *)navController.topViewController;
+            
+            artworkDetailViewController.artworks = @[beaconArtwork];
+            artworkDetailViewController.artwork = beaconArtwork;
+            artworkDetailViewController.parentMode = @"beacon";
+            
+            [rootController presentViewController:navController animated:YES completion:nil];
+        }];
+        
+    } else {
+        CILocation *beaconLocation = [CILocation locationWithBeacon:beacon];
+        
+        // Don't display beacons that have no content
+        if (beaconLocation == nil) {
+            return;
+        }
+        
+        NSString *notificationTitle = [NSString stringWithFormat:@"You are in %@",  beaconLocation.name];
+        [self showBeaconNotification:notificationTitle interactionBlock:^(CRToastInteractionType interactionType) {
+            NSLog(@"Hit 2");
+        }];
+    }
+    
+    [CIAppState sharedAppState].lastBeaconMajor = closestBeacon.major;
+    [CIAppState sharedAppState].lastBeaconMinor = closestBeacon.minor;
+}
+
+- (void)showBeaconNotification:(NSString *)notificationTitle
+              interactionBlock:(void (^) (CRToastInteractionType interactionType))interactionBlock {
+    NSMutableDictionary *options = [@{
+                              kCRToastTimeIntervalKey : @15.0,
+                              kCRToastUnderStatusBarKey: @YES,
+                              kCRToastNotificationPresentationTypeKey : @(CRToastPresentationTypeCover),
+                              kCRToastNotificationTypeKey : @(CRToastTypeNavigationBar),
+                              kCRToastTextKey : notificationTitle,
+                              kCRToastTextMaxNumberOfLinesKey : @2,
+                              kCRToastTextAlignmentKey : @(NSTextAlignmentLeft),
+                              kCRToastSubtitleTextKey : @"Tap to view",
+                              kCRToastSubtitleTextAlignmentKey : @(NSTextAlignmentLeft),
+                              kCRToastBackgroundColorKey : [UIColor colorFromHex:kCIAccentColor],
+                              kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
+                              kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
+                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
+                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeSpring),
+                              kCRToastImageKey : [UIImage imageNamed:@"closeNotification.png"],
+                              kCRToastImageAlignmentKey : @(NSTextAlignmentRight),
+                              } mutableCopy];
+    
+    options[kCRToastInteractionRespondersKey] = @[
+            [CRToastInteractionResponder interactionResponderWithInteractionType:CRToastInteractionTypeTap
+                                                            automaticallyDismiss:YES
+                                                                           block:interactionBlock]];
+    
+    [CRToastManager showNotificationWithOptions:options
+                                completionBlock:nil];
 }
 
 - (void)beaconManager:(id)manager monitoringDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
-    
+    NSLog(@"%@", error);
 }
 
 - (void)beaconManager:(id)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

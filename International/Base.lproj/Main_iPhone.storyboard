@@ -300,17 +300,17 @@
         <!--Artwork Detail View Controller-->
         <scene sceneID="Pw1-oz-xQ6">
             <objects>
-                <viewController id="6Ff-tW-lCF" customClass="CIArtworkDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CIArtworkDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6Ff-tW-lCF" customClass="CIArtworkDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jwc-F2-ilJ"/>
                         <viewControllerLayoutGuide type="bottom" id="hu2-ui-kFt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ym2-82-stg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS2-vK-gok">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="niz-sh-TqY">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="394"/>
@@ -414,7 +414,7 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2u-Hp-Tps">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <rect key="frame" x="0.0" y="455" width="320" height="49"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwK-qn-m0V" customClass="CIArtworkTabLblView">
                                         <rect key="frame" x="196" y="0.0" width="75" height="49"/>
@@ -573,11 +573,11 @@
                         <viewControllerLayoutGuide type="bottom" id="WLT-P0-Qwg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Nm9-qH-sgY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OCP-aY-1uI">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yx9-FD-ZkO" id="q2e-7r-xsl"/>
@@ -604,6 +604,26 @@
             </objects>
             <point key="canvasLocation" x="2941" y="1150"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MCr-Jh-RZr">
+            <objects>
+                <navigationController storyboardIdentifier="beaconArtworkView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w5g-hc-OmK" customClass="CINavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="IXG-nJ-GSd" customClass="CINavigationBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hLe-Nd-EuH">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="6Ff-tW-lCF" kind="relationship" relationship="rootViewController" id="z0n-im-s3W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6k8-tq-ItY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2424" y="23"/>
+        </scene>
         <!--Artwork Photo Detail View Controller-->
         <scene sceneID="f24-hT-ykg">
             <objects>
@@ -613,7 +633,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hjR-QN-MsQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IsX-pt-ogd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWo-7o-Jxs">
@@ -637,7 +657,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdD-Xh-ybB">
-                                <rect key="frame" x="0.0" y="40" width="320" height="527.5"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="463.5"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="94A-rv-sHM" id="L7Y-VQ-hhf"/>
@@ -1657,8 +1677,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="asR-Ly-teI"/>
-        <segue reference="TJi-hq-SSF"/>
-        <segue reference="ypY-4H-tQb"/>
         <segue reference="PtD-v5-SM2"/>
+        <segue reference="ypY-4H-tQb"/>
+        <segue reference="z0n-im-s3W"/>
     </inferredMetricsTieBreakers>
 </document>

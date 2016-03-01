@@ -115,7 +115,12 @@
     
     // Configure nav button
     CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    
+    if ([self.parentMode isEqual:@"beacon"]) {
+        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeDone target:self action:@selector(navRightButtonDidPress:)];
+    } else {
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    }
     
     // Set the tab bar background
     tabBarView.backgroundColor = [UIColor colorFromHex:kCIBarColor];
@@ -229,6 +234,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)navRightButtonDidPress:(id)sender {
+    if ([self.parentMode isEqualToString:@"beacon"]) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 - (void)navLeftButtonDidPress:(id)sender {

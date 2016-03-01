@@ -14,6 +14,7 @@ enum {
 typedef NSUInteger CINavigationItemLeftBarButtonType;
 
 enum {
+    CINavigationItemRightBarButtonTypeDone = 1,
     CINavigationItemRightBarButtonTypeOpenInSafari = 3,
     CINavigationItemRightBarButtonTypeSocial = 4
 };

@@ -50,7 +50,7 @@
 #pragma mark - Relationships
 
 + (CILocation *)locationWithBeacon:(CIBeacon *)beacon {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = nil)", beacon.uuid];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = %@)", beacon.uuid];
     CILocation *location = [CILocation MR_findFirstWithPredicate:predicate];
     
     if (location == nil) {

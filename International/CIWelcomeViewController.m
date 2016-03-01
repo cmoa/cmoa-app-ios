@@ -149,37 +149,12 @@
     // Doing a quick check on artwork count
     NSArray *artworks = [CIArtwork MR_findAll];
     CIAPIRequest *apiRequest = [[CIAPIRequest alloc] init];
-    
-    [apiRequest getWeeksHours:^(NSArray *hours) {
-        [CIAppState sharedAppState].museumHours = hours;
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        [CIAppState sharedAppState].museumHours = nil;
-    }];
-    
-    NSDictionary *options = @{
-                              kCRToastNotificationPreferredHeightKey : @180,
-                              kCRToastTimeIntervalKey : @5.0,
-                              kCRToastUnderStatusBarKey: @YES,
-                              kCRToastNotificationPresentationTypeKey : @(CRToastPresentationTypeCover),
-                              kCRToastNotificationTypeKey : @(CRToastTypeNavigationBar),
-                              kCRToastTextKey : @"You are near The Hillman \nHall of Gems and Minerals",
-                              kCRToastTextMaxNumberOfLinesKey : @2,
-                              kCRToastTextAlignmentKey : @(NSTextAlignmentLeft),
-                              kCRToastSubtitleTextKey : @"Tap to view",
-                              kCRToastSubtitleTextAlignmentKey : @(NSTextAlignmentLeft),
-                              kCRToastBackgroundColorKey : [UIColor colorFromHex:kCIAccentColor],
-                              kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
-                              kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
-                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
-                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeSpring),
-                              kCRToastImageKey : [UIImage imageNamed:@"closeNotification.png"],
-                              kCRToastImageAlignmentKey : @(NSTextAlignmentRight),
-                              };
-    
-    [CRToastManager showNotificationWithOptions:options
-                                completionBlock:^{
-                                    NSLog(@"Completed");
-                                }];
+//
+//    [apiRequest getWeeksHours:^(NSArray *hours) {
+//        [CIAppState sharedAppState].museumHours = hours;
+//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+//        [CIAppState sharedAppState].museumHours = nil;
+//    }];
     
     if ([artworks count] == 0) {
         // Show HUD
