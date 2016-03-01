@@ -235,6 +235,13 @@
 		322694401C6CF561007B5ED8 /* button_pause_normal_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3226943E1C6CF561007B5ED8 /* button_pause_normal_on@2x.png */; };
 		32423D391C7F5C4400134024 /* CIBeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32423D381C7F5C4400134024 /* CIBeaconManager.m */; };
 		3262AC1A1C692935009B1F84 /* CIBorderedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3262AC191C692935009B1F84 /* CIBorderedButton.m */; };
+		3274F5341C85ED3B007DBA5C /* closeNotification.png in Resources */ = {isa = PBXBuildFile; fileRef = 3274F5321C85ED3B007DBA5C /* closeNotification.png */; };
+		3274F5351C85ED3B007DBA5C /* closeNotification@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3274F5331C85ED3B007DBA5C /* closeNotification@2x.png */; };
+		3274F5421C85EFDE007DBA5C /* CRToastConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274F5381C85EFDE007DBA5C /* CRToastConfig.m */; };
+		3274F5431C85EFDE007DBA5C /* CRToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274F53B1C85EFDE007DBA5C /* CRToastManager.m */; };
+		3274F5441C85EFDE007DBA5C /* CRToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274F53D1C85EFDE007DBA5C /* CRToastView.m */; };
+		3274F5451C85EFDE007DBA5C /* CRToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274F53F1C85EFDE007DBA5C /* CRToastViewController.m */; };
+		3274F5461C85EFDE007DBA5C /* CRToastWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3274F5411C85EFDE007DBA5C /* CRToastWindow.m */; };
 		327826AE1C7CC47F004FAA5D /* CIBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 327826AD1C7CC47F004FAA5D /* CIBeacon.m */; };
 		327826B11C7CD5DB004FAA5D /* CIBeacon+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 327826B01C7CD5DB004FAA5D /* CIBeacon+Helpers.m */; };
 		327851671C65481200865558 /* welcome_bg_iPad_blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 3278515F1C65481200865558 /* welcome_bg_iPad_blur.png */; };
@@ -612,6 +619,20 @@
 		32423D381C7F5C4400134024 /* CIBeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBeaconManager.m; sourceTree = "<group>"; };
 		3262AC181C692935009B1F84 /* CIBorderedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBorderedButton.h; sourceTree = "<group>"; };
 		3262AC191C692935009B1F84 /* CIBorderedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBorderedButton.m; sourceTree = "<group>"; };
+		3274F5321C85ED3B007DBA5C /* closeNotification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeNotification.png; sourceTree = "<group>"; };
+		3274F5331C85ED3B007DBA5C /* closeNotification@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeNotification@2x.png"; sourceTree = "<group>"; };
+		3274F5361C85EFDE007DBA5C /* CRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToast.h; path = CRToast/CRToast.h; sourceTree = SOURCE_ROOT; };
+		3274F5371C85EFDE007DBA5C /* CRToastConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToastConfig.h; path = CRToast/CRToastConfig.h; sourceTree = SOURCE_ROOT; };
+		3274F5381C85EFDE007DBA5C /* CRToastConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRToastConfig.m; path = CRToast/CRToastConfig.m; sourceTree = SOURCE_ROOT; };
+		3274F5391C85EFDE007DBA5C /* CRToastLayoutHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToastLayoutHelpers.h; path = CRToast/CRToastLayoutHelpers.h; sourceTree = SOURCE_ROOT; };
+		3274F53A1C85EFDE007DBA5C /* CRToastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToastManager.h; path = CRToast/CRToastManager.h; sourceTree = SOURCE_ROOT; };
+		3274F53B1C85EFDE007DBA5C /* CRToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRToastManager.m; path = CRToast/CRToastManager.m; sourceTree = SOURCE_ROOT; };
+		3274F53C1C85EFDE007DBA5C /* CRToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToastView.h; path = CRToast/CRToastView.h; sourceTree = SOURCE_ROOT; };
+		3274F53D1C85EFDE007DBA5C /* CRToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRToastView.m; path = CRToast/CRToastView.m; sourceTree = SOURCE_ROOT; };
+		3274F53E1C85EFDE007DBA5C /* CRToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToastViewController.h; path = CRToast/CRToastViewController.h; sourceTree = SOURCE_ROOT; };
+		3274F53F1C85EFDE007DBA5C /* CRToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRToastViewController.m; path = CRToast/CRToastViewController.m; sourceTree = SOURCE_ROOT; };
+		3274F5401C85EFDE007DBA5C /* CRToastWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CRToastWindow.h; path = CRToast/CRToastWindow.h; sourceTree = SOURCE_ROOT; };
+		3274F5411C85EFDE007DBA5C /* CRToastWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CRToastWindow.m; path = CRToast/CRToastWindow.m; sourceTree = SOURCE_ROOT; };
 		327826AC1C7CC47F004FAA5D /* CIBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIBeacon.h; sourceTree = "<group>"; };
 		327826AD1C7CC47F004FAA5D /* CIBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIBeacon.m; sourceTree = "<group>"; };
 		327826AF1C7CD5DB004FAA5D /* CIBeacon+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIBeacon+Helpers.h"; sourceTree = "<group>"; };
@@ -1233,6 +1254,7 @@
 		23F91B641784A57700B2691C /* External */ = {
 			isa = PBXGroup;
 			children = (
+				3274F5201C85DD8C007DBA5C /* CRToast */,
 				2305F05E17D64E1900BD472E /* GoogleAnalytics */,
 				2333E06A17BFC33500A6DC8F /* Device ID */,
 				2355F4D117BEA6B800E4904D /* SMPageControl */,
@@ -1387,6 +1409,7 @@
 			isa = PBXGroup;
 			children = (
 				32053F6C1C7385290046A0F1 /* Images.xcassets */,
+				3274F50C1C85DCA5007DBA5C /* Notification */,
 				230FA20A17DA11BD00FB933C /* Social */,
 				2341127E17D8F36A00DA27E2 /* Artwork Identification */,
 				231D0F0517BEAA02003D0374 /* Pagination */,
@@ -1488,6 +1511,34 @@
 				23DD9CB1178B096D0016E41D /* CITourArtwork+Helpers.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		3274F50C1C85DCA5007DBA5C /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				3274F5321C85ED3B007DBA5C /* closeNotification.png */,
+				3274F5331C85ED3B007DBA5C /* closeNotification@2x.png */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		3274F5201C85DD8C007DBA5C /* CRToast */ = {
+			isa = PBXGroup;
+			children = (
+				3274F5361C85EFDE007DBA5C /* CRToast.h */,
+				3274F5371C85EFDE007DBA5C /* CRToastConfig.h */,
+				3274F5381C85EFDE007DBA5C /* CRToastConfig.m */,
+				3274F5391C85EFDE007DBA5C /* CRToastLayoutHelpers.h */,
+				3274F53A1C85EFDE007DBA5C /* CRToastManager.h */,
+				3274F53B1C85EFDE007DBA5C /* CRToastManager.m */,
+				3274F53C1C85EFDE007DBA5C /* CRToastView.h */,
+				3274F53D1C85EFDE007DBA5C /* CRToastView.m */,
+				3274F53E1C85EFDE007DBA5C /* CRToastViewController.h */,
+				3274F53F1C85EFDE007DBA5C /* CRToastViewController.m */,
+				3274F5401C85EFDE007DBA5C /* CRToastWindow.h */,
+				3274F5411C85EFDE007DBA5C /* CRToastWindow.m */,
+			);
+			name = CRToast;
 			sourceTree = "<group>";
 		};
 		328875561C61140E00EDAE97 /* Labels */ = {
@@ -1610,6 +1661,7 @@
 				321BD1941C6A811A002172E7 /* button_open_safari_on@2x.png in Resources */,
 				2355F47717BABCF600CD351A /* button_search_off@2x.png in Resources */,
 				2355F47817BABCF600CD351A /* button_search_on@2x.png in Resources */,
+				3274F5341C85ED3B007DBA5C /* closeNotification.png in Resources */,
 				23E950FD17BACD3600F04A14 /* tab_category_off@2x.png in Resources */,
 				23E950FE17BACD3600F04A14 /* tab_category_on@2x.png in Resources */,
 				231D0F0817BEAA0D003D0374 /* page_off@2x.png in Resources */,
@@ -1653,6 +1705,7 @@
 				2341128317D8F37B00DA27E2 /* id_audio.png in Resources */,
 				2341128417D8F37B00DA27E2 /* id_audio@2x.png in Resources */,
 				2341128517D8F37B00DA27E2 /* id_video.png in Resources */,
+				3274F5351C85ED3B007DBA5C /* closeNotification@2x.png in Resources */,
 				322694301C6CD6A3007B5ED8 /* nav_facebook_on@2x.png in Resources */,
 				2341128617D8F37B00DA27E2 /* id_video@2x.png in Resources */,
 				327851691C65481200865558 /* welcome_bg_iPad.png in Resources */,
@@ -1735,6 +1788,7 @@
 				23DD8D2417A9ABE600E3FAA7 /* CIArtworkTabLblView.m in Sources */,
 				23DD9CA0178B010E0016E41D /* CIArtwork+Helpers.m in Sources */,
 				23A5E5C717ABF5CB00444936 /* CIArtworkCodeViewController.m in Sources */,
+				3274F5461C85EFDE007DBA5C /* CRToastWindow.m in Sources */,
 				23FC83111785D6F6007FFFB1 /* AFURLConnectionOperation.m in Sources */,
 				23F8E66317B171AB00F8EEF2 /* CIMuseumVideosViewController.m in Sources */,
 				23DD9CA9178B06F20016E41D /* CIMedium+Helpers.m in Sources */,
@@ -1756,7 +1810,9 @@
 				237D76DC1868F8330086868B /* CITourArtwork.m in Sources */,
 				23809A3017A6CA4F00F52451 /* CIAudioView.m in Sources */,
 				23F8E65F17B1696800F8EEF2 /* CIHoursCell.m in Sources */,
+				3274F5431C85EFDE007DBA5C /* CRToastManager.m in Sources */,
 				23F91BB61784A58900B2691C /* MagicalRecord+iCloud.m in Sources */,
+				3274F5421C85EFDE007DBA5C /* CRToastConfig.m in Sources */,
 				23FC830F1785D6F6007FFFB1 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				23FC83131785D6F6007FFFB1 /* UIImageView+AFNetworking.m in Sources */,
 				23DD9CAF178B08B10016E41D /* CITour+Helpers.m in Sources */,
@@ -1778,6 +1834,7 @@
 				237D76D91868F6E60086868B /* CIArtistArtwork.m in Sources */,
 				23177311179D720C005E7601 /* CIExhibitionListViewController.m in Sources */,
 				23AEFC20178DA64E006F5C3E /* CIArtworkDetailViewController.m in Sources */,
+				3274F5441C85EFDE007DBA5C /* CRToastView.m in Sources */,
 				2350371317A04E240022A7EC /* CIArtworkPhotosViewController.m in Sources */,
 				23FC831E1785DC1A007FFFB1 /* CIAPIRequest.m in Sources */,
 				23E1BA62179F216F00854919 /* UIImage+Alpha.m in Sources */,
@@ -1807,6 +1864,7 @@
 				23709BFD1857547300D56408 /* CIExhibition.m in Sources */,
 				23FC82F51785D665007FFFB1 /* ISO8601DateFormatter.m in Sources */,
 				23F91BA51784A58900B2691C /* NSObject+MagicalDataImport.m in Sources */,
+				3274F5451C85EFDE007DBA5C /* CRToastViewController.m in Sources */,
 				23F91BB71784A58900B2691C /* MagicalRecord+Options.m in Sources */,
 				23D0739F17AAE76500526B4D /* CILocation+Helpers.m in Sources */,
 				23F91BA61784A58900B2691C /* NSRelationshipDescription+MagicalDataImport.m in Sources */,

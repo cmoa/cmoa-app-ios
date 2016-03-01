@@ -80,6 +80,9 @@
     // Beacon Manager
     #import "CIBeaconManager.h"
 
+    // CRToast for notifications
+    #import "CRToastView.h"
+
     // User defaults keys
     #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
     #define kCISettingsApiToken @"api_token"
