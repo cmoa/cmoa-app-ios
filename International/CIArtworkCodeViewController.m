@@ -15,11 +15,14 @@
 
 @interface CIArtworkCodeViewController ()
 
+@property (nonatomic) UITapGestureRecognizer *dismissKeyboardTapRecognizer;
+
 @end
 
 @implementation CIArtworkCodeViewController
 
 @synthesize parentMode;
+@synthesize dismissKeyboardTapRecognizer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,6 +33,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:
+     UIKeyboardWillShowNotification object:nil];
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:
+     UIKeyboardWillHideNotification object:nil];
+    
+    dismissKeyboardTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                            action:@selector(dismissKeyboard)];
     
     // Configure nav button
     if ([CIAppState sharedAppState].currentLocation == nil) {
@@ -80,8 +92,16 @@
     [CIAnalyticsHelper sendEvent:@"CodeLookup"];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)dismissKeyboard {
+    [codeTextField resignFirstResponder];
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
@@ -155,6 +175,17 @@
             [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:nil];
         }
     }
+}
+
+#pragma mark - Keyboard notifications
+
+-(void) keyboardWillShow:(NSNotification *)note {
+    [self.view addGestureRecognizer:dismissKeyboardTapRecognizer];
+}
+
+-(void) keyboardWillHide:(NSNotification *)note
+{
+    [self.view removeGestureRecognizer:dismissKeyboardTapRecognizer];
 }
 
 @end
