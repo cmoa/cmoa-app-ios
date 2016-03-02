@@ -149,12 +149,14 @@
     // Doing a quick check on artwork count
     NSArray *artworks = [CIArtwork MR_findAll];
     CIAPIRequest *apiRequest = [[CIAPIRequest alloc] init];
-//
-//    [apiRequest getWeeksHours:^(NSArray *hours) {
-//        [CIAppState sharedAppState].museumHours = hours;
-//    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-//        [CIAppState sharedAppState].museumHours = nil;
-//    }];
+
+    [apiRequest getWeeksHours:^(NSArray *hours) {
+        [CIAppState sharedAppState].museumHours = hours;
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        [CIAppState sharedAppState].museumHours = nil;
+    }];
+    
+    // TODO: Don't show beacon notifications if syncing
     
     if ([artworks count] == 0) {
         // Show HUD
@@ -166,7 +168,7 @@
             UIViewController *detailViewController = [self.splitViewController.viewControllers objectAtIndex:1];
             hud = [MBProgressHUD showHUDAddedTo:detailViewController.view animated:YES];
         }
-        hud.mode = MBProgressHUDModeText;
+        
         hud.labelText = @"Updating Exhibition Content";
         hud.labelFont = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
 
