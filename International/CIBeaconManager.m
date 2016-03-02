@@ -199,7 +199,6 @@ static CIBeaconManager *_sharedInstance = nil;
     
     // TODO: Change display style for iPad
     // TODO: Change font style to match App style
-    
     NSMutableDictionary *options = [@{
                               kCRToastTimeIntervalKey : @5.0,
                               kCRToastUnderStatusBarKey: @YES,

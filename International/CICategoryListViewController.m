@@ -138,9 +138,12 @@
         CIArtworkListViewController *artworkListViewController = (CIArtworkListViewController *)segue.destinationViewController;
         artworkListViewController.category = category;
         
-        //TODO: Fix this
-        CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
-        artworkListViewController.artworks = [category artworksInExhibition:exhibition];
+        // TODO: Figure this out...
+        if ([CIAppState sharedAppState].currentLocation == nil) {
+            CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+            artworkListViewController.artworks = [category artworksInExhibition:exhibition];
+        }
+        
         artworkListViewController.parentMode = @"categoryList";
     }
 }

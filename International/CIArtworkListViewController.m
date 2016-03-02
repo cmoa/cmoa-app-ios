@@ -38,7 +38,7 @@
     }
 
     // Configure nav button
-    if ([CIAppState sharedAppState].currentLocation == nil) {
+    if ([CIAppState sharedAppState].currentLocation == nil || [parentMode isEqual:@"categoryList"]) {
         CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
