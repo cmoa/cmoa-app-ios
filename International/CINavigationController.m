@@ -40,6 +40,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (self.displayingBeaconContent) {
+        [self addObservers];
+    }
+}
+
+- (void) addObservers {
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(hideBeaconContent)
+               name:kCIHideBeaconContentNotification
+             object:nil];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +83,10 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)hideBeaconContent {
+    [self dismiss];
 }
 
 @end

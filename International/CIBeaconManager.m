@@ -133,6 +133,7 @@ static CIBeaconManager *_sharedInstance = nil;
         NSString *notificationTitle = [NSString stringWithFormat:@"You are near %@",  beaconArtwork.title];
         [self showBeaconNotification:notificationTitle
                     interactionBlock:^(CRToastInteractionType interactionType) {
+            [self hidePreviousBeaconContentIfExists];
             shownBeaconMajor = beacon.major;
             shownBeaconMinor = beacon.minor;
                         
@@ -165,6 +166,7 @@ static CIBeaconManager *_sharedInstance = nil;
         
         NSString *notificationTitle = [NSString stringWithFormat:@"You are in %@",  beaconLocation.name];
         [self showBeaconNotification:notificationTitle interactionBlock:^(CRToastInteractionType interactionType) {
+            [self hidePreviousBeaconContentIfExists];
             shownBeaconMajor = beacon.major;
             shownBeaconMinor = beacon.minor;
             
@@ -217,20 +219,32 @@ static CIBeaconManager *_sharedInstance = nil;
                               kCRToastImageAlignmentKey : @(NSTextAlignmentRight),
                               } mutableCopy];
     
-    // TODO: Any Swipe show dismiss
+    
     // TODO: How do we make this accessable?
     options[kCRToastInteractionRespondersKey] = @[
             [CRToastInteractionResponder interactionResponderWithInteractionType:CRToastInteractionTypeTap
                                                             automaticallyDismiss:YES
-                                                                           block:interactionBlock]];
+                                                                           block:interactionBlock],
+            [CRToastInteractionResponder interactionResponderWithInteractionType:CRToastInteractionTypeSwipe
+                                                            automaticallyDismiss:YES
+                                                                           block:^(CRToastInteractionType interactionType) {
+                                                                               [CRToastManager dismissNotification:YES];
+                                                                           }]];
     
     [CRToastManager showNotificationWithOptions:options
                                 completionBlock:nil];
 }
 
+- (void)hidePreviousBeaconContentIfExists {
+    if (shownBeaconMajor != nil && shownBeaconMinor != nil) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCIHideBeaconContentNotification
+                                                            object:nil];
+    }
+}
+
 #pragma mark - Beacon notifications
 
--(void) beaconContentHidden:(NSNotification *)note {
+- (void)beaconContentHidden:(NSNotification *)note {
     shownBeaconMajor = nil;
     shownBeaconMinor = nil;
     
