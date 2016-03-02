@@ -17,11 +17,16 @@
 
 @property (nonatomic) ESTBeaconManager *beaconManager;
 
+@property (nonatomic, strong) NSNumber *lastBeaconMajor;
+@property (nonatomic, strong) NSNumber *lastBeaconMinor;
+
 @end
 
 @implementation CIBeaconManager
 
 @synthesize beaconManager;
+@synthesize lastBeaconMajor;
+@synthesize lastBeaconMinor;
 
 static CIBeaconManager *_sharedInstance = nil;
 
@@ -78,8 +83,8 @@ static CIBeaconManager *_sharedInstance = nil;
     NSLog(@"beacon major:%@ minor:%@", closestBeacon.major, closestBeacon.minor);
     
     // Don't display the same beacon twice
-    if ([[CIAppState sharedAppState].lastBeaconMajor intValue] == [closestBeacon.major intValue] &&
-        [[CIAppState sharedAppState].lastBeaconMinor intValue] == [closestBeacon.minor intValue]) {
+    if ([lastBeaconMajor intValue] == [closestBeacon.major intValue] &&
+        [lastBeaconMinor intValue] == [closestBeacon.minor intValue]) {
         return;
     }
     
@@ -132,8 +137,9 @@ static CIBeaconManager *_sharedInstance = nil;
         }];
     }
     
-    [CIAppState sharedAppState].lastBeaconMajor = closestBeacon.major;
-    [CIAppState sharedAppState].lastBeaconMinor = closestBeacon.minor;
+    // Update the last beacon
+    lastBeaconMajor = closestBeacon.major;
+    lastBeaconMinor = closestBeacon.minor;
 }
 
 - (void)showBeaconNotification:(NSString *)notificationTitle
