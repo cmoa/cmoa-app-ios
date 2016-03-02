@@ -33,8 +33,10 @@
     [super viewDidLoad];
 
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    }
     
     // Load artworks & photos
     if ([CIAppState sharedAppState].currentLocation != nil) {
@@ -84,13 +86,7 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    if ([CIAppState sharedAppState].currentLocation != nil) {
-        // TODO:
-        // Beacon Notification:
-        // Present modally on iPhone & iPad
-    } else {
-        [self performSegueWithIdentifier:@"exitArtworkPhotos" sender:self];
-    }
+    [self performSegueWithIdentifier:@"exitArtworkPhotos" sender:self];
 }
 
 - (IBAction)segueToArtworkPhotos:(UIStoryboardSegue *)segue {

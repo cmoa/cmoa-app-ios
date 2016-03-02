@@ -9,21 +9,26 @@
 #import "CIArtworkTabsViewController.h"
 #import "CINavigationItem.h"
 
-@interface CIArtworkTabsViewController ()
-
-@end
-
 @implementation CIArtworkTabsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.persistDoneButton = false;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(self.persistDoneButton ? @"Yes" : @"No");
+    
+    if (self.persistDoneButton) {
+        for (CINavigationController *navController in self.viewControllers) {
+            navController.persistDoneButton = true;
+        }
+    }
     
     // Modify tab bar
     self.tabBar.barTintColor = [UIColor colorFromHex:kCIBarColor];

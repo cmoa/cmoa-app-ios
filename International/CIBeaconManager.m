@@ -9,6 +9,7 @@
 #import "CIBeaconManager.h"
 
 #import "CIArtworkDetailViewController.h"
+#import "CIArtworkTabsViewController.h"
 
 @interface CIBeaconManager ()
 
@@ -106,19 +107,21 @@ static CIBeaconManager *_sharedInstance = nil;
         NSString *notificationTitle = [NSString stringWithFormat:@"You are near %@",  beaconArtwork.title];
         [self showBeaconNotification:notificationTitle
                     interactionBlock:^(CRToastInteractionType interactionType) {
+                 
+            NSString *storyboardName = IS_IPHONE ? @"Main_iPhone" : @"Main_iPad";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
                         
-            NSLog(@"Hit");
-                        
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
             CINavigationController *navController = [storyboard instantiateViewControllerWithIdentifier:@"beaconArtworkView"];
             
             UIViewController *rootController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
                         
             CIArtworkDetailViewController *artworkDetailViewController = (CIArtworkDetailViewController *)navController.topViewController;
             
+            // Setup view
             artworkDetailViewController.artworks = @[beaconArtwork];
             artworkDetailViewController.artwork = beaconArtwork;
             artworkDetailViewController.parentMode = @"beacon";
+            navController.persistDoneButton = true;
             
             [rootController presentViewController:navController animated:YES completion:nil];
         }];
@@ -133,7 +136,22 @@ static CIBeaconManager *_sharedInstance = nil;
         
         NSString *notificationTitle = [NSString stringWithFormat:@"You are in %@",  beaconLocation.name];
         [self showBeaconNotification:notificationTitle interactionBlock:^(CRToastInteractionType interactionType) {
-            NSLog(@"Hit 2");
+            
+            NSString *storyboardName = IS_IPHONE ? @"Main_iPhone" : @"Main_iPad";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+            
+            CIArtworkTabsViewController *artworkTabsViewController = [storyboard instantiateViewControllerWithIdentifier:@"ArtworkTabsViewController"];
+            
+            UIViewController *rootController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+            
+            // Setup view
+            // Each CIArtworkTabsViewController tab sses it's own navigation controller
+            // So we pass persistDoneButton to CIArtworkTabsViewController and it passes it to
+            // each of it's sub navigation controllers.
+            artworkTabsViewController.persistDoneButton = true;
+            [CIAppState sharedAppState].currentLocation = beaconLocation;
+            
+            [rootController presentViewController:artworkTabsViewController animated:YES completion:nil];
         }];
     }
     
@@ -144,8 +162,12 @@ static CIBeaconManager *_sharedInstance = nil;
 
 - (void)showBeaconNotification:(NSString *)notificationTitle
               interactionBlock:(void (^) (CRToastInteractionType interactionType))interactionBlock {
+    
+    // TODO: Change display style for iPad
+    // TODO: Change font style to match App style
+    
     NSMutableDictionary *options = [@{
-                              kCRToastTimeIntervalKey : @15.0,
+                              kCRToastTimeIntervalKey : @5.0,
                               kCRToastUnderStatusBarKey: @YES,
                               kCRToastNotificationPresentationTypeKey : @(CRToastPresentationTypeCover),
                               kCRToastNotificationTypeKey : @(CRToastTypeNavigationBar),
@@ -163,6 +185,8 @@ static CIBeaconManager *_sharedInstance = nil;
                               kCRToastImageAlignmentKey : @(NSTextAlignmentRight),
                               } mutableCopy];
     
+    // TODO: Any Swipe show dismiss
+    // TODO: How do we make this accessable?
     options[kCRToastInteractionRespondersKey] = @[
             [CRToastInteractionResponder interactionResponderWithInteractionType:CRToastInteractionTypeTap
                                                             automaticallyDismiss:YES

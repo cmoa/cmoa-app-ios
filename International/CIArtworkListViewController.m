@@ -38,8 +38,10 @@
     }
 
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    }
     
     // Category list child?
     if (self.category != nil) {
@@ -90,13 +92,7 @@
     } else if ([self.parentMode isEqualToString:@"visit"]) {
         [self performSegueWithIdentifier:@"exitToVisit" sender:self];
     } else {
-        if ([CIAppState sharedAppState].currentLocation != nil) {
-                // TODO:
-                // Beacon Notification:
-                // Present modally on iPhone & iPad
-        } else {
-            [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
-        }
+        [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
     }
 }
 

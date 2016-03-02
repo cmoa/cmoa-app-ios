@@ -12,4 +12,6 @@
 
 @interface CINavigationController : UINavigationController
 
+@property (nonatomic) BOOL persistDoneButton;
+
 @end

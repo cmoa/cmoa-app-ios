@@ -616,9 +616,6 @@
                         <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="persistDoneButton" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="6Ff-tW-lCF" kind="relationship" relationship="rootViewController" id="z0n-im-s3W"/>
                     </connections>
@@ -1424,7 +1421,7 @@
         <!--Object-->
         <scene sceneID="2rI-h2-T8c">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="d07-Of-HR7" customClass="CIArtworkTabsViewController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="ArtworkTabsViewController" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d07-Of-HR7" customClass="CIArtworkTabsViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Object" id="Z7A-H2-FVL" customClass="CINavigationItem"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sZI-86-maK" customClass="CITabBar">

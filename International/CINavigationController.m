@@ -12,7 +12,6 @@
 
 @interface CINavigationController () <UINavigationControllerDelegate>
 
-@property (nonatomic) IBInspectable BOOL persistDoneButton;
 @property (nonatomic) UIBarButtonItem *doneButton;
 
 @end
@@ -60,6 +59,14 @@
 }
 
 - (void) dismiss {
+    // Clear the beacon location
+    // TODO: This should really happen in the beacon manager through a notification
+    CILocation *currentLocation = [CIAppState sharedAppState].currentLocation;
+    
+    if (currentLocation != nil) {
+        currentLocation = nil;
+    }
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

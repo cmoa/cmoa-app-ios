@@ -113,12 +113,8 @@
         photosCollectionContainer = nil;
     }
     
-    // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    
-    if ([self.parentMode isEqual:@"beacon"]) {
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeDone target:self action:@selector(navRightButtonDidPress:)];
-    } else {
+    if (![self.parentMode isEqual:@"beacon"]) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     

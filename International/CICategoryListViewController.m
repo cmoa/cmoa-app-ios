@@ -32,8 +32,10 @@
     CIExhibition *exhibition;
     
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    }
     
     // Load categories, then filter out those with 0 artworks!
     if ([CIAppState sharedAppState].currentLocation != nil) {
@@ -74,13 +76,7 @@
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    if ([CIAppState sharedAppState].currentLocation != nil) {
-            // TODO:
-            // Beacon Notification:
-            // Present modally on iPhone & iPad
-    } else {
-        [self performSegueWithIdentifier:@"exitToExhibitionDetail" sender:self];
-    }
+    [self performSegueWithIdentifier:@"exitToExhibitionDetail" sender:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

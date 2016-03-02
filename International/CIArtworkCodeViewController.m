@@ -32,8 +32,8 @@
     [super viewDidLoad];
     
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    if (!(IS_IPAD && [self.parentMode isEqualToString:@"home"])) {
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
@@ -88,13 +88,7 @@
     if ([self.parentMode isEqualToString:@"home"]) {
         [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
     } else {
-        if ([CIAppState sharedAppState].currentLocation != nil) {
-                // TODO:
-                // Beacon Notification:
-                // Present modally on iPhone & iPad
-        } else {
-            [self performSegueWithIdentifier:@"exitArtworkCodeToExhibitionDetail" sender:self];
-        }
+        [self performSegueWithIdentifier:@"exitArtworkCodeToExhibitionDetail" sender:self];
     }
 }
 
