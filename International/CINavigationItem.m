@@ -41,7 +41,7 @@
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 2.5f);
     switch (type) {
         case CINavigationItemLeftBarButtonTypeBack: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"nav_back"]
+            UIView *buttonView = [CINavigationItem customViewForButtonWithImage:[UIImage imageNamed:@"nav_back"]
                                                    highlightedImage:[UIImage imageNamed:@"nav_back_on"]
                                                               title:nil
                                                                size:buttonSize
@@ -60,22 +60,12 @@
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     switch (type) {
         case CINavigationItemRightBarButtonTypeDone: {
-            buttonSize.width = 50.0f;
-            
-            UIView *buttonView = [self customViewForButtonWithImage:nil
-                                                   highlightedImage:nil
-                                                              title:@"Done"
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setRightBarButtonItem:menuButton];
+            [self setRightBarButtonItem:[CINavigationItem buildBackButtonWithTarget:target action:action]];
             
             break;
         }
         case CINavigationItemRightBarButtonTypeOpenInSafari: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_open_safari"]
+            UIView *buttonView = [CINavigationItem customViewForButtonWithImage:[UIImage imageNamed:@"button_open_safari"]
                                                    highlightedImage:[UIImage imageNamed:@"button_open_safari_on"]
                                                               title:nil
                                                                size:buttonSize
@@ -117,7 +107,22 @@
     }
 }
 
-- (UIView *)customViewForButtonWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage title:(NSString *)title size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
++ (UIBarButtonItem *) buildBackButtonWithTarget:(id)target action:(SEL)action {
+    CGSize buttonSize = (CGSize){50.0f, 34.0f};
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    
+    UIView *buttonView = [CINavigationItem customViewForButtonWithImage:nil
+                                           highlightedImage:nil
+                                                      title:@"Done"
+                                                       size:buttonSize
+                                                 edgeInsets:edgeInsets
+                                                     target:target
+                                                     action:action];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:buttonView];
+}
+
++ (UIView *)customViewForButtonWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage title:(NSString *)title size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
     // Init button
     CIBorderedButton *button = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
     button.frame = (CGRect){{0, 5}, size};
