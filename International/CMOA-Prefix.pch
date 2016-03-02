@@ -98,4 +98,5 @@
 
     // Notifications
     #define kCISelectedExhibitionNotification @"selectedExhibitionNotification"
+    #define kCIBeaconContentHiddenNotification @"beaconContentHiddenNotification"
 #endif

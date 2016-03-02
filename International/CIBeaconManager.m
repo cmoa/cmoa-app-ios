@@ -21,13 +21,20 @@
 @property (nonatomic, strong) NSNumber *lastBeaconMajor;
 @property (nonatomic, strong) NSNumber *lastBeaconMinor;
 
+@property (nonatomic, strong) NSNumber *shownBeaconMajor;
+@property (nonatomic, strong) NSNumber *shownBeaconMinor;
+
 @end
 
 @implementation CIBeaconManager
 
 @synthesize beaconManager;
+
 @synthesize lastBeaconMajor;
 @synthesize lastBeaconMinor;
+
+@synthesize shownBeaconMajor;
+@synthesize shownBeaconMinor;
 
 static CIBeaconManager *_sharedInstance = nil;
 
@@ -46,8 +53,21 @@ static CIBeaconManager *_sharedInstance = nil;
     if (self) {
         self.beaconManager = [ESTBeaconManager new];
         self.beaconManager.delegate = self;
+        [self addObservers];
     }
     return self;
+}
+         
+ - (void) addObservers {
+     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+     [nc addObserver:self
+            selector:@selector(beaconContentHidden:)
+                name:kCIBeaconContentHiddenNotification
+              object:nil];
+}
+
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) requestAuthorization {
@@ -89,6 +109,12 @@ static CIBeaconManager *_sharedInstance = nil;
         return;
     }
     
+    // Don't display the currently displaed beacon
+    if ([shownBeaconMajor intValue] == [closestBeacon.major intValue] &&
+        [shownBeaconMinor intValue] == [closestBeacon.minor intValue]) {
+        return;
+    }
+    
     // Don't display beacons that are far away
     if (closestBeacon.proximity == CLProximityFar) {
         return;
@@ -107,7 +133,9 @@ static CIBeaconManager *_sharedInstance = nil;
         NSString *notificationTitle = [NSString stringWithFormat:@"You are near %@",  beaconArtwork.title];
         [self showBeaconNotification:notificationTitle
                     interactionBlock:^(CRToastInteractionType interactionType) {
-                 
+            shownBeaconMajor = beacon.major;
+            shownBeaconMinor = beacon.minor;
+                        
             NSString *storyboardName = IS_IPHONE ? @"Main_iPhone" : @"Main_iPad";
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
                         
@@ -122,6 +150,7 @@ static CIBeaconManager *_sharedInstance = nil;
             artworkDetailViewController.artwork = beaconArtwork;
             artworkDetailViewController.parentMode = @"beacon";
             navController.persistDoneButton = true;
+            navController.displayingBeaconContent = true;
             
             [rootController presentViewController:navController animated:YES completion:nil];
         }];
@@ -136,6 +165,8 @@ static CIBeaconManager *_sharedInstance = nil;
         
         NSString *notificationTitle = [NSString stringWithFormat:@"You are in %@",  beaconLocation.name];
         [self showBeaconNotification:notificationTitle interactionBlock:^(CRToastInteractionType interactionType) {
+            shownBeaconMajor = beacon.major;
+            shownBeaconMinor = beacon.minor;
             
             NSString *storyboardName = IS_IPHONE ? @"Main_iPhone" : @"Main_iPad";
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
@@ -149,6 +180,7 @@ static CIBeaconManager *_sharedInstance = nil;
             // So we pass persistDoneButton to CIArtworkTabsViewController and it passes it to
             // each of it's sub navigation controllers.
             artworkTabsViewController.persistDoneButton = true;
+            artworkTabsViewController.displayingBeaconContent = true;
             [CIAppState sharedAppState].currentLocation = beaconLocation;
             
             [rootController presentViewController:artworkTabsViewController animated:YES completion:nil];
@@ -195,6 +227,22 @@ static CIBeaconManager *_sharedInstance = nil;
     [CRToastManager showNotificationWithOptions:options
                                 completionBlock:nil];
 }
+
+#pragma mark - Beacon notifications
+
+-(void) beaconContentHidden:(NSNotification *)note {
+    shownBeaconMajor = nil;
+    shownBeaconMinor = nil;
+    
+    // Clear location if set
+    CILocation *currentLocation = [CIAppState sharedAppState].currentLocation;
+    
+    if (currentLocation != nil) {
+        currentLocation = nil;
+    }
+}
+
+#pragma mark - Beacon delegate
 
 - (void)beaconManager:(id)manager monitoringDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
     NSLog(@"%@", error);

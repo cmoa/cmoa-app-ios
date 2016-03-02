@@ -15,6 +15,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.persistDoneButton = false;
+        self.displayingBeaconContent = false;
     }
     return self;
 }
@@ -22,11 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(self.persistDoneButton ? @"Yes" : @"No");
-    
     if (self.persistDoneButton) {
         for (CINavigationController *navController in self.viewControllers) {
             navController.persistDoneButton = true;
+            
+            if (self.persistDoneButton) {
+                navController.displayingBeaconContent = true;
+            }
         }
     }
     

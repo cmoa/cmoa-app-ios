@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.persistDoneButton = false;
+        self.displayingBeaconContent = false;
         self.delegate = self;
     }
     return self;
@@ -31,6 +32,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.persistDoneButton = false;
+        self.displayingBeaconContent = false;
         self.delegate = self;
     }
     return self;
@@ -59,12 +61,9 @@
 }
 
 - (void) dismiss {
-    // Clear the beacon location
-    // TODO: This should really happen in the beacon manager through a notification
-    CILocation *currentLocation = [CIAppState sharedAppState].currentLocation;
-    
-    if (currentLocation != nil) {
-        currentLocation = nil;
+    if (self.displayingBeaconContent) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCIBeaconContentHiddenNotification
+                                                            object:nil];
     }
     
     [self dismissViewControllerAnimated:YES completion:NULL];

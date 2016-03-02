@@ -13,5 +13,6 @@
 @interface CINavigationController : UINavigationController
 
 @property (nonatomic) BOOL persistDoneButton;
+@property (nonatomic) BOOL displayingBeaconContent;
 
 @end
