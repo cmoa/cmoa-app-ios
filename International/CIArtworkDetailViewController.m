@@ -38,7 +38,6 @@
     // Content styles
     lblTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:13.0f];
     lblDescription.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-    [lblArtist addTopSeparator];
     
     // Show artwork details
     self.title = artwork.title;
@@ -64,26 +63,32 @@
     
     // Artist(s)
     NSArray *artists = artwork.artists;
-    if ([artists count] > 1) {
-        NSString *artistNames = @"";
-        CGFloat height = lblArtistHeightConstraint.constant;
+    if ([artists count] != 0) {
+        [lblArtist addTopSeparator];
         
-        for (CIArtist *artist in artists) {
-            if (artist == [artists lastObject]) {
-                artistNames = [artistNames stringByAppendingString:artist.name];
-            } else {
-                height += 22;
-                artistNames = [artistNames stringByAppendingFormat:@"%@\n", artist.name];
+        if ([artists count] > 1) {
+            NSString *artistNames = @"";
+            CGFloat height = lblArtistHeightConstraint.constant;
+            
+            for (CIArtist *artist in artists) {
+                if (artist == [artists lastObject]) {
+                    artistNames = [artistNames stringByAppendingString:artist.name];
+                } else {
+                    height += 22;
+                    artistNames = [artistNames stringByAppendingFormat:@"%@\n", artist.name];
+                }
             }
+            
+            [lblArtist setText:artistNames];
+            lblArtistHeightConstraint.constant = height;
+        } else {
+            CIArtist *artist = [artists objectAtIndex:0];
+            [lblArtist setText:artist.name];
         }
-        
-        [lblArtist setText:artistNames];
-        lblArtistHeightConstraint.constant = height;
     } else {
-        CIArtist *artist = [artists objectAtIndex:0];
-        [lblArtist setText:artist.name];
+        lblArtistHeightConstraint.constant = 0.0f;
     }
-    
+
     // Configure audio (if any)
     NSArray *audio = artwork.audio;
     if ([audio count] > 0) {

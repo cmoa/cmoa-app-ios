@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-#define API_BASE_URL @"http://ec2-52-86-126-162.compute-1.amazonaws.com"
+#define API_BASE_URL @"http://ec2-52-86-241-215.compute-1.amazonaws.com"
 #define API_TOKEN    @"207b0977eb0be992898c7cf102f1bd8b"
 #define API_SECRET   @"5b2d5ba341d2ded69a4d6cef387951ad"
 
