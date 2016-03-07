@@ -188,17 +188,23 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
         if ((CGRectGetHeight(contentFrame) - (height + subtitleHeight)) < 5) {
             subtitleHeight = (CGRectGetHeight(contentFrame) - (height))-10;
         }
-        CGFloat offset = (CGRectGetHeight(contentFrame) - (height + subtitleHeight))/2;
+//        CGFloat offset = (CGRectGetHeight(contentFrame) - (height + subtitleHeight))/2;
+        
+        // *NOTE* I'm overriding these to keep a consistent style and to stop the height
+        // from expanding past two lines of text.
+        height = 35;
+        CGFloat y = 20;
+        subtitleHeight = 15;
         
         self.label.frame = CGRectMake(x,
-                                      offset+statusBarYOffset,
-                                      CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset,
+                                      y,
+                                      CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset-self.imageView.frame.size.width,
                                       height);
         
         
         self.subtitleLabel.frame = CGRectMake(x,
-                                              height+offset+statusBarYOffset,
-                                              CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset,
+                                              y+height,
+                                              CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset-self.imageView.frame.size.width,
                                               subtitleHeight);
     }
     

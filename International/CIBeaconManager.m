@@ -197,8 +197,6 @@ static CIBeaconManager *_sharedInstance = nil;
 - (void)showBeaconNotification:(NSString *)notificationTitle
               interactionBlock:(void (^) (CRToastInteractionType interactionType))interactionBlock {
     
-    // TODO: Change display style for iPad
-    // TODO: Change font style to match App style
     NSMutableDictionary *options = [@{
                               kCRToastTimeIntervalKey : @5.0,
                               kCRToastUnderStatusBarKey: @YES,
@@ -206,10 +204,12 @@ static CIBeaconManager *_sharedInstance = nil;
                               kCRToastNotificationTypeKey : @(CRToastTypeNavigationBar),
                               kCRToastTextKey : notificationTitle,
                               kCRToastTextMaxNumberOfLinesKey : @2,
+                              kCRToastFontKey : [UIFont fontWithName:@"HelveticaNeue" size:15.0f],
+                              kCRToastSubtitleFontKey : [UIFont fontWithName:@"HelveticaNeue" size:12.0f],
                               kCRToastTextAlignmentKey : @(NSTextAlignmentLeft),
                               kCRToastSubtitleTextKey : @"Tap to view",
                               kCRToastSubtitleTextAlignmentKey : @(NSTextAlignmentLeft),
-                              kCRToastBackgroundColorKey : [UIColor colorFromHex:kCIAccentColor],
+                              kCRToastBackgroundColorKey : [UIColor colorFromHex:kCIBlackTextColor],
                               kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
                               kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
                               kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
