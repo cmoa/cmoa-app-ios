@@ -213,24 +213,23 @@
     [self togglePlayButtonSetPlay];
 }
 
-- (void)dealloc {
-    // Clean up observers & audio
+- (void)cleanUpPlayer {
     [audioPlayer removeTimeObserver:timeObserver];
     
-    @try {
-        [playerItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
-        [playerItem removeObserver:self forKeyPath:@"status" context:nil];
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        
-        [audioPlayer removeObserver:self forKeyPath:@"status" context:nil];
-    } @catch(id anException) {
-        // Do nothing. Just making sure observers were removed.
-    }
+    [playerItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
+    [playerItem removeObserver:self forKeyPath:@"status" context:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [audioPlayer removeObserver:self forKeyPath:@"status" context:nil];
     
     audioPlayer = nil;
+}
+
+- (void)dealloc {
+    [self cleanUpPlayer];
 }
 
 #pragma mark - Button handling
@@ -351,6 +350,10 @@
     progressEmptyView.backgroundColor = [UIColor colorFromHex:@"#cccccc"];
     self.progress = 0.0f;
     progressFullView.backgroundColor = [UIColor colorFromHex:@"#a0cc8c"];
+    
+    if (playerItem != nil) {
+        [self cleanUpPlayer];
+    }
     
     // Find the file and play
     NSString *fileUrl = self.medium.urlSmall;
