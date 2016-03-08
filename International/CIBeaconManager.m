@@ -137,6 +137,10 @@ static CIBeaconManager *_sharedInstance = nil;
             shownBeaconMajor = beacon.major;
             shownBeaconMinor = beacon.minor;
                         
+            [CIAnalyticsHelper sendEventWithCategory:@"Beacon"
+                                           andAction:@"Beacon Notification Tapped"
+                                            andLabel:beacon.name];
+                        
             NSString *storyboardName = IS_IPHONE ? @"Main_iPhone" : @"Main_iPad";
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
                         
@@ -169,6 +173,14 @@ static CIBeaconManager *_sharedInstance = nil;
             [self hidePreviousBeaconContentIfExists];
             shownBeaconMajor = beacon.major;
             shownBeaconMinor = beacon.minor;
+            
+            [CIAnalyticsHelper sendEventWithCategory:@"Beacon"
+                                           andAction:@"Beacon Notification Tapped"
+                                            andLabel:beacon.name];
+            
+            [CIAnalyticsHelper sendEventWithCategory:@"Location"
+                                           andAction:@"Location Viewed"
+                                            andLabel:beaconLocation.name];
             
             NSString *storyboardName = IS_IPHONE ? @"Main_iPhone" : @"Main_iPad";
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];

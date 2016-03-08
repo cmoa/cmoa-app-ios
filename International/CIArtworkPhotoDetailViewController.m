@@ -77,7 +77,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkPhotoDetail"];
+    [CIAnalyticsHelper sendScreen:@"Object Photo Detail"];
+    [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                   andAction:@"Object Photo Viewed"
+                                    andLabel:self.medium.artwork.title];
 }
 
 - (void)didReceiveMemoryWarning {

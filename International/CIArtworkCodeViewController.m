@@ -89,7 +89,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"CodeLookup"];
+    [CIAnalyticsHelper sendScreen:@"Code Lookup"];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -114,6 +114,10 @@
 
 - (IBAction)searchDidPress:(id)sender {
     NSString *searchStr = codeTextField.text;
+    
+    [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                   andAction:@"Object Code Searched For"
+                                    andLabel:searchStr];
     
     // God mode?
     if ([searchStr isEqualToString:@"440015213"]) {

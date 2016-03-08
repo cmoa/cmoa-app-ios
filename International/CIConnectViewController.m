@@ -85,7 +85,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ConnectEmail"];
+    [CIAnalyticsHelper sendScreen:@"Connect"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -107,15 +107,24 @@
 
 - (void)navRightButtonDidPress:(id)sender {
     UIButton *button = (UIButton *)sender;
+    
+    NSString *socialWebsite;
+    
     if (button.tag == 0) {
         // Facebook
+        socialWebsite = @"Facebook";
         visitTitle = @"CMOA on Facebook";
         visitURL = @"https://www.facebook.com/CarnegieMuseumofArt";
     } else {
         // Twitter
+        socialWebsite = @"Twitter";
         visitTitle = @"CMOA on Twitter";
         visitURL = @"https://twitter.com/cmoa";
     }
+    
+    [CIAnalyticsHelper sendEventWithCategory:@"Social"
+                                   andAction:@"Social Website Visited"
+                                    andLabel:socialWebsite];
     
     // Show the browser
     [self performSegueWithIdentifier:@"showBrowser" sender:self];
@@ -138,6 +147,9 @@
         [emailTextField becomeFirstResponder];
         return;
     }
+    
+    [CIAnalyticsHelper sendEventWithCategory:@"Social"
+                                   andAction:@"Email List Subscribed To"];
     
     // Email valid, subscribe
     emailTextField.enabled = NO;

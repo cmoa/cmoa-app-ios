@@ -218,7 +218,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkDetail" withLabel:self.artwork.code];
+    [CIAnalyticsHelper sendScreen:@"Object Detail"];
+    [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                   andAction:@"Object Viewed"
+                                    andLabel:self.artwork.title];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -397,6 +400,10 @@
         moviePlayerController.moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
         moviePlayerController.moviePlayer.contentURL = videoURL;
         [self presentMoviePlayerViewControllerAnimated:moviePlayerController];
+        
+        [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                       andAction:@"Object Video Viewed"
+                                        andLabel:video.title];
 
         // Set cell to selected
         CIVideoSliderCell *cell = (CIVideoSliderCell *)[collectionView cellForItemAtIndexPath:indexPath];

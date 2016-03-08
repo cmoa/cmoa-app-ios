@@ -81,7 +81,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkList"];
+    [CIAnalyticsHelper sendScreen:@"Object List"];
 }
 
 - (void)navLeftButtonDidPress:(id)sender {

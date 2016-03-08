@@ -254,6 +254,10 @@
         if (audioPlayer.rate == 0.0f) {
             // Notify other players
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AudioViewWillStartPlay" object:self];
+            
+            [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                           andAction:@"Object Audio Played"
+                                            andLabel:self.medium.artwork.title];
 
             [audioPlayer play];
             [self togglePlayButtonSetPause];

@@ -42,7 +42,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"MuseumNews"];
+    [CIAnalyticsHelper sendScreen:@"Museum News"];
 }
 
 - (void)didReceiveMemoryWarning {

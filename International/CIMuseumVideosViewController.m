@@ -42,7 +42,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"CMOA_TV"];
+    [CIAnalyticsHelper sendScreen:@"Museum Videos"];
 }
 
 - (void)didReceiveMemoryWarning {

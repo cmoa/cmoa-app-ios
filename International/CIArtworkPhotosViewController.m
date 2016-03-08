@@ -99,7 +99,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkPhotos"];
+    [CIAnalyticsHelper sendScreen:@"Object Photos"];
 }
 
 #pragma mark - Collection view delegate

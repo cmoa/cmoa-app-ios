@@ -170,7 +170,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"MyVisit"];
+    [CIAnalyticsHelper sendScreen:@"Hours and Location"];
     
     if (pinDropped == NO) {
         pinDropped = YES;

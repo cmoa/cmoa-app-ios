@@ -95,7 +95,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"AppStart"];
+    [CIAnalyticsHelper sendScreen:@"Home"];
     [self runSync];
 }
 

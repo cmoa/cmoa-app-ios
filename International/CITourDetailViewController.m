@@ -46,7 +46,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"TourDetail" withLabel:self.tour.title];
+    [CIAnalyticsHelper sendScreen:@"Tour Detail"];
+    [CIAnalyticsHelper sendEventWithCategory:@"Tour"
+                                   andAction:@"Tour Viewed"
+                                    andLabel:self.tour.title];
 }
 
 - (void)didReceiveMemoryWarning {

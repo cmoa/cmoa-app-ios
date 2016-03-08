@@ -85,7 +85,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ExhibitionDetail"];
+    [CIAnalyticsHelper sendScreen:@"Exhibition Detail"];
 }
 
 - (void)viewDidLayoutSubviews {

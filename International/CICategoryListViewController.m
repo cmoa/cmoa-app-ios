@@ -88,7 +88,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"CategoryList"];
+    [CIAnalyticsHelper sendScreen:@"Object Category List"];
 }
 
 - (IBAction)segueToCategoryList:(UIStoryboardSegue *)segue {

@@ -44,7 +44,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"TourList"];
+    [CIAnalyticsHelper sendScreen:@"Tour List"];
 }
 
 - (void)didReceiveMemoryWarning {
