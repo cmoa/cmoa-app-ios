@@ -71,7 +71,7 @@ static CIBeaconManager *_sharedInstance = nil;
 }
 
 - (void) requestAuthorization {
-    [self.beaconManager requestAlwaysAuthorization];
+    [self.beaconManager requestWhenInUseAuthorization];
     [self startMonitoring];
 }
 
