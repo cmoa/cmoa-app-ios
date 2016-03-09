@@ -80,7 +80,7 @@
 }
 
 - (IBAction)visitDidPress:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://cmoa.org"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://carnegiemuseums.org"]];
 }
 
 #pragma mark - Transition
@@ -89,7 +89,7 @@
     if ([segue.identifier isEqualToString:@"showBrowser"]) {
         CIBrowserViewController *browserViewController = (CIBrowserViewController *)segue.destinationViewController;
         browserViewController.parentMode = @"museumVideos";
-        browserViewController.viewTitle = @"CMOA TV";
+        browserViewController.viewTitle = @"Museum Videos";
         browserViewController.url = requestURL;
     }
 }

@@ -80,7 +80,7 @@
 }
 
 - (IBAction)visitDidPress:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://cmoa.org"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://carnegiemuseums.org"]];
 }
 
 #pragma mark - Transition
