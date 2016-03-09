@@ -27,6 +27,7 @@
     medium.deletedAt = [CIData dateValueOrNilForKey:@"deleted_at" data:data];
 
     medium.title = [CIData objValueOrNilForKey:@"title" data:data];
+    medium.alt = [CIData objValueOrNilForKey:@"alt" data:data];
     medium.kind = [CIData objValueOrNilForKey:@"kind" data:data];
     medium.position = [CIData objValueOrNilForKey:@"position" data:data];
     medium.width = [CIData objValueOrNilForKey:@"width" data:data];
@@ -54,6 +55,7 @@
              @"deleted_at" : [CIData dateOrNSNull:self.deletedAt],
 
              @"title" : [CIData objOrNSNull:self.title],
+             @"alt" : [CIData objOrNSNull:self.alt],
              @"kind" : [CIData objOrNSNull:self.kind],
              @"position" : [CIData objOrNSNull:self.position],
              @"width" : [CIData objOrNSNull:self.width],

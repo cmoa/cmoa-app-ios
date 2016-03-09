@@ -21,6 +21,7 @@
 @property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSNumber * syncStatus;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * alt;
 @property (nonatomic, retain) NSDate * updatedAt;
 @property (nonatomic, retain) NSString * urlFull;
 @property (nonatomic, retain) NSString * urlMedium;

@@ -369,7 +369,10 @@
         // Find photo
         CIMedium *photo = [photos objectAtIndex:indexPath.row];
         cell.medium = photo;
-
+        
+        //TODO: Add accessibility tag to photo
+        // photo.alt
+        
         return cell;
     } else {
         // Prepare the cell

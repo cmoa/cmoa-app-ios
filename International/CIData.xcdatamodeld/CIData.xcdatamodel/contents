@@ -97,6 +97,7 @@
         <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CIMedium" representedClassName="CIMedium" syncable="YES">
+        <attribute name="alt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="artworkUuid" attributeType="String" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deletedAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -141,13 +142,13 @@
         <element name="CIArtist" positionX="0" positionY="0" width="128" height="210"/>
         <element name="CIArtistArtwork" positionX="0" positionY="0" width="128" height="165"/>
         <element name="CIArtwork" positionX="0" positionY="0" width="128" height="270"/>
+        <element name="CIBeacon" positionX="0" positionY="144" width="128" height="105"/>
         <element name="CICategory" positionX="0" positionY="0" width="128" height="135"/>
         <element name="CIExhibition" positionX="0" positionY="0" width="128" height="330"/>
         <element name="CILink" positionX="0" positionY="0" width="128" height="195"/>
         <element name="CILocation" positionX="0" positionY="0" width="128" height="150"/>
-        <element name="CIMedium" positionX="0" positionY="0" width="128" height="300"/>
+        <element name="CIMedium" positionX="0" positionY="0" width="128" height="315"/>
         <element name="CITour" positionX="0" positionY="0" width="128" height="180"/>
         <element name="CITourArtwork" positionX="0" positionY="0" width="128" height="180"/>
-        <element name="CIBeacon" positionX="0" positionY="144" width="128" height="105"/>
     </elements>
 </model>
