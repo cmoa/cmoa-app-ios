@@ -25,9 +25,7 @@
     location.createdAt = [CIData dateValueOrNilForKey:@"created_at" data:data];
     location.updatedAt = [CIData dateValueOrNilForKey:@"updated_at" data:data];
     location.deletedAt = [CIData dateValueOrNilForKey:@"deleted_at" data:data];
-    
     location.name = [CIData objValueOrNilForKey:@"name" data:data];
-    location.beaconUuid = [CIData objValueOrNilForKey:@"beacon_uuid" data:data];
     
     // Mark as 'not changed'
     location.syncStatus = [NSNumber numberWithInteger:CISyncStatusNotChanged];
@@ -41,24 +39,11 @@
              @"created_at" : [CIData dateOrNSNull:self.createdAt],
              @"updated_at" : [CIData dateOrNSNull:self.updatedAt],
              @"deleted_at" : [CIData dateOrNSNull:self.deletedAt],
-             
              @"name" : [CIData objOrNSNull:self.name],
-             @"beacon_uuid" : [CIData objOrNSNull:self.beaconUuid]
              };
 }
 
 #pragma mark - Relationships
-
-+ (CILocation *)locationWithBeacon:(CIBeacon *)beacon {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(beaconUuid = %@)", beacon.uuid];
-    CILocation *location = [CILocation MR_findFirstWithPredicate:predicate];
-    
-    if (location == nil) {
-        return nil;
-    } else {
-        return location;
-    }
-}
 
 - (NSArray*)artists {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (locationUuid == %@)", self.uuid];

@@ -16,6 +16,7 @@
 
 #pragma mark - Relationships
 
+- (id)findContentLinkedTo;
 + (CIBeacon *)findBeaconWithMajor:(NSNumber *)major andMinor:(NSNumber *)minor;
 
 @end

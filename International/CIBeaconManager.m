@@ -71,6 +71,12 @@ static CIBeaconManager *_sharedInstance = nil;
 }
 
 - (void) requestAuthorization {
+    // 1. TODO: Check if bluetooth in enabled
+    // 2. TODO: Check if we have access to the location
+    
+    // Only display these the first time the app is launched.
+    // (Check if the privilleges have changed though.)
+    
     [self.beaconManager requestWhenInUseAuthorization];
     [self startMonitoring];
 }
@@ -84,7 +90,7 @@ static CIBeaconManager *_sharedInstance = nil;
                                    identifier:kBEACONREGIONNAME];
     
     // Lock Screen
-    [beaconManager startMonitoringForRegion:beaconRegion];
+    //[beaconManager startMonitoringForRegion:beaconRegion];
     
     // Monitor Beacons
     [beaconManager startRangingBeaconsInRegion:beaconRegion];
@@ -100,8 +106,6 @@ static CIBeaconManager *_sharedInstance = nil;
     if (closestBeacon == nil) {
         return;
     }
-    
-    NSLog(@"beacon major:%@ minor:%@", closestBeacon.major, closestBeacon.minor);
     
     // Don't display the same beacon twice
     if ([lastBeaconMajor intValue] == [closestBeacon.major intValue] &&
@@ -127,8 +131,15 @@ static CIBeaconManager *_sharedInstance = nil;
         return;
     }
     
-    CIArtwork *beaconArtwork = [CIArtwork artworkWithBeacon:beacon];
-    if (beaconArtwork) {
+    id beaconContent = [beacon findContentLinkedTo];
+    
+    if ([beaconContent isKindOfClass:[CIArtwork class]]) {
+        CIArtwork *beaconArtwork = (CIArtwork *)beaconContent;
+        
+        // Don't display beacons that have no content
+        if (beaconArtwork == nil) {
+            return;
+        }
         
         NSString *notificationTitle = [NSString stringWithFormat:@"You are near %@",  beaconArtwork.title];
         [self showBeaconNotification:notificationTitle
@@ -160,8 +171,8 @@ static CIBeaconManager *_sharedInstance = nil;
             [rootController presentViewController:navController animated:YES completion:nil];
         }];
         
-    } else {
-        CILocation *beaconLocation = [CILocation locationWithBeacon:beacon];
+    } else if ([beaconContent isKindOfClass:[CILocation class]]) {
+        CILocation *beaconLocation = (CILocation *)beaconContent;
         
         // Don't display beacons that have no content
         if (beaconLocation == nil) {
@@ -199,6 +210,9 @@ static CIBeaconManager *_sharedInstance = nil;
             
             [rootController presentViewController:artworkTabsViewController animated:YES completion:nil];
         }];
+    } else {
+        // Don't display beacons that have no content
+        return;
     }
     
     // Update the last beacon

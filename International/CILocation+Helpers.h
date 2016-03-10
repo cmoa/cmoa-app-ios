@@ -24,6 +24,4 @@
 - (NSArray*)liveArtworks;
 - (NSArray*)liveArtworksSortedBy:(NSString *)sortedBy ascending:(BOOL)ascending;
 
-+ (CILocation *)locationWithBeacon:(CIBeacon *)beacon;
-
 @end

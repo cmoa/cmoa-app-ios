@@ -15,5 +15,7 @@
 @dynamic minor;
 @dynamic name;
 @dynamic uuid;
+@dynamic artworkUuid;
+@dynamic locationUuid;
 
 @end

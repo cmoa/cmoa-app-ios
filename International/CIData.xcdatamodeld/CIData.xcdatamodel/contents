@@ -25,7 +25,6 @@
     </entity>
     <entity name="CIArtwork" representedClassName="CIArtwork" syncable="YES">
         <attribute name="artistUuid" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="beaconUuid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="categoryUuid" attributeType="String" syncable="YES"/>
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,11 +39,13 @@
         <attribute name="updatedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="CIBeacon" syncable="YES">
+    <entity name="CIBeacon" representedClassName="CIBeacon" syncable="YES">
+        <attribute name="artworkUuid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationUuid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="major" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="minor" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="uuid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CICategory" representedClassName="CICategory" syncable="YES">
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
@@ -88,7 +89,6 @@
         <attribute name="uuid" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="CILocation" representedClassName="CILocation" syncable="YES">
-        <attribute name="beaconUuid" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deletedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -141,12 +141,12 @@
     <elements>
         <element name="CIArtist" positionX="0" positionY="0" width="128" height="210"/>
         <element name="CIArtistArtwork" positionX="0" positionY="0" width="128" height="165"/>
-        <element name="CIArtwork" positionX="0" positionY="0" width="128" height="270"/>
-        <element name="CIBeacon" positionX="0" positionY="144" width="128" height="105"/>
+        <element name="CIArtwork" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="CIBeacon" positionX="0" positionY="144" width="128" height="135"/>
         <element name="CICategory" positionX="0" positionY="0" width="128" height="135"/>
         <element name="CIExhibition" positionX="0" positionY="0" width="128" height="330"/>
         <element name="CILink" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="CILocation" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="CILocation" positionX="0" positionY="0" width="128" height="135"/>
         <element name="CIMedium" positionX="0" positionY="0" width="128" height="315"/>
         <element name="CITour" positionX="0" positionY="0" width="128" height="180"/>
         <element name="CITourArtwork" positionX="0" positionY="0" width="128" height="180"/>

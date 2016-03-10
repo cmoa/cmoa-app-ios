@@ -17,6 +17,5 @@
 @dynamic syncStatus;
 @dynamic updatedAt;
 @dynamic uuid;
-@dynamic beaconUuid;
 
 @end

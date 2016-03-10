@@ -25,6 +25,8 @@
     beacon.major = [CIData objValueOrNilForKey:@"major" data:data];
     beacon.minor = [CIData objValueOrNilForKey:@"minor" data:data];
     beacon.name = [CIData objValueOrNilForKey:@"name" data:data];
+    beacon.locationUuid = [CIData objValueOrNilForKey:@"location_uuid" data:data];
+    beacon.artworkUuid = [CIData objValueOrNilForKey:@"artwork_uuid" data:data];
     
     return beacon;
 }
@@ -32,6 +34,9 @@
 - (NSDictionary*)toDictionary {
     return @{
              @"uuid" : self.uuid,
+             @"locationUuid" : [CIData objOrNSNull:self.locationUuid],
+             @"artworkUuid" : [CIData objOrNSNull:self.artworkUuid],
+             
              @"major" : [CIData objOrNSNull:self.major],
              @"minor" : [CIData objOrNSNull:self.minor],
              @"name" : [CIData objOrNSNull:self.name],
@@ -39,6 +44,20 @@
 }
 
 #pragma mark - Relationships
+
+- (id)findContentLinkedTo {
+    if (self.locationUuid) {
+        NSPredicate *locationPredicate = [NSPredicate predicateWithFormat:@"uuid == %@", self.locationUuid];
+        return [CILocation MR_findFirstWithPredicate:locationPredicate];
+        
+    } else if (self.artworkUuid) {
+        NSPredicate *artworkPredicate = [NSPredicate predicateWithFormat:@"uuid == %@", self.artworkUuid];
+        return [CIArtwork MR_findFirstWithPredicate:artworkPredicate];
+        
+    } else {
+        return nil;
+    }
+}
 
 + (CIBeacon *)findBeaconWithMajor:(NSNumber *)major andMinor:(NSNumber *)minor {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(major == %@) AND (minor == %@)", major, minor];
