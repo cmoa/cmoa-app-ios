@@ -50,12 +50,6 @@
     return UIAccessibilityTraitImage;
 }
 
-- (void)accessibilityElementDidBecomeFocused {
-    UICollectionView *collectionView = (UICollectionView *)self.superview;
-    [collectionView scrollToItemAtIndexPath:[collectionView indexPathForCell:self] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally|UICollectionViewScrollPositionCenteredVertically animated:NO];
-    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self);
-}
-
 - (void)prepareForReuse {
     // Refresh image view
     photoImageView.image = nil;
