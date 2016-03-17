@@ -129,6 +129,8 @@ static CIBeaconManager *_sharedInstance = nil;
         return;
     }
     
+//    NSLog(@"closestBeacon major:%@ minor:%@", closestBeacon.major, closestBeacon.minor);
+    
     // Don't display the same beacon twice
     if ([lastBeaconMajor intValue] == [closestBeacon.major intValue] &&
         [lastBeaconMinor intValue] == [closestBeacon.minor intValue]) {

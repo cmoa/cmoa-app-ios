@@ -48,11 +48,23 @@
 - (id)findContentLinkedTo {
     if (self.locationUuid) {
         NSPredicate *locationPredicate = [NSPredicate predicateWithFormat:@"uuid == %@", self.locationUuid];
-        return [CILocation MR_findFirstWithPredicate:locationPredicate];
+        CILocation *location = [CILocation MR_findFirstWithPredicate:locationPredicate];
+        
+        if ([[location liveArtworks] count] > 0) {
+            return location;
+        } else {
+            return nil;
+        }
         
     } else if (self.artworkUuid) {
         NSPredicate *artworkPredicate = [NSPredicate predicateWithFormat:@"uuid == %@", self.artworkUuid];
-        return [CIArtwork MR_findFirstWithPredicate:artworkPredicate];
+        CIArtwork *artwork = [CIArtwork MR_findFirstWithPredicate:artworkPredicate];
+        
+        if ([[CIExhibition liveExhibitionUuids] containsObject:artwork.exhibitionUuid]) {
+            return artwork;
+        } else {
+            return nil;
+        }
         
     } else {
         return nil;
