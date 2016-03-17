@@ -46,7 +46,7 @@
                                                               title:nil
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
-                                                 accessibilityLabel:@"Navigation Back"
+                                                 accessibilityLabel:@"Back"
                                                              target:target
                                                              action:action];
             UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
