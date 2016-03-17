@@ -55,6 +55,7 @@
     [btnPlay setImage:[UIImage imageNamed:@"button_play_normal_on"] forState:UIControlStateHighlighted];
     btnPlay.translatesAutoresizingMaskIntoConstraints = NO;
     [btnPlay addTarget:self action:@selector(btnPlayDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    [btnPlay setAccessibilityLabel:@"Play Audio Content"];
     [self addSubview:btnPlay];
     
     // Progress bar
@@ -73,6 +74,7 @@
     [btnInfo setImage:[UIImage imageNamed:@"button_info_normal_on"] forState:UIControlStateHighlighted];
     btnInfo.translatesAutoresizingMaskIntoConstraints = NO;
     [btnInfo addTarget:self action:@selector(btnInfoDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    [btnInfo setAccessibilityLabel:@"More Audio Content"];
     [self addSubview:btnInfo];
     
     // More button
@@ -283,12 +285,14 @@
 
 - (void)togglePlayButtonSetPause {
     btnPlay.enabled = YES;
+    [btnPlay setAccessibilityLabel:@"Pause Audio Content"];
     [btnPlay setImage:[UIImage imageNamed:@"button_pause_normal"] forState:UIControlStateNormal];
     [btnPlay setImage:[UIImage imageNamed:@"button_pause_normal_on"] forState:UIControlStateHighlighted];
 }
 
 - (void)togglePlayButtonSetPlay {
     btnPlay.enabled = YES;
+    [btnPlay setAccessibilityLabel:@"Play Audio Content"];
     [btnPlay setImage:[UIImage imageNamed:@"button_play_normal"] forState:UIControlStateNormal];
     [btnPlay setImage:[UIImage imageNamed:@"button_play_normal_on"] forState:UIControlStateHighlighted];
 }

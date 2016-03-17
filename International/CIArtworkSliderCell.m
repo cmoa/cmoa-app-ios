@@ -36,6 +36,28 @@
     return self;
 }
 
+- (BOOL)isAccessibilityElement {
+    return YES;
+}
+
+- (NSString *)accessibilityLabel {
+    if (_medium.alt) {
+        return _medium.alt;
+    } else {
+        return _medium.artwork.title;
+    }
+}
+
+- (UIAccessibilityTraits)accessibilityTraits {
+    return UIAccessibilityTraitImage;
+}
+
+- (void)accessibilityElementDidBecomeFocused {
+    UICollectionView *collectionView = (UICollectionView *)self.superview;
+    [collectionView scrollToItemAtIndexPath:[collectionView indexPathForCell:self] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally|UICollectionViewScrollPositionCenteredVertically animated:NO];
+    UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, self);
+}
+
 - (void)prepareForReuse {
     // Refresh image view
     photoImageView.image = nil;
