@@ -9,10 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <EstimoteSDK/EstimoteSDK.h>
 
-@interface CIBeaconManager : NSObject <ESTBeaconManagerDelegate>
+@interface CIBeaconManager : NSObject <ESTBeaconManagerDelegate, CBPeripheralManagerDelegate>
 
 + (CIBeaconManager *)sharedInstance;
-
-- (void)requestAuthorization;
 
 @end

@@ -192,8 +192,8 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Gallery Guide uses your location to show you interesting objects near you.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Gallery Guide uses bluetooth to show you interesting objects near you.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>

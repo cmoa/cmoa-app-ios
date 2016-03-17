@@ -17,6 +17,11 @@
 #define kBEACONREGIONNAME @"Carnegie Museum of Art and Natural History"
 
 @property (nonatomic) ESTBeaconManager *beaconManager;
+@property (nonatomic) CBPeripheralManager *bluetoothPeripheralManager;
+
+@property (nonatomic) _Bool hasAlwaysAuthorization;
+@property (nonatomic) _Bool hasBluetoothActive;
+@property (nonatomic) _Bool hasFinishedSyncing;
 
 @property (nonatomic, strong) NSNumber *lastBeaconMajor;
 @property (nonatomic, strong) NSNumber *lastBeaconMinor;
@@ -29,6 +34,11 @@
 @implementation CIBeaconManager
 
 @synthesize beaconManager;
+@synthesize bluetoothPeripheralManager;
+
+@synthesize hasAlwaysAuthorization;
+@synthesize hasBluetoothActive;
+@synthesize hasFinishedSyncing;
 
 @synthesize lastBeaconMajor;
 @synthesize lastBeaconMinor;
@@ -51,8 +61,15 @@ static CIBeaconManager *_sharedInstance = nil;
 {
     self = [super init];
     if (self) {
+        hasAlwaysAuthorization = false;
+        hasBluetoothActive = false;
+        hasFinishedSyncing = false;
+        
         self.beaconManager = [ESTBeaconManager new];
         self.beaconManager.delegate = self;
+        
+        NSDictionary *dontShowBluetoothAlert = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:CBCentralManagerOptionShowPowerAlertKey];
+        self.bluetoothPeripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:NULL options:dontShowBluetoothAlert];
         [self addObservers];
     }
     return self;
@@ -64,24 +81,28 @@ static CIBeaconManager *_sharedInstance = nil;
             selector:@selector(beaconContentHidden:)
                 name:kCIBeaconContentHiddenNotification
               object:nil];
+     [nc addObserver:self
+            selector:@selector(finishedSyncing)
+                name:@"DidFinishSync"
+              object:nil];
 }
 
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) requestAuthorization {
-    // 1. TODO: Check if bluetooth in enabled
-    // 2. TODO: Check if we have access to the location
-    
-    // Only display these the first time the app is launched.
-    // (Check if the privilleges have changed though.)
-    
-    [self.beaconManager requestWhenInUseAuthorization];
+- (void) finishedSyncing {
+    hasFinishedSyncing = true;
     [self startMonitoring];
 }
 
 - (void) startMonitoring {
+    if (hasBluetoothActive == false ||
+        hasAlwaysAuthorization == false ||
+        hasFinishedSyncing == false) {
+        return;
+    }
+    
     // Lock screen icon by monitoring for all beacons with Museums beacons UUID
     NSUUID *regionUUID = [[NSUUID alloc] initWithUUIDString:kBEACONREGION];
     
@@ -90,14 +111,10 @@ static CIBeaconManager *_sharedInstance = nil;
                                    identifier:kBEACONREGIONNAME];
     
     // Lock Screen
-    //[beaconManager startMonitoringForRegion:beaconRegion];
+    [beaconManager startMonitoringForRegion:beaconRegion];
     
     // Monitor Beacons
     [beaconManager startRangingBeaconsInRegion:beaconRegion];
-}
-
-- (void)beaconManager:(id)manager didEnterRegion:(CLBeaconRegion *)region {
-    NSLog(@"beacon region hit");
 }
 
 - (void)beaconManager:(id)manager didRangeBeacons:(NSArray<CLBeacon *> *)beacons inRegion:(CLBeaconRegion *)region {
@@ -201,7 +218,7 @@ static CIBeaconManager *_sharedInstance = nil;
             UIViewController *rootController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
             
             // Setup view
-            // Each CIArtworkTabsViewController tab sses it's own navigation controller
+            // Each CIArtworkTabsViewController tab has it's own navigation controller
             // So we pass persistDoneButton to CIArtworkTabsViewController and it passes it to
             // each of it's sub navigation controllers.
             artworkTabsViewController.persistDoneButton = true;
@@ -288,7 +305,40 @@ static CIBeaconManager *_sharedInstance = nil;
 }
 
 - (void)beaconManager:(id)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    
+    if (status == kCLAuthorizationStatusAuthorizedAlways) {
+        hasAlwaysAuthorization = true;
+        [self startMonitoring];
+    } else if (status == kCLAuthorizationStatusNotDetermined) {
+        [beaconManager requestAlwaysAuthorization];
+        hasAlwaysAuthorization = false;
+    } else {
+        hasAlwaysAuthorization = false;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Authorization"
+                                                        message:@"Please enable Gallery Guide location access in Settings to 'Always' if you wish for Gallery Guide to provide you with information about objects close to you."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+#pragma mark - CBPeripheralManager delegate
+
+- (void) peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
+        hasBluetoothActive = true;
+        [self startMonitoring];
+    } else {
+        hasBluetoothActive = false;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bluetooth Status"
+                                                        message:@"Please enable bluetooth if you wish for Gallery Guide to provide you with information about objects close to you."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 @end

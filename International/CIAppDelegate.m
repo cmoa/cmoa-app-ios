@@ -49,7 +49,8 @@
     // Google Analytics setup
     self.analyticsTracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43659554-1"];
     
-    [[CIBeaconManager sharedInstance] requestAuthorization];
+    // Start the beacon manager
+    [CIBeaconManager sharedInstance];
     
     return YES;
 }
