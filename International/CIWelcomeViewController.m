@@ -179,10 +179,8 @@
                             [hud hide:YES];
                             [self downloadExhibitionsBackgrounds];
                         } else {
-                            if (IS_IPAD) {
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"DidFinishSync"
-                                                                                    object:self];
-                            }
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidFinishSync"
+                                                                                object:self];
                             
                             [hud hide:YES];
                         }
@@ -198,10 +196,8 @@
                         if ([self haveBackgroundsToDownload]) {
                             [self downloadExhibitionsBackgrounds];
                         } else {
-                            if (IS_IPAD) {
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"DidFinishSync"
-                                                                                    object:self];
-                            }
+                            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidFinishSync"
+                                                                                object:self];
                         }
                     }
                     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
@@ -320,10 +316,8 @@
             [hud hide:YES];
             
             // Sync finished notification
-            if (IS_IPAD) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"DidFinishSync"
-                                                                    object:self];
-            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidFinishSync"
+                                                                object:self];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error %@", error);
