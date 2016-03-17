@@ -475,7 +475,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               destructiveButtonTitle:nil
-                                                   otherButtonTitles:@"Facebook", @"Twitter", @"Email", @"Text Message", nil];
+                                                   otherButtonTitles:@"Twitter", @"Email", @"Text Message", nil];
     if (IS_IPHONE) {
         [shareSheet showInView:self.view];
     } else {
@@ -488,26 +488,8 @@
     
     // Which action?
     switch (buttonIndex) {
-        // Facebook
-        case 0: {
-            if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-                SLComposeViewController *shareController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-                [shareController setInitialText:shareText];
-                [self presentViewController:shareController animated:YES completion:nil];
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle:@"Uhoh"
-                                      message:@"Please add a Facebook account to your device to enable this option."
-                                      delegate:nil
-                                      cancelButtonTitle:@"Ok"
-                                      otherButtonTitles:nil];
-                [alert show];
-            }
-        }
-            break;
-
         // Twitter
-        case 1: {
+        case 0: {
             if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
                 SLComposeViewController *shareController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
                 [shareController setInitialText:shareText];
@@ -525,7 +507,7 @@
             break;
 
         // Email
-        case 2: {
+        case 1: {
             if ([MFMailComposeViewController canSendMail]) {
                 MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
                 mailViewController.mailComposeDelegate = self;
@@ -545,7 +527,7 @@
             break;
             
         // Text Message
-        case 3: {
+        case 2: {
             if ([MFMessageComposeViewController canSendText]) {
                 messageComposeViewController = [[MFMessageComposeViewController alloc] init];
                 messageComposeViewController.body = shareText;
