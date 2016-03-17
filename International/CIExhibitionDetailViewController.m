@@ -55,7 +55,7 @@
         NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
         paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
         paragraphStyle.alignment = NSTextAlignmentLeft;
-        paragraphStyle.lineSpacing = 4.0f;
+        paragraphStyle.lineSpacing = 2.0f;
         NSMutableAttributedString *strTitle = [[NSMutableAttributedString alloc] initWithString:strSponsor];
         [strTitle addAttribute:NSFontAttributeName
                          value:[UIFont fontWithName:@"HelveticaNeue" size:13.0f]
@@ -67,14 +67,9 @@
                          value:paragraphStyle
                          range:NSMakeRange(0, [strSponsor length])];
         lblSponsor.attributedText = strTitle;
-        lblSponsor.verticalAlignment = TTTAttributedLabelVerticalAlignmentBottom;
-    
-        // Add sponsor seperation line
-        sponsorSepView = [[UIView alloc] init];
-        sponsorSepView.backgroundColor = [UIColor colorFromHex:@"#a7a7a7"];
-        [sponsorContainer addSubview:sponsorSepView];
+        [sponsorContainer setHidden:NO];
     } else {
-        [sponsorContainer removeFromSuperview];
+        [sponsorContainer setHidden:YES];
     }
 }
 
@@ -86,22 +81,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
     [CIAnalyticsHelper sendScreen:@"Exhibition Detail"];
-}
-
-- (void)viewDidLayoutSubviews {
-    // Sponsor container bg config
-    if (haveSponsorText == YES) {
-        CGFloat scale = [UIScreen mainScreen].scale;
-        CGRect crop = (CGRect){
-            {sponsorContainer.frame.origin.x * scale, sponsorContainer.frame.origin.y * scale},
-            {sponsorContainer.frame.size.width * scale, sponsorContainer.frame.size.height * scale}
-        };
-        UIImage *bgImage = [UIImage imageWithContentsOfFile:[exhibition getBlurredBackgroundFilePath]];
-        sponsorContainer.backgroundColor = [UIColor colorWithPatternImage:[bgImage croppedImage:crop]];
-        sponsorSepView.frame = (CGRect){CGPointZero, {sponsorContainer.frame.size.width, 0.5f}};
-        sponsorContainer.layer.rasterizationScale = [UIScreen mainScreen].scale;
-        sponsorContainer.layer.shouldRasterize = YES;
-    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
