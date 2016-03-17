@@ -46,6 +46,7 @@
                                                               title:nil
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
+                                                 accessibilityLabel:@"Navigation Back"
                                                              target:target
                                                              action:action];
             UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
@@ -60,7 +61,7 @@
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     switch (type) {
         case CINavigationItemRightBarButtonTypeDone: {
-            [self setRightBarButtonItem:[CINavigationItem buildBackButtonWithTarget:target action:action]];
+            [self setRightBarButtonItem:[CINavigationItem buildDoneButtonWithTarget:target action:action]];
             
             break;
         }
@@ -70,6 +71,7 @@
                                                               title:nil
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
+                                                 accessibilityLabel:@"Open Page In Safari"
                                                              target:target
                                                              action:action];
             UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
@@ -85,6 +87,7 @@
             [button1 setContentMode:UIViewContentModeCenter];
             [button1 setContentEdgeInsets:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 2.5f)];
             [button1 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+            [button1 setAccessibilityLabel:@"Open Carnegie Museusms of Pittsburgh Twitter Page"];
             button1.tag = 1;
 
             CIBorderedButton *button2 = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
@@ -94,6 +97,7 @@
             [button2 setContentMode:UIViewContentModeCenter];
             [button2 setContentEdgeInsets:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 7.5f)];
             [button2 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+            [button2 setAccessibilityLabel:@"Open Carnegie Museusms of Pittsburgh Facebook Page"];
 
             // Init view
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 73.0f, 34.0f)];
@@ -107,7 +111,7 @@
     }
 }
 
-+ (UIBarButtonItem *) buildBackButtonWithTarget:(id)target action:(SEL)action {
++ (UIBarButtonItem *) buildDoneButtonWithTarget:(id)target action:(SEL)action {
     CGSize buttonSize = (CGSize){50.0f, 34.0f};
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     
@@ -116,13 +120,14 @@
                                                       title:@"Done"
                                                        size:buttonSize
                                                  edgeInsets:edgeInsets
+                                         accessibilityLabel:@"Dismiss View"
                                                      target:target
                                                      action:action];
     
     return [[UIBarButtonItem alloc] initWithCustomView:buttonView];
 }
 
-+ (UIView *)customViewForButtonWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage title:(NSString *)title size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
++ (UIView *)customViewForButtonWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage title:(NSString *)title size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets accessibilityLabel:(NSString *)accessibilityLabel target:(id)target action:(SEL)action {
     // Init button
     CIBorderedButton *button = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
     button.frame = (CGRect){{0, 5}, size};
@@ -132,6 +137,7 @@
     [button setContentMode:UIViewContentModeCenter];
     [button setContentEdgeInsets:edgeInsets];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [button setAccessibilityLabel:accessibilityLabel];
     
     // Init view
     UIView *view = [[UIView alloc] initWithFrame:button.frame];

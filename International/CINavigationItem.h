@@ -22,7 +22,7 @@ typedef NSUInteger CINavigationItemRightBarButtonType;
 
 @interface CINavigationItem : UINavigationItem
 
-+ (UIBarButtonItem *) buildBackButtonWithTarget:(id)target action:(SEL)action;
++ (UIBarButtonItem *) buildDoneButtonWithTarget:(id)target action:(SEL)action;
 
 - (void)setLeftBarButtonType:(CINavigationItemLeftBarButtonType)type target:(id)target action:(SEL)action;
 - (void)setRightBarButtonType:(CINavigationItemRightBarButtonType)type target:(id)target action:(SEL)action;

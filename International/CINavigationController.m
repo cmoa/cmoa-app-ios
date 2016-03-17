@@ -68,7 +68,7 @@
     if (self.persistDoneButton) {
         if (!viewController.navigationItem.rightBarButtonItem) {
             if (self.doneButton == nil) {
-                self.doneButton = [CINavigationItem buildBackButtonWithTarget:self action:@selector(dismiss)];
+                self.doneButton = [CINavigationItem buildDoneButtonWithTarget:self action:@selector(dismiss)];
             }
             
             [viewController.navigationItem setRightBarButtonItem:self.doneButton];
