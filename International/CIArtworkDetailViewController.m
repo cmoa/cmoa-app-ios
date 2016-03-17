@@ -484,7 +484,7 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *shareText = [NSString stringWithFormat:@"%@ at Carnegie Museum of Art: %@ #cmoa", [CITextHelper artistsJoinedByComa:artwork.artists], artwork.shareUrl];
+    NSString *shareText = [NSString stringWithFormat:@"%@ at Carnegie Museums of Pittsburgh: %@", [CITextHelper artistsJoinedByComa:artwork.artists], artwork.shareUrl];
     
     // Which action?
     switch (buttonIndex) {
@@ -497,7 +497,7 @@
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]
                                       initWithTitle:@"Uhoh"
-                                      message:@"Please add a Facebook account to your iPhone to enable this option."
+                                      message:@"Please add a Facebook account to your device to enable this option."
                                       delegate:nil
                                       cancelButtonTitle:@"Ok"
                                       otherButtonTitles:nil];
@@ -515,7 +515,7 @@
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]
                                       initWithTitle:@"Uhoh"
-                                      message:@"Please add a Twitter account to your iPhone to enable this option."
+                                      message:@"Please add a Twitter account to your device to enable this option."
                                       delegate:nil
                                       cancelButtonTitle:@"Ok"
                                       otherButtonTitles:nil];
@@ -529,13 +529,13 @@
             if ([MFMailComposeViewController canSendMail]) {
                 MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
                 mailViewController.mailComposeDelegate = self;
-                [mailViewController setSubject:@"Carnegie Museum of Art"];
+                [mailViewController setSubject:@"Carnegie Museums of Pittsburgh"];
                 [mailViewController setMessageBody:shareText isHTML:NO];
                 [self presentViewController:mailViewController animated:YES completion:nil];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]
                                       initWithTitle:@"Uh oh!"
-                                      message:@"Please add an email account to your iPhone to enable this sharing option."
+                                      message:@"Please add an email account to your device to enable this sharing option."
                                       delegate:nil
                                       cancelButtonTitle:@"Ok"
                                       otherButtonTitles:nil];
