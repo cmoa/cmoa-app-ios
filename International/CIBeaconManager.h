@@ -13,4 +13,6 @@
 
 + (CIBeaconManager *)sharedInstance;
 
+- (void) start;
+
 @end

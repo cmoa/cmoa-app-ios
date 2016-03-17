@@ -74,6 +74,11 @@ static CIBeaconManager *_sharedInstance = nil;
     }
     return self;
 }
+
+- (void) start {
+    // Empty on purpose
+    // Merely makes the shared instance call look better
+}
          
  - (void) addObservers {
      NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -329,6 +334,9 @@ static CIBeaconManager *_sharedInstance = nil;
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
         hasBluetoothActive = true;
         [self startMonitoring];
+    } else if (peripheral.state == CBPeripheralManagerStateUnsupported) {
+        // Simulator
+        hasBluetoothActive = false;
     } else {
         hasBluetoothActive = false;
         

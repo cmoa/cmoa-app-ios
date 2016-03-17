@@ -50,7 +50,7 @@
     self.analyticsTracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43659554-1"];
     
     // Start the beacon manager
-    [CIBeaconManager sharedInstance];
+    [[CIBeaconManager sharedInstance] start];
     
     return YES;
 }
