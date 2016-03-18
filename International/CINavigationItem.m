@@ -78,36 +78,6 @@
             [self setRightBarButtonItem:menuButton];
             break;
         }
-        case CINavigationItemRightBarButtonTypeSocial: {
-            // Init buttons
-            CIBorderedButton *button1 = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
-            button1.frame = (CGRect){{39.0f, 5.0f}, {34.0f, 34.0f}};
-            [button1 setImage:[UIImage imageNamed:@"nav_twitter"] forState:UIControlStateNormal];
-            [button1 setImage:[UIImage imageNamed:@"nav_twitter_on"] forState:UIControlStateHighlighted];
-            [button1 setContentMode:UIViewContentModeCenter];
-            [button1 setContentEdgeInsets:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 2.5f)];
-            [button1 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-            [button1 setAccessibilityLabel:@"Open Carnegie Museusms of Pittsburgh Twitter Page"];
-            button1.tag = 1;
-
-            CIBorderedButton *button2 = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
-            button2.frame = (CGRect){{0, 5}, {34.0f, 34.0f}};
-            [button2 setImage:[UIImage imageNamed:@"nav_facebook"] forState:UIControlStateNormal];
-            [button2 setImage:[UIImage imageNamed:@"nav_facebook_on"] forState:UIControlStateHighlighted];
-            [button2 setContentMode:UIViewContentModeCenter];
-            [button2 setContentEdgeInsets:UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 7.5f)];
-            [button2 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-            [button2 setAccessibilityLabel:@"Open Carnegie Museusms of Pittsburgh Facebook Page"];
-
-            // Init view
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 73.0f, 34.0f)];
-            [view addSubview:button1];
-            [view addSubview:button2];
-            
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:view];
-            [self setRightBarButtonItem:menuButton];
-            break;
-        }
     }
 }
 

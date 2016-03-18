@@ -46,7 +46,6 @@
     if (IS_IPHONE) {
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
-    [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeSocial target:self action:@selector(navRightButtonDidPress:)];
     
     // Note label setup
     NSString *strNote = @"Stay connected with Carnegie Museums of Art and Natural History.\nEnter your email address below to receive updates about exhibitions, events and museum news.";
@@ -103,31 +102,6 @@
 
 - (void)navLeftButtonDidPress:(id)sender {
     [self performSegueWithIdentifier:@"exitConnect" sender:self];
-}
-
-- (void)navRightButtonDidPress:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    
-    NSString *socialWebsite;
-    
-    if (button.tag == 0) {
-        // Facebook
-        socialWebsite = @"Facebook";
-        visitTitle = @"CMOA on Facebook";
-        visitURL = @"https://www.facebook.com/CarnegieMuseumofArt";
-    } else {
-        // Twitter
-        socialWebsite = @"Twitter";
-        visitTitle = @"CMOA on Twitter";
-        visitURL = @"https://twitter.com/cmoa";
-    }
-    
-    [CIAnalyticsHelper sendEventWithCategory:@"Social"
-                                   andAction:@"Social Website Visited"
-                                    andLabel:socialWebsite];
-    
-    // Show the browser
-    [self performSegueWithIdentifier:@"showBrowser" sender:self];
 }
 
 - (IBAction)segueToConnect:(UIStoryboardSegue *)segue {
