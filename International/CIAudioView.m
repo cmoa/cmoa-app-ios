@@ -74,7 +74,7 @@
     [btnInfo setImage:[UIImage imageNamed:@"button_info_normal_on"] forState:UIControlStateHighlighted];
     btnInfo.translatesAutoresizingMaskIntoConstraints = NO;
     [btnInfo addTarget:self action:@selector(btnInfoDidPress:) forControlEvents:UIControlEventTouchUpInside];
-    [btnInfo setAccessibilityLabel:@"More Audio Content"];
+    [btnInfo setAccessibilityLabel:@"Audio Content Info"];
     [self addSubview:btnInfo];
     
     // More button
@@ -87,6 +87,7 @@
     btnMore.translatesAutoresizingMaskIntoConstraints = NO;
     [btnMore addTarget:self action:@selector(btnMoreDidPress:) forControlEvents:UIControlEventTouchUpInside];
     btnMore.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
+    [btnInfo setAccessibilityLabel:@"More Audio Content"];
     [self addSubview:btnMore];
     
     // Sep line
