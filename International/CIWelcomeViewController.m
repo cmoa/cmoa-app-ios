@@ -230,7 +230,7 @@
         hud = [MBProgressHUD showHUDAddedTo:detailViewController.view animated:YES];
     }
     hud.mode = MBProgressHUDModeDeterminate;
-    hud.labelText = @"Downloading Exhibition";
+    hud.labelText = @"Downloading Exhibitions";
     hud.labelFont = [UIFont fontWithName:@"HelveticaNeue-Light" size:14.0f];
     
     // Calculate total download size

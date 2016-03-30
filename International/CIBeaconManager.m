@@ -29,6 +29,8 @@
 @property (nonatomic, strong) NSNumber *shownBeaconMajor;
 @property (nonatomic, strong) NSNumber *shownBeaconMinor;
 
+@property (nonatomic, strong) NSString *previousLocationUuid;
+
 @end
 
 @implementation CIBeaconManager
@@ -45,6 +47,8 @@
 
 @synthesize shownBeaconMajor;
 @synthesize shownBeaconMinor;
+
+@synthesize previousLocationUuid;
 
 static CIBeaconManager *_sharedInstance = nil;
 
@@ -64,6 +68,7 @@ static CIBeaconManager *_sharedInstance = nil;
         hasAlwaysAuthorization = false;
         hasBluetoothActive = false;
         hasFinishedSyncing = false;
+        previousLocationUuid = @"";
         
         self.beaconManager = [ESTBeaconManager new];
         self.beaconManager.delegate = self;
@@ -130,7 +135,12 @@ static CIBeaconManager *_sharedInstance = nil;
     }
     
 //    NSLog(@"closestBeacon major:%@ minor:%@", closestBeacon.major, closestBeacon.minor);
-    
+  
+    // Don't display beacons that are far away
+    if (closestBeacon.proximity == CLProximityFar) {
+      return;
+    }
+  
     // Don't display the same beacon twice
     if ([lastBeaconMajor intValue] == [closestBeacon.major intValue] &&
         [lastBeaconMinor intValue] == [closestBeacon.minor intValue]) {
@@ -140,11 +150,6 @@ static CIBeaconManager *_sharedInstance = nil;
     // Don't display the currently displaed beacon
     if ([shownBeaconMajor intValue] == [closestBeacon.major intValue] &&
         [shownBeaconMinor intValue] == [closestBeacon.minor intValue]) {
-        return;
-    }
-    
-    // Don't display beacons that are far away
-    if (closestBeacon.proximity == CLProximityFar) {
         return;
     }
     
@@ -164,6 +169,8 @@ static CIBeaconManager *_sharedInstance = nil;
         if (beaconArtwork == nil) {
             return;
         }
+        
+        previousLocationUuid = @"";
         
         NSString *notificationTitle = [NSString stringWithFormat:@"You are near %@",  beaconArtwork.title];
         [self showBeaconNotification:notificationTitle
@@ -202,6 +209,13 @@ static CIBeaconManager *_sharedInstance = nil;
         if (beaconLocation == nil) {
             return;
         }
+        
+        // Don't display the same location twice in a row
+        if (beaconLocation.uuid == previousLocationUuid) {
+            return;
+        }
+        
+        previousLocationUuid = beaconLocation.uuid;
         
         NSString *notificationTitle = [NSString stringWithFormat:@"You are in %@",  beaconLocation.name];
         [self showBeaconNotification:notificationTitle interactionBlock:^(CRToastInteractionType interactionType) {
