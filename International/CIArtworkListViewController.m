@@ -38,17 +38,14 @@
     }
 
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    if ([CIAppState sharedAppState].currentLocation == nil || [parentMode isEqual:@"categoryList"]) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    }
     
     // Category list child?
     if (self.category != nil) {
         self.title = self.category.title;
-    }
-    
-    // Bookmarked artworks?
-    if ([self.parentMode isEqualToString:@"visit"]) {
-        self.title = @"My Bookmarked Artworks";
     }
     
     // Tableview separator inset
@@ -58,8 +55,17 @@
 }
 
 - (void)loadArtwork {
-    CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
-    artworks = exhibition.artworks;
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        CILocation *location = [CIAppState sharedAppState].currentLocation;
+        self.navigationItem.title = location.name;
+        
+        artworks = location.liveArtworks;
+    } else {
+        CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+        self.navigationItem.title = exhibition.title;
+        
+        artworks = exhibition.artworks;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,18 +81,18 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkList"];
+    [CIAnalyticsHelper sendScreen:@"Object List"];
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
-    if (self.parentMode == nil) {
-        [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
-    } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
+    if ([self.parentMode isEqualToString:@"artistDetail"]) {
         [self performSegueWithIdentifier:@"exitToArtistDetail" sender:self];
     } else if ([self.parentMode isEqualToString:@"categoryList"]) {
         [self performSegueWithIdentifier:@"exitToCategoryList" sender:self];
     } else if ([self.parentMode isEqualToString:@"visit"]) {
         [self performSegueWithIdentifier:@"exitToVisit" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"exitArtworkList" sender:self];
     }
 }
 

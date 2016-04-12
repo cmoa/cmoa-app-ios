@@ -15,13 +15,12 @@
 #import "CIArtworkTabLblView.h"
 #import "TTTAttributedLabel.h"
 #import "CIVideoPlayerViewController.h"
-#import "CISeeArtworkButton.h"
+#import "CIArtistLabel.h"
 #import "SMPageControl.h"
-#import "WSCoachMarksView.h"
 
 @interface CIArtworkDetailViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, CIAudioViewDelegate, UIActionSheetDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, UIScrollViewDelegate> {
     IBOutlet TTTAttributedLabel *lblDescription;
-    IBOutlet CISeeArtworkButton *btnArtist;
+    IBOutlet CIArtistLabel *lblArtist;
     IBOutlet TTTAttributedLabel *lblTitle;
     IBOutlet UIView *photosCollectionContainer;
     IBOutlet UICollectionView *photosCollectionView;
@@ -48,10 +47,10 @@
     CIVideoPlayerViewController *moviePlayerController;
     
     // Layout constraints
+    __weak IBOutlet NSLayoutConstraint *lblArtistHeightConstraint;
     NSLayoutConstraint *lblDescriptionHeightConstraint;
-    
-    // Coach marks
-    WSCoachMarksView *coachMarksView;
+    __weak IBOutlet NSLayoutConstraint *scrollViewWidthConstraint;
+    __weak IBOutlet NSLayoutConstraint *detailContainerWidthConstraint;
 }
 
 @property (nonatomic, retain) CIArtwork *artwork;

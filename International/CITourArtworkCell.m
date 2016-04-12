@@ -21,7 +21,7 @@
 - (void)configureCell {
     // Sequence lbl
     self.sequenceLabel = [[UILabel alloc] init];
-    self.sequenceLabel.backgroundColor = [UIColor colorFromHex:@"#f26361"];
+    self.sequenceLabel.backgroundColor = [UIColor colorFromHex:kCIAccentColor];
     self.sequenceLabel.textColor = [UIColor whiteColor];
     self.sequenceLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0f];
     self.sequenceLabel.textAlignment = NSTextAlignmentCenter;
@@ -87,7 +87,7 @@
     [super setSelected:selected animated:animated];
     
     // Keep sequence lbl steady
-    self.sequenceLabel.backgroundColor = [UIColor colorFromHex:@"#f26361"];
+    self.sequenceLabel.backgroundColor = [UIColor colorFromHex:kCIAccentColor];
     self.sequenceLabel.textColor = [UIColor whiteColor];
 }
 
@@ -95,7 +95,7 @@
     [super setHighlighted:highlighted animated:animated];
 
     // Keep sequence lbl steady
-    self.sequenceLabel.backgroundColor = [UIColor colorFromHex:@"#f26361"];
+    self.sequenceLabel.backgroundColor = [UIColor colorFromHex:kCIAccentColor];
     self.sequenceLabel.textColor = [UIColor whiteColor];
 }
 

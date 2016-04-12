@@ -10,8 +10,18 @@
 
 @interface CIAnalyticsHelper : NSObject
 
-+ (void)sendEvent:(NSString*)action;
-+ (void)sendEvent:(NSString*)action withLabel:(NSString*)label;
-+ (void)sendEvent:(NSString*)action withLabel:(NSString*)label withValue:(NSNumber*)value;
++ (void)sendScreen:(NSString *)screenName;
+
++ (void)sendEventWithCategory:(NSString*)category
+                    andAction:(NSString*)action;
+
++ (void)sendEventWithCategory:(NSString*)category
+                    andAction:(NSString*)action
+                     andLabel:(NSString*)label;
+
++ (void)sendEventWithCategory:(NSString*)category
+                    andAction:(NSString*)action
+                     andLabel:(NSString*)label
+                     andValue:(NSNumber*)value;
 
 @end

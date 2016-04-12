@@ -34,8 +34,9 @@
         [self setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
         [self setShadowImage:[[UIImage alloc] init]];
     }
-
-    self.tintColor = [UIColor colorFromHex:@"#f26361"];
+    
+    [self setBarTintColor:[UIColor colorFromHex:kCIBarColor]];
+    [self setTranslucent:NO];
 }
 
 - (void)layoutSubviews {

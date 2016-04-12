@@ -14,9 +14,13 @@
 
 @interface CIConnectViewController ()
 
+@property (nonatomic) UITapGestureRecognizer *dismissKeyboardTapRecognizer;
+
 @end
 
 @implementation CIConnectViewController
+
+@synthesize dismissKeyboardTapRecognizer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,15 +32,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:
+     UIKeyboardWillShowNotification object:nil];
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:
+     UIKeyboardWillHideNotification object:nil];
+    
+    dismissKeyboardTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                           action:@selector(dismissKeyboard)];
+    
     // Configure nav button
     CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
     if (IS_IPHONE) {
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
-    [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeSocial target:self action:@selector(navRightButtonDidPress:)];
     
     // Note label setup
-    NSString *strNote = @"Stay connected with Carnegie Museum of Art.\nEnter your email address below to receive updates about exhibitions, events and museum news.";
+    NSString *strNote = @"Stay connected with Carnegie Museums of Art and Natural History.\nEnter your email address below to receive updates about exhibitions, events and museum news.";
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -52,8 +64,10 @@
     emailContainer.layer.borderWidth = 5.0f;
     
     // Button style
-    [btnSubscribe setTitleColor:[UIColor colorFromHex:@"#24aadc"] forState:UIControlStateNormal];
-    [btnSubscribe setTitleColor:[UIColor colorFromHex:@"#24aadc" alpha:0.6f] forState:UIControlStateHighlighted];
+    btnSubscribe.borderColor = [UIColor colorFromHex:kCILinkColor];
+    btnSubscribe.borderHighligthedColor = [UIColor colorFromHex:kCIBarUnactiveColor];
+    [btnSubscribe setTitleColor:[UIColor colorFromHex:kCILinkColor] forState:UIControlStateNormal];
+    [btnSubscribe setTitleColor:[UIColor colorFromHex:kCIBarUnactiveColor] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,7 +84,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ConnectEmail"];
+    [CIAnalyticsHelper sendScreen:@"Connect"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -78,24 +92,16 @@
     [emailTextField resignFirstResponder];
 }
 
-- (void)navLeftButtonDidPress:(id)sender {
-    [self performSegueWithIdentifier:@"exitConnect" sender:self];
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)navRightButtonDidPress:(id)sender {
-    UIButton *button = (UIButton *)sender;
-    if (button.tag == 0) {
-        // Facebook
-        visitTitle = @"CMOA on Facebook";
-        visitURL = @"https://www.facebook.com/CarnegieMuseumofArt";
-    } else {
-        // Twitter
-        visitTitle = @"CMOA on Twitter";
-        visitURL = @"https://twitter.com/cmoa";
-    }
-    
-    // Show the browser
-    [self performSegueWithIdentifier:@"showBrowser" sender:self];
+-(void)dismissKeyboard {
+    [emailTextField resignFirstResponder];
+}
+
+- (void)navLeftButtonDidPress:(id)sender {
+    [self performSegueWithIdentifier:@"exitConnect" sender:self];
 }
 
 - (IBAction)segueToConnect:(UIStoryboardSegue *)segue {
@@ -115,6 +121,9 @@
         [emailTextField becomeFirstResponder];
         return;
     }
+    
+    [CIAnalyticsHelper sendEventWithCategory:@"Social"
+                                   andAction:@"Email List Subscribed To"];
     
     // Email valid, subscribe
     emailTextField.enabled = NO;
@@ -176,6 +185,17 @@
         browserViewController.viewTitle = visitTitle;
         browserViewController.url = visitURL;
     }
+}
+
+#pragma mark - Keyboard notifications
+
+-(void) keyboardWillShow:(NSNotification *)note {
+    [self.view addGestureRecognizer:dismissKeyboardTapRecognizer];
+}
+
+-(void) keyboardWillHide:(NSNotification *)note
+{
+    [self.view removeGestureRecognizer:dismissKeyboardTapRecognizer];
 }
 
 @end

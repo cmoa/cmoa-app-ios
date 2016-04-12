@@ -9,20 +9,19 @@
 #import <UIKit/UIKit.h>
 
 enum {
-    CINavigationItemLeftBarButtonTypeMenu = 1,
     CINavigationItemLeftBarButtonTypeBack = 2
 };
 typedef NSUInteger CINavigationItemLeftBarButtonType;
 
 enum {
-    CINavigationItemRightBarButtonTypeRecommend = 1,
-    CINavigationItemRightBarButtonTypeRecommendDisabled = 2,
-    CINavigationItemRightBarButtonTypeOpenInSafari = 3,
-    CINavigationItemRightBarButtonTypeSocial = 4
+    CINavigationItemRightBarButtonTypeDone = 1,
+    CINavigationItemRightBarButtonTypeOpenInSafari = 3
 };
 typedef NSUInteger CINavigationItemRightBarButtonType;
 
 @interface CINavigationItem : UINavigationItem
+
++ (UIBarButtonItem *) buildDoneButtonWithTarget:(id)target action:(SEL)action;
 
 - (void)setLeftBarButtonType:(CINavigationItemLeftBarButtonType)type target:(id)target action:(SEL)action;
 - (void)setRightBarButtonType:(CINavigationItemRightBarButtonType)type target:(id)target action:(SEL)action;

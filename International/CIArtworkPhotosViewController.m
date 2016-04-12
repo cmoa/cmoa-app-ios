@@ -12,8 +12,8 @@
 #import "CIArtworkDetailViewController.h"
 #import "CINavigationController.h"
 
-#define CELL_WIDTH_IPHONE 137
-#define CELL_WIDTH_IPAD 214
+#define CELL_SPACING 8
+#define CELL_INSET 15
 #define CELL_IDENTIFIER @"CIArtworkPhotoCell"
 
 @interface CIArtworkPhotosViewController ()
@@ -33,33 +33,51 @@
     [super viewDidLoad];
 
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
-    
-    // Load artworks & photos
-    CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
-    artworks = [exhibition artworksSortedBy:@"title" ascending:YES];
-    photos = [NSMutableArray arrayWithCapacity:[artworks count]];
-    for (CIArtwork *artwork in artworks) {
-        NSArray *artworkPhotos = [artwork images];
-        if ([artworkPhotos count] == 0) {
-            continue;
-        }
-        CIMedium *medium = [artworkPhotos objectAtIndex:0];
-        [photos addObject:medium];
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
+    // Load artworks & photos
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        CILocation *location = [CIAppState sharedAppState].currentLocation;
+        self.navigationItem.title = location.name;
+        
+        artworks = [location liveArtworksSortedBy:@"title" ascending:YES];
+    } else {
+        CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+        self.navigationItem.title = exhibition.title;
+        
+        artworks = [exhibition artworksSortedBy:@"title" ascending:YES];
+    }
+  
+    photos = [NSMutableArray arrayWithCapacity:[artworks count]];
+    
+    for (CIArtwork *artwork in artworks) {
+      NSArray *artworkPhotos = [artwork images];
+      if ([artworkPhotos count] == 0) {
+        continue;
+      }
+      CIMedium *medium = [artworkPhotos objectAtIndex:0];
+      [photos addObject:medium];
+    }
+
     // Configure the waterfall
     CHTCollectionViewWaterfallLayout *photosCollectionLayout = (CHTCollectionViewWaterfallLayout *)photosCollectionView.collectionViewLayout;
     photosCollectionLayout.delegate = self;
-    if (IS_IPHONE) {
-        photosCollectionLayout.columnCount = 2;
-        photosCollectionLayout.itemWidth = CELL_WIDTH_IPHONE;
-    } else if (IS_IPAD) {
-        photosCollectionLayout.columnCount = 3;
-        photosCollectionLayout.itemWidth = CELL_WIDTH_IPAD;
+    
+    NSUInteger columnCount = 2;
+   
+    if (IS_IPAD) {
+        columnCount = 3;
     }
-    photosCollectionLayout.sectionInset = UIEdgeInsetsMake(15.0f, 15.0f, 15.0f, 15.0f);
+    
+    CGFloat viewWidth = self.navigationController.view.frame.size.width;
+    cellWidth = (viewWidth - ((CELL_INSET * 2) + (CELL_SPACING * columnCount))) / columnCount;
+    
+    photosCollectionLayout.columnCount = columnCount;
+    photosCollectionLayout.itemWidth = cellWidth;
+    photosCollectionLayout.sectionInset = UIEdgeInsetsMake(CELL_INSET, CELL_INSET, CELL_INSET, CELL_INSET);
     [photosCollectionView registerClass:[CIArtworkPhotoCell class] forCellWithReuseIdentifier:CELL_IDENTIFIER];
 }
 
@@ -81,7 +99,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkPhotos"];
+    [CIAnalyticsHelper sendScreen:@"Object Photos"];
 }
 
 #pragma mark - Collection view delegate
@@ -116,9 +134,9 @@
     // Find the right height
     CGFloat ratio;
     if (IS_IPHONE) {
-        ratio = [photo.width floatValue] / (float)CELL_WIDTH_IPHONE;
+        ratio = [photo.width floatValue] / (float)cellWidth;
     } else {
-        ratio = [photo.width floatValue] / (float)CELL_WIDTH_IPAD;
+        ratio = [photo.width floatValue] / (float)cellWidth;
     }
 
     return roundf([photo.height floatValue] / ratio);

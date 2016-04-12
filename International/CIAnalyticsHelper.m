@@ -10,8 +10,8 @@
 
 @implementation CIAnalyticsHelper
 
-+ (void)sendEvent:(NSString*)action {
-    NSMutableDictionary *event = [[GAIDictionaryBuilder createEventWithCategory:@"UX"
++ (void)sendEventWithCategory:(NSString*)category andAction:(NSString*)action {
+    NSMutableDictionary *event = [[GAIDictionaryBuilder createEventWithCategory:category
                                                                          action:action
                                                                           label:nil
                                                                           value:nil] build];
@@ -19,8 +19,8 @@
     [[GAI sharedInstance] dispatch];
 }
 
-+ (void)sendEvent:(NSString*)action withLabel:(NSString*)label {
-    NSMutableDictionary *event = [[GAIDictionaryBuilder createEventWithCategory:@"UX"
++ (void)sendEventWithCategory:(NSString*)category andAction:(NSString*)action andLabel:(NSString*)label {
+    NSMutableDictionary *event = [[GAIDictionaryBuilder createEventWithCategory:category
                                                                          action:action
                                                                           label:label
                                                                           value:nil] build];
@@ -28,8 +28,22 @@
     [[GAI sharedInstance] dispatch];
 }
 
-+ (void)sendEvent:(NSString*)action withLabel:(NSString*)label withValue:(NSNumber*)value {
-    NSMutableDictionary *event = [[GAIDictionaryBuilder createEventWithCategory:@"UX"
++ (void)sendScreen:(NSString *)screenName {
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker set:kGAIScreenName
+           value:screenName];
+    
+    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    [[GAI sharedInstance] dispatch];
+}
+
+
++ (void)sendEventWithCategory:(NSString*)category
+                    andAction:(NSString*)action
+                     andLabel:(NSString*)label
+                    andValue:(NSNumber*)value {
+    NSMutableDictionary *event = [[GAIDictionaryBuilder createEventWithCategory:category
                                                                          action:action
                                                                           label:label
                                                                           value:value] build];

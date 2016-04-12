@@ -48,7 +48,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkAudioList"];
+    [CIAnalyticsHelper sendScreen:@"Object Audio List"];
 }
 
 - (void)didReceiveMemoryWarning {

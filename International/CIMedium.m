@@ -20,6 +20,7 @@
 @dynamic position;
 @dynamic syncStatus;
 @dynamic title;
+@dynamic alt;
 @dynamic updatedAt;
 @dynamic urlFull;
 @dynamic urlMedium;

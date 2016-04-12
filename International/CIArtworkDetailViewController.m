@@ -14,8 +14,6 @@
 #import "CIVideoSliderCell.h"
 #import "CIArtworkPhotoDetailViewController.h"
 #import "CIArtworkAudioListViewController.h"
-#import "CIArtistDetailViewController.h"
-#import "CIArtistListViewController.h"
 #import "CIAPIRequest.h"
 
 #define CELL_WIDTH 137
@@ -40,7 +38,6 @@
     // Content styles
     lblTitle.font = [UIFont fontWithName:@"HelveticaNeue" size:13.0f];
     lblDescription.verticalAlignment = TTTAttributedLabelVerticalAlignmentTop;
-    [btnArtist addTopSeparator];
     
     // Show artwork details
     self.title = artwork.title;
@@ -53,7 +50,7 @@
                      value:[UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f]
                      range:NSMakeRange(0, [artwork.title length])];
     [strTitle addAttribute:NSForegroundColorAttributeName
-                     value:[UIColor colorFromHex:@"#f26361"]
+                     value:[UIColor colorFromHex:kCIBlackTextColor]
                      range:NSMakeRange(0, [artwork.title length])];
     [strTitle addAttribute:NSParagraphStyleAttributeName
                      value:paragraphStyle
@@ -66,13 +63,32 @@
     
     // Artist(s)
     NSArray *artists = artwork.artists;
-    if ([artists count] > 1) {
-        [btnArtist setTitle:@"See the artists" forState:UIControlStateNormal];
+    if ([artists count] != 0) {
+        [lblArtist addTopSeparator];
+        
+        if ([artists count] > 1) {
+            NSString *artistNames = @"";
+            CGFloat height = lblArtistHeightConstraint.constant;
+            
+            for (CIArtist *artist in artists) {
+                if (artist == [artists lastObject]) {
+                    artistNames = [artistNames stringByAppendingString:artist.name];
+                } else {
+                    height += 22;
+                    artistNames = [artistNames stringByAppendingFormat:@"%@\n", artist.name];
+                }
+            }
+            
+            [lblArtist setText:artistNames];
+            lblArtistHeightConstraint.constant = height;
+        } else {
+            CIArtist *artist = [artists objectAtIndex:0];
+            [lblArtist setText:artist.name];
+        }
     } else {
-        CIArtist *artist = [artists objectAtIndex:0];
-        [btnArtist setTitle:artist.name forState:UIControlStateNormal];
+        lblArtistHeightConstraint.constant = 0.0f;
     }
-    
+
     // Configure audio (if any)
     NSArray *audio = artwork.audio;
     if ([audio count] > 0) {
@@ -102,27 +118,13 @@
         photosCollectionContainer = nil;
     }
     
-    // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
-
-    // Find out if user already recommended this artwork
-    BOOL artworkLiked = NO;
-    NSArray *likedArtworks = [[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked];
-    if (likedArtworks != nil) {
-        NSUInteger index = [likedArtworks indexOfObject:self.artwork.uuid];
-        if (index != NSNotFound) {
-            artworkLiked = YES;
-        }
-    }
-    if (artworkLiked == YES) {
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommendDisabled target:self action:@selector(navRightButtonDidPress:)];
-    } else {
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommend target:self action:@selector(navRightButtonDidPress:)];
+    if (![self.parentMode isEqual:@"beacon"]) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
     // Set the tab bar background
-    tabBarView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tab_bg"]];
+    tabBarView.backgroundColor = [UIColor colorFromHex:kCIBarColor];
     
     // Configure the sequence
     if (self.artworks == nil) {
@@ -216,10 +218,16 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ArtworkDetail" withLabel:self.artwork.code];
-    
-    // Show coach marks
-    [self showCoachMarks];
+    [CIAnalyticsHelper sendScreen:@"Object Detail"];
+    [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                   andAction:@"Object Viewed"
+                                    andLabel:self.artwork.title];
+}
+
+- (void)viewWillLayoutSubviews {
+    // Buggy fix for the ambiguous scroll view size
+    scrollViewWidthConstraint.constant = self.view.frame.size.width;
+    detailContainerWidthConstraint.constant = self.view.frame.size.width;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -230,6 +238,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)navRightButtonDidPress:(id)sender {
+    if ([self.parentMode isEqualToString:@"beacon"]) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 - (void)navLeftButtonDidPress:(id)sender {
@@ -244,31 +258,6 @@
         [self performSegueWithIdentifier:@"exitArtworkDetailToCode" sender:self];
     } else if ([self.parentMode isEqualToString:@"artistDetail"]) {
         [self performSegueWithIdentifier:@"exitArtworkDetailToArtistDetail" sender:self];
-    }
-}
-
-- (void)navRightButtonDidPress:(id)sender {
-    // Disable nav icon
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    UIView *rightButtonView = (UIView *)navItem.rightBarButtonItem.customView;
-    if (rightButtonView.tag == 0) { // Enabled
-        [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommendDisabled target:self action:@selector(navRightButtonDidPress:)];
-        
-        // API Request
-        CIAPIRequest *apiRequest = [[CIAPIRequest alloc] init];
-        [apiRequest likeArtwork:self.artwork
-                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-                            // Mark artwork as recommended
-                            [self markArtworkAsRecommended];
-                        }
-                        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-                            // Most likely failed b/c app was re-installed, but same device_id so already liked in the past
-                            // Mark artwork as recommended
-                            [self markArtworkAsRecommended];
-                        }];
-    } else if (rightButtonView.tag == 1) { // Disabled (already bookmarked)
-        // Remove artwork from bookmarked/recommended list
-        [self markArtworkAsNotRecommended];
     }
 }
 
@@ -354,6 +343,12 @@
 
 #pragma mark - Collection view delegate
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.frame.size.width, 200);
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return ([photos count] + [videos count]);
 }
@@ -374,7 +369,10 @@
         // Find photo
         CIMedium *photo = [photos objectAtIndex:indexPath.row];
         cell.medium = photo;
-
+        
+        //TODO: Add accessibility tag to photo
+        // photo.alt
+        
         return cell;
     } else {
         // Prepare the cell
@@ -405,6 +403,10 @@
         moviePlayerController.moviePlayer.movieSourceType = MPMovieSourceTypeStreaming;
         moviePlayerController.moviePlayer.contentURL = videoURL;
         [self presentMoviePlayerViewControllerAnimated:moviePlayerController];
+        
+        [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                       andAction:@"Object Video Viewed"
+                                        andLabel:video.title];
 
         // Set cell to selected
         CIVideoSliderCell *cell = (CIVideoSliderCell *)[collectionView cellForItemAtIndexPath:indexPath];
@@ -457,17 +459,6 @@
         // Configure the controller
         CIArtworkAudioListViewController *artworkAudioListViewController = (CIArtworkAudioListViewController *)segue.destinationViewController;
         artworkAudioListViewController.artwork = self.artwork;
-    } else if ([segue.identifier isEqualToString:@"showArtistDetail"]) {
-        // Configure the controller
-        CIArtistDetailViewController *artistDetailViewController = (CIArtistDetailViewController *)segue.destinationViewController;
-        artistDetailViewController.artist = (CIArtist*)[self.artwork.artists objectAtIndex:0];
-        artistDetailViewController.artists = self.artwork.artists;
-        artistDetailViewController.parentMode = @"artwork";
-    } else if ([segue.identifier isEqualToString:@"showArtistList"]) {
-        // Configure the controller
-        CIArtistListViewController *artistListViewController = (CIArtistListViewController *)segue.destinationViewController;
-        artistListViewController.artists = self.artwork.artists;
-        artistListViewController.parentMode = @"artwork";
     }
 }
 
@@ -484,7 +475,7 @@
                                                             delegate:self
                                                    cancelButtonTitle:@"Cancel"
                                               destructiveButtonTitle:nil
-                                                   otherButtonTitles:@"Facebook", @"Twitter", @"Email", @"Text Message", nil];
+                                                   otherButtonTitles:@"Twitter", @"Email", @"Text Message", nil];
     if (IS_IPHONE) {
         [shareSheet showInView:self.view];
     } else {
@@ -493,30 +484,12 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *shareText = [NSString stringWithFormat:@"%@ at Carnegie Museum of Art: %@ #cmoa", [CITextHelper artistsJoinedByComa:artwork.artists], artwork.shareUrl];
+    NSString *shareText = [NSString stringWithFormat:@"%@ at Carnegie Museums of Pittsburgh: %@", [CITextHelper artistsJoinedByComa:artwork.artists], artwork.shareUrl];
     
     // Which action?
     switch (buttonIndex) {
-        // Facebook
-        case 0: {
-            if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-                SLComposeViewController *shareController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-                [shareController setInitialText:shareText];
-                [self presentViewController:shareController animated:YES completion:nil];
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle:@"Uhoh"
-                                      message:@"Please add a Facebook account to your iPhone to enable this option."
-                                      delegate:nil
-                                      cancelButtonTitle:@"Ok"
-                                      otherButtonTitles:nil];
-                [alert show];
-            }
-        }
-            break;
-
         // Twitter
-        case 1: {
+        case 0: {
             if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
                 SLComposeViewController *shareController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
                 [shareController setInitialText:shareText];
@@ -524,7 +497,7 @@
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]
                                       initWithTitle:@"Uhoh"
-                                      message:@"Please add a Twitter account to your iPhone to enable this option."
+                                      message:@"Please add a Twitter account to your device to enable this option."
                                       delegate:nil
                                       cancelButtonTitle:@"Ok"
                                       otherButtonTitles:nil];
@@ -534,17 +507,17 @@
             break;
 
         // Email
-        case 2: {
+        case 1: {
             if ([MFMailComposeViewController canSendMail]) {
                 MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
                 mailViewController.mailComposeDelegate = self;
-                [mailViewController setSubject:@"Carnegie Museum of Art"];
+                [mailViewController setSubject:@"Carnegie Museums of Pittsburgh"];
                 [mailViewController setMessageBody:shareText isHTML:NO];
                 [self presentViewController:mailViewController animated:YES completion:nil];
             } else {
                 UIAlertView *alert = [[UIAlertView alloc]
                                       initWithTitle:@"Uh oh!"
-                                      message:@"Please add an email account to your iPhone to enable this sharing option."
+                                      message:@"Please add an email account to your device to enable this sharing option."
                                       delegate:nil
                                       cancelButtonTitle:@"Ok"
                                       otherButtonTitles:nil];
@@ -554,7 +527,7 @@
             break;
             
         // Text Message
-        case 3: {
+        case 2: {
             if ([MFMessageComposeViewController canSendText]) {
                 messageComposeViewController = [[MFMessageComposeViewController alloc] init];
                 messageComposeViewController.body = shareText;
@@ -596,130 +569,6 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
     [alertView show];
-}
-
-#pragma mark - Recommendation
-
-- (void)markArtworkAsRecommended {
-    // Add to local list of liked artworks
-    NSArray *likedArtworks = [[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked];
-    if (likedArtworks == nil) {
-        likedArtworks = [[NSArray alloc] init];
-    }
-    
-    // Already liked?
-    NSUInteger index = [likedArtworks indexOfObject:self.artwork.uuid];
-    if (index != NSNotFound) {
-        // Already liked!
-        return;
-    }
-    
-    // Add this artwork to liked list
-    NSMutableArray *updatedLikedArtwork = [NSMutableArray arrayWithArray:likedArtworks];
-    [updatedLikedArtwork addObject:self.artwork.uuid];
-    
-    // Save locally
-    [[NSUserDefaults standardUserDefaults] setValue:updatedLikedArtwork forKey:kCIArtworksLiked];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    // Update likes count locally in coredata
-    self.artwork.likes = [NSNumber numberWithInt:([self.artwork.likes intValue] + 1)];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
-}
-
-- (void)markArtworkAsNotRecommended {
-    // Remove from local list of liked artworks
-    NSMutableArray *likedArtworks = [[NSMutableArray alloc] initWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked]];
-    [likedArtworks removeObject:self.artwork.uuid];
-    
-    if ([likedArtworks count] == 0) {
-        // Save locally
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCIArtworksLiked];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    } else {
-        NSArray *updatedLikedArtwork = [NSArray arrayWithArray:likedArtworks];
-
-        // Save locally
-        [[NSUserDefaults standardUserDefaults] setValue:updatedLikedArtwork forKey:kCIArtworksLiked];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    
-    // Update navigation button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setRightBarButtonType:CINavigationItemRightBarButtonTypeRecommend target:self action:@selector(navRightButtonDidPress:)];
-}
-
-#pragma mark - Artist info
-
-- (IBAction)artistsInfoDidPress:(id)sender {
-    if ([self.artwork.artists count] > 1) {
-        [self performSegueWithIdentifier:@"showArtistList" sender:self];
-    } else {
-        [self performSegueWithIdentifier:@"showArtistDetail" sender:self];
-    }
-}
-
-#pragma mark - Coach marks
-     
-- (void)showCoachMarks {
-    // Coach marks
-    BOOL coachMarksShown = [[NSUserDefaults standardUserDefaults] boolForKey:kCIDidShowArtworkDetailCoachMarks];
-    if (coachMarksShown == NO) {
-        // Don't show again
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kCIDidShowArtworkDetailCoachMarks];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        // Setup coach marks
-        CGRect rectFavorite = [self addPaddingToRect:
-                               [self.navigationItem.rightBarButtonItem.customView.superview convertRect:self.navigationItem.rightBarButtonItem.customView.frame
-                                                                                                 toView:self.navigationController.view]
-                                             padding:UIEdgeInsetsMake(4.0f, 8.0f, 4.0f, 2.0f)];
-        CGRect rectShare = [self addPaddingToRect:[tabBarView convertRect:btnShareArtwork.frame toView:self.navigationController.view]
-                                          padding:UIEdgeInsetsMake(2.0f, 0.0f, 0.0f, 0.0f)];
-        NSArray *coachMarks = @[
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectFavorite],
-                                    @"caption": [self formatCoachMarksText:@"Bookmark this artwork for later.\n\nSaved artworks appear in the \"My Visit\" tab on the home screen."]
-                                    },
-                                @{
-                                    @"rect": [NSValue valueWithCGRect:rectShare],
-                                    @"caption": [self formatCoachMarksText:@"Share this artwork with your friends!"]
-                                    }
-                                ];
-        UIView *parentView = self.navigationController.view;
-        coachMarksView = [[WSCoachMarksView alloc] initWithFrame:parentView.bounds coachMarks:coachMarks];
-        coachMarksView.strContinue = @"Tap to Continue";
-        [parentView addSubview:coachMarksView];
-        
-        // Show coach marks
-        [coachMarksView start];
-    }
-}
-
-- (CGRect)addPaddingToRect:(CGRect)rect padding:(UIEdgeInsets)padding {
-    rect.origin.x = rect.origin.x + padding.left;
-    rect.origin.y = rect.origin.y + padding.top;
-    rect.size.width = rect.size.width - padding.left - padding.right;
-    rect.size.height = rect.size.height - padding.top - padding.bottom;
-    return rect;
-}
-
-- (NSAttributedString *)formatCoachMarksText:(NSString *)text {
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.lineSpacing = 4.0f;
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:text];
-    [str addAttribute:NSFontAttributeName
-                value:[UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]
-                range:NSMakeRange(0, [text length])];
-    [str addAttribute:NSForegroundColorAttributeName
-                value:[UIColor colorFromHex:@"#ffffff"]
-                range:NSMakeRange(0, [text length])];
-    [str addAttribute:NSParagraphStyleAttributeName
-                value:paragraphStyle
-                range:NSMakeRange(0, [text length])];
-    return str;
 }
 
 @end

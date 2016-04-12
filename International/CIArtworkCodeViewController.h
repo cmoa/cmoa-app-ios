@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CIBorderedButton.h"
 
 @interface CIArtworkCodeViewController : UIViewController <UIAlertViewDelegate> {
     IBOutlet UIView *codeContainer;
     IBOutlet UITextField *codeTextField;
     IBOutlet UILabel *lblNote;
-    IBOutlet UIButton *btnSearch;
+    IBOutlet CIBorderedButton *btnSearch;
     CIArtwork *artwork;
-    CIArtist *artist;
 }
 
 @property (nonatomic, retain) NSString *parentMode;

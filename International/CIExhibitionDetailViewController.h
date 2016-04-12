@@ -14,8 +14,10 @@
     IBOutlet UIView *navContainer;
     IBOutlet UIView *sponsorContainer;
     IBOutlet TTTAttributedLabel *lblSponsor;
-    UIView *sponsorSepView;
     BOOL haveSponsorText;
+    
+    __weak IBOutlet UIImageView *themeImageView;
+    __weak IBOutlet UIImageView *themeImageViewBlurred;
 }
 
 @end

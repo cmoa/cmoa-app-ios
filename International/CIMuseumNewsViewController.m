@@ -10,7 +10,7 @@
 #import "CINavigationItem.h"
 #import "CIBrowserViewController.h"
 
-#define FEED_URL @"http://cma-app-prod.s3.amazonaws.com/feeds/news.html"
+#define FEED_URL @"https://s3.amazonaws.com/cmoa-cms-dev/feeds/news.html"
 
 @interface CIMuseumNewsViewController ()
 
@@ -42,7 +42,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"MuseumNews"];
+    [CIAnalyticsHelper sendScreen:@"Museum News"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +80,7 @@
 }
 
 - (IBAction)visitDidPress:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://cmoa.org"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://carnegiemuseums.org"]];
 }
 
 #pragma mark - Transition

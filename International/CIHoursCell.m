@@ -140,37 +140,56 @@
 }
 
 - (NSString *)titleForHours:(NSDictionary *)hours {
-    NSString *title = @"";
+    NSMutableString *title = [[NSMutableString alloc] init];
     
-    if ([hours[@"open"] boolValue]) {
-        NSInteger openTime = [hours[@"opens"] intValue];
-        NSInteger closeTime = [hours[@"closes"] intValue];
+    if ([hours[@"open"] isEqualToString:@"closed"] ||
+        [hours[@"close"] isEqualToString:@"closed"]) {
+        [title appendString:@"CLOSED"];
         
-        title = [title stringByAppendingString: [self hourNSStringFromHourInteger:openTime]];
-        title = [title stringByAppendingString: @" - "];
-        title = [title stringByAppendingString: [self hourNSStringFromHourInteger:closeTime]];
+    } else {
+        NSArray *opensComponents = [hours[@"open"] componentsSeparatedByString:@":"];
+        NSInteger currentDayOpensHour = [opensComponents[0] integerValue];
+        NSInteger currentDayOpensMinute = [opensComponents[1] integerValue];
         
-    } else  {
-        title = @"CLOSED";
+        NSArray *closesComponents = [hours[@"close"] componentsSeparatedByString:@":"];
+        NSInteger currentDayClosesHour = [closesComponents[0] integerValue];
+        NSInteger currentDayClosesMinute = [closesComponents[1] integerValue];
+        
+        [title appendString:[self hourNSStringFromHourInteger:currentDayOpensHour
+                                             andMinuteInteger:currentDayOpensMinute]];
+        [title appendString:@" - "];
+        [title appendString:[self hourNSStringFromHourInteger:currentDayClosesHour
+                                             andMinuteInteger:currentDayClosesMinute]];
+        
     }
     
     return title;
 }
 
-- (NSString *)hourNSStringFromHourInteger:(NSInteger)hour {
+- (NSString *)hourNSStringFromHourInteger:(NSInteger)hour andMinuteInteger:(NSInteger)minute {
     NSString *hourString = @"";
     
-    if ((hour > -1) && (hour < 12)) {
-        hourString = [NSString stringWithFormat:@"%zd am", hour];
-    } else if ((hour > 12) && (hour < 25)) {
-        hourString = [NSString stringWithFormat:@"%zd pm", hour - 12];
-    } else if (hour == 12) {
-        hourString = @"noon";
+    if (minute == 0) {
+        if ((hour > -1) && (hour < 12)) {
+            hourString = [NSString stringWithFormat:@"%zd am", hour];
+        } else if ((hour > 12) && (hour < 25)) {
+            hourString = [NSString stringWithFormat:@"%zd pm", hour - 12];
+        } else if (hour == 12) {
+            hourString = @"noon";
+        } else {
+            NSLog(@"hour int is not in 0-24 range");
+        }
     } else {
-        NSLog(@"hour int is not in 0-24 range");
+        if ((hour > -1) && (hour < 12)) {
+            hourString = [NSString stringWithFormat:@"%zd:%02zd am", hour, minute];
+        } else if ((hour > 12) && (hour < 25)) {
+            hourString = [NSString stringWithFormat:@"%zd:%02zd pm", hour - 12, minute];
+        } else {
+            NSLog(@"hour int is not in 0-24 range");
+        }
     }
     
-    return hourString;
+    return [hourString capitalizedString];
 }
 
 @end

@@ -9,15 +9,13 @@
 #import "CIArtworkTabsViewController.h"
 #import "CINavigationItem.h"
 
-@interface CIArtworkTabsViewController ()
-
-@end
-
 @implementation CIArtworkTabsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.persistDoneButton = false;
+        self.displayingBeaconContent = false;
     }
     return self;
 }
@@ -25,10 +23,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (self.persistDoneButton) {
+        for (CINavigationController *navController in self.viewControllers) {
+            navController.persistDoneButton = true;
+            
+            if (self.persistDoneButton) {
+                navController.displayingBeaconContent = true;
+            }
+        }
+    }
+    
     // Modify tab bar
-    self.tabBar.backgroundImage = [UIImage imageNamed:@"tab_bg"];
-    self.tabBar.shadowImage = [[UIImage alloc] init];
-    self.tabBar.tintColor = [UIColor colorFromHex:@"#f26361"];
+    self.tabBar.barTintColor = [UIColor colorFromHex:kCIBarColor];
+    self.tabBar.tintColor = [UIColor colorFromHex:kCILinkColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

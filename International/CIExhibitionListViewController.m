@@ -81,7 +81,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"ExhibitionList"];
+    [CIAnalyticsHelper sendScreen:@"Exhibition List"];
 }
 
 - (void)dealloc {
@@ -132,6 +132,13 @@
     // Set the exhibition for the whole app
     CIAppState *appState = [CIAppState sharedAppState];
     appState.currentExhibition = exhibition;
+    
+    // Clear the current location if set
+    appState.currentLocation = nil;
+    
+    [CIAnalyticsHelper sendEventWithCategory:@"Exhibition"
+                                   andAction:@"Exhibition Viewed"
+                                    andLabel:exhibition.title];
 
     // Show the exhibition detail controller
     [self performSegueWithIdentifier:@"showExhibitionDetail" sender:nil];

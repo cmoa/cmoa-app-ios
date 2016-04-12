@@ -94,7 +94,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"InternalBrowser"];
+    [CIAnalyticsHelper sendScreen:@"Internal Browser"];
 }
 
 #pragma mark - Webview delegate
