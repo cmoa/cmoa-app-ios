@@ -1,9 +1,9 @@
-# Carnegie Museum of Art
+# Carnegie Museums of Art and Natural History
 ## Universal iOS Application
 
 This mobile application syncs with [CMOA's CMS](https://github.com/cmoa/cmoa-app-cms) and gets all exhibition data (artists, artworks, related media, tours, etc.)
 
-Current iOS target: **6.1**
+Current iOS target: **8.0**
 
 ### Installation guide:
 
