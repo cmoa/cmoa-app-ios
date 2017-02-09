@@ -38,7 +38,12 @@
                                              selector:@selector(selectedExhibition:)
                                                  name:kCISelectedExhibitionNotification
                                                object:nil];
-    
+  
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(runSync)
+                                                 name:kCIRunSyncNotification
+                                               object:nil];
+  
     // Set Exhibitions as selected
     if (IS_IPAD) {
         btnExhibitions.selected = YES;

@@ -101,4 +101,5 @@
     #define kCISelectedExhibitionNotification @"selectedExhibitionNotification"
     #define kCIBeaconContentHiddenNotification @"beaconContentHiddenNotification"
     #define kCIHideBeaconContentNotification @"hideBeaconContentNotification"
+    #define kCIRunSyncNotification @"kCIRunSyncNotification"
 #endif

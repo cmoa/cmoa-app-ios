@@ -62,6 +62,9 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+  [[NSNotificationCenter defaultCenter]
+   postNotificationName:kCIRunSyncNotification
+   object:NULL];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
