@@ -21,11 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.2</string>
+	<string>2.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>15</string>
+	<string>3</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlechrome-x-callback</string>
@@ -193,6 +193,8 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Gallery Guide uses bluetooth to show you interesting objects near you.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Gallery Guide uses bluetooth to show you interesting objects near you.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
