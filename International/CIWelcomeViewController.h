@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CIWelcomeButton.h"
-#import "WSCoachMarksView.h"
 
-@interface CIWelcomeViewController : UIViewController <WSCoachMarksViewDelegate> {
-    IBOutlet UIImageView *headerImage;
+@interface CIWelcomeViewController : UIViewController {
     IBOutlet UIView *navContainer;
     IBOutlet UIButton *btnSearch;
     IBOutlet CIWelcomeButton *btnMyVisit;
@@ -19,14 +17,10 @@
     IBOutlet CIWelcomeButton *btnMuseumNews;
     IBOutlet CIWelcomeButton *btnCMOATV;
     IBOutlet CIWelcomeButton *btnConnect;
-    IBOutlet NSLayoutConstraint *conSearchButton;
-    IBOutlet NSLayoutConstraint *conNavContainer;
-    BOOL didShowOnce;
-    BOOL is4InchiPhone;
     
-    // Coach marks
-    WSCoachMarksView *coachMarksView;
-    UITapGestureRecognizer *coachMarksTapGesture;
+    __weak IBOutlet UIImageView *logoImageView;
+    __weak IBOutlet UIImageView *themeImageView;
+    __weak IBOutlet UIImageView *themeImageViewBlurred;
     
     // Background download
     CGFloat totalDownloadSize;

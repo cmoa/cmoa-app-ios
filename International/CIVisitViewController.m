@@ -10,11 +10,13 @@
 #import "CINavigationItem.h"
 #import "CIHoursCell.h"
 #import "CIMapAnnotation.h"
+#import "CIAPIRequest.h"
 #import "CIArtworkListViewController.h"
 #import "CIBrowserViewController.h"
 
-#define CMOA_VISIT_URL @"http://cmoa.org/visit"
+#define CMOA_VISIT_URL @"http://www.carnegiemuseums.org/interior.php?pageID=36"
 #define METERS_PER_MILE 1609.344
+#define kCellHeight 60.0f
 
 @interface CIVisitViewController ()
 
@@ -37,36 +39,34 @@
     // Configure nav button
     if (IS_IPHONE) {
         CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeMenu target:self action:@selector(navLeftButtonDidPress:)];
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
-    // Calculate open/close status
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
-    [dateFormatter setDateFormat:@"c"];
-    dayOfWeek = [[dateFormatter stringFromDate:[NSDate date]] integerValue];
-
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSHourCalendarUnit) fromDate:[NSDate date]];
-    [components setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
-    NSInteger hour = [components hour];
+    NSArray *museumHours = [CIAppState sharedAppState].museumHours;
     
-    switch (dayOfWeek) {
-        case 1: // Sunday
-            isOpen = (hour >= 12 && hour < 17); // 12pm - 5pm
-            break;
-        case 2: // Monday
-        case 4: // Wednesday
-        case 6: // Friday
-        case 7: // Saturday
-            isOpen = (hour >= 10 && hour < 17); // 10am - 5pm
-            break;
-        case 3: // Tuesday
-            isOpen = NO; // Closed
-            break;
-        case 5: // Thursday
-            isOpen = (hour >= 10 && hour < 20); // 10am - 8pm
-            break;
+    if (museumHours != nil) {
+        [self isMuseumOpen:museumHours];
+        scheduledHours = [self returnScheduledHours:museumHours];
+    } else {
+        scheduledHours = nil;
+    }
+    
+    if (scheduledHours == nil) {
+        hoursTableHeightConstraint.constant = kCellHeight * 2;
+    } else {
+        NSInteger maxHoursRows = 5;
+        
+        if (IS_IPAD) {
+            maxHoursRows = 6;
+        } else if (IS_SHORT_IPHONE) {
+            maxHoursRows = 4;
+        }
+            
+        if ([scheduledHours count] > maxHoursRows) {
+            hoursTableHeightConstraint.constant = 300;
+        } else {
+            hoursTableHeightConstraint.constant = kCellHeight * ([scheduledHours count] + 1);
+        }
     }
     
     // Configure map container
@@ -83,6 +83,70 @@
     if ([visitTableView respondsToSelector:@selector(separatorInset)]) {
         visitTableView.separatorInset = UIEdgeInsetsZero;
     }
+}
+
+- (void)isMuseumOpen:(NSArray *)museumHours {
+    // Calculate open/close status
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+    [dateFormatter setDateFormat:@"c"];
+    dayOfWeek = [[dateFormatter stringFromDate:[NSDate date]] integerValue];
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:[NSDate date]];
+    [components setTimeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    NSDictionary *currentDay = museumHours[dayOfWeek-1];
+    
+    if ([currentDay[@"open"] isEqualToString:@"closed"] || [currentDay[@"close"] isEqualToString:@"closed"]) {
+        isOpen = false;
+    } else {
+        NSArray *opensComponents = [currentDay[@"open"] componentsSeparatedByString:@":"];
+        NSInteger currentDayOpensHour = [opensComponents[0] integerValue];
+        NSInteger currentDayOpensMinute = [opensComponents[1] integerValue];
+        
+        NSArray *closesComponents = [currentDay[@"close"] componentsSeparatedByString:@":"];
+        NSInteger currentDayClosesHour = [closesComponents[0] integerValue];
+        NSInteger currentDayClosesMinute = [closesComponents[1] integerValue];
+        
+        if (hour == currentDayOpensHour && minute >= currentDayOpensMinute) {
+            isOpen = true;
+        } else if (hour == currentDayClosesHour && minute < currentDayClosesMinute) {
+            isOpen = true;
+        } else if (hour >= currentDayOpensHour && hour < currentDayClosesHour) {
+            isOpen = true;
+        }
+    }
+}
+
+- (NSArray *)returnScheduledHours:(NSArray *)museumHours {
+    NSMutableArray *bundledHours = [[NSMutableArray alloc] init];
+    [museumHours enumerateObjectsUsingBlock:^(NSDictionary *hours, NSUInteger idx, BOOL *stop)
+     {
+         if ([bundledHours count] == 0) {
+             NSMutableArray *container = [[NSMutableArray alloc] initWithObjects:hours, nil];
+             [bundledHours addObject:container];
+             
+         } else {
+             for (int i = 0; i < [bundledHours count]; i++) {
+                 if ([bundledHours[i][0][@"open"] isEqualToString:hours[@"open"]] &&
+                     [bundledHours[i][0][@"close"] isEqualToString:hours[@"close"]]) {
+                     [bundledHours[i] addObject:hours];
+                     break;
+                 }
+                 
+                 if (([bundledHours count] - 1) == i) {
+                     NSMutableArray *container = [[NSMutableArray alloc] initWithObjects:hours, nil];
+                     [bundledHours addObject:container];
+                     break;
+                 }
+             }
+         }
+     }];
+    
+    return bundledHours;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,18 +166,15 @@
     if (selectedIndexPath != nil) {
         [visitTableView deselectRowAtIndexPath:selectedIndexPath animated:YES];
     }
-
-    // Load bookmarked artworks
-    [self loadBookmarkedArtworks];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"MyVisit"];
-
+    [CIAnalyticsHelper sendScreen:@"Hours and Location"];
+    
     if (pinDropped == NO) {
         pinDropped = YES;
-
+        
         // Load map
         coord = CLLocationCoordinate2DMake(40.4432, -79.9497);
         MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(coord, 0.3f*METERS_PER_MILE, 0.3f*METERS_PER_MILE);
@@ -134,31 +195,14 @@
 - (IBAction)segueToVisit:(UIStoryboardSegue *)segue {
 }
 
-#pragma mark - Bookmarked Artworks
-
-- (void)loadBookmarkedArtworks {
-    NSArray *likedArtworks = [[NSUserDefaults standardUserDefaults] arrayForKey:kCIArtworksLiked];
-    NSMutableArray *tempBookmarked = [NSMutableArray arrayWithCapacity:[likedArtworks count]];
-    if (likedArtworks != nil) {
-        for (NSString *artworkUuid in likedArtworks) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (uuid == %@)", artworkUuid];
-            CIArtwork *artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
-            if (artwork != nil) {
-                [tempBookmarked addObject:artwork];
-            }
-        }
-    }
-    
-    // Sort bookmarked artworks
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"code" ascending:YES];
-    bookmarked = [tempBookmarked sortedArrayUsingDescriptors:@[sort]];
-    [visitTableView reloadData];
-}
-
 #pragma mark - Table
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (scheduledHours == nil) {
+        return 2;
+    } else {
+        return [scheduledHours count] + 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -168,85 +212,82 @@
         cell = [[CIHoursCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    // Fill the rows
-    switch (indexPath.row) {
-        case 0: {
-            cell.titleLabel.text = @"Tuesday – Saturday";
-            cell.subtitleLabel.text = [@"10 am – 5 pm" uppercaseString];
-            [cell setCellAsHours];
-            if ((dayOfWeek != 1 && dayOfWeek != 5) && (dayOfWeek >= 3 && dayOfWeek <= 7)) {
-                [cell setTodayAsOpen:isOpen];
-            }
-        }
-            break;
-
-        case 1: {
-            cell.titleLabel.text = @"Thursday";
-            cell.subtitleLabel.text = [@"10 am – 8 pm" uppercaseString];
-            [cell setCellAsHours];
-            if (dayOfWeek == 5) {
-                [cell setTodayAsOpen:isOpen];
-            }
-        }
-            break;
-        
-        case 2: {
-            cell.titleLabel.text = @"Sunday";
-            cell.subtitleLabel.text = [@"Noon – 5 pm" uppercaseString];
-            [cell setCellAsHours];
-            if (dayOfWeek == 1) {
-                [cell setTodayAsOpen:isOpen];
-            }
-        }
-            break;
-            
-        case 3: {
-            cell.titleLabel.text = @"Visit CMOA.ORG";
+    if (scheduledHours == nil) {
+        if (indexPath.row == 1) {
+            cell.titleLabel.text = @"Visit Carnegie Museums";
             cell.subtitleLabel.text = [@"For more visitor information and holiday hours" uppercaseString];
+        } else {
+            cell.titleLabel.text = @"No internet connection";
+            cell.subtitleLabel.text = [@"Please connect to the internet to see hours" uppercaseString];
         }
-            break;
+        
+    } else {
+        if (indexPath.row == [scheduledHours count]) {
+            cell.titleLabel.text = @"Visit Carnegie Museums";
+            cell.subtitleLabel.text = [@"For more visitor information and holiday hours" uppercaseString];
+        } else {
+            NSMutableArray *daysArray = [[NSMutableArray alloc] init];
+            for (NSDictionary *hours in scheduledHours[indexPath.row]) {
+                [daysArray addObject:hours[@"day"]];
+            }
             
-        case 4: {
-            cell.titleLabel.text = @"My Bookmarked Artworks";
-            if ([bookmarked count] != 1) {
-                cell.subtitleLabel.text = [[NSString stringWithFormat:@"%i artworks", [bookmarked count]] uppercaseString];
+            NSMutableString *title = [[NSMutableString alloc] init];
+            
+            if ([daysArray count] > 3) {
+                [title appendString:[[daysArray subarrayWithRange:NSMakeRange(0, 3)] componentsJoinedByString: @", "]];
+                [title appendFormat:@",\n%@", [[daysArray subarrayWithRange:NSMakeRange(3, [daysArray count] - 3)]componentsJoinedByString: @", "]];
+                
+                cell.titleLabel.numberOfLines = 2;
             } else {
-                cell.subtitleLabel.text = [@"1 artwork" uppercaseString];
+                title = (NSMutableString *)[daysArray componentsJoinedByString: @", "];
+            }
+            
+            cell.titleLabel.text = title;
+            cell.subtitleLabel.text = [[cell titleForHours:scheduledHours[indexPath.row][0]] uppercaseString];
+            [cell setCellAsHours];
+            
+            NSArray *daysOfTheWeek = @[@"Sunday",
+                                       @"Monday",
+                                       @"Tuesday",
+                                       @"Wednesday",
+                                       @"Thursday",
+                                       @"Friday",
+                                       @"Saturday"];
+            
+            for (NSDictionary *hours in scheduledHours[indexPath.row]) {
+                if ((dayOfWeek - 1) == [daysOfTheWeek indexOfObject:hours[@"day"]]) {
+                    [cell setTodayAsOpen:isOpen];
+                    break;
+                }
             }
         }
-            break;
-            
-        default:
-            break;
     }
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60.0f;
+    return kCellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3) {
-        [self performSegueWithIdentifier:@"showBrowser" sender:self];
-    } else if (indexPath.row == 4) {
-        if ([bookmarked count] > 0) {
-            [self performSegueWithIdentifier:@"showArtworkList" sender:self];
-        } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Bookmarked Artwork"
-                                                                message:@"Tap thumbs up on your favorite artworks to bookmark them for the future."
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-            [alertView show];
-            [visitTableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (scheduledHours == nil) {
+        if (indexPath.row == 1) {
+            [self performSegueWithIdentifier:@"showBrowser" sender:self];
+        }
+    } else {
+        if (indexPath.row == [scheduledHours count]) {
+            [self performSegueWithIdentifier:@"showBrowser" sender:self];
         }
     }
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
-    return (indexPath.row >= 3);
+    if (scheduledHours == nil) {
+        return (indexPath.row == 1);
+    } else {
+        return (indexPath.row == [scheduledHours count]);
+    }
 }
 
 #pragma mark - Action Sheet
@@ -322,14 +363,10 @@
 #pragma mark - Transition
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showArtworkList"]) {
-        CIArtworkListViewController *artworkListViewController = (CIArtworkListViewController *)segue.destinationViewController;
-        artworkListViewController.artworks = bookmarked;
-        artworkListViewController.parentMode = @"visit";
-    } else if ([segue.identifier isEqualToString:@"showBrowser"]) {
+    if ([segue.identifier isEqualToString:@"showBrowser"]) {
         CIBrowserViewController *browserViewController = (CIBrowserViewController *)segue.destinationViewController;
         browserViewController.parentMode = @"visit";
-        browserViewController.viewTitle = @"CMOA.org";
+        browserViewController.viewTitle = @"Carnegie Museums";
         browserViewController.url = CMOA_VISIT_URL;
     }
 }

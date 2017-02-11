@@ -13,6 +13,7 @@
     IBOutlet UICollectionView *photosCollectionView;
     NSArray *artworks;
     NSMutableArray *photos;
+    CGFloat cellWidth;
 }
 
 @end

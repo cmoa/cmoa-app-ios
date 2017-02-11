@@ -20,17 +20,15 @@
 - (void)configureCell {
     // Default background
     cellBackgroundColor = [UIColor colorFromHex:@"#ffffff"];
-
+    
     // Status lbls
     self.statusLabelTop = [[UILabel alloc] init];
     self.statusLabelTop.textColor = [UIColor colorFromHex:@"#ffffff"];
     self.statusLabelTop.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
-    self.statusLabelTop.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.statusLabelBottom = [[UILabel alloc] init];
     self.statusLabelBottom.textColor = [UIColor colorFromHex:@"#ffffff"];
     self.statusLabelBottom.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11.0f];
-    self.statusLabelBottom.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Add children
     [self addSubview:self.statusLabelTop];
@@ -77,12 +75,14 @@
     // Position status label
     [self.statusLabelTop sizeToFit];
     [self.statusLabelBottom sizeToFit];
+    
     CGFloat x = self.frame.size.width - 15.0f - self.statusLabelTop.frame.size.width;
     CGFloat y = 11.0f;
-    self.statusLabelTop.frame = (CGRect){{x, y}, self.statusLabelTop.bounds.size};
+    self.statusLabelTop.frame = CGRectMake(x, y, self.statusLabelTop.bounds.size.width, self.statusLabelTop.bounds.size.height);
+    
     x = self.frame.size.width - 15.0f - self.statusLabelBottom.frame.size.width;
     y = 33.0f;
-    self.statusLabelBottom.frame = (CGRect){{x, y}, self.statusLabelBottom.bounds.size};
+    self.statusLabelBottom.frame = CGRectMake(x, y, self.statusLabelBottom.bounds.size.width, self.statusLabelBottom.bounds.size.height);
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -137,6 +137,59 @@
             self.contentView.backgroundColor = cellBackgroundColor;
         }
     }
+}
+
+- (NSString *)titleForHours:(NSDictionary *)hours {
+    NSMutableString *title = [[NSMutableString alloc] init];
+    
+    if ([hours[@"open"] isEqualToString:@"closed"] ||
+        [hours[@"close"] isEqualToString:@"closed"]) {
+        [title appendString:@"CLOSED"];
+        
+    } else {
+        NSArray *opensComponents = [hours[@"open"] componentsSeparatedByString:@":"];
+        NSInteger currentDayOpensHour = [opensComponents[0] integerValue];
+        NSInteger currentDayOpensMinute = [opensComponents[1] integerValue];
+        
+        NSArray *closesComponents = [hours[@"close"] componentsSeparatedByString:@":"];
+        NSInteger currentDayClosesHour = [closesComponents[0] integerValue];
+        NSInteger currentDayClosesMinute = [closesComponents[1] integerValue];
+        
+        [title appendString:[self hourNSStringFromHourInteger:currentDayOpensHour
+                                             andMinuteInteger:currentDayOpensMinute]];
+        [title appendString:@" - "];
+        [title appendString:[self hourNSStringFromHourInteger:currentDayClosesHour
+                                             andMinuteInteger:currentDayClosesMinute]];
+        
+    }
+    
+    return title;
+}
+
+- (NSString *)hourNSStringFromHourInteger:(NSInteger)hour andMinuteInteger:(NSInteger)minute {
+    NSString *hourString = @"";
+    
+    if (minute == 0) {
+        if ((hour > -1) && (hour < 12)) {
+            hourString = [NSString stringWithFormat:@"%zd am", hour];
+        } else if ((hour > 12) && (hour < 25)) {
+            hourString = [NSString stringWithFormat:@"%zd pm", hour - 12];
+        } else if (hour == 12) {
+            hourString = @"noon";
+        } else {
+            NSLog(@"hour int is not in 0-24 range");
+        }
+    } else {
+        if ((hour > -1) && (hour < 12)) {
+            hourString = [NSString stringWithFormat:@"%zd:%02zd am", hour, minute];
+        } else if ((hour > 12) && (hour < 25)) {
+            hourString = [NSString stringWithFormat:@"%zd:%02zd pm", hour - 12, minute];
+        } else {
+            NSLog(@"hour int is not in 0-24 range");
+        }
+    }
+    
+    return [hourString capitalizedString];
 }
 
 @end

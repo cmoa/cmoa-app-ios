@@ -34,8 +34,10 @@
     self.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
     self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     self.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 15.0f, 0.0f, 15.0f);
-    [self setTitleColor:[UIColor colorFromHex:@"#2e2e2e"] forState:UIControlStateNormal];
-    [self setTitleColor:[UIColor colorFromHex:@"#2e2e2e" alpha:0.7f] forState:UIControlStateHighlighted];
+    [self setTitleColor:[UIColor colorFromHex:kCIBlackTextColor alpha:0.7f] forState:UIControlStateNormal];
+    [self setTitleColor:[UIColor colorFromHex:kCIBlackTextColor alpha:0.7f] forState:UIControlStateHighlighted];
+    
+    [self setBackgroundColor:[UIColor colorWithWhite:.65 alpha:.5]];
     
     // Sep line (on the bottom)
     sepView = [[UIView alloc] initWithFrame:(CGRect){{0.0f, self.frame.size.height - 0.5f}, {self.frame.size.width, 0.5f}}];

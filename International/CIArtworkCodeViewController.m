@@ -10,17 +10,19 @@
 #import "CIArtworkCodeViewController.h"
 #import "CINavigationItem.h"
 #import "CIArtworkDetailViewController.h"
-#import "CIArtistDetailViewController.h"
 
 #define kGodModeAlertViewTag 10
 
 @interface CIArtworkCodeViewController ()
+
+@property (nonatomic) UITapGestureRecognizer *dismissKeyboardTapRecognizer;
 
 @end
 
 @implementation CIArtworkCodeViewController
 
 @synthesize parentMode;
+@synthesize dismissKeyboardTapRecognizer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,14 +34,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:
+     UIKeyboardWillShowNotification object:nil];
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:
+     UIKeyboardWillHideNotification object:nil];
+    
+    dismissKeyboardTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                            action:@selector(dismissKeyboard)];
+    
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    if (!(IS_IPAD && [self.parentMode isEqualToString:@"home"])) {
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
         [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
     // Note label setup
-    NSString *strNote = @"To access information\nabout a specific artwork,\nplease enter the artwork code here:";
+    NSString *strNote = @"To access information\nabout a specific object,\nplease enter the object code here:";
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -55,8 +66,10 @@
     codeContainer.layer.borderWidth = 5.0f;
 
     // Button style
-    [btnSearch setTitleColor:[UIColor colorFromHex:@"#24aadc"] forState:UIControlStateNormal];
-    [btnSearch setTitleColor:[UIColor colorFromHex:@"#24aadc" alpha:0.6f] forState:UIControlStateHighlighted];
+    btnSearch.borderColor = [UIColor colorFromHex:kCILinkColor];
+    btnSearch.borderHighligthedColor = [UIColor colorFromHex:kCIBarUnactiveColor];
+    [btnSearch setTitleColor:[UIColor colorFromHex:kCILinkColor] forState:UIControlStateNormal];
+    [btnSearch setTitleColor:[UIColor colorFromHex:kCIBarUnactiveColor] forState:UIControlStateHighlighted];
     
     // Add border to number keyboard (otherwise looks weird on iOS 7)
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
@@ -76,15 +89,22 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"CodeLookup"];
+    [CIAnalyticsHelper sendScreen:@"Code Lookup"];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+-(void)dismissKeyboard {
+    [codeTextField resignFirstResponder];
+}
+
 - (void)navLeftButtonDidPress:(id)sender {
-    // Unwind appropriately
     if ([self.parentMode isEqualToString:@"home"]) {
         [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:self];
     } else {
@@ -94,6 +114,10 @@
 
 - (IBAction)searchDidPress:(id)sender {
     NSString *searchStr = codeTextField.text;
+    
+    [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                   andAction:@"Object Code Searched For"
+                                    andLabel:searchStr];
     
     // God mode?
     if ([searchStr isEqualToString:@"440015213"]) {
@@ -112,26 +136,17 @@
         return;
     }
     
-    // Searching for artwork or artist?
-    if ([searchStr length] == 2) { // Artist
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (code == %@)", searchStr];
-        artist = [CIArtist MR_findFirstWithPredicate:predicate];
-        if (artist) {
-            [self performSegueWithIdentifier:@"showArtistDetail" sender:self];
-            return;
-        }
-    } else { // Artwork
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (code == %@)", searchStr];
-        artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
-        if (artwork) {
-            [self performSegueWithIdentifier:@"showArtworkDetail" sender:self];
-            return;
-        }
+    // Searching for Artwork
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (code == %@)", searchStr];
+    artwork = [CIArtwork MR_findFirstWithPredicate:predicate];
+    if (artwork) {
+        [self performSegueWithIdentifier:@"showArtworkDetail" sender:self];
+        return;
     }
     
     // If we're here, neither was found
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Code"
-                                                    message:@"Unfortunately, we could not find the artwork or artist."
+                                                    message:@"Unfortunately, we could not find the object."
                                                    delegate:nil
                                           cancelButtonTitle:@"Try Again"
                                           otherButtonTitles:nil];
@@ -150,12 +165,6 @@
         artworkDetailViewController.artworks = @[artwork];
         artworkDetailViewController.artwork = artwork;
         artworkDetailViewController.parentMode = @"code";
-    } else if ([segue.identifier isEqualToString:@"showArtistDetail"]) {
-        CIArtistDetailViewController *artistDetailViewController = (CIArtistDetailViewController *)segue.destinationViewController;
-        artistDetailViewController.hidesBottomBarWhenPushed = YES;
-        artistDetailViewController.artists = @[artist];
-        artistDetailViewController.artist = artist;
-        artistDetailViewController.parentMode = @"code";
     }
 }
 
@@ -170,6 +179,17 @@
             [self performSegueWithIdentifier:@"exitArtworkCodeToHome" sender:nil];
         }
     }
+}
+
+#pragma mark - Keyboard notifications
+
+-(void) keyboardWillShow:(NSNotification *)note {
+    [self.view addGestureRecognizer:dismissKeyboardTapRecognizer];
+}
+
+-(void) keyboardWillHide:(NSNotification *)note
+{
+    [self.view removeGestureRecognizer:dismissKeyboardTapRecognizer];
 }
 
 @end

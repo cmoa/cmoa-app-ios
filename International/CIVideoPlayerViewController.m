@@ -27,7 +27,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"VideoPlayer"];
+    [CIAnalyticsHelper sendScreen:@"Video Player"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,7 +38,7 @@
     return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations {
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
 

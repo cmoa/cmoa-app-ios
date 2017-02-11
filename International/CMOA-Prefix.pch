@@ -18,6 +18,11 @@
     #define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     #define IS_RETINA ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0)
+    #define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+    #define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+    #define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+    #define IS_SHORT_IPHONE (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+    #define IS_IPAD_PRO (IS_IPAD && SCREEN_MAX_LENGTH > 1024.0)
     #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
     #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
     #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -34,6 +39,7 @@
 
     // Google Analytics
     #import "GAI.h"
+    #import "GAIFields.h"
     #import "GAIDictionaryBuilder.h"
     #import "CIAnalyticsHelper.h"
 
@@ -46,6 +52,8 @@
 
     // Include our data models
     #import "CIData.h"
+    #import "CIBeacon.h"
+    #import "CIBeacon+Helpers.h"
     #import "CIArtist.h"
     #import "CIArtist+Helpers.h"
     #import "CIArtistArtwork.h"
@@ -70,12 +78,28 @@
     // Application state
     #import "CIAppState.h"
 
+    // Beacon Manager
+    #import "CIBeaconManager.h"
+
+    // CRToast for notifications
+    #import "CRToastView.h"
+
     // User defaults keys
     #define kCITextBodyFontSizeIndex @"kCITextBodyFontSizeIndex"
-    #define kCIDidShowCoachMarks @"kCIDidShowCoachMarks"
-    #define kCIDidShowArtworkDetailCoachMarks @"kCIDidShowArtworkDetailCoachMarks"
-    #define kCIArtworksLiked @"kCIArtworksLiked"
-    #define kCISettingsTestflightId @"testflight_id"
     #define kCISettingsApiToken @"api_token"
     #define kCISettingsApiSecret @"api_secret"
+
+    // App styling
+    #define kCILinkColor @"#9a9a9a"
+    #define kCIBarColor @"#838487"
+    #define kCIWhiteTextColor @"#ffffff"
+    #define kCIBlackTextColor @"#333333"
+    #define kCIAccentColor @"#9a9a9a"
+    #define kCIBarUnactiveColor @"#cccccc"
+
+    // Notifications
+    #define kCISelectedExhibitionNotification @"selectedExhibitionNotification"
+    #define kCIBeaconContentHiddenNotification @"beaconContentHiddenNotification"
+    #define kCIHideBeaconContentNotification @"hideBeaconContentNotification"
+    #define kCIRunSyncNotification @"kCIRunSyncNotification"
 #endif

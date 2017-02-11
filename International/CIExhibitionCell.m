@@ -44,8 +44,8 @@
     self.titleLabel.font = kTitleLabelFont;
     self.titleLabel.numberOfLines = 0;
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.titleLabel.textColor = [UIColor colorFromHex:@"#556270"];
-    self.titleLabel.highlightedTextColor = [UIColor colorFromHex:@"#556270"];
+    self.titleLabel.textColor = [UIColor colorFromHex:kCIBlackTextColor];
+    self.titleLabel.highlightedTextColor = [UIColor colorFromHex:kCIBlackTextColor];
     self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Subtitle lbl
@@ -53,8 +53,8 @@
     self.subtitleLabel.font = kSubtitleLabelFont;
     self.subtitleLabel.numberOfLines = 0;
     self.subtitleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.subtitleLabel.textColor = [UIColor colorFromHex:@"#f26361"];
-    self.subtitleLabel.highlightedTextColor = [UIColor colorFromHex:@"#f26361"];
+    self.subtitleLabel.textColor = [UIColor colorFromHex:kCIAccentColor];
+    self.subtitleLabel.highlightedTextColor = [UIColor colorFromHex:kCIAccentColor];
     self.subtitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Add children
@@ -67,6 +67,11 @@
 
 - (void)updateConstraints {
     if (self.constraintsUpdated == NO) {
+        
+        int insetTop = kInsetTop;
+        int labelSpace = kLabelSpace;
+        int insetBottom = kInsetBottom;
+        
         // Set label constraints
         NSDictionary *views = @{
                                 @"title" : self.titleLabel,
@@ -80,7 +85,14 @@
                                                                           options:0
                                                                           metrics:nil
                                                                             views:views];
-        NSArray *verticalCon1 = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-(%i)-[title]-(%i)-[subtitle]-(%i)-|", kInsetTop, kLabelSpace, kInsetBottom]
+        
+        if (self.titleLabel.numberOfLines > 1) {
+            insetTop = 5;
+            labelSpace = 0;
+            insetBottom = 8;
+        }
+        
+        NSArray *verticalCon1 = [NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-(%i)-[title]-(%i)-[subtitle]-(%i)-|", insetTop, labelSpace, insetBottom]
                                                                 options:0
                                                                 metrics:nil
                                                                   views:views];

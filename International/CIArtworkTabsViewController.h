@@ -10,4 +10,7 @@
 
 @interface CIArtworkTabsViewController : UITabBarController
 
+@property (nonatomic) BOOL persistDoneButton;
+@property (nonatomic) BOOL displayingBeaconContent;
+
 @end

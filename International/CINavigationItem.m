@@ -7,6 +7,7 @@
 //
 
 #import "CINavigationItem.h"
+#import "CIBorderedButton.h"
 
 @implementation CINavigationItem
 
@@ -16,7 +17,7 @@
         // Set custom label to be the title view
         UILabel *titleLbl = [[UILabel alloc] init];
         titleLbl.text = self.title;
-        titleLbl.textColor = [UIColor colorFromHex:@"#556270"];
+        titleLbl.textColor = [UIColor colorFromHex:kCIWhiteTextColor];
         titleLbl.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:16.0f];
         [titleLbl sizeToFit];
         self.titleView = titleLbl;
@@ -36,23 +37,16 @@
 }
 
 - (void)setLeftBarButtonType:(CINavigationItemLeftBarButtonType)type target:(id)target action:(SEL)action {
-    CGSize buttonSize = (CGSize){44.0f, 44.0f};
-    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 10.0f);
+    CGSize buttonSize = (CGSize){34.0f, 34.0f};
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 2.5f);
     switch (type) {
         case CINavigationItemLeftBarButtonTypeBack: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"nav_back"]
+            UIView *buttonView = [CINavigationItem customViewForButtonWithImage:[UIImage imageNamed:@"nav_back"]
+                                                   highlightedImage:[UIImage imageNamed:@"nav_back_on"]
+                                                              title:nil
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setLeftBarButtonItem:menuButton];
-            break;
-        }
-        case CINavigationItemLeftBarButtonTypeMenu: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"nav_menu"]
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
+                                                 accessibilityLabel:@"Back"
                                                              target:target
                                                              action:action];
             UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
@@ -63,77 +57,57 @@
 }
 
 - (void)setRightBarButtonType:(CINavigationItemRightBarButtonType)type target:(id)target action:(SEL)action {
-    CGSize buttonSize = (CGSize){53.0f, 44.0f};
+    CGSize buttonSize = (CGSize){34.0f, 34.0f};
     UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
     switch (type) {
-        case CINavigationItemRightBarButtonTypeRecommend: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_recommend_on"]
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setRightBarButtonItem:menuButton];
-            break;
-        }
-        case CINavigationItemRightBarButtonTypeRecommendDisabled: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_recommend_off"]
-                                                               size:buttonSize
-                                                         edgeInsets:edgeInsets
-                                                             target:target
-                                                             action:action];
-            buttonView.tag = 1;
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setRightBarButtonItem:menuButton];
+        case CINavigationItemRightBarButtonTypeDone: {
+            [self setRightBarButtonItem:[CINavigationItem buildDoneButtonWithTarget:target action:action]];
+            
             break;
         }
         case CINavigationItemRightBarButtonTypeOpenInSafari: {
-            UIView *buttonView = [self customViewForButtonWithImage:[UIImage imageNamed:@"button_open_safari"]
+            UIView *buttonView = [CINavigationItem customViewForButtonWithImage:[UIImage imageNamed:@"button_open_safari"]
+                                                   highlightedImage:[UIImage imageNamed:@"button_open_safari_on"]
+                                                              title:nil
                                                                size:buttonSize
                                                          edgeInsets:edgeInsets
+                                                 accessibilityLabel:@"Open Page In Safari"
                                                              target:target
                                                              action:action];
             UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:buttonView];
-            [self setRightBarButtonItem:menuButton];
-            break;
-        }
-        case CINavigationItemRightBarButtonTypeSocial: {
-            // Init buttons
-            UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-            button1.frame = (CGRect){{44.0f, 0.0f}, {48.0f, 44.0f}};
-            [button1 setImage:[UIImage imageNamed:@"nav_twitter"] forState:UIControlStateNormal];
-            [button1 setContentMode:UIViewContentModeCenter];
-            [button1 setContentEdgeInsets:edgeInsets];
-            [button1 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-            button1.tag = 1;
-
-            UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-            button2.frame = (CGRect){CGPointZero, {44.0f, 44.0f}};
-            [button2 setImage:[UIImage imageNamed:@"nav_facebook"] forState:UIControlStateNormal];
-            [button2 setContentMode:UIViewContentModeCenter];
-            [button2 setContentEdgeInsets:edgeInsets];
-            [button2 addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-
-            // Init view
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 92.0f, 44.0f)];
-            [view addSubview:button1];
-            [view addSubview:button2];
-            
-            UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithCustomView:view];
             [self setRightBarButtonItem:menuButton];
             break;
         }
     }
 }
 
-- (UIView *)customViewForButtonWithImage:(UIImage *)image size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets target:(id)target action:(SEL)action {
++ (UIBarButtonItem *) buildDoneButtonWithTarget:(id)target action:(SEL)action {
+    CGSize buttonSize = (CGSize){50.0f, 34.0f};
+    UIEdgeInsets edgeInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    
+    UIView *buttonView = [CINavigationItem customViewForButtonWithImage:nil
+                                           highlightedImage:nil
+                                                      title:@"Done"
+                                                       size:buttonSize
+                                                 edgeInsets:edgeInsets
+                                         accessibilityLabel:@"Dismiss View"
+                                                     target:target
+                                                     action:action];
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:buttonView];
+}
+
++ (UIView *)customViewForButtonWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage title:(NSString *)title size:(CGSize)size edgeInsets:(UIEdgeInsets)edgeInsets accessibilityLabel:(NSString *)accessibilityLabel target:(id)target action:(SEL)action {
     // Init button
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = (CGRect){CGPointZero, size};
+    CIBorderedButton *button = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
+    button.frame = (CGRect){{0, 5}, size};
+    [button setTitle:title forState:UIControlStateNormal];
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:highlightedImage forState:UIControlStateHighlighted];
     [button setContentMode:UIViewContentModeCenter];
     [button setContentEdgeInsets:edgeInsets];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [button setAccessibilityLabel:accessibilityLabel];
     
     // Init view
     UIView *view = [[UIView alloc] initWithFrame:button.frame];

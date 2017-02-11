@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-#define API_BASE_URL @"http://ios.cmoa.org"
-#define API_TOKEN    @"207b0977eb0be992898c7cf102f1bd8b"
-#define API_SECRET   @"5b2d5ba341d2ded69a4d6cef387951ad"
+#define API_BASE_URL @"http://guidecms.carnegiemuseums.org"
 
+typedef void (^CIAPIHoursRequestSuccessBlock) (NSArray *hours);
 typedef void (^CIAPIRequestSuccessBlock) (NSURLRequest *request, NSHTTPURLResponse *response, id JSON);
 typedef void (^CIAPIRequestFailureBlock) (NSURLRequest* request, NSHTTPURLResponse* response, NSError* error, id JSON);
 
@@ -32,9 +31,8 @@ typedef void (^CIAPIRequestFailureBlock) (NSURLRequest* request, NSHTTPURLRespon
 
 - (void)syncAll;
 
-- (void)likeArtwork:(CIArtwork*)artwork
-            success:(CIAPIRequestSuccessBlock)success
-            failure:(CIAPIRequestFailureBlock)failure;
+- (void)getWeeksHours:(CIAPIHoursRequestSuccessBlock)success
+              failure:(CIAPIRequestFailureBlock)failure;
 
 - (void)subscribeEmail:(NSString*)email
                success:(CIAPIRequestSuccessBlock)success

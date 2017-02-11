@@ -28,21 +28,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CILocation *location;
+    CIExhibition *exhibition;
+    
     // Configure nav button
-    CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-    [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    if ([CIAppState sharedAppState].currentLocation == nil) {
+        CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
+    }
     
     // Load categories, then filter out those with 0 artworks!
-    CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+    if ([CIAppState sharedAppState].currentLocation != nil) {
+        location = [CIAppState sharedAppState].currentLocation;
+        self.navigationItem.title = location.name;
+    } else {
+        exhibition = [CIAppState sharedAppState].currentExhibition;
+        self.navigationItem.title = exhibition.title;
+    }
+    
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil)"];
     categories = [CICategory MR_findAllWithPredicate:predicate];
 
     NSMutableArray *tempCategories = [NSMutableArray arrayWithCapacity:[categories count]];
     for (CICategory *category in categories) {
-        if ([[category artworksInExhibition:exhibition] count] > 0) {
-            [tempCategories addObject:category];
+        if (location != nil) {
+            if ([[category liveArtworksAtLocation:location] count] > 0) {
+                [tempCategories addObject:category];
+            }
+        } else {
+            if ([[category artworksInExhibition:exhibition] count] > 0) {
+                [tempCategories addObject:category];
+            }
         }
     }
+    
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES];
     categories = [tempCategories sortedArrayUsingDescriptors:@[sort]];
     
@@ -69,7 +88,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"CategoryList"];
+    [CIAnalyticsHelper sendScreen:@"Object Category List"];
 }
 
 - (IBAction)segueToCategoryList:(UIStoryboardSegue *)segue {
@@ -118,8 +137,13 @@
         }
         CIArtworkListViewController *artworkListViewController = (CIArtworkListViewController *)segue.destinationViewController;
         artworkListViewController.category = category;
-        CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
-        artworkListViewController.artworks = [category artworksInExhibition:exhibition];
+        
+        // TODO: Figure this out...
+        if ([CIAppState sharedAppState].currentLocation == nil) {
+            CIExhibition *exhibition = [CIAppState sharedAppState].currentExhibition;
+            artworkListViewController.artworks = [category artworksInExhibition:exhibition];
+        }
+        
         artworkListViewController.parentMode = @"categoryList";
     }
 }

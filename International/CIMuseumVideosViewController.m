@@ -10,7 +10,7 @@
 #import "CINavigationItem.h"
 #import "CIBrowserViewController.h"
 
-#define FEED_URL @"http://cma-app-prod.s3.amazonaws.com/feeds/videos.html"
+#define FEED_URL @"https://s3.amazonaws.com/cmoa-cms-dev/feeds/videos.html"
 
 @interface CIMuseumVideosViewController ()
 
@@ -31,7 +31,7 @@
     // Configure nav button
     if (IS_IPHONE) {
         CINavigationItem *navItem = (CINavigationItem *)self.navigationItem;
-        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeMenu target:self action:@selector(navLeftButtonDidPress:)];
+        [navItem setLeftBarButtonType:CINavigationItemLeftBarButtonTypeBack target:self action:@selector(navLeftButtonDidPress:)];
     }
     
     // Load videos
@@ -42,7 +42,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     // Analytics
-    [CIAnalyticsHelper sendEvent:@"CMOA_TV"];
+    [CIAnalyticsHelper sendScreen:@"Museum Videos"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +80,7 @@
 }
 
 - (IBAction)visitDidPress:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://cmoa.org"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://carnegiemuseums.org"]];
 }
 
 #pragma mark - Transition
@@ -89,7 +89,7 @@
     if ([segue.identifier isEqualToString:@"showBrowser"]) {
         CIBrowserViewController *browserViewController = (CIBrowserViewController *)segue.destinationViewController;
         browserViewController.parentMode = @"museumVideos";
-        browserViewController.viewTitle = @"CMOA TV";
+        browserViewController.viewTitle = @"Museum Videos";
         browserViewController.url = requestURL;
     }
 }

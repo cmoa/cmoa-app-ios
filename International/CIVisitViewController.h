@@ -22,9 +22,9 @@
     // Open status
     BOOL isOpen;
     NSInteger dayOfWeek;
+    NSArray *scheduledHours;
     
-    // Bookmarked artworks
-    NSArray *bookmarked;
+    __weak IBOutlet NSLayoutConstraint *hoursTableHeightConstraint;
 }
 
 @end

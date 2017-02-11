@@ -13,6 +13,9 @@
 + (NSString*)entityName;
 + (CIExhibition*)findFirstOrCreateByAttribute:(NSString*)attribute withValue:(id)value usingData:(NSDictionary*)data;
 - (NSDictionary*)toDictionary;
++ (CIExhibition*)randomLiveExhibition;
+
++ (NSArray*)liveExhibitionUuids;
 
 #pragma mark - Paths
 

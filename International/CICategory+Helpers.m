@@ -65,4 +65,31 @@
     return [artworks sortedArrayUsingDescriptors:@[sort]];
 }
 
+- (NSArray*)artworksAtLocation:(CILocation*)location {
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (categoryUuid == %@) AND (locationUuid == %@)", self.uuid, location.uuid];
+    NSArray *artworks = [CIArtwork MR_findAllWithPredicate:predicate];
+    
+    // Return results sorted
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"code" ascending:YES];
+    return [artworks sortedArrayUsingDescriptors:@[sort]];
+}
+
+- (NSArray*)liveArtworksAtLocation:(CILocation*)location {
+    NSMutableArray *liveArtworks = [[NSMutableArray alloc] init];
+    NSMutableArray *liveExhibitionsUUIDs = [[NSMutableArray alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(deletedAt = nil) AND (isLive = YES)"];
+    
+    for (CIExhibition *exhibition in [CIExhibition MR_findAllWithPredicate:predicate]) {
+        [liveExhibitionsUUIDs addObject:exhibition.uuid];
+    }
+    
+    for (CIArtwork *artwork in [self artworksAtLocation:location]) {
+        if ([liveExhibitionsUUIDs containsObject:artwork.exhibitionUuid]) {
+            [liveArtworks addObject:artwork];
+        }
+    }
+    
+    return liveArtworks;
+}
+
 @end

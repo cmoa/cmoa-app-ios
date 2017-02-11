@@ -34,6 +34,22 @@
     return self;
 }
 
+- (BOOL)isAccessibilityElement {
+    return YES;
+}
+
+- (NSString *)accessibilityLabel {
+    if (_medium.alt) {
+        return _medium.alt;
+    } else {
+        return _medium.artwork.title;
+    }
+}
+
+- (UIAccessibilityTraits)accessibilityTraits {
+    return UIAccessibilityTraitImage;
+}
+
 - (void)prepareForReuse {
     // Refresh image view
     photoImageView.image = nil;

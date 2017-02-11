@@ -48,10 +48,14 @@
     totalTime = 0.0f;
 
     // Play button
-    btnPlay = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnPlay = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
+    btnPlay.borderColor= [UIColor colorFromHex:kCIAccentColor];
+    btnPlay.borderHighligthedColor= [UIColor colorFromHex:kCIBarUnactiveColor];
     [btnPlay setImage:[UIImage imageNamed:@"button_play_normal"] forState:UIControlStateNormal];
+    [btnPlay setImage:[UIImage imageNamed:@"button_play_normal_on"] forState:UIControlStateHighlighted];
     btnPlay.translatesAutoresizingMaskIntoConstraints = NO;
     [btnPlay addTarget:self action:@selector(btnPlayDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    [btnPlay setAccessibilityLabel:@"Play Audio Content"];
     [self addSubview:btnPlay];
     
     // Progress bar
@@ -67,18 +71,23 @@
     // Info button
     btnInfo = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnInfo setImage:[UIImage imageNamed:@"button_info_normal"] forState:UIControlStateNormal];
+    [btnInfo setImage:[UIImage imageNamed:@"button_info_normal_on"] forState:UIControlStateHighlighted];
     btnInfo.translatesAutoresizingMaskIntoConstraints = NO;
     [btnInfo addTarget:self action:@selector(btnInfoDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    [btnInfo setAccessibilityLabel:@"Audio Content Info"];
     [self addSubview:btnInfo];
     
     // More button
-    btnMore = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnMore = [CIBorderedButton buttonWithType:UIButtonTypeCustom];
+    btnMore.borderColor= [UIColor colorFromHex:kCIAccentColor];
+    btnMore.borderHighligthedColor= [UIColor colorFromHex:kCIBarUnactiveColor];
     [btnMore setTitle:@"More" forState:UIControlStateNormal];
+    [btnMore setTitleColor:[UIColor colorFromHex:kCIAccentColor] forState:UIControlStateNormal];
+    [btnMore setTitleColor:[UIColor colorFromHex:kCIBarUnactiveColor] forState:UIControlStateHighlighted];
     btnMore.translatesAutoresizingMaskIntoConstraints = NO;
     [btnMore addTarget:self action:@selector(btnMoreDidPress:) forControlEvents:UIControlEventTouchUpInside];
-    [btnMore setTitleColor:[UIColor colorFromHex:@"#24aadc"] forState:UIControlStateNormal];
-    [btnMore setTitleColor:[UIColor colorFromHex:@"#24aadc" alpha:0.7f] forState:UIControlStateHighlighted];
     btnMore.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
+    [btnInfo setAccessibilityLabel:@"More Audio Content"];
     [self addSubview:btnMore];
     
     // Sep line
@@ -145,19 +154,19 @@
     NSArray *constraints;
     
     if (showMoreButton) {
-        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[btnPlay][progressEmptyView][btnInfo][btnMore]-15-|"
+        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[btnPlay(34)]-[progressEmptyView][btnInfo][btnMore(44)]-|"
                                                                        options:0
                                                                        metrics:nil
                                                                          views:viewsDictionary];
     } else {
-        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|[btnPlay][progressEmptyView][btnInfo]|"
+        constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"|-[btnPlay(34)]-[progressEmptyView][btnInfo]|"
                                                               options:0
                                                               metrics:nil
                                                                 views:viewsDictionary];
     }
     [self addConstraints:constraints];
     
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[btnPlay][sepView(1)]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[btnPlay(34)]-|"
                                                           options:0
                                                           metrics:nil
                                                             views:viewsDictionary];
@@ -169,13 +178,13 @@
                                                             views:viewsDictionary];
     [self addConstraints:constraints];
     
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[btnInfo]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[btnInfo][sepView(1)]|"
                                                           options:0
                                                           metrics:nil
                                                             views:viewsDictionary];
     [self addConstraints:constraints];
     
-    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[btnMore]|"
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[btnMore]-|"
                                                           options:0
                                                           metrics:nil
                                                             views:viewsDictionary];
@@ -207,24 +216,23 @@
     [self togglePlayButtonSetPlay];
 }
 
-- (void)dealloc {
-    // Clean up observers & audio
+- (void)cleanUpPlayer {
     [audioPlayer removeTimeObserver:timeObserver];
     
-    @try {
-        [playerItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
-        [playerItem removeObserver:self forKeyPath:@"status" context:nil];
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-        
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        
-        [audioPlayer removeObserver:self forKeyPath:@"status" context:nil];
-    } @catch(id anException) {
-        // Do nothing. Just making sure observers were removed.
-    }
+    [playerItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
+    [playerItem removeObserver:self forKeyPath:@"status" context:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [audioPlayer removeObserver:self forKeyPath:@"status" context:nil];
     
     audioPlayer = nil;
+}
+
+- (void)dealloc {
+    [self cleanUpPlayer];
 }
 
 #pragma mark - Button handling
@@ -249,6 +257,10 @@
         if (audioPlayer.rate == 0.0f) {
             // Notify other players
             [[NSNotificationCenter defaultCenter] postNotificationName:@"AudioViewWillStartPlay" object:self];
+            
+            [CIAnalyticsHelper sendEventWithCategory:@"Object"
+                                           andAction:@"Object Audio Played"
+                                            andLabel:self.medium.artwork.title];
 
             [audioPlayer play];
             [self togglePlayButtonSetPause];
@@ -274,12 +286,16 @@
 
 - (void)togglePlayButtonSetPause {
     btnPlay.enabled = YES;
+    [btnPlay setAccessibilityLabel:@"Pause Audio Content"];
     [btnPlay setImage:[UIImage imageNamed:@"button_pause_normal"] forState:UIControlStateNormal];
+    [btnPlay setImage:[UIImage imageNamed:@"button_pause_normal_on"] forState:UIControlStateHighlighted];
 }
 
 - (void)togglePlayButtonSetPlay {
     btnPlay.enabled = YES;
+    [btnPlay setAccessibilityLabel:@"Play Audio Content"];
     [btnPlay setImage:[UIImage imageNamed:@"button_play_normal"] forState:UIControlStateNormal];
+    [btnPlay setImage:[UIImage imageNamed:@"button_play_normal_on"] forState:UIControlStateHighlighted];
 }
 
 #pragma mark - File loading & playing
@@ -343,6 +359,10 @@
     progressEmptyView.backgroundColor = [UIColor colorFromHex:@"#cccccc"];
     self.progress = 0.0f;
     progressFullView.backgroundColor = [UIColor colorFromHex:@"#a0cc8c"];
+    
+    if (playerItem != nil) {
+        [self cleanUpPlayer];
+    }
     
     // Find the file and play
     NSString *fileUrl = self.medium.urlSmall;

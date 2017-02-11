@@ -21,7 +21,7 @@
 
 + (NSData *)sha256:(NSData *)data {
     unsigned char hash[CC_SHA256_DIGEST_LENGTH];
-    if (CC_SHA256([data bytes], [data length], hash)) {
+    if (CC_SHA256([data bytes], (int)[data length], hash)) {
         NSData *sha256 = [NSData dataWithBytes:hash length:CC_SHA256_DIGEST_LENGTH];
         return sha256;
     }
@@ -31,7 +31,7 @@
 + (NSString *)encodeStringUsingSHA256:(NSString *)data {
     NSData *dataData = [data dataUsingEncoding:NSUTF8StringEncoding];
     unsigned char hash[CC_SHA256_DIGEST_LENGTH];
-    if (CC_SHA256([dataData bytes], [dataData length], hash)) {
+    if (CC_SHA256([dataData bytes], (int)[dataData length], hash)) {
         NSData *sha256 = [NSData dataWithBytes:hash length:CC_SHA256_DIGEST_LENGTH];
         return [sha256 base64EncodedString];
     }
@@ -286,6 +286,11 @@
     
     // Sync all of the data?
     if (syncAll) {
+        // Remove all exhibitions
+        for (CIExhibition *exhibition in [CIExhibition MR_findAll]) {
+            [exhibition MR_deleteEntity];
+        }
+        
         updatedAt = nil;
     }
     
@@ -294,6 +299,11 @@
 //    NSLog(@"Sync: %@ : (POST: %@)", url, postData);
     [self apiPerformPostRequestWithURL:url postData:postData signRequest:NO success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
 //        NSLog(@"Sync response: %@", JSON);
+        
+        // Beacons
+        for (NSDictionary *beaconData in [JSON objectForKey:@"beacons"]) {
+            [CIBeacon findFirstOrCreateByAttribute:@"uuid" withValue:[beaconData objectForKey:@"uuid"] usingData:beaconData];
+        }
         
         // Artists
         for (NSDictionary *artistData in [JSON objectForKey:@"artists"]) {
@@ -345,18 +355,6 @@
             [CITourArtwork findFirstOrCreateByAttribute:@"uuid" withValue:[tourArtworkData objectForKey:@"uuid"] usingData:tourArtworkData];
         }
         
-        // Likes
-        NSDictionary *likesData = [JSON objectForKey:@"likes"];
-        [likesData enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            NSString *artworkUuid = (NSString *)key;
-            NSNumber *totalLikes = (NSNumber *)obj;
-            // Find artwork
-            CIArtwork *artwork = [CIArtwork MR_findFirstByAttribute:@"uuid" withValue:artworkUuid];
-            if (artwork != nil) {
-                artwork.likes = totalLikes;
-            }
-        }];
-        
         // Save the context
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success1, NSError *error) {
             if (error && failure) {
@@ -377,20 +375,53 @@
     [self syncAll:YES success:nil failure:nil];
 }
 
-- (void)likeArtwork:(CIArtwork*)artwork
-            success:(CIAPIRequestSuccessBlock)success
-            failure:(CIAPIRequestFailureBlock)failure {
+- (void)getWeeksHours:(CIAPIHoursRequestSuccessBlock)success
+              failure:(CIAPIRequestFailureBlock)failure {
+    NSString *url = @"/api/hours";
     
-    // Find local device id
-    NSString *device = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
-    
-    // API call
-    NSString *url = [NSString stringWithFormat:@"/api/v2/like?artwork=%@&device=%@", [artwork.uuid urlEncodedString], [device urlEncodedString]];
-    [self apiPerformPostRequestWithURL:url
-                              postData:nil
-                           signRequest:YES
-                               success:success
-                               failure:failure];
+    [self apiPerformPostRequestWithURL:url postData:nil signRequest:NO success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+
+        NSArray *daysOfTheWeek = @[@"Sunday",
+                                   @"Monday",
+                                   @"Tuesday",
+                                   @"Wednesday",
+                                   @"Thursday",
+                                   @"Friday",
+                                   @"Saturday"];
+        
+        NSMutableArray *hoursForWeek = [[NSMutableArray alloc] init];
+        
+        for (NSString *day in daysOfTheWeek) {
+            NSDictionary *dayJSON = [[JSON objectForKey:@"hours"] objectForKey:day];
+            NSMutableDictionary *dayDictionary = [[NSMutableDictionary alloc] init];
+            
+            [dayDictionary setObject:[self closedOrHourFromDateJSON:dayJSON forKey:@"open"]
+                              forKey:@"open"];
+            [dayDictionary setObject:[self closedOrHourFromDateJSON:dayJSON forKey:@"close"]
+                              forKey:@"close"];
+            [dayDictionary setObject:day
+                              forKey:@"day"];
+            
+            [hoursForWeek addObject:dayDictionary];
+        }
+        
+        success(hoursForWeek);
+    } failure:failure];
+}
+
+- (NSString *) closedOrHourFromDateJSON:(id)json forKey:(NSString *)key {
+    if ([json objectForKey:key] == [NSNull null]) {
+        return @"closed";
+    } else {
+        return [json objectForKey:key] ;
+    }
+}
+
+
+- (NSDictionary *)dictionaryFromHoursJSON:(id)hoursJSON {
+    return @{@"open" : [CIData objValueOrNilForKey:@"open" data:hoursJSON],
+             @"close" : [CIData objValueOrNilForKey:@"close" data:hoursJSON],
+             };
 }
 
 - (void)subscribeEmail:(NSString*)email
